@@ -1,16 +1,23 @@
 from pathlib import Path
 
+from decouple import config, strtobool
+from django.conf import settings
+from django.utils.translation import gettext_lazy as _
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-SECRET_KEY = (
-    "django-insecure-!#2!zimb%uft7b3=23(@133zm(exrrw^yp0#5w74gz3=rrh2dk"
+SECRET_KEY = config(
+    "DJANGO_SECRET_KEY",
+    default="[%!Jc<.OlGqp'cfDc{v1u4B(p|_B'R]wgk/-X+:QxUo,hMJw*&iZ^.-A%2[Y11y",
+    cast=str,
 )
+DEBUG = bool(strtobool(config("DJANGO_DEBUG", "False")))
 
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = config(
+    "DJANGO_ALLOWED_HOSTS",
+    default="*",
+    cast=lambda line: line.split(","),
+)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -31,12 +38,22 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+if settings.DEBUG:
+    INSTALLED_APPS.append("debug_toolbar")
+    MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
+    INTERNAL_IPS = ["127.0.0.1"]
+
+
 ROOT_URLCONF = "datanar.urls"
+
+TEMPLATES_DIR = BASE_DIR / "templates"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            TEMPLATES_DIR,
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -85,7 +102,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ru-ru"
+
+LANGUAGES = [
+    ("en", _("English")),
+    ("ru", _("Russian")),
+]
+
+LOCALE_PATHS = (BASE_DIR / "locale/",)
 
 TIME_ZONE = "UTC"
 
@@ -93,8 +117,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = "static/"
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static_dev/",
+]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
