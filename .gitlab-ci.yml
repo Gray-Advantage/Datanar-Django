@@ -1,0 +1,25 @@
+stages:
+  - flake8_linting
+  - black_linting
+  - django_testing
+
+flake8:
+  stage: flake8_linting
+  image: registry.gitlab.com/pipeline-components/flake8:latest
+  script:
+    - pip install -r requirements/test.txt
+    - flake8 ./datanar/ --config=.flake8
+
+black:
+  stage: black_linting
+  image: registry.gitlab.com/pipeline-components/black:latest
+  script:
+    - black ./datanar/ --check --verbose --diff --line-length 79
+
+django:
+  stage: django_testing
+  image: python:latest
+  script:
+    - pip install -r requirements/dev.txt
+    - cd ./datanar
+    - python manage.py test
