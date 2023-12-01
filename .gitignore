@@ -5,7 +5,6 @@ __pycache__/
 
 *.so
 db.sqlite3
-.env.example
 .Python
 build/
 develop-eggs/
