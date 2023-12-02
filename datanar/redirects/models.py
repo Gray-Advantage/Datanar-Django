@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 
 class RedirectManager(models.Manager):
@@ -18,9 +18,9 @@ class RedirectManager(models.Manager):
 
         if all_good:
             return redirect
-        else:
-            redirect.delete()
-            redirect.save()
+
+        redirect.delete()
+        redirect.save()
 
         return None
 
