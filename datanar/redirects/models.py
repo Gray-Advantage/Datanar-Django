@@ -1,9 +1,33 @@
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
+
+
+class RedirectManager(models.Manager):
+    def get_by_short_link(self, short_url):
+        redirect = self.get_queryset.filter(short_url=short_url).first()
+        all_good = True
+
+        if redirect is None:
+            return None
+        if redirect.created_at + redirect.validity_days < timezone.now():
+            all_good = False
+        if redirect.validity_clicks == 0:
+            all_good = False
+
+        if all_good:
+            return redirect
+        else:
+            redirect.delete()
+            redirect.save()
+
+        return None
 
 
 class Redirect(models.Model):
+    objects = RedirectManager()
+
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -44,6 +68,13 @@ class Redirect(models.Model):
         default=None,
         null=True,
     )
+
+    class Meta:
+        verbose_name = _("redirect")
+        verbose_name_plural = _("redirects")
+
+    def __str__(self):
+        return str(_("redirect")).capitalize()
 
 
 __all__ = [Redirect]

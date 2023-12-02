@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 00:47+0300\n"
+"POT-Creation-Date: 2023-12-03 01:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,61 +26,69 @@ msgstr "English"
 msgid "Russian"
 msgstr "Russian"
 
-#: .\redirects\models.py:10
+#: .\redirects\models.py:34
 msgid "user"
 msgstr "user"
 
-#: .\redirects\models.py:11
+#: .\redirects\models.py:35
 msgid "user_who_create_bond"
 msgstr "The user who created the bond between the short and long link."
 
-#: .\redirects\models.py:15
+#: .\redirects\models.py:39
 msgid "short_link"
 msgstr "short link"
 
-#: .\redirects\models.py:16
+#: .\redirects\models.py:40
 msgid "shorten_link_to_redirect_to_resource"
 msgstr "A shortened link that will be used to redirect to the final resource."
 
-#: .\redirects\models.py:21
+#: .\redirects\models.py:45
 msgid "long_link"
 msgstr "long link"
 
-#: .\redirects\models.py:22
+#: .\redirects\models.py:46
 msgid "resource_to_which_short_link_lead"
 msgstr "The final resource to which the short link leads."
 
-#: .\redirects\models.py:26
+#: .\redirects\models.py:50
 msgid "creation_time"
 msgstr "creation time"
 
-#: .\redirects\models.py:27
+#: .\redirects\models.py:51
 msgid "when_bond_was_create"
 msgstr "When a bond was created between a short and a long link."
 
-#: .\redirects\models.py:31
+#: .\redirects\models.py:55
 msgid "password"
 msgstr "password"
 
-#: .\redirects\models.py:32
+#: .\redirects\models.py:56
 msgid "password_that_will_requested_to_redirect"
 msgstr "The password that will be requested before redirection."
 
-#: .\redirects\models.py:36
+#: .\redirects\models.py:60
 msgid "valid_day_number"
 msgstr "valid number of days"
 
-#: .\redirects\models.py:37
+#: .\redirects\models.py:61
 msgid "how_many_day_link_will_be_valid"
 msgstr "How many days will the link be valid before deleting it."
 
-#: .\redirects\models.py:42
+#: .\redirects\models.py:66
 msgid "valid_click_number"
 msgstr "valid number of clicks"
 
-#: .\redirects\models.py:43
+#: .\redirects\models.py:67
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "How many clicks can make on a link before deleting it."
+
+#: .\redirects\models.py:73 .\redirects\models.py:77
+msgid "redirect"
+msgstr "redirect"
+
+#: .\redirects\models.py:74
+msgid "redirects"
+msgstr "redirects"
 
 #: .\templates\homepage\main.html:4
 msgid "title__homepage"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 00:47+0300\n"
+"POT-Creation-Date: 2023-12-03 01:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,61 +28,71 @@ msgstr "Английский"
 msgid "Russian"
 msgstr "Русский"
 
-#: .\redirects\models.py:10
+#: .\redirects\models.py:34
 msgid "user"
 msgstr "пользователь"
 
-#: .\redirects\models.py:11
+#: .\redirects\models.py:35
 msgid "user_who_create_bond"
 msgstr "Пользователь, который создал связь меж короткой и длинной ссылкой."
 
-#: .\redirects\models.py:15
+#: .\redirects\models.py:39
 msgid "short_link"
 msgstr "короткая ссылка"
 
-#: .\redirects\models.py:16
+#: .\redirects\models.py:40
 msgid "shorten_link_to_redirect_to_resource"
-msgstr "Сокращённая ссылка, по которой будет совершенно перенаправление на конечный ресурс."
+msgstr ""
+"Сокращённая ссылка, по которой будет совершенно перенаправление на конечный "
+"ресурс."
 
-#: .\redirects\models.py:21
+#: .\redirects\models.py:45
 msgid "long_link"
 msgstr "длинная ссылка"
 
-#: .\redirects\models.py:22
+#: .\redirects\models.py:46
 msgid "resource_to_which_short_link_lead"
 msgstr "Конечный ресурс, до которого ведёт короткая ссылка."
 
-#: .\redirects\models.py:26
+#: .\redirects\models.py:50
 msgid "creation_time"
 msgstr "время создания"
 
-#: .\redirects\models.py:27
+#: .\redirects\models.py:51
 msgid "when_bond_was_create"
 msgstr "Когда было создана связь меж короткой и длинной ссылкой."
 
-#: .\redirects\models.py:31
+#: .\redirects\models.py:55
 msgid "password"
 msgstr "пароль"
 
-#: .\redirects\models.py:32
+#: .\redirects\models.py:56
 msgid "password_that_will_requested_to_redirect"
 msgstr "Пароль, который будет запрашиваться перед перенаправлением."
 
-#: .\redirects\models.py:36
+#: .\redirects\models.py:60
 msgid "valid_day_number"
 msgstr "валидное количество дней"
 
-#: .\redirects\models.py:37
+#: .\redirects\models.py:61
 msgid "how_many_day_link_will_be_valid"
 msgstr "Сколько дней будет валидна ссылка перед её удалением"
 
-#: .\redirects\models.py:42
+#: .\redirects\models.py:66
 msgid "valid_click_number"
 msgstr "валидное количество переходов"
 
-#: .\redirects\models.py:43
+#: .\redirects\models.py:67
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "Сколько переходов можно совершить по ссылке перед её удалением."
+
+#: .\redirects\models.py:73 .\redirects\models.py:77
+msgid "redirect"
+msgstr "перенаправление"
+
+#: .\redirects\models.py:74
+msgid "redirects"
+msgstr "перенаправления"
 
 #: .\templates\homepage\main.html:4
 msgid "title__homepage"
