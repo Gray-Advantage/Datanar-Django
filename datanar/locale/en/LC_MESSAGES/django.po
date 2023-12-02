@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 22:02+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\datanar\settings.py:110
+msgid "English"
+msgstr "English"
+
+#: .\datanar\settings.py:111
+msgid "Russian"
+msgstr "Russian"
+
+#: .\templates\homepage\main.html:4
+msgid "title__homepage"
+msgstr "Datanar - Links Shortening"
+
+#: .\templates\includes\footer.html:5
+msgid "service_rules"
+msgstr "Service rules"
+
+#: .\templates\includes\footer.html:6
+msgid "about"
+msgstr "About"
+
+#: .\templates\includes\footer.html:7
+msgid "API"
+msgstr "API"
