@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-02 22:02+0300\n"
+"POT-Creation-Date: 2023-12-03 00:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,70 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\datanar\settings.py:110
+
+#: .\datanar\settings.py:112
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:111
+#: .\datanar\settings.py:113
 msgid "Russian"
 msgstr "Russian"
+
+#: .\redirects\models.py:10
+msgid "user"
+msgstr "user"
+
+#: .\redirects\models.py:11
+msgid "user_who_create_bond"
+msgstr "The user who created the bond between the short and long link."
+
+#: .\redirects\models.py:15
+msgid "short_link"
+msgstr "short link"
+
+#: .\redirects\models.py:16
+msgid "shorten_link_to_redirect_to_resource"
+msgstr "A shortened link that will be used to redirect to the final resource."
+
+#: .\redirects\models.py:21
+msgid "long_link"
+msgstr "long link"
+
+#: .\redirects\models.py:22
+msgid "resource_to_which_short_link_lead"
+msgstr "The final resource to which the short link leads."
+
+#: .\redirects\models.py:26
+msgid "creation_time"
+msgstr "creation time"
+
+#: .\redirects\models.py:27
+msgid "when_bond_was_create"
+msgstr "When a bond was created between a short and a long link."
+
+#: .\redirects\models.py:31
+msgid "password"
+msgstr "password"
+
+#: .\redirects\models.py:32
+msgid "password_that_will_requested_to_redirect"
+msgstr "The password that will be requested before redirection."
+
+#: .\redirects\models.py:36
+msgid "valid_day_number"
+msgstr "valid number of days"
+
+#: .\redirects\models.py:37
+msgid "how_many_day_link_will_be_valid"
+msgstr "How many days will the link be valid before deleting it."
+
+#: .\redirects\models.py:42
+msgid "valid_click_number"
+msgstr "valid number of clicks"
+
+#: .\redirects\models.py:43
+msgid "how_many_click_on_link_will_be_valid"
+msgstr "How many clicks can make on a link before deleting it."
 
 #: .\templates\homepage\main.html:4
 msgid "title__homepage"

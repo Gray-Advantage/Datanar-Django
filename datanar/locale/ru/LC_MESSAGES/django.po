@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-02 22:02+0300\n"
+"POT-Creation-Date: 2023-12-03 00:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,16 +16,73 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: .\datanar\settings.py:110
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\datanar\settings.py:112
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:111
+#: .\datanar\settings.py:113
 msgid "Russian"
 msgstr "Русский"
+
+#: .\redirects\models.py:10
+msgid "user"
+msgstr "пользователь"
+
+#: .\redirects\models.py:11
+msgid "user_who_create_bond"
+msgstr "Пользователь, который создал связь меж короткой и длинной ссылкой."
+
+#: .\redirects\models.py:15
+msgid "short_link"
+msgstr "короткая ссылка"
+
+#: .\redirects\models.py:16
+msgid "shorten_link_to_redirect_to_resource"
+msgstr "Сокращённая ссылка, по которой будет совершенно перенаправление на конечный ресурс."
+
+#: .\redirects\models.py:21
+msgid "long_link"
+msgstr "длинная ссылка"
+
+#: .\redirects\models.py:22
+msgid "resource_to_which_short_link_lead"
+msgstr "Конечный ресурс, до которого ведёт короткая ссылка."
+
+#: .\redirects\models.py:26
+msgid "creation_time"
+msgstr "время создания"
+
+#: .\redirects\models.py:27
+msgid "when_bond_was_create"
+msgstr "Когда было создана связь меж короткой и длинной ссылкой."
+
+#: .\redirects\models.py:31
+msgid "password"
+msgstr "пароль"
+
+#: .\redirects\models.py:32
+msgid "password_that_will_requested_to_redirect"
+msgstr "Пароль, который будет запрашиваться перед перенаправлением."
+
+#: .\redirects\models.py:36
+msgid "valid_day_number"
+msgstr "валидное количество дней"
+
+#: .\redirects\models.py:37
+msgid "how_many_day_link_will_be_valid"
+msgstr "Сколько дней будет валидна ссылка перед её удалением"
+
+#: .\redirects\models.py:42
+msgid "valid_click_number"
+msgstr "валидное количество переходов"
+
+#: .\redirects\models.py:43
+msgid "how_many_click_on_link_will_be_valid"
+msgstr "Сколько переходов можно совершить по ссылке перед её удалением."
 
 #: .\templates\homepage\main.html:4
 msgid "title__homepage"
