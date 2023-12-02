@@ -1,0 +1,15 @@
+{% extends "base_empty.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block body %}
+  {% include "includes/header.html" %}
+
+  <main class="flex-grow-1">
+    {% block content %}
+
+    {% endblock %}
+  </main>
+
+  {% include "includes/footer.html" %}
+{% endblock %}
