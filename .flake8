@@ -1,4 +1,5 @@
 [flake8]
 inline-quotes=double
 import-order-style=google
-application-import-names=datanar
+per-file-ignores = */migrations/*:E501,LN001,C812,DALL000
+application-import-names=datanar,users
