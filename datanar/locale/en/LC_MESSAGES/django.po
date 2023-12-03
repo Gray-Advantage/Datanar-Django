@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 01:16+0300\n"
+"POT-Creation-Date: 2023-12-03 14:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,18 @@ msgstr "English"
 #: .\datanar\settings.py:113
 msgid "Russian"
 msgstr "Russian"
+
+#: .\redirects\forms.py:9
+msgid "custom_url"
+msgstr "custom url"
+
+#: .\redirects\forms.py:10
+msgid "custom_url_that_would_like_have_instead_generated_one"
+msgstr "A custom url that you would like to have instead of the generated one."
+
+#: .\redirects\forms.py:34
+msgid "custom_url_already_use"
+msgstr "This custom url is already in use. Please choose another one."
 
 #: .\redirects\models.py:34
 msgid "user"

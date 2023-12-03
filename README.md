@@ -49,6 +49,7 @@
 
 ### Используемые фреймворки / библиотеки
 - [Django](https://www.djangoproject.com/)
+- [Sqids](https://sqids.org/)
 - [Bootstrap](https://getbootstrap.com/)
 
 ## Структура проекта

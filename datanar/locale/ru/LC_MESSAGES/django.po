@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 01:16+0300\n"
+"POT-Creation-Date: 2023-12-03 14:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,20 @@ msgstr "Английский"
 #: .\datanar\settings.py:113
 msgid "Russian"
 msgstr "Русский"
+
+#: .\redirects\forms.py:9
+msgid "custom_url"
+msgstr "кастомный url-адрес"
+
+#: .\redirects\forms.py:10
+msgid "custom_url_that_would_like_have_instead_generated_one"
+msgstr ""
+"Пользовательский URL-адрес, который вы хотели бы иметь вместо "
+"сгенерированного."
+
+#: .\redirects\forms.py:34
+msgid "custom_url_already_use"
+msgstr "Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
 
 #: .\redirects\models.py:34
 msgid "user"
