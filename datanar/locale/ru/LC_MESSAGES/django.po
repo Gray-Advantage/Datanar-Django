@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 14:58+0300\n"
+"POT-Creation-Date: 2023-12-04 00:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,97 +20,102 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\datanar\settings.py:112
+#: .\datanar\settings.py:114
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:113
+#: .\datanar\settings.py:115
 msgid "Russian"
 msgstr "Русский"
 
-#: .\redirects\forms.py:9
+#: .\redirects\forms.py:17
 msgid "custom_url"
-msgstr "кастомный url-адрес"
+msgstr "Кастомный url-адрес"
 
-#: .\redirects\forms.py:10
+#: .\redirects\forms.py:18
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr ""
 "Пользовательский URL-адрес, который вы хотели бы иметь вместо "
 "сгенерированного."
 
-#: .\redirects\forms.py:34
+#: .\redirects\forms.py:46
 msgid "custom_url_already_use"
-msgstr "Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
+msgstr ""
+"Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
 
-#: .\redirects\models.py:34
+#: .\redirects\models.py:38
 msgid "user"
 msgstr "пользователь"
 
-#: .\redirects\models.py:35
+#: .\redirects\models.py:39
 msgid "user_who_create_bond"
 msgstr "Пользователь, который создал связь меж короткой и длинной ссылкой."
 
-#: .\redirects\models.py:39
+#: .\redirects\models.py:43
 msgid "short_link"
 msgstr "короткая ссылка"
 
-#: .\redirects\models.py:40
+#: .\redirects\models.py:44
 msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
 "Сокращённая ссылка, по которой будет совершенно перенаправление на конечный "
 "ресурс."
 
-#: .\redirects\models.py:45
+#: .\redirects\models.py:49
 msgid "long_link"
 msgstr "длинная ссылка"
 
-#: .\redirects\models.py:46
-msgid "resource_to_which_short_link_lead"
-msgstr "Конечный ресурс, до которого ведёт короткая ссылка."
-
 #: .\redirects\models.py:50
+msgid "resource_to_which_short_link_lead"
+msgstr "Конечный ресурс, до которого будет вести короткая ссылка."
+
+#: .\redirects\models.py:54
 msgid "creation_time"
 msgstr "время создания"
 
-#: .\redirects\models.py:51
+#: .\redirects\models.py:55
 msgid "when_bond_was_create"
 msgstr "Когда было создана связь меж короткой и длинной ссылкой."
 
-#: .\redirects\models.py:55
+#: .\redirects\models.py:59
 msgid "password"
 msgstr "пароль"
 
-#: .\redirects\models.py:56
+#: .\redirects\models.py:60
 msgid "password_that_will_requested_to_redirect"
 msgstr "Пароль, который будет запрашиваться перед перенаправлением."
 
-#: .\redirects\models.py:60
+#: .\redirects\models.py:64
 msgid "valid_day_number"
 msgstr "валидное количество дней"
 
-#: .\redirects\models.py:61
+#: .\redirects\models.py:65
 msgid "how_many_day_link_will_be_valid"
 msgstr "Сколько дней будет валидна ссылка перед её удалением"
 
-#: .\redirects\models.py:66
+#: .\redirects\models.py:70
 msgid "valid_click_number"
 msgstr "валидное количество переходов"
 
-#: .\redirects\models.py:67
+#: .\redirects\models.py:71
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "Сколько переходов можно совершить по ссылке перед её удалением."
 
-#: .\redirects\models.py:73 .\redirects\models.py:77
+#: .\redirects\models.py:77 .\redirects\models.py:81
 msgid "redirect"
 msgstr "перенаправление"
 
-#: .\redirects\models.py:74
+#: .\redirects\models.py:78
 msgid "redirects"
 msgstr "перенаправления"
 
 #: .\templates\homepage\main.html:4
 msgid "title__homepage"
 msgstr "Datanar - Сокращение ссылок"
+
+#: .\templates\homepage\main.html:26
+msgid "shorten"
+msgstr "Сократить"
 
 #: .\templates\includes\footer.html:5
 msgid "service_rules"
