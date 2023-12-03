@@ -28,7 +28,7 @@
 | [bitly.com](https://bitly.com/)             | Да (-)      | Да (+)              | Да (+)  | Да ($)     | Нет (-)      | Нет (-) | Да ($)  |
 | [Innkin.com](https://www.lnnkin.com)        | Да (-)      | Да ($)              | Нет (-) | Да ($)     | Нет (-)      | Да ($)  | Да ($)  |
 | [rebrandly.com](https://www.rebrandly.com/) | Нет  (+)    | Да (+)              | Да (+)  | Да (+)     | Нет (-)      | Нет (-) | Да (+)  |
-| [tinyurl.com](tinyurl.com)                  | Нет (+)     | Да (+)              | Да (+)  | Да ($)     | Нет (-)      | Нет (-) | Да ($)  |
+| [tinyurl.com](https://tinyurl.com)          | Нет (+)     | Да (+)              | Да (+)  | Да ($)     | Нет (-)      | Нет (-) | Да ($)  |
 | [urlog.ru](https://urlog.ru/)               | Нет (+)     | Нет (-)             | Нет (-) | Да (+)     | Да (+)       | Да (+)  | Нет (-) |
 
 (+) - функция есть; (-) - функции нет; ($) - функция платна
@@ -49,6 +49,7 @@
 
 ### Используемые фреймворки / библиотеки
 - [Django](https://www.djangoproject.com/)
+- [Sqids](https://sqids.org/)
 - [Bootstrap](https://getbootstrap.com/)
 
 ## Структура проекта
