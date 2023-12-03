@@ -51,7 +51,7 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
                     "custom_url",
                     ValidationError(_("custom_url_already_use")),
                 )
-                return
+                return None
             self.cleaned_data["short_link"] = custom_url
             del self.cleaned_data["custom_url"]
             return self.cleaned_data

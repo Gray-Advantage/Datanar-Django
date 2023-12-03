@@ -1,7 +1,6 @@
 from django.contrib import messages
-from django.shortcuts import render
-from django.views.generic import FormView
 from django.urls import reverse_lazy
+from django.views.generic import FormView
 
 from redirects.forms import RedirectForm
 from redirects.models import Redirect
