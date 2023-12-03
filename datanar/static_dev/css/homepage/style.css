@@ -1,0 +1,9 @@
+.list-group {
+  width: 100%;
+  max-width: 460px;
+  margin-inline: 1.5rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

@@ -1,4 +1,52 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block title %}{% trans "title__homepage" %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link href="{% static 'css/homepage/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+  {{ block.super }}
+  <script src="{% static 'js/copyText.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+  <form class="mt-5" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group col-6 ms-auto me-auto">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+        {% if forloop.first %}
+          <div class="input-group mb-3">
+            {{ field }}
+            <input type="submit" class="btn btn-outline-secondary" value="{% trans 'shorten' %}">
+          </div>
+        {% else %}
+          {{ field }}
+        {% endif %}
+
+        {% if field.errors %}
+          <div class="invalid-feedback">
+            {{ field.errors|first }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </form>
+
+  {% if messages %}
+    <div class="list-group gap-2 ms-auto me-auto">
+      {% for message in messages %}
+        <div class="copy-text-field cursor-pointer border rounded-3 p-3 mt-5" data-link="{{ request.build_absolute_uri }}/{{ message }}">
+         {{ request.get_host }}/{{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}

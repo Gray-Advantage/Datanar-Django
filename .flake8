@@ -2,4 +2,4 @@
 inline-quotes=double
 import-order-style=google
 per-file-ignores = */migrations/*:E501,LN001,C812,DALL000
-application-import-names=datanar,users,homepage,redirects
+application-import-names=core,datanar,users,homepage,redirects

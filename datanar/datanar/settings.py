@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "core.apps.CoreConfig",
+    "homepage.apps.HomepageConfig",
     "users.apps.UsersConfig",
     "redirects.apps.RedirectsConfig",
 ]

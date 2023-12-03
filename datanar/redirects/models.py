@@ -5,13 +5,17 @@ from django.utils.translation import gettext_lazy as _
 
 
 class RedirectManager(models.Manager):
-    def get_by_short_link(self, short_url):
-        redirect = self.get_queryset.filter(short_url=short_url).first()
+    def get_by_short_link(self, short_link):
+        redirect = self.get_queryset().filter(short_link=short_link).first()
         all_good = True
 
         if redirect is None:
             return None
-        if redirect.created_at + redirect.validity_days < timezone.now():
+        if (
+            redirect.created_at
+            + timezone.timedelta(days=redirect.validity_days)
+            < timezone.now()
+        ):
             all_good = False
         if redirect.validity_clicks == 0:
             all_good = False
@@ -74,7 +78,7 @@ class Redirect(models.Model):
         verbose_name_plural = _("redirects")
 
     def __str__(self):
-        return str(_("redirect")).capitalize()
+        return _("redirect").capitalize()
 
 
 __all__ = [Redirect]

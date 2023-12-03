@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 14:58+0300\n"
+"POT-Creation-Date: 2023-12-04 00:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,93 +18,97 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\datanar\settings.py:112
+#: .\datanar\settings.py:114
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:113
+#: .\datanar\settings.py:115
 msgid "Russian"
 msgstr "Russian"
 
-#: .\redirects\forms.py:9
+#: .\redirects\forms.py:17
 msgid "custom_url"
-msgstr "custom url"
+msgstr "Custom url"
 
-#: .\redirects\forms.py:10
+#: .\redirects\forms.py:18
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "A custom url that you would like to have instead of the generated one."
 
-#: .\redirects\forms.py:34
+#: .\redirects\forms.py:46
 msgid "custom_url_already_use"
 msgstr "This custom url is already in use. Please choose another one."
 
-#: .\redirects\models.py:34
+#: .\redirects\models.py:38
 msgid "user"
 msgstr "user"
 
-#: .\redirects\models.py:35
+#: .\redirects\models.py:39
 msgid "user_who_create_bond"
 msgstr "The user who created the bond between the short and long link."
 
-#: .\redirects\models.py:39
+#: .\redirects\models.py:43
 msgid "short_link"
 msgstr "short link"
 
-#: .\redirects\models.py:40
+#: .\redirects\models.py:44
 msgid "shorten_link_to_redirect_to_resource"
 msgstr "A shortened link that will be used to redirect to the final resource."
 
-#: .\redirects\models.py:45
+#: .\redirects\models.py:49
 msgid "long_link"
 msgstr "long link"
 
-#: .\redirects\models.py:46
-msgid "resource_to_which_short_link_lead"
-msgstr "The final resource to which the short link leads."
-
 #: .\redirects\models.py:50
+msgid "resource_to_which_short_link_lead"
+msgstr "The final resource to which the short link will lead."
+
+#: .\redirects\models.py:54
 msgid "creation_time"
 msgstr "creation time"
 
-#: .\redirects\models.py:51
+#: .\redirects\models.py:55
 msgid "when_bond_was_create"
 msgstr "When a bond was created between a short and a long link."
 
-#: .\redirects\models.py:55
+#: .\redirects\models.py:59
 msgid "password"
 msgstr "password"
 
-#: .\redirects\models.py:56
+#: .\redirects\models.py:60
 msgid "password_that_will_requested_to_redirect"
 msgstr "The password that will be requested before redirection."
 
-#: .\redirects\models.py:60
+#: .\redirects\models.py:64
 msgid "valid_day_number"
 msgstr "valid number of days"
 
-#: .\redirects\models.py:61
+#: .\redirects\models.py:65
 msgid "how_many_day_link_will_be_valid"
 msgstr "How many days will the link be valid before deleting it."
 
-#: .\redirects\models.py:66
+#: .\redirects\models.py:70
 msgid "valid_click_number"
 msgstr "valid number of clicks"
 
-#: .\redirects\models.py:67
+#: .\redirects\models.py:71
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "How many clicks can make on a link before deleting it."
 
-#: .\redirects\models.py:73 .\redirects\models.py:77
+#: .\redirects\models.py:77 .\redirects\models.py:81
 msgid "redirect"
 msgstr "redirect"
 
-#: .\redirects\models.py:74
+#: .\redirects\models.py:78
 msgid "redirects"
 msgstr "redirects"
 
 #: .\templates\homepage\main.html:4
 msgid "title__homepage"
 msgstr "Datanar - Links Shortening"
+
+#: .\templates\homepage\main.html:26
+msgid "shorten"
+msgstr "Shorten"
 
 #: .\templates\includes\footer.html:5
 msgid "service_rules"
