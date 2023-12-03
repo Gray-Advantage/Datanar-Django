@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
-    default="[%!Jc<.OlGqp'cfDc{v1u4B(p|_B'R]wgk/-X+:QxUo,hMJw*&iZ^.-A%2[Y11y",
+    default="this_is_test_key_-_some_very_dummy_secret_key",
     cast=str,
 )
 DEBUG = bool(strtobool(config("DJANGO_DEBUG", "False")))
