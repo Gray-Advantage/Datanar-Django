@@ -1,5 +1,5 @@
+from django.http import Http404, HttpResponseRedirect
 from django.views.generic import TemplateView
-from django.http import HttpResponseRedirect, Http404
 
 from redirects.models import Redirect
 
@@ -14,3 +14,5 @@ class RedirectView(TemplateView):
             raise Http404
         return HttpResponseRedirect(redirect.long_link)
 
+
+__all__ = [RedirectView]
