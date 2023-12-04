@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-04 15:45+0300\n"
+"POT-Creation-Date: 2023-12-04 18:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,31 +109,31 @@ msgstr "перенаправление"
 msgid "redirects"
 msgstr "перенаправления"
 
-#: .\statistic\models.py:9
+#: .\statistic\models.py:10
 msgid "redirect_time"
 msgstr "Время перенаправления"
 
-#: .\statistic\models.py:15
+#: .\statistic\models.py:17
 msgid "os"
 msgstr "ос"
 
-#: .\statistic\models.py:16
+#: .\statistic\models.py:18
 msgid "operating_system_from_which_redirect_was_made"
 msgstr "Операционная система с которой совершен переход"
 
-#: .\statistic\models.py:20
+#: .\statistic\models.py:22
 msgid "browser"
 msgstr "браузер"
 
-#: .\statistic\models.py:21
+#: .\statistic\models.py:23
 msgid "browser_from_which_redirect_was_made"
 msgstr "Браузер с которого совершен переход"
 
-#: .\statistic\models.py:24
+#: .\statistic\models.py:26
 msgid "country"
 msgstr "страна"
 
-#: .\statistic\models.py:25
+#: .\statistic\models.py:27
 msgid "city"
 msgstr "город"
 
@@ -145,7 +145,9 @@ msgstr "Упс!"
 msgid "page_not_found"
 msgstr "Страница не найдена"
 
-#: .\templates\404.html:13
+#: .\templates\404.html:13 .\templates\users\password_change_done.html:11
+#: .\templates\users\password_reset_complete.html:11
+#: .\templates\users\password_reset_done.html:11
 msgid "to_main"
 msgstr "На главную"
 
@@ -168,3 +170,88 @@ msgstr "О проекте"
 #: .\templates\includes\footer.html:7
 msgid "API"
 msgstr "API"
+
+#: .\templates\includes\user_form.html:28
+msgid "dont_have_account_yet"
+msgstr "Ещё нет учётной записи?"
+
+#: .\templates\includes\user_form.html:28
+msgid "create_it"
+msgstr "Создай её!"
+
+#: .\templates\includes\user_form.html:29
+msgid "forgot_password"
+msgstr "Забыли пароль?"
+
+#: .\templates\users\login.html:5
+msgid "authorization"
+msgstr "Авторизация"
+
+#: .\templates\users\login.html:17
+msgid "log_in_to_datanar"
+msgstr "Войти в Datanar!"
+
+#: .\templates\users\login.html:18
+msgid "sing_in"
+msgstr "Войти"
+
+#: .\templates\users\logout.html:4
+msgid "logout"
+msgstr "Выход"
+
+#: .\templates\users\password_change.html:5
+#: .\templates\users\password_change.html:17
+msgid "password_change"
+msgstr "Смена пароля"
+
+#: .\templates\users\password_change.html:18
+msgid "change_password"
+msgstr "Сменить пароль"
+
+#: .\templates\users\password_change_done.html:5
+msgid "password_changed"
+msgstr "Пароль изменён"
+
+#: .\templates\users\password_change_done.html:10
+msgid "your_password_be_success_changed"
+msgstr "Ваш пароль успешно изменен!"
+
+#: .\templates\users\password_reset.html:5
+#: .\templates\users\password_reset.html:17
+#: .\templates\users\password_reset_confirm.html:5
+#: .\templates\users\password_reset_confirm.html:17
+#: .\templates\users\password_reset_done.html:5
+msgid "password_recovery"
+msgstr "Восстановление пароля"
+
+#: .\templates\users\password_reset.html:18
+msgid "recover"
+msgstr "Восстановить"
+
+#: .\templates\users\password_reset_complete.html:5
+msgid "password_recovered"
+msgstr "Пароль восстановлен"
+
+#: .\templates\users\password_reset_complete.html:10
+msgid "password_reset_completed_success"
+msgstr "Сброс пароля был успешно завершён"
+
+#: .\templates\users\password_reset_confirm.html:18
+msgid "reset"
+msgstr "Сброс"
+
+#: .\templates\users\password_reset_done.html:10
+msgid "email_instructions_for_password_recove_sent"
+msgstr "Письмо с инструкциями по восстановлению пароля отправлено"
+
+#: .\templates\users\signup.html:5
+msgid "registration"
+msgstr "Регистрация"
+
+#: .\templates\users\signup.html:17
+msgid "greeting"
+msgstr "Добро пожаловать на Datanar!"
+
+#: .\templates\users\signup.html:18
+msgid "register"
+msgstr "Зарегистрироваться"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-04 15:45+0300\n"
+"POT-Creation-Date: 2023-12-04 18:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,31 +102,31 @@ msgstr "redirect"
 msgid "redirects"
 msgstr "redirects"
 
-#: .\statistic\models.py:9
+#: .\statistic\models.py:10
 msgid "redirect_time"
 msgstr "redirect time"
 
-#: .\statistic\models.py:15
+#: .\statistic\models.py:17
 msgid "os"
 msgstr "os"
 
-#: .\statistic\models.py:16
+#: .\statistic\models.py:18
 msgid "operating_system_from_which_redirect_was_made"
 msgstr "Operating system from which the redirect was made"
 
-#: .\statistic\models.py:20
+#: .\statistic\models.py:22
 msgid "browser"
 msgstr "browser"
 
-#: .\statistic\models.py:21
+#: .\statistic\models.py:23
 msgid "browser_from_which_redirect_was_made"
 msgstr "Browser from which the redirect was made"
 
-#: .\statistic\models.py:24
+#: .\statistic\models.py:26
 msgid "country"
 msgstr "country"
 
-#: .\statistic\models.py:25
+#: .\statistic\models.py:27
 msgid "city"
 msgstr "city"
 
@@ -138,7 +138,9 @@ msgstr "Oops!"
 msgid "page_not_found"
 msgstr "Page not found"
 
-#: .\templates\404.html:13
+#: .\templates\404.html:13 .\templates\users\password_change_done.html:11
+#: .\templates\users\password_reset_complete.html:11
+#: .\templates\users\password_reset_done.html:11
 msgid "to_main"
 msgstr "To main"
 
@@ -161,3 +163,88 @@ msgstr "About"
 #: .\templates\includes\footer.html:7
 msgid "API"
 msgstr "API"
+
+#: .\templates\includes\user_form.html:28
+msgid "dont_have_account_yet"
+msgstr "Don't have an account yet?"
+
+#: .\templates\includes\user_form.html:28
+msgid "create_it"
+msgstr "Create it!"
+
+#: .\templates\includes\user_form.html:29
+msgid "forgot_password"
+msgstr "Forgot your password?"
+
+#: .\templates\users\login.html:5
+msgid "authorization"
+msgstr "Authorization"
+
+#: .\templates\users\login.html:17
+msgid "log_in_to_datanar"
+msgstr "Log in to Datanar!"
+
+#: .\templates\users\login.html:18
+msgid "sing_in"
+msgstr "Sing in"
+
+#: .\templates\users\logout.html:4
+msgid "logout"
+msgstr "Logout"
+
+#: .\templates\users\password_change.html:5
+#: .\templates\users\password_change.html:17
+msgid "password_change"
+msgstr "Password change"
+
+#: .\templates\users\password_change.html:18
+msgid "change_password"
+msgstr "Change password"
+
+#: .\templates\users\password_change_done.html:5
+msgid "password_changed"
+msgstr "Password changed"
+
+#: .\templates\users\password_change_done.html:10
+msgid "your_password_be_success_changed"
+msgstr "Your password has been successfully changed!"
+
+#: .\templates\users\password_reset.html:5
+#: .\templates\users\password_reset.html:17
+#: .\templates\users\password_reset_confirm.html:5
+#: .\templates\users\password_reset_confirm.html:17
+#: .\templates\users\password_reset_done.html:5
+msgid "password_recovery"
+msgstr "Password Recovery"
+
+#: .\templates\users\password_reset.html:18
+msgid "recover"
+msgstr "Recover"
+
+#: .\templates\users\password_reset_complete.html:5
+msgid "password_recovered"
+msgstr "Password recovered"
+
+#: .\templates\users\password_reset_complete.html:10
+msgid "password_reset_completed_success"
+msgstr "Password reset was completed successfully"
+
+#: .\templates\users\password_reset_confirm.html:18
+msgid "reset"
+msgstr "Reset"
+
+#: .\templates\users\password_reset_done.html:10
+msgid "email_instructions_for_password_recove_sent"
+msgstr "An email with instructions for password recovery has been sent"
+
+#: .\templates\users\signup.html:5
+msgid "registration"
+msgstr "Registration"
+
+#: .\templates\users\signup.html:17
+msgid "greeting"
+msgstr "Welcome to Datanar!"
+
+#: .\templates\users\signup.html:18
+msgid "register"
+msgstr "Register"

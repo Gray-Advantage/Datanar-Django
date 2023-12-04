@@ -1,0 +1,20 @@
+{% extends "base_html.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "authorization" %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/user-auth.css' %}">
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/footerYear.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+  {% trans 'log_in_to_datanar' as log_in_to_datanar %}
+  {% trans 'sing_in' as sing_in %}
+  {% include "includes/user_form.html" with title=log_in_to_datanar submit_text=sing_in %}
+{% endblock %}

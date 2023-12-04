@@ -1,0 +1,20 @@
+{% extends "base_html.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "registration" %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/user-auth.css' %}">
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/footerYear.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+  {% trans "greeting" as greeting %}
+  {% trans "register" as register %}
+  {% include "includes/user_form.html" with title=greeting submit_text=register %}
+{% endblock %}
