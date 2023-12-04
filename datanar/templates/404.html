@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "oops" %}
+{% endblock %}
+
+{% block content %}
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <h1 class="text-center">404</h1>
+    <h1 class="text-center">{% trans "page_not_found" %}</h1>
+    <div class="d-flex">
+      <a href="{% url 'homepage:home' %}" class="mt-3 btn btn-outline-secondary ms-auto me-auto">{% trans 'to_main' %}</a>
+    </div>
+  </div>
+{% endblock %}

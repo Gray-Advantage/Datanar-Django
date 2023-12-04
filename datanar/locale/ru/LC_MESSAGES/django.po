@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-04 00:06+0300\n"
+"POT-Creation-Date: 2023-12-04 13:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr ""
 "Пользовательский URL-адрес, который вы хотели бы иметь вместо "
 "сгенерированного."
 
-#: .\redirects\forms.py:46
+#: .\redirects\forms.py:52
 msgid "custom_url_already_use"
 msgstr ""
 "Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
@@ -109,11 +109,23 @@ msgstr "перенаправление"
 msgid "redirects"
 msgstr "перенаправления"
 
-#: .\templates\homepage\main.html:4
+#: .\templates\404.html:5
+msgid "oops"
+msgstr "Упс!"
+
+#: .\templates\404.html:11
+msgid "page_not_found"
+msgstr "Страница не найдена"
+
+#: .\templates\404.html:13
+msgid "to_main"
+msgstr "На главную"
+
+#: .\templates\homepage\main.html:5
 msgid "title__homepage"
 msgstr "Datanar - Сокращение ссылок"
 
-#: .\templates\homepage\main.html:26
+#: .\templates\homepage\main.html:28
 msgid "shorten"
 msgstr "Сократить"
 

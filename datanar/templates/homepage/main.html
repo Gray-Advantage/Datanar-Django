@@ -43,7 +43,7 @@
   {% if messages %}
     <div class="list-group gap-2 ms-auto me-auto">
       {% for message in messages %}
-        <div class="copy-text-field cursor-pointer border rounded-3 p-3 mt-5" data-link="{{ request.build_absolute_uri }}/{{ message }}">
+        <div class="copy-text-field cursor-pointer border rounded-3 p-3 mt-5" data-link="{{ request.build_absolute_uri }}{{ message }}/">
          {{ request.get_host }}/{{ message }}
         </div>
       {% endfor %}
