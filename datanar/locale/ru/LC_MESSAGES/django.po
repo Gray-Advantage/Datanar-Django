@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-04 13:04+0300\n"
+"POT-Creation-Date: 2023-12-04 15:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\datanar\settings.py:114
+#: .\datanar\settings.py:115
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:115
+#: .\datanar\settings.py:116
 msgid "Russian"
 msgstr "Русский"
 
@@ -108,6 +108,34 @@ msgstr "перенаправление"
 #: .\redirects\models.py:78
 msgid "redirects"
 msgstr "перенаправления"
+
+#: .\statistic\models.py:9
+msgid "redirect_time"
+msgstr "Время перенаправления"
+
+#: .\statistic\models.py:15
+msgid "os"
+msgstr "ос"
+
+#: .\statistic\models.py:16
+msgid "operating_system_from_which_redirect_was_made"
+msgstr "Операционная система с которой совершен переход"
+
+#: .\statistic\models.py:20
+msgid "browser"
+msgstr "браузер"
+
+#: .\statistic\models.py:21
+msgid "browser_from_which_redirect_was_made"
+msgstr "Браузер с которого совершен переход"
+
+#: .\statistic\models.py:24
+msgid "country"
+msgstr "страна"
+
+#: .\statistic\models.py:25
+msgid "city"
+msgstr "город"
 
 #: .\templates\404.html:5
 msgid "oops"

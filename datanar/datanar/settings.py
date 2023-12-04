@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "homepage.apps.HomepageConfig",
     "users.apps.UsersConfig",
     "redirects.apps.RedirectsConfig",
+    "statistic.apps.StatisticConfig",
 ]
 
 MIDDLEWARE = [

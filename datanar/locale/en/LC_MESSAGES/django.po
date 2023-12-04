@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-04 13:04+0300\n"
+"POT-Creation-Date: 2023-12-04 15:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\datanar\settings.py:114
+#: .\datanar\settings.py:115
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:115
+#: .\datanar\settings.py:116
 msgid "Russian"
 msgstr "Russian"
 
@@ -101,6 +101,34 @@ msgstr "redirect"
 #: .\redirects\models.py:78
 msgid "redirects"
 msgstr "redirects"
+
+#: .\statistic\models.py:9
+msgid "redirect_time"
+msgstr "redirect time"
+
+#: .\statistic\models.py:15
+msgid "os"
+msgstr "os"
+
+#: .\statistic\models.py:16
+msgid "operating_system_from_which_redirect_was_made"
+msgstr "Operating system from which the redirect was made"
+
+#: .\statistic\models.py:20
+msgid "browser"
+msgstr "browser"
+
+#: .\statistic\models.py:21
+msgid "browser_from_which_redirect_was_made"
+msgstr "Browser from which the redirect was made"
+
+#: .\statistic\models.py:24
+msgid "country"
+msgstr "country"
+
+#: .\statistic\models.py:25
+msgid "city"
+msgstr "city"
 
 #: .\templates\404.html:5
 msgid "oops"
