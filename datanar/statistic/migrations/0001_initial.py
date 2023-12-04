@@ -46,7 +46,10 @@ class Migration(migrations.Migration):
                         verbose_name="browser",
                     ),
                 ),
-                ("country", models.TextField(null=True, verbose_name="country")),
+                (
+                    "country",
+                    models.TextField(null=True, verbose_name="country"),
+                ),
                 ("city", models.TextField(null=True, verbose_name="city")),
                 ("referrer", models.TextField(null=True)),
                 (

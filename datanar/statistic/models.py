@@ -6,10 +6,12 @@ from redirects import models as redirects_models
 
 class Click(models.Model):
     clicked_at = models.DateTimeField(
-        auto_now_add=True, verbose_name=_("redirect_time")
+        auto_now_add=True,
+        verbose_name=_("redirect_time"),
     )
     redirect = models.OneToOneField(
-        redirects_models.Redirect, on_delete=models.CASCADE
+        redirects_models.Redirect,
+        on_delete=models.CASCADE,
     )
     os = models.TextField(
         verbose_name=_("os"),
