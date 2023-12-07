@@ -3,8 +3,8 @@
 
 <form method="POST" class="form-user-auth mt-auto mb-auto" enctype="multipart/form-data">
   {% csrf_token %}
-  <div class="d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3  ms-auto me-auto">
-    <img class="mb-4 ms-auto me-auto" src="{% static 'img/favicon-512.png' %}" alt="Datanar" width="72" height="72">
+  <div class="d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 ms-auto me-auto">
+    <img class="mb-4 ms-auto me-auto" src="{% static 'img/favicon.ico' %}" alt="Datanar" width="72" height="72">
     <h1 class="h3 mb-3 fw-normal text-center">{{ title }}</h1>
     <div class="form-group">
       {% for field in form %}
@@ -19,6 +19,11 @@
         </div>
       {% endfor %}
     </div>
+    {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+        <div class="text-danger mt-1">{{ error }}</div>
+      {% endfor %}
+    {% endif %}
   </div>
   <div class="d-flex flex-column">
     <button class="btn btn-primary mt-3 py-2 ms-auto me-auto" type="submit">{{ submit_text }}</button>

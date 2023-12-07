@@ -111,6 +111,25 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = "users.User"
 
+DEFAULT_USER_IS_ACTIVE = bool(
+    strtobool(config("DEFAULT_USER_IS_ACTIVE", "False")),
+)
+
+LOGIN_URL = "/auth/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
+EMAIL_HOST = config("DJANGO_MAIL_HOST", default="smtp.mail.ru")
+EMAIL_PORT = config("DJANGO_MAIL_PORT", default=2525, cast=int)
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = config("DJANGO_MAIL_USER", default="webmaster@localhost")
+EMAIL_HOST_USER = config("DJANGO_MAIL_USER", default="webmaster@localhost")
+EMAIL_HOST_PASSWORD = config(
+    "DJANGO_MAIL_PASSWORD",
+    default="this_very_secret_password_for_smtp_mail",
+)
+
 LANGUAGE_CODE = "ru-ru"
 
 LANGUAGES = [
