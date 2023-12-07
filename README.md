@@ -51,6 +51,7 @@
 - [Django](https://www.djangoproject.com/)
 - [Sqids](https://sqids.org/)
 - [Bootstrap](https://getbootstrap.com/)
+- [DB-IP](https://db-ip.com)
 
 ## Структура проекта
 <Ещё формируется>
