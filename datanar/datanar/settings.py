@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_user_agents",
     "core.apps.CoreConfig",
     "homepage.apps.HomepageConfig",
     "users.apps.UsersConfig",
@@ -42,6 +43,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "django_user_agents.middleware.UserAgentMiddleware",
 ]
 
 if settings.DEBUG:
@@ -132,3 +134,5 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+GEOIP_PATH = "geo_ip"

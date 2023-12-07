@@ -9,7 +9,7 @@ class Click(models.Model):
         auto_now_add=True,
         verbose_name=_("redirect_time"),
     )
-    redirect = models.OneToOneField(
+    redirect = models.ForeignKey(
         redirects_models.Redirect,
         on_delete=models.CASCADE,
     )
