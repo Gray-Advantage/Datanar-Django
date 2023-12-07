@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-04 18:10+0300\n"
+"POT-Creation-Date: 2023-12-07 18:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\datanar\settings.py:115
+#: .\datanar\settings.py:121
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:116
+#: .\datanar\settings.py:122
 msgid "Russian"
 msgstr "Русский"
 
@@ -187,11 +187,11 @@ msgstr "Забыли пароль?"
 msgid "authorization"
 msgstr "Авторизация"
 
-#: .\templates\users\login.html:17
+#: .\templates\users\login.html:13
 msgid "log_in_to_datanar"
 msgstr "Войти в Datanar!"
 
-#: .\templates\users\login.html:18
+#: .\templates\users\login.html:14
 msgid "sing_in"
 msgstr "Войти"
 
@@ -200,11 +200,11 @@ msgid "logout"
 msgstr "Выход"
 
 #: .\templates\users\password_change.html:5
-#: .\templates\users\password_change.html:17
+#: .\templates\users\password_change.html:13
 msgid "password_change"
 msgstr "Смена пароля"
 
-#: .\templates\users\password_change.html:18
+#: .\templates\users\password_change.html:14
 msgid "change_password"
 msgstr "Сменить пароль"
 
@@ -217,14 +217,14 @@ msgid "your_password_be_success_changed"
 msgstr "Ваш пароль успешно изменен!"
 
 #: .\templates\users\password_reset.html:5
-#: .\templates\users\password_reset.html:17
+#: .\templates\users\password_reset.html:13
 #: .\templates\users\password_reset_confirm.html:5
-#: .\templates\users\password_reset_confirm.html:17
+#: .\templates\users\password_reset_confirm.html:13
 #: .\templates\users\password_reset_done.html:5
 msgid "password_recovery"
 msgstr "Восстановление пароля"
 
-#: .\templates\users\password_reset.html:18
+#: .\templates\users\password_reset.html:14
 msgid "recover"
 msgstr "Восстановить"
 
@@ -236,7 +236,7 @@ msgstr "Пароль восстановлен"
 msgid "password_reset_completed_success"
 msgstr "Сброс пароля был успешно завершён"
 
-#: .\templates\users\password_reset_confirm.html:18
+#: .\templates\users\password_reset_confirm.html:14
 msgid "reset"
 msgstr "Сброс"
 
@@ -248,10 +248,18 @@ msgstr "Письмо с инструкциями по восстановлени
 msgid "registration"
 msgstr "Регистрация"
 
-#: .\templates\users\signup.html:17
+#: .\templates\users\signup.html:13
 msgid "greeting"
 msgstr "Добро пожаловать на Datanar!"
 
-#: .\templates\users\signup.html:18
+#: .\templates\users\signup.html:14
 msgid "register"
 msgstr "Зарегистрироваться"
+
+#: .\users\forms.py:36
+msgid "email"
+msgstr "Почта"
+
+#: .\users\views.py:41
+msgid "activation_of_the_datanar_account"
+msgstr "Активация аккаунта Datanar"
