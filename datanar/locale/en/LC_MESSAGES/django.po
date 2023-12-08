@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-07 18:33+0300\n"
+"POT-Creation-Date: 2023-12-08 18:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\datanar\settings.py:121
+#: .\datanar\settings.py:136
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:122
+#: .\datanar\settings.py:137
 msgid "Russian"
 msgstr "Russian"
 
@@ -106,27 +106,27 @@ msgstr "redirects"
 msgid "redirect_time"
 msgstr "redirect time"
 
-#: .\statistic\models.py:17
+#: .\statistic\models.py:19
 msgid "os"
 msgstr "os"
 
-#: .\statistic\models.py:18
+#: .\statistic\models.py:20
 msgid "operating_system_from_which_redirect_was_made"
 msgstr "Operating system from which the redirect was made"
 
-#: .\statistic\models.py:22
+#: .\statistic\models.py:24
 msgid "browser"
 msgstr "browser"
 
-#: .\statistic\models.py:23
+#: .\statistic\models.py:25
 msgid "browser_from_which_redirect_was_made"
 msgstr "Browser from which the redirect was made"
 
-#: .\statistic\models.py:26
+#: .\statistic\models.py:28
 msgid "country"
 msgstr "country"
 
-#: .\statistic\models.py:27
+#: .\statistic\models.py:29
 msgid "city"
 msgstr "city"
 
@@ -164,15 +164,51 @@ msgstr "About"
 msgid "API"
 msgstr "API"
 
-#: .\templates\includes\user_form.html:28
+#: .\templates\includes\header.html:28
+msgid "no_user"
+msgstr "No Username"
+
+#: .\templates\includes\header.html:35
+msgid "my_profile"
+msgstr "My profile"
+
+#: .\templates\includes\header.html:38
+msgid "admin_panel"
+msgstr "Admin panel"
+
+#: .\templates\includes\header.html:42
+msgid "exit"
+msgstr "Exit"
+
+#: .\templates\includes\header.html:47 .\templates\users\login.html:14
+msgid "sign_in"
+msgstr "Sign in"
+
+#: .\templates\includes\header.html:53
+msgid "theme"
+msgstr "Theme"
+
+#: .\templates\includes\header.html:58
+msgid "light"
+msgstr "Light"
+
+#: .\templates\includes\header.html:63
+msgid "dark"
+msgstr "Dark"
+
+#: .\templates\includes\header.html:68
+msgid "auto"
+msgstr "Auto"
+
+#: .\templates\includes\user_form.html:33
 msgid "dont_have_account_yet"
 msgstr "Don't have an account yet?"
 
-#: .\templates\includes\user_form.html:28
+#: .\templates\includes\user_form.html:33
 msgid "create_it"
 msgstr "Create it!"
 
-#: .\templates\includes\user_form.html:29
+#: .\templates\includes\user_form.html:34
 msgid "forgot_password"
 msgstr "Forgot your password?"
 
@@ -183,10 +219,6 @@ msgstr "Authorization"
 #: .\templates\users\login.html:13
 msgid "log_in_to_datanar"
 msgstr "Log in to Datanar!"
-
-#: .\templates\users\login.html:14
-msgid "sing_in"
-msgstr "Sing in"
 
 #: .\templates\users\logout.html:4
 msgid "logout"
@@ -249,10 +281,10 @@ msgstr "Welcome to Datanar!"
 msgid "register"
 msgstr "Register"
 
-#: .\users\forms.py:36
+#: .\users\forms.py:35
 msgid "email"
 msgstr "Email"
 
-#: .\users\views.py:41
+#: .\users\views.py:38
 msgid "activation_of_the_datanar_account"
 msgstr "Activation of the Datanar account"
