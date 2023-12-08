@@ -6,6 +6,9 @@ urlpatterns = [
     path("", include("homepage.urls")),
     path("", include("redirects.urls")),
     path("admin/", admin.site.urls),
+    path("i18n/", include("django.conf.urls.i18n")),
+    path("auth/", include("users.urls")),
+    path("auth/", include("django.contrib.auth.urls")),
 ]
 
 if settings.DEBUG:
