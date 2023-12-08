@@ -12,6 +12,8 @@ class Click(models.Model):
     redirect = models.ForeignKey(
         redirects_models.Redirect,
         on_delete=models.CASCADE,
+        blank=True,
+        null=True,
     )
     os = models.TextField(
         verbose_name=_("os"),
