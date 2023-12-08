@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-07 18:33+0300\n"
+"POT-Creation-Date: 2023-12-08 17:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\datanar\settings.py:121
+#: .\datanar\settings.py:136
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:122
+#: .\datanar\settings.py:137
 msgid "Russian"
 msgstr "Русский"
 
@@ -113,27 +113,27 @@ msgstr "перенаправления"
 msgid "redirect_time"
 msgstr "Время перенаправления"
 
-#: .\statistic\models.py:17
+#: .\statistic\models.py:19
 msgid "os"
 msgstr "ос"
 
-#: .\statistic\models.py:18
+#: .\statistic\models.py:20
 msgid "operating_system_from_which_redirect_was_made"
 msgstr "Операционная система с которой совершен переход"
 
-#: .\statistic\models.py:22
+#: .\statistic\models.py:24
 msgid "browser"
 msgstr "браузер"
 
-#: .\statistic\models.py:23
+#: .\statistic\models.py:25
 msgid "browser_from_which_redirect_was_made"
 msgstr "Браузер с которого совершен переход"
 
-#: .\statistic\models.py:26
+#: .\statistic\models.py:28
 msgid "country"
 msgstr "страна"
 
-#: .\statistic\models.py:27
+#: .\statistic\models.py:29
 msgid "city"
 msgstr "город"
 
@@ -171,15 +171,51 @@ msgstr "О проекте"
 msgid "API"
 msgstr "API"
 
-#: .\templates\includes\user_form.html:28
+#: .\templates\includes\header.html:28
+msgid "no_user"
+msgstr "Нет имени пользователя"
+
+#: .\templates\includes\header.html:35
+msgid "my_profile"
+msgstr "Мой профиль"
+
+#: .\templates\includes\header.html:38
+msgid "admin_panel"
+msgstr "Админка"
+
+#: .\templates\includes\header.html:42
+msgid "exit"
+msgstr "Выйти"
+
+#: .\templates\includes\header.html:47 .\templates\users\login.html:14
+msgid "sing_in"
+msgstr "Войти"
+
+#: .\templates\includes\header.html:53
+msgid "theme"
+msgstr "Тема"
+
+#: .\templates\includes\header.html:58
+msgid "light"
+msgstr "Светлая"
+
+#: .\templates\includes\header.html:63
+msgid "dark"
+msgstr "Темная"
+
+#: .\templates\includes\header.html:68
+msgid "auto"
+msgstr "Авто"
+
+#: .\templates\includes\user_form.html:33
 msgid "dont_have_account_yet"
 msgstr "Ещё нет учётной записи?"
 
-#: .\templates\includes\user_form.html:28
+#: .\templates\includes\user_form.html:33
 msgid "create_it"
 msgstr "Создай её!"
 
-#: .\templates\includes\user_form.html:29
+#: .\templates\includes\user_form.html:34
 msgid "forgot_password"
 msgstr "Забыли пароль?"
 
@@ -190,10 +226,6 @@ msgstr "Авторизация"
 #: .\templates\users\login.html:13
 msgid "log_in_to_datanar"
 msgstr "Войти в Datanar!"
-
-#: .\templates\users\login.html:14
-msgid "sing_in"
-msgstr "Войти"
 
 #: .\templates\users\logout.html:4
 msgid "logout"
@@ -256,10 +288,6 @@ msgstr "Добро пожаловать на Datanar!"
 msgid "register"
 msgstr "Зарегистрироваться"
 
-#: .\users\forms.py:36
-msgid "email"
-msgstr "Почта"
-
-#: .\users\views.py:41
+#: .\users\views.py:38
 msgid "activation_of_the_datanar_account"
 msgstr "Активация аккаунта Datanar"
