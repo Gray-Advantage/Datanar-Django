@@ -3,7 +3,6 @@ import re
 from unittest.mock import patch
 
 from django.core import mail
-from django.db.utils import IntegrityError
 from django.shortcuts import reverse
 from django.test import Client, override_settings, TestCase
 from django.utils import timezone
