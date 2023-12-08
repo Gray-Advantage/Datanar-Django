@@ -32,7 +32,7 @@ class DatanarAuthenticationForm(BootstrapFormMixin, AuthenticationForm):
 
 
 class DatanarUserCreationForm(BootstrapFormMixin, UserCreationForm):
-    email = forms.EmailField(label=_("Email"))
+    email = forms.EmailField(label=_("email"))
 
     class Meta(UserCreationForm.Meta):
         model = get_user_model()

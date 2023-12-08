@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-08 17:58+0300\n"
+"POT-Creation-Date: 2023-12-08 18:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -188,7 +188,7 @@ msgid "exit"
 msgstr "Выйти"
 
 #: .\templates\includes\header.html:47 .\templates\users\login.html:14
-msgid "sing_in"
+msgid "sign_in"
 msgstr "Войти"
 
 #: .\templates\includes\header.html:53
@@ -287,6 +287,10 @@ msgstr "Добро пожаловать на Datanar!"
 #: .\templates\users\signup.html:14
 msgid "register"
 msgstr "Зарегистрироваться"
+
+#: .\users\forms.py:35
+msgid "email"
+msgstr "Почта"
 
 #: .\users\views.py:38
 msgid "activation_of_the_datanar_account"
