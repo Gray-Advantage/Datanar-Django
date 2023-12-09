@@ -5,7 +5,7 @@
   <script src="{% static 'js/colorTogler.js' %}"></script>
   {% with request.resolver_match.view_name as view_name %}
     <a {% if view_name != "homepage:home" %}href="{% url 'homepage:home' %}"{% endif %} class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <img class="ms-2 me-2" src="{% static 'img/favicon.ico' %}" height="48" width="48" alt="Datanar">
+      {% include 'svg/logo.svg' with class="ms-2 me-2" width=48 height=48 %}
       <span class="fs-4 me-2">Datanar</span>
     </a>
 

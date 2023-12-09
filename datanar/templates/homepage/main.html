@@ -16,6 +16,15 @@
 
 
 {% block content %}
+  <div class="d-flex mt-5">
+    <div class="ms-auto me-auto">
+      <div class="d-flex">
+        {% include 'svg/logo.svg' with class="ms-auto" width=70 height=70 %}
+        <h1 class="mb-auto mt-auto me-auto">Datanar</h1>
+      </div>
+      <p>{% trans "short_description_under_logo" %}</p>
+    </div>
+  </div>
   <form class="mt-5" method="post">
     {% csrf_token %}
     {% for field in form %}
