@@ -19,18 +19,16 @@
   <form class="mt-5" method="post">
     {% csrf_token %}
     {% for field in form %}
-      <div class="form-group col-6 ms-auto me-auto">
+      <div class="form-group col-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 ms-auto me-auto">
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-
         {% if forloop.first %}
           <div class="input-group mb-3">
             {{ field }}
-            <input type="submit" class="btn btn-outline-secondary" value="{% trans 'shorten' %}">
+            <input type="submit" class="btn btn-outline-dark" value="{% trans 'shorten' %}">
           </div>
         {% else %}
           {{ field }}
         {% endif %}
-
         {% if field.errors %}
           <div class="invalid-feedback">
             {{ field.errors|first }}
@@ -43,10 +41,32 @@
   {% if messages %}
     <div class="list-group gap-2 ms-auto me-auto">
       {% for message in messages %}
-        <div class="copy-text-field cursor-pointer border rounded-3 p-3 mt-5" data-link="{{ request.build_absolute_uri }}{{ message }}/">
-         {{ request.get_host }}/{{ message }}
+        <div class="d-flex border rounded-3 mt-5">
+          <div class="flex-grow-1 p-3 d-flex flex-column">
+            <div class="d-flex">
+              {% include 'svg/link.svg' %}<a href="{% url 'redirects:redirect' message %}" target="_blank" class="h5"><strong>{{ request.get_host }}/{{ message }}</strong></a>
+            </div>
+            <div class="mt-1">
+              <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.build_absolute_uri }}{{ message }}/">{% trans "copy" %}</button>
+            </div>
+          </div>
+          <div class="vr h-auto"></div>
+          <div>
+            <div class="position-relative">
+              <img id="qrImage" class="img-fluid rounded-end" src="{% url 'qr_code:preview' message %}" height="105" width="105" alt="qr_code">
+              <div class="overlay p-2 position-absolute border rounded-3 translate-middle">
+                <div class="d-flex">
+                  <a href="{% url 'qr_code:download' 'svg' message %}" class="btn btn-outline-dark">SVG</a>
+                  <a href="{% url 'qr_code:download' 'jpg' message %}" class="ms-1 btn btn-outline-dark">JPG</a>
+                  <a href="{% url 'qr_code:download' 'png' message %}" class="ms-1 btn btn-outline-dark">PNG</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       {% endfor %}
     </div>
   {% endif %}
+
+
 {% endblock %}

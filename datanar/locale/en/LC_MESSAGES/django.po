@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-08 18:10+0300\n"
+"POT-Creation-Date: 2023-12-09 19:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\datanar\settings.py:136
+#: .\datanar\settings.py:137
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:137
+#: .\datanar\settings.py:138
 msgid "Russian"
 msgstr "Russian"
 
@@ -34,7 +34,11 @@ msgstr "Custom url"
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "A custom url that you would like to have instead of the generated one."
 
-#: .\redirects\forms.py:52
+#: .\redirects\forms.py:54
+msgid "custom_url_should_not_have_slash"
+msgstr "The custom link should not have a '/'"
+
+#: .\redirects\forms.py:60
 msgid "custom_url_already_use"
 msgstr "This custom url is already in use. Please choose another one."
 
@@ -106,27 +110,27 @@ msgstr "redirects"
 msgid "redirect_time"
 msgstr "redirect time"
 
-#: .\statistic\models.py:19
+#: .\statistic\models.py:17
 msgid "os"
 msgstr "os"
 
-#: .\statistic\models.py:20
+#: .\statistic\models.py:18
 msgid "operating_system_from_which_redirect_was_made"
 msgstr "Operating system from which the redirect was made"
 
-#: .\statistic\models.py:24
+#: .\statistic\models.py:22
 msgid "browser"
 msgstr "browser"
 
-#: .\statistic\models.py:25
+#: .\statistic\models.py:23
 msgid "browser_from_which_redirect_was_made"
 msgstr "Browser from which the redirect was made"
 
-#: .\statistic\models.py:28
+#: .\statistic\models.py:26
 msgid "country"
 msgstr "country"
 
-#: .\statistic\models.py:29
+#: .\statistic\models.py:27
 msgid "city"
 msgstr "city"
 
@@ -151,6 +155,14 @@ msgstr "Datanar - Links Shortening"
 #: .\templates\homepage\main.html:28
 msgid "shorten"
 msgstr "Shorten"
+
+#: .\templates\homepage\main.html:52
+msgid "copy"
+msgstr "Copy"
+
+#: .\templates\homepage\main.html:65
+msgid "copy_to_clipboard"
+msgstr "Copy to clipboard"
 
 #: .\templates\includes\footer.html:5
 msgid "service_rules"

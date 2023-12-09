@@ -15,6 +15,9 @@ class RedirectView(TemplateView):
     def get(self, request, *args, **kwargs):
         redirect = Redirect.objects.get_by_short_link(kwargs["short_link"])
 
+        if redirect is None:
+            raise Http404
+
         ip_address = request.META.get("REMOTE_ADDR", None)
 
         try:
@@ -36,8 +39,6 @@ class RedirectView(TemplateView):
             referrer=request.META.get("HTTP_REFERER", None),
         )
 
-        if redirect is None:
-            raise Http404
         return HttpResponseRedirect(redirect.long_link)
 
 

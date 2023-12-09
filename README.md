@@ -48,10 +48,11 @@
 - Связать свой сервис с нашим по API
 
 ### Используемые фреймворки / библиотеки
-- [Django](https://www.djangoproject.com/)
-- [Sqids](https://sqids.org/)
 - [Bootstrap](https://getbootstrap.com/)
 - [DB-IP](https://db-ip.com)
+- [Django](https://www.djangoproject.com/)
+- [Segno](https://github.com/heuer/segno/)
+- [Sqids](https://sqids.org/)
 
 ## Структура проекта
 <Ещё формируется>
