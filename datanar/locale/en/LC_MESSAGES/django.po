@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-09 19:36+0300\n"
+"POT-Creation-Date: 2023-12-09 23:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,17 +152,17 @@ msgstr "To main"
 msgid "title__homepage"
 msgstr "Datanar - Links Shortening"
 
-#: .\templates\homepage\main.html:28
+#: .\templates\homepage\main.html:25
+msgid "short_description_under_logo"
+msgstr "Shorten your link so that your customers don't have to see long URLs."
+
+#: .\templates\homepage\main.html:36
 msgid "shorten"
 msgstr "Shorten"
 
-#: .\templates\homepage\main.html:52
+#: .\templates\homepage\main.html:59
 msgid "copy"
 msgstr "Copy"
-
-#: .\templates\homepage\main.html:65
-msgid "copy_to_clipboard"
-msgstr "Copy to clipboard"
 
 #: .\templates\includes\footer.html:5
 msgid "service_rules"
@@ -300,3 +300,6 @@ msgstr "Email"
 #: .\users\views.py:38
 msgid "activation_of_the_datanar_account"
 msgstr "Activation of the Datanar account"
+
+#~ msgid "copy_to_clipboard"
+#~ msgstr "Copy to clipboard"
