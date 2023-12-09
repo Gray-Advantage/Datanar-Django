@@ -7,3 +7,16 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.overlay{
+  display:none;
+  position: absolute;
+}
+
+.position-relative:hover .overlay{
+	display: flex;
+    flex-direction: column;
+    top: -15% !important;
+    left: 50% !important;
+    background-color: var(--bs-tertiary-bg);
+}

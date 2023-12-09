@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-08 18:10+0300\n"
+"POT-Creation-Date: 2023-12-09 19:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\datanar\settings.py:136
+#: .\datanar\settings.py:137
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:137
+#: .\datanar\settings.py:138
 msgid "Russian"
 msgstr "Русский"
 
@@ -38,7 +38,11 @@ msgstr ""
 "Пользовательский URL-адрес, который вы хотели бы иметь вместо "
 "сгенерированного."
 
-#: .\redirects\forms.py:52
+#: .\redirects\forms.py:54
+msgid "custom_url_should_not_have_slash"
+msgstr "Кастомная ссылка не должна иметь '/'"
+
+#: .\redirects\forms.py:60
 msgid "custom_url_already_use"
 msgstr ""
 "Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
@@ -113,27 +117,27 @@ msgstr "перенаправления"
 msgid "redirect_time"
 msgstr "Время перенаправления"
 
-#: .\statistic\models.py:19
+#: .\statistic\models.py:17
 msgid "os"
 msgstr "ос"
 
-#: .\statistic\models.py:20
+#: .\statistic\models.py:18
 msgid "operating_system_from_which_redirect_was_made"
 msgstr "Операционная система с которой совершен переход"
 
-#: .\statistic\models.py:24
+#: .\statistic\models.py:22
 msgid "browser"
 msgstr "браузер"
 
-#: .\statistic\models.py:25
+#: .\statistic\models.py:23
 msgid "browser_from_which_redirect_was_made"
 msgstr "Браузер с которого совершен переход"
 
-#: .\statistic\models.py:28
+#: .\statistic\models.py:26
 msgid "country"
 msgstr "страна"
 
-#: .\statistic\models.py:29
+#: .\statistic\models.py:27
 msgid "city"
 msgstr "город"
 
@@ -158,6 +162,14 @@ msgstr "Datanar - Сокращение ссылок"
 #: .\templates\homepage\main.html:28
 msgid "shorten"
 msgstr "Сократить"
+
+#: .\templates\homepage\main.html:52
+msgid "copy"
+msgstr "Скопировать"
+
+#: .\templates\homepage\main.html:65
+msgid "copy_to_clipboard"
+msgstr "В буфер обмена"
 
 #: .\templates\includes\footer.html:5
 msgid "service_rules"

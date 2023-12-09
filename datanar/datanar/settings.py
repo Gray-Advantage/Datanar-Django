@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_user_agents",
     "core.apps.CoreConfig",
+    "qr_codes.apps.QrCodesConfig",
     "homepage.apps.HomepageConfig",
     "users.apps.UsersConfig",
     "redirects.apps.RedirectsConfig",

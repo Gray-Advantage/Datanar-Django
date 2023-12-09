@@ -46,15 +46,26 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
         custom_url = self.cleaned_data.get("custom_url")
 
         if custom_url:
+            all_good = True
+
+            if "/" in custom_url:
+                self.add_error(
+                    "custom_url",
+                    ValidationError(_("custom_url_should_not_have_slash")),
+                )
+                all_good = False
             if Redirect.objects.get_by_short_link(custom_url):
                 self.add_error(
                     "custom_url",
                     ValidationError(_("custom_url_already_use")),
                 )
-                return None
-            self.cleaned_data["short_link"] = custom_url
-            del self.cleaned_data["custom_url"]
-            return self.cleaned_data
+                all_good = False
+
+            if all_good:
+                self.cleaned_data["short_link"] = custom_url
+                del self.cleaned_data["custom_url"]
+                return self.cleaned_data
+            return None
 
         counter = 0
         string = self.cleaned_data["long_link"]
