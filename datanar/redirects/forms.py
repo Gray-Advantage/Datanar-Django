@@ -23,8 +23,13 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        first = True
         for field in self.fields.values():
             field.widget.attrs.update({"placeholder": field.help_text})
+            if first:
+                first = False
+            else:
+                field.widget.attrs["class"] += " mb-2"
 
     class Meta:
         model = Redirect
@@ -81,6 +86,30 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
         self.cleaned_data["short_link"] = short_link
         del self.cleaned_data["custom_url"]
         return self.cleaned_data
+
+
+class RedirectFormExtended(RedirectForm):
+    field_order = [
+        Redirect.long_link.field.name,
+        "custom_url",
+        Redirect.password.field.name,
+        Redirect.validity_days.field.name,
+        Redirect.validity_clicks.field.name,
+    ]
+
+    class Meta(RedirectForm.Meta):
+        fields = [
+            Redirect.long_link.field.name,
+            Redirect.password.field.name,
+            Redirect.validity_days.field.name,
+            Redirect.validity_clicks.field.name,
+        ]
+
+        exclude = [
+            Redirect.user.field.name,
+            Redirect.short_link.field.name,
+            Redirect.created_at.field.name,
+        ]
 
 
 __all__ = [RedirectForm]

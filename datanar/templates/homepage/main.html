@@ -31,7 +31,7 @@
       <div class="form-group col-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 ms-auto me-auto">
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
         {% if forloop.first %}
-          <div class="input-group mb-3">
+          <div class="input-group mb-2">
             {{ field }}
             <input type="submit" class="btn btn-outline-dark" value="{% trans 'shorten' %}">
           </div>
