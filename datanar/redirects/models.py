@@ -59,18 +59,22 @@ class Redirect(models.Model):
         _("password"),
         help_text=_("password_that_will_requested_to_redirect"),
         max_length=128,
+        null=True,
+        blank=True,
     )
     validity_days = models.PositiveIntegerField(
         _("valid_day_number"),
         help_text=_("how_many_day_link_will_be_valid"),
         default=90,
         null=True,
+        blank=True,
     )
     validity_clicks = models.PositiveIntegerField(
         _("valid_click_number"),
         help_text=_("how_many_click_on_link_will_be_valid"),
         default=None,
         null=True,
+        blank=True,
     )
 
     class Meta:
