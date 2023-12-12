@@ -110,6 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = ["users.backends.AuthBackend"]
+
+
 AUTH_USER_MODEL = "users.User"
 
 DEFAULT_USER_IS_ACTIVE = bool(
