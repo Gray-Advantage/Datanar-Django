@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-09 23:59+0300\n"
+"POT-Creation-Date: 2023-12-12 23:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,14 +38,22 @@ msgstr ""
 "Пользовательский URL-адрес, который вы хотели бы иметь вместо "
 "сгенерированного."
 
-#: .\redirects\forms.py:54
+#: .\redirects\forms.py:59
 msgid "custom_url_should_not_have_slash"
 msgstr "Кастомная ссылка не должна иметь '/'"
 
-#: .\redirects\forms.py:60
+#: .\redirects\forms.py:65
 msgid "custom_url_already_use"
 msgstr ""
 "Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
+
+#: .\redirects\forms.py:123
+msgid "Password"
+msgstr "Пароль"
+
+#: .\redirects\forms.py:124
+msgid "password_before_redirect"
+msgstr "Введите пароль перед перенаправлением"
 
 #: .\redirects\models.py:38
 msgid "user"
@@ -89,29 +97,33 @@ msgstr "пароль"
 msgid "password_that_will_requested_to_redirect"
 msgstr "Пароль, который будет запрашиваться перед перенаправлением."
 
-#: .\redirects\models.py:64
+#: .\redirects\models.py:66
 msgid "valid_day_number"
 msgstr "валидное количество дней"
 
-#: .\redirects\models.py:65
+#: .\redirects\models.py:67
 msgid "how_many_day_link_will_be_valid"
 msgstr "Сколько дней будет валидна ссылка перед её удалением"
 
-#: .\redirects\models.py:70
+#: .\redirects\models.py:73
 msgid "valid_click_number"
 msgstr "валидное количество переходов"
 
-#: .\redirects\models.py:71
+#: .\redirects\models.py:74
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "Сколько переходов можно совершить по ссылке перед её удалением."
 
-#: .\redirects\models.py:77 .\redirects\models.py:81
+#: .\redirects\models.py:81 .\redirects\models.py:85
 msgid "redirect"
 msgstr "перенаправление"
 
-#: .\redirects\models.py:78
+#: .\redirects\models.py:82
 msgid "redirects"
 msgstr "перенаправления"
+
+#: .\redirects\views.py:38
+msgid "invalid_password"
+msgstr "Пароль не верный"
 
 #: .\statistic\models.py:10
 msgid "redirect_time"
@@ -161,7 +173,9 @@ msgstr "Datanar - Сокращение ссылок"
 
 #: .\templates\homepage\main.html:25
 msgid "short_description_under_logo"
-msgstr "Сократите свою ссылку, чтобы вашим клиентам не пришлось видеть длинные url-адреса."
+msgstr ""
+"Сократите свою ссылку, чтобы вашим клиентам не пришлось видеть длинные url-"
+"адреса."
 
 #: .\templates\homepage\main.html:36
 msgid "shorten"
@@ -230,6 +244,10 @@ msgstr "Создай её!"
 #: .\templates\includes\user_form.html:34
 msgid "forgot_password"
 msgstr "Забыли пароль?"
+
+#: .\templates\redirect\redirect.html:4
+msgid "redirect_page"
+msgstr "Перенаправление"
 
 #: .\templates\users\login.html:5
 msgid "authorization"
