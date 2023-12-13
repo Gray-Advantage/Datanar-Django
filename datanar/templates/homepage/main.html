@@ -50,29 +50,7 @@
   {% if messages %}
     <div class="list-group gap-2 ms-auto me-auto">
       {% for message in messages %}
-        <div class="d-flex border rounded-3 mt-5">
-          <div class="flex-grow-1 p-3 d-flex flex-column">
-            <div class="d-flex">
-              {% include 'svg/link.svg' %}<a href="{% url 'redirects:redirect' message %}" target="_blank" class="h5"><strong>{{ request.get_host }}/{{ message }}</strong></a>
-            </div>
-            <div class="mt-1">
-              <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.build_absolute_uri }}{{ message }}/">{% trans "copy" %}</button>
-            </div>
-          </div>
-          <div class="vr h-auto"></div>
-          <div>
-            <div class="position-relative">
-              <img id="qrImage" class="img-fluid rounded-end" src="{% url 'qr_code:preview' message %}" height="105" width="105" alt="qr_code">
-              <div class="overlay p-2 position-absolute border rounded-3 translate-middle">
-                <div class="d-flex">
-                  <a href="{% url 'qr_code:download' 'svg' message %}" class="btn btn-outline-dark">SVG</a>
-                  <a href="{% url 'qr_code:download' 'jpg' message %}" class="ms-1 btn btn-outline-dark">JPG</a>
-                  <a href="{% url 'qr_code:download' 'png' message %}" class="ms-1 btn btn-outline-dark">PNG</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% include "includes/link_card.html" with message=message %}
       {% endfor %}
     </div>
   {% endif %}
