@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 15:26+0300\n"
+"POT-Creation-Date: 2023-12-09 23:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\datanar\settings.py:140
+#: .\datanar\settings.py:137
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:141
+#: .\datanar\settings.py:138
 msgid "Russian"
 msgstr "Русский"
 
@@ -38,14 +38,22 @@ msgstr ""
 "Пользовательский URL-адрес, который вы хотели бы иметь вместо "
 "сгенерированного."
 
-#: .\redirects\forms.py:59
+#: .\redirects\forms.py:54
 msgid "custom_url_should_not_have_slash"
 msgstr "Кастомная ссылка не должна иметь '/'"
 
-#: .\redirects\forms.py:65
+#: .\redirects\forms.py:60
 msgid "custom_url_already_use"
 msgstr ""
 "Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
+
+#: .\redirects\forms.py:123
+msgid "Password"
+msgstr "Пароль"
+
+#: .\redirects\forms.py:124
+msgid "password_before_redirect"
+msgstr "Введите пароль перед перенаправлением"
 
 #: .\redirects\models.py:38
 msgid "user"
@@ -89,29 +97,33 @@ msgstr "пароль"
 msgid "password_that_will_requested_to_redirect"
 msgstr "Пароль, который будет запрашиваться перед перенаправлением."
 
-#: .\redirects\models.py:66
+#: .\redirects\models.py:64
 msgid "valid_day_number"
 msgstr "валидное количество дней"
 
-#: .\redirects\models.py:67
+#: .\redirects\models.py:65
 msgid "how_many_day_link_will_be_valid"
 msgstr "Сколько дней будет валидна ссылка перед её удалением"
 
-#: .\redirects\models.py:73
+#: .\redirects\models.py:70
 msgid "valid_click_number"
 msgstr "валидное количество переходов"
 
-#: .\redirects\models.py:74
+#: .\redirects\models.py:71
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "Сколько переходов можно совершить по ссылке перед её удалением."
 
-#: .\redirects\models.py:81 .\redirects\models.py:85
+#: .\redirects\models.py:77 .\redirects\models.py:81
 msgid "redirect"
 msgstr "перенаправление"
 
-#: .\redirects\models.py:82
+#: .\redirects\models.py:78
 msgid "redirects"
 msgstr "перенаправления"
+
+#: .\redirects\views.py:38
+msgid "invalid_password"
+msgstr "Пароль не верный"
 
 #: .\statistic\models.py:10
 msgid "redirect_time"
@@ -197,27 +209,27 @@ msgstr "Мои ссылки"
 msgid "admin_panel"
 msgstr "Админка"
 
-#: .\templates\includes\header.html:43
+#: .\templates\includes\header.html:42
 msgid "exit"
 msgstr "Выйти"
 
-#: .\templates\includes\header.html:48 .\templates\users\login.html:14
+#: .\templates\includes\header.html:47 .\templates\users\login.html:14
 msgid "sign_in"
 msgstr "Войти"
 
-#: .\templates\includes\header.html:54
+#: .\templates\includes\header.html:53
 msgid "theme"
 msgstr "Тема"
 
-#: .\templates\includes\header.html:59
+#: .\templates\includes\header.html:58
 msgid "light"
 msgstr "Светлая"
 
-#: .\templates\includes\header.html:64
+#: .\templates\includes\header.html:63
 msgid "dark"
 msgstr "Темная"
 
-#: .\templates\includes\header.html:69
+#: .\templates\includes\header.html:68
 msgid "auto"
 msgstr "Авто"
 
@@ -240,6 +252,10 @@ msgstr "Создай её!"
 #: .\templates\includes\user_form.html:34
 msgid "forgot_password"
 msgstr "Забыли пароль?"
+
+#: .\templates\redirect\redirect.html:4
+msgid "redirect_page"
+msgstr "Перенаправление"
 
 #: .\templates\redirect\my_links.html:5
 msgid "title__my_links"

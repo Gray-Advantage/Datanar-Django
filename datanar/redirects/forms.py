@@ -112,4 +112,17 @@ class RedirectFormExtended(RedirectForm):
         ]
 
 
-__all__ = [RedirectForm]
+class PasswordForm(BootstrapFormMixin, forms.Form):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields.values():
+            field.widget.attrs.update({"placeholder": field.help_text})
+
+    password = forms.CharField(
+        label=_("Password"),
+        help_text=_("password_before_redirect"),
+    )
+
+
+__all__ = [RedirectForm, RedirectFormExtended, PasswordForm]
