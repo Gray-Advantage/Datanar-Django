@@ -33,6 +33,7 @@
           </a>
           <ul class="dropdown-menu text-small" style="">
             <li><a class="dropdown-item" >{% trans "my_profile" %}</a></li>
+            <li><a href="{% url 'redirects:my_links' %}" class="dropdown-item" >{% trans "my_links" %}</a></li>
             {% if request.user.is_staff %}
               <li><a href="{% url 'admin:index' %}" class="dropdown-item">
                 {% trans "admin_panel" %}

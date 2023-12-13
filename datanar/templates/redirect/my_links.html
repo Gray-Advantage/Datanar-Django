@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "title__my_links" %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link href="{% static 'css/homepage/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+  {{ block.super }}
+  <script src="{% static 'js/copyText.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+  {% if messages %}
+      <div class="row mt-3">
+        {% for message in messages %}
+          {% include "includes/link_card.html" with message=message %}
+        {% endfor %}
+      </div>
+  {% endif %}
+
+{% endblock %}
