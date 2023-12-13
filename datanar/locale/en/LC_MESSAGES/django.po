@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-09 23:59+0300\n"
+"POT-Creation-Date: 2023-12-13 15:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\datanar\settings.py:137
+#: .\datanar\settings.py:140
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:138
+#: .\datanar\settings.py:141
 msgid "Russian"
 msgstr "Russian"
 
@@ -34,11 +34,11 @@ msgstr "Custom url"
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "A custom url that you would like to have instead of the generated one."
 
-#: .\redirects\forms.py:54
+#: .\redirects\forms.py:59
 msgid "custom_url_should_not_have_slash"
 msgstr "The custom link should not have a '/'"
 
-#: .\redirects\forms.py:60
+#: .\redirects\forms.py:65
 msgid "custom_url_already_use"
 msgstr "This custom url is already in use. Please choose another one."
 
@@ -82,27 +82,27 @@ msgstr "password"
 msgid "password_that_will_requested_to_redirect"
 msgstr "The password that will be requested before redirection."
 
-#: .\redirects\models.py:64
+#: .\redirects\models.py:66
 msgid "valid_day_number"
 msgstr "valid number of days"
 
-#: .\redirects\models.py:65
+#: .\redirects\models.py:67
 msgid "how_many_day_link_will_be_valid"
 msgstr "How many days will the link be valid before deleting it."
 
-#: .\redirects\models.py:70
+#: .\redirects\models.py:73
 msgid "valid_click_number"
 msgstr "valid number of clicks"
 
-#: .\redirects\models.py:71
+#: .\redirects\models.py:74
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "How many clicks can make on a link before deleting it."
 
-#: .\redirects\models.py:77 .\redirects\models.py:81
+#: .\redirects\models.py:81 .\redirects\models.py:85
 msgid "redirect"
 msgstr "redirect"
 
-#: .\redirects\models.py:78
+#: .\redirects\models.py:82
 msgid "redirects"
 msgstr "redirects"
 
@@ -160,10 +160,6 @@ msgstr "Shorten your link so that your customers don't have to see long URLs."
 msgid "shorten"
 msgstr "Shorten"
 
-#: .\templates\homepage\main.html:59
-msgid "copy"
-msgstr "Copy"
-
 #: .\templates\includes\footer.html:5
 msgid "service_rules"
 msgstr "Service rules"
@@ -184,33 +180,45 @@ msgstr "No Username"
 msgid "my_profile"
 msgstr "My profile"
 
-#: .\templates\includes\header.html:38
+#: .\templates\includes\header.html:36
+msgid "my_links"
+msgstr "My links"
+
+#: .\templates\includes\header.html:39
 msgid "admin_panel"
 msgstr "Admin panel"
 
-#: .\templates\includes\header.html:42
+#: .\templates\includes\header.html:43
 msgid "exit"
 msgstr "Exit"
 
-#: .\templates\includes\header.html:47 .\templates\users\login.html:14
+#: .\templates\includes\header.html:48 .\templates\users\login.html:14
 msgid "sign_in"
 msgstr "Sign in"
 
-#: .\templates\includes\header.html:53
+#: .\templates\includes\header.html:54
 msgid "theme"
 msgstr "Theme"
 
-#: .\templates\includes\header.html:58
+#: .\templates\includes\header.html:59
 msgid "light"
 msgstr "Light"
 
-#: .\templates\includes\header.html:63
+#: .\templates\includes\header.html:64
 msgid "dark"
 msgstr "Dark"
 
-#: .\templates\includes\header.html:68
+#: .\templates\includes\header.html:69
 msgid "auto"
 msgstr "Auto"
+
+#: .\templates\includes\link_card.html:11
+msgid "copy"
+msgstr "Copy"
+
+#: .\templates\includes\link_card.html:12
+msgid "statistic"
+msgstr "Statistics"
 
 #: .\templates\includes\user_form.html:33
 msgid "dont_have_account_yet"
@@ -223,6 +231,10 @@ msgstr "Create it!"
 #: .\templates\includes\user_form.html:34
 msgid "forgot_password"
 msgstr "Forgot your password?"
+
+#: .\templates\redirect\my_links.html:5
+msgid "title__my_links"
+msgstr "My links"
 
 #: .\templates\users\login.html:5
 msgid "authorization"
