@@ -8,8 +8,8 @@
       {% include 'svg/link.svg' %}<a href="{% url 'redirects:redirect' message %}" target="_blank" class="h5"><strong>{{ request.get_host }}/{{ message }}</strong></a>
     </div>
     <div class="mt-1">
-      <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.build_absolute_uri }}{{ message }}/">{% trans "copy" %}</button>
-      <a class="btn btn-outline-dark" href="{{ request.get_host }}{{ message }}/">{% trans "statistic" %}</a>
+      <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.get_host }}/{{ message }}/">{% trans "copy" %}</button>
+      <a class="btn btn-outline-dark" href="/{{ message }}/">{% trans "statistic" %}</a>
     </div>
   </div>
   <div class="vr h-auto"></div>
