@@ -2,7 +2,6 @@
 {% load i18n %}
 
 <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom container">
-  <script src="{% static 'js/colorTogler.js' %}"></script>
   {% with request.resolver_match.view_name as view_name %}
     <a {% if view_name != "homepage:home" %}href="{% url 'homepage:home' %}"{% endif %} class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
       {% include 'svg/logo.svg' with class="ms-2 me-2" width=48 height=48 %}
@@ -13,7 +12,7 @@
       <form action="{% url 'set_language' %}" method="post" class="form-inline d-flex">
         {% csrf_token %}
         <div class="form-group mt-auto mb-auto">
-          <select name="language" class="form-control" onchange="this.form.submit()" id="language">
+          <select name="language" class="form-select" onchange="this.form.submit()" id="language">
             {% get_current_language as LANGUAGE_CODE %}
             {% get_available_languages as LANGUAGES %}
             {% for lang_code, lang_name in LANGUAGES %}
@@ -24,6 +23,31 @@
           </select>
         </div>
       </form>
+
+      <li class="nav-item dropdown">
+        <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle show" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (dark)">
+          <span class="d-lg-none ms-2" id="bd-theme-text"></span>
+          {% trans "theme" %}
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+              {% trans "light" %}
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+              {% trans "dark" %}
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+              {% trans "auto" %}
+            </button>
+          </li>
+        </ul>
+      </li>
+
       {% if request.user.is_authenticated %}
         {% trans "no_user" as no_user %}
         <div class="dropdown ms-2">
@@ -48,29 +72,6 @@
           {% trans "sign_in" %}
         </a>
       {% endif %}
-      <li class="nav-item dropdown">
-            <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle show" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (dark)">
-              <span class="d-lg-none ms-2" id="bd-theme-text"></span>
-              {% trans "theme" %}
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
-              <li>
-                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-                  {% trans "light" %}
-                </button>
-              </li>
-              <li>
-                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-                  {% trans "dark" %}
-                </button>
-              </li>
-              <li>
-                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-                  {% trans "auto" %}
-                </button>
-              </li>
-            </ul>
-          </li>
     </nav>
   {% endwith %}
 
