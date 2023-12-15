@@ -11,6 +11,7 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     path("auth/", include("users.urls")),
     path("auth/", include("django.contrib.auth.urls")),
+    path("api/v1/", include("api.urls")),
     path("qr_code/", include("qr_codes.urls")),
 ]
 
