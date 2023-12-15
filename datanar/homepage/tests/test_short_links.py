@@ -74,7 +74,7 @@ class TestShortLinks(TestCase):
 
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
 
-    def test_correct_status_code(self):
+    def test_correct_short_link(self):
         response = self.client.post(
             reverse("homepage:home"),
             data=self.form_data,
