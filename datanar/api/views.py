@@ -81,10 +81,17 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
                 counter += 1
 
         user = self.get_user(request)
-        if not user:
+        if user:
+            serializer_data.update({"user": user})
+
+        if (
+            "validity_days" in request.data
+            or "validity_clicks" in request.data
+            or "password" in request.data
+        ) and not user:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
-        serializer_data.update({"short_link": short_link, "user": user})
+        serializer_data.update({"short_link": short_link})
         serializer = serializers.RedirectCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save(**serializer_data)
