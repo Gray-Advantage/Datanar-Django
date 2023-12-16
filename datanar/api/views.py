@@ -1,12 +1,12 @@
 import hashlib
 
 from django.views.generic import TemplateView
-from rest_framework import status, viewsets, mixins
+from rest_framework import mixins, status, viewsets
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
+from sqids import Sqids
 
 from redirects import models, serializers
-from sqids import Sqids
 from users import models as user_models
 
 
@@ -14,7 +14,7 @@ sqids = Sqids()
 
 
 class APIDocumentationView(TemplateView):
-    template_name = 'api/api_docs.html'
+    template_name = "api/api_docs.html"
 
 
 class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
@@ -24,8 +24,8 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         else:
             token = request.data.get("token")
         user = user_models.User.objects.filter(username=token).first()
-        if request.user.is_authenticated:
-            user = request.user
+        if request.user.is_authenticated and not user:
+            return request.user
         return user
 
     def list(self, request):
@@ -61,7 +61,10 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
 
         short_link = request.data.get("short_link")
 
-        if short_link and ("/" in short_link or models.Redirect.objects.get_by_short_link(short_link)):
+        if short_link and (
+            "/" in short_link
+            or models.Redirect.objects.get_by_short_link(short_link)
+        ):
             return Response(status=status.HTTP_400_BAD_REQUEST)
         if not short_link:
             counter = 0
@@ -70,7 +73,9 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
                 temp_string = f"{string}{counter}" if counter > 0 else string
                 hash_object = hashlib.sha256(temp_string.encode())
                 number = int.from_bytes(hash_object.digest(), byteorder="big")
-                short_link = sqids.encode(list(map(int, list(str(number)))))[:5]
+                short_link = sqids.encode(list(map(int, list(str(number)))))[
+                    :5
+                ]
                 if not models.Redirect.objects.get_by_short_link(short_link):
                     break
                 counter += 1
@@ -84,7 +89,9 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         serializer.is_valid(raise_exception=True)
         serializer.save(**serializer_data)
         headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        return Response(
+            serializer.data, status=status.HTTP_201_CREATED, headers=headers,
+        )
 
 
 __all__ = [RedirectViewSet]
