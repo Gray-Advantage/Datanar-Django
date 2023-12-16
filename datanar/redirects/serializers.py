@@ -16,13 +16,12 @@ class RedirectSerializer(serializers.ModelSerializer):
         )
 
 
-class RedirectCreateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Redirect
-        fields = (
-            models.Redirect.long_link.field.name,
-            models.Redirect.short_link.field.name,
-        )
+class RedirectCreateSerializer(serializers.Serializer):
+    short_link = serializers.CharField(max_length=50, required=False)
+    long_link = serializers.URLField(max_length=2000, required=True)
+
+    def create(self, validated_data):
+        return models.Redirect.objects.create(**validated_data)
 
 
 __all__ = [RedirectSerializer, RedirectCreateSerializer]
