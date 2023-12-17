@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_user_agents",
+    "rest_framework",
+    "api.apps.ApiConfig",
     "core.apps.CoreConfig",
     "qr_codes.apps.QrCodesConfig",
     "homepage.apps.HomepageConfig",

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-17 05:16+0300\n"
+"POT-Creation-Date: 2023-12-17 10:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\datanar\settings.py:156
+#: .\datanar\settings.py:158
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:157
+#: .\datanar\settings.py:159
 msgid "Russian"
 msgstr "Russian"
 
@@ -269,7 +269,7 @@ msgstr ""
 "\n"
 "If it was you, you can sign up for an account using the link below."
 
-#: .\templates\homepage\main.html:5
+#: .\templates\api\api_docs.html:5 .\templates\homepage\main.html:5
 msgid "title__homepage"
 msgstr "Datanar - Links Shortening"
 
@@ -280,10 +280,6 @@ msgstr "Shorten your link so that your customers don't have to see long URLs."
 #: .\templates\homepage\main.html:33
 msgid "shorten"
 msgstr "Shorten"
-
-#: .\templates\homepage\main.html:56
-msgid "copy"
-msgstr "Copy"
 
 #: .\templates\includes\footer.html:5
 msgid "service_rules"
@@ -297,42 +293,54 @@ msgstr "About"
 msgid "API"
 msgstr "API"
 
-#: .\templates\includes\header.html:29
+#: .\templates\includes\header.html:28
+msgid "theme"
+msgstr "Theme"
+
+#: .\templates\includes\header.html:33
+msgid "light"
+msgstr "Light"
+
+#: .\templates\includes\header.html:38
+msgid "dark"
+msgstr "Dark"
+
+#: .\templates\includes\header.html:43
+msgid "auto"
+msgstr "Auto"
+
+#: .\templates\includes\header.html:50
 msgid "no_user"
 msgstr "No Username"
 
-#: .\templates\includes\header.html:36 .\templates\users\profile.html:4
+#: .\templates\includes\header.html:57 .\templates\users\profile.html:4
 #: .\templates\users\profile.html:7
 msgid "my_profile"
 msgstr "My profile"
 
-#: .\templates\includes\header.html:39
+#: .\templates\includes\header.html:58
+msgid "my_links"
+msgstr "My links"
+
+#: .\templates\includes\header.html:61
 msgid "admin_panel"
 msgstr "Admin panel"
 
-#: .\templates\includes\header.html:43
+#: .\templates\includes\header.html:65
 msgid "exit"
 msgstr "Exit"
 
-#: .\templates\includes\header.html:48 .\templates\users\login.html:14
+#: .\templates\includes\header.html:70 .\templates\users\login.html:14
 msgid "sign_in"
 msgstr "Sign in"
 
-#: .\templates\includes\header.html:55
-msgid "theme"
-msgstr "Theme"
+#: .\templates\includes\link_card.html:11
+msgid "copy"
+msgstr "Copy"
 
-#: .\templates\includes\header.html:60
-msgid "light"
-msgstr "Light"
-
-#: .\templates\includes\header.html:65
-msgid "dark"
-msgstr "Dark"
-
-#: .\templates\includes\header.html:70
-msgid "auto"
-msgstr "Auto"
+#: .\templates\includes\link_card.html:12
+msgid "statistic"
+msgstr "Statistics"
 
 #: .\templates\includes\user_form.html:50
 msgid "dont_have_account_yet"
@@ -350,6 +358,10 @@ msgstr "Forgot your password?"
 msgid "redirect_page"
 msgstr "Redirection"
 
+#: .\templates\statistic\my_links.html:5
+msgid "title__my_links"
+msgstr "My links"
+
 #: .\templates\users\confirm_email.html:5
 #: .\templates\users\confirm_email.html:11
 #: .\templates\users\confirm_email_from_sent.html:7
@@ -365,7 +377,7 @@ msgstr ""
 "your main inbox, check your spam folder. Please contact us if you do not "
 "receive the verification email within a few minutes."
 
-#: .\templates\users\confirm_email_from_sent.html:21
+#: .\templates\users\confirm_email_from_sent.html:18
 #, python-format
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
@@ -374,11 +386,11 @@ msgstr ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user <strong>%(user_display)s</strong>."
 
-#: .\templates\users\confirm_email_from_sent.html:29
+#: .\templates\users\confirm_email_from_sent.html:26
 msgid "Confirm"
 msgstr "Confirm"
 
-#: .\templates\users\confirm_email_from_sent.html:36
+#: .\templates\users\confirm_email_from_sent.html:33
 #, python-format
 msgid ""
 "Unable to confirm %(email)s because it is already confirmed by a different "
@@ -387,7 +399,7 @@ msgstr ""
 "Unable to confirm %(email)s because it is already confirmed by a different "
 "account."
 
-#: .\templates\users\confirm_email_from_sent.html:42
+#: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
 msgid ""
 "This email confirmation link expired or is invalid. Please <a href="
@@ -494,6 +506,6 @@ msgstr "Register"
 msgid "avatar"
 msgstr "Avatar"
 
-#: .\users\views.py:32
+#: .\users\views.py:33
 msgid "username_is_already_taken"
 msgstr "A user with that username already exists"
