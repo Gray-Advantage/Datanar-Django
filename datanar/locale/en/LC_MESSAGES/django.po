@@ -273,17 +273,13 @@ msgstr ""
 msgid "title__homepage"
 msgstr "Datanar - Links Shortening"
 
-#: .\templates\homepage\main.html:22
+#: .\templates\homepage\main.html:25
 msgid "short_description_under_logo"
 msgstr "Shorten your link so that your customers don't have to see long URLs."
 
-#: .\templates\homepage\main.html:33
+#: .\templates\homepage\main.html:36
 msgid "shorten"
 msgstr "Shorten"
-
-#: .\templates\homepage\main.html:56
-msgid "copy"
-msgstr "Copy"
 
 #: .\templates\includes\footer.html:5
 msgid "service_rules"
@@ -297,42 +293,53 @@ msgstr "About"
 msgid "API"
 msgstr "API"
 
-#: .\templates\includes\header.html:29
-msgid "no_user"
-msgstr "No Username"
-
-#: .\templates\includes\header.html:36 .\templates\users\profile.html:4
-#: .\templates\users\profile.html:7
-msgid "my_profile"
-msgstr "My profile"
-
-#: .\templates\includes\header.html:39
-msgid "admin_panel"
-msgstr "Admin panel"
-
-#: .\templates\includes\header.html:43
-msgid "exit"
-msgstr "Exit"
-
-#: .\templates\includes\header.html:48 .\templates\users\login.html:14
-msgid "sign_in"
-msgstr "Sign in"
-
-#: .\templates\includes\header.html:55
+#: .\templates\includes\header.html:30
 msgid "theme"
 msgstr "Theme"
 
-#: .\templates\includes\header.html:60
+#: .\templates\includes\header.html:35
 msgid "light"
 msgstr "Light"
 
-#: .\templates\includes\header.html:65
+#: .\templates\includes\header.html:40
 msgid "dark"
 msgstr "Dark"
 
-#: .\templates\includes\header.html:70
+#: .\templates\includes\header.html:45
 msgid "auto"
 msgstr "Auto"
+
+#: .\templates\includes\header.html:52
+msgid "no_user"
+msgstr "No Username"
+
+#: .\templates\includes\header.html:59
+msgid "my_profile"
+msgstr "My profile"
+
+#: .\templates\includes\header.html:60
+msgid "my_links"
+msgstr "My links"
+
+#: .\templates\includes\header.html:63
+msgid "admin_panel"
+msgstr "Admin panel"
+
+#: .\templates\includes\header.html:67
+msgid "exit"
+msgstr "Exit"
+
+#: .\templates\includes\header.html:72 .\templates\users\login.html:14
+msgid "sign_in"
+msgstr "Sign in"
+
+#: .\templates\includes\link_card.html:11
+msgid "copy"
+msgstr "Copy"
+
+#: .\templates\includes\link_card.html:12
+msgid "statistic"
+msgstr "Statistics"
 
 #: .\templates\includes\user_form.html:50
 msgid "dont_have_account_yet"

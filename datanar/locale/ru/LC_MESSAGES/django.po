@@ -280,19 +280,15 @@ msgstr ""
 msgid "title__homepage"
 msgstr "Datanar - Сокращение ссылок"
 
-#: .\templates\homepage\main.html:22
+#: .\templates\homepage\main.html:25
 msgid "short_description_under_logo"
 msgstr ""
 "Сократите свою ссылку, чтобы вашим клиентам не пришлось видеть длинные url-"
 "адреса."
 
-#: .\templates\homepage\main.html:33
+#: .\templates\homepage\main.html:36
 msgid "shorten"
 msgstr "Сократить"
-
-#: .\templates\homepage\main.html:56
-msgid "copy"
-msgstr "Скопировать"
 
 #: .\templates\includes\footer.html:5
 msgid "service_rules"
@@ -306,52 +302,63 @@ msgstr "О проекте"
 msgid "API"
 msgstr "API"
 
-#: .\templates\includes\header.html:29
-msgid "no_user"
-msgstr "Нет имени пользователя"
-
-#: .\templates\includes\header.html:36 .\templates\users\profile.html:4
-#: .\templates\users\profile.html:7
-msgid "my_profile"
-msgstr "Мой профиль"
-
-#: .\templates\includes\header.html:39
-msgid "admin_panel"
-msgstr "Админка"
-
-#: .\templates\includes\header.html:43
-msgid "exit"
-msgstr "Выйти"
-
-#: .\templates\includes\header.html:48 .\templates\users\login.html:14
-msgid "sign_in"
-msgstr "Войти"
-
-#: .\templates\includes\header.html:55
+#: .\templates\includes\header.html:30
 msgid "theme"
 msgstr "Тема"
 
-#: .\templates\includes\header.html:60
+#: .\templates\includes\header.html:35
 msgid "light"
 msgstr "Светлая"
 
-#: .\templates\includes\header.html:65
+#: .\templates\includes\header.html:40
 msgid "dark"
 msgstr "Темная"
 
-#: .\templates\includes\header.html:70
+#: .\templates\includes\header.html:45
 msgid "auto"
 msgstr "Авто"
 
-#: .\templates\includes\user_form.html:50
+#: .\templates\includes\header.html:52
+msgid "no_user"
+msgstr "Нет имени пользователя"
+
+#: .\templates\includes\header.html:59
+msgid "my_profile"
+msgstr "Мой профиль"
+
+#: .\templates\includes\header.html:60
+msgid "my_links"
+msgstr "Мои ссылки"
+
+#: .\templates\includes\header.html:63
+msgid "admin_panel"
+msgstr "Админка"
+
+#: .\templates\includes\header.html:67
+msgid "exit"
+msgstr "Выйти"
+
+#: .\templates\includes\header.html:72 .\templates\users\login.html:14
+msgid "sign_in"
+msgstr "Войти"
+
+#: .\templates\includes\link_card.html:11
+msgid "copy"
+msgstr "Скопировать"
+
+#: .\templates\includes\link_card.html:12
+msgid "statistic"
+msgstr "Статистика"
+
+#: .\templates\includes\user_form.html:33
 msgid "dont_have_account_yet"
 msgstr "Ещё нет учётной записи?"
 
-#: .\templates\includes\user_form.html:50
+#: .\templates\includes\user_form.html:33
 msgid "create_it"
 msgstr "Создай её!"
 
-#: .\templates\includes\user_form.html:51
+#: .\templates\includes\user_form.html:34
 msgid "forgot_password"
 msgstr "Забыли пароль?"
 
@@ -359,73 +366,9 @@ msgstr "Забыли пароль?"
 msgid "redirect_page"
 msgstr "Перенаправление"
 
-#: .\templates\users\confirm_email.html:5
-#: .\templates\users\confirm_email.html:11
-#: .\templates\users\confirm_email_from_sent.html:7
-#: .\templates\users\confirm_email_from_sent.html:13
-msgid "email_confirmation"
-msgstr "Подтвердите свою почту"
-
-#: .\templates\users\confirm_email.html:12
-msgid "email_confirmation_description"
-msgstr ""
-"Мы отправили вам электронное письмо для подтверждения. Перейдите по "
-"указанной ссылке, чтобы завершить процесс регистрации. Если вы не видите "
-"электронное письмо с подтверждением в своем основном почтовом ящике, "
-"проверьте папку со спамом. Пожалуйста, свяжитесь с нами, если вы не получите "
-"электронное письмо с подтверждением в течение нескольких минут."
-
-#: .\templates\users\confirm_email_from_sent.html:21
-#, python-format
-msgid ""
-"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
-"address for user %(user_display)s."
-msgstr ""
-"Пожалуйста подтвердите, что <a href=\"mailto:%(email)s\">%(email)s</a> "
-"почтовый адрес для пользователя <strong>%(user_display)s</strong>."
-
-#: .\templates\users\confirm_email_from_sent.html:29
-msgid "Confirm"
-msgstr "Подтвердить"
-
-#: .\templates\users\confirm_email_from_sent.html:36
-#, python-format
-msgid ""
-"Unable to confirm %(email)s because it is already confirmed by a different "
-"account."
-msgstr ""
-"Подтверждение для %(email)s отключено, так как она уже подтверждена другим "
-"пользователем"
-
-#: .\templates\users\confirm_email_from_sent.html:42
-#, python-format
-msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
-msgstr ""
-"Срок действия этой ссылки для подтверждения истек или она недействительна. "
-"<a href=\"%(email_url)s\">Пожалуйста отправьте новый запрос.</a>."
-
-#: .\templates\users\email_change.html:8
-msgid "email_change"
-msgstr "Смена почты"
-
-#: .\templates\users\email_change.html:17
-#: .\templates\users\email_change.html:20
-msgid "Email"
-msgstr "Адрес электронной почты"
-
-#: .\templates\users\email_change.html:28
-msgid "Re-send Verification"
-msgstr "Отправить подтверждение ещё раз"
-
-#: .\templates\users\email_change.html:29
-msgid "Cancel"
-msgstr "Отмена"
-
-#: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
-msgid "change_email"
-msgstr "Сменить почту"
+#: .\templates\statistic\my_links.html:5
+msgid "title__my_links"
+msgstr "Мои ссылки"
 
 #: .\templates\users\login.html:5
 msgid "authorization"
@@ -444,7 +387,7 @@ msgstr "Выход"
 msgid "password_change"
 msgstr "Смена пароля"
 
-#: .\templates\users\password_change.html:14 .\templates\users\profile.html:24
+#: .\templates\users\password_change.html:14
 msgid "change_password"
 msgstr "Сменить пароль"
 
@@ -452,7 +395,7 @@ msgstr "Сменить пароль"
 msgid "password_changed"
 msgstr "Пароль изменён"
 
-#: .\templates\users\password_change_done.html:11
+#: .\templates\users\password_change_done.html:10
 msgid "your_password_be_success_changed"
 msgstr "Ваш пароль успешно изменен!"
 

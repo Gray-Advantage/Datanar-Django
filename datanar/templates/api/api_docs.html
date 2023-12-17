@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "title__homepage" %}{% endblock %}
+
+
+{% block content %}
+    <h1>Redirect API</h1>
+    <p>This API allows you to manage redirects.</p>
+
+    <h2>Endpoint: api/v1/redirects</h2>
+
+    <div>
+        <h3>GET /redirects</h3>
+        <p>Retrieves a list of all redirects.</p>
+        <h4>Response:</h4>
+        <pre>
+            [
+                {
+                    "id": 1,
+                    "long_link": "http://example.com",
+                    "short_link": "http://example.com/new",
+                    "created_at": "2021-01-01T00:00:00Z",
+                    "password": "",
+                    "validity_clicks": 1,
+                },
+            ]
+        </pre>
+    </div>
+
+    <div>
+        <h3>GET /redirects/{id}</h3>
+        <p>Retrieves the details of a specific redirect.</p>
+        <h4>Parameters:</h4>
+        <ul>
+          <li><code>{id}</code>: the ID of the redirect</li>
+        </ul>
+        <h4>Response:</h4>
+        <pre>
+            {
+                "id": 1,
+                "long_link": "http://example.com",
+                "short_link": "http://example.com/new",
+                "created_at": "2021-01-01T00:00:00Z",
+                "password": "",
+                "validity_clicks": 1,
+            }
+        </pre>
+    </div>
+
+    <div>
+        <h3>DELETE /redirects/{id}</h3>
+        <p>Deletes a specific redirect.</p>
+        <h4>Parameters:</h4>
+        <ul>
+          <li><code>{id}</code>: the ID of the redirect</li>
+        </ul>
+        <h4>Response:</h4>
+        <p>Returns a 204 No Content response indicating that the redirect has been successfully deleted.</p>
+    </div>
+{% endblock %}

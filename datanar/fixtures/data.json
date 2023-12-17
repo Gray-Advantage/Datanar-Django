@@ -1,0 +1,196 @@
+[
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "users",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "redirects",
+      "model": "redirect"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "statistic",
+      "model": "click"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "692yu0a3v9509id4ybjj8a7jktf83ilc",
+    "fields": {
+      "session_data": ".eJxVi0sOwjAMBe_iNariOD-zg4tETp0oCIkFoSvE3WmlLtrlvJn3hSzLp-dl1Hd-KFwB4XLciszP-trEhmPaeUy3Nbnv8vToMvqacwszskrEZIJVH1uKyt6juGYqRS9sSchpKUnRsBrfhIUDpejIWPj9AUfwMYI:1rDOui:sUpBS7TeUb1-2vpwH-Jzhe2DD8DACnx5kKobIfujML0",
+      "expire_date": "2023-12-27T13:04:36.159Z"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$2Om4HSBor3ZqtK6IGv3Ruf$IcxVqep3cR80fqvOA5G8SoVBGO7iBpttMdb98CWyUT0=",
+      "last_login": "2023-12-13T13:04:36.137Z",
+      "is_superuser": true,
+      "username": "bzorn",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-12-08T11:59:19.655Z",
+      "email": "v.klimenko.2137@gmail.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "redirects.redirect",
+    "pk": 1,
+    "fields": {
+      "user": null,
+      "short_link": "qwe",
+      "long_link": "https://plus.yandex.ru/gift",
+      "created_at": "2023-12-05T18:07:14.438Z",
+      "password": "",
+      "validity_days": 90,
+      "validity_clicks": null
+    }
+  },
+  {
+    "model": "redirects.redirect",
+    "pk": 2,
+    "fields": {
+      "user": null,
+      "short_link": "testredirect",
+      "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "created_at": "2023-12-08T12:35:26.537Z",
+      "password": "",
+      "validity_days": 90,
+      "validity_clicks": null
+    }
+  },
+  {
+    "model": "redirects.redirect",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "short_link": "tersf",
+      "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "created_at": "2023-12-13T11:39:29.454Z",
+      "password": null,
+      "validity_days": 90,
+      "validity_clicks": null
+    }
+  },
+  {
+    "model": "redirects.redirect",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "short_link": "dfffdfdf",
+      "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "created_at": "2023-12-13T11:39:51.868Z",
+      "password": null,
+      "validity_days": 90,
+      "validity_clicks": null
+    }
+  },
+  {
+    "model": "redirects.redirect",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "short_link": "fdsfsdf",
+      "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "created_at": "2023-12-13T11:53:47.235Z",
+      "password": null,
+      "validity_days": 90,
+      "validity_clicks": null
+    }
+  },
+  {
+    "model": "redirects.redirect",
+    "pk": 6,
+    "fields": {
+      "user": 1,
+      "short_link": "dfdfdfdfd",
+      "long_link": "https://plus.yandex.ru/gift",
+      "created_at": "2023-12-13T11:54:42.452Z",
+      "password": null,
+      "validity_days": 90,
+      "validity_clicks": null
+    }
+  },
+  {
+    "model": "redirects.redirect",
+    "pk": 7,
+    "fields": {
+      "user": 1,
+      "short_link": "fdfdfdfd",
+      "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "created_at": "2023-12-13T11:56:15.055Z",
+      "password": null,
+      "validity_days": 90,
+      "validity_clicks": null
+    }
+  },
+  {
+    "model": "redirects.redirect",
+    "pk": 8,
+    "fields": {
+      "user": 1,
+      "short_link": "ghghghghg",
+      "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "created_at": "2023-12-13T12:31:24.602Z",
+      "password": null,
+      "validity_days": 90,
+      "validity_clicks": null
+    }
+  }
+]

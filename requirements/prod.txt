@@ -3,6 +3,7 @@ django-allauth==0.59.0
 django-ckeditor==6.7.0
 django-cleanup==8.0.0
 django-user-agents==0.4.0
+djangorestframework==3.14.0
 geoip2==4.8.0
 pillow==10.1.0
 python-decouple==3.8
