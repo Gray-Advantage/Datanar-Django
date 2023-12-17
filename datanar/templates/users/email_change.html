@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load allauth %}
+
+{% block content %}
+  <div class="d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 ms-auto me-auto mt-5">
+    {% include "includes/logo.html" %}
+    <h1 class="h3 mb-3 fw-normal text-center">{% trans "email_change" %}</h1>
+    {% url 'account_email' as action_url %}
+    {% element form method="post" action=action_url %}
+      {% slot body %}
+        {% csrf_token %}
+        <div class="form-group d-flex flex-column">
+          <div class="form-floating">
+            {% if new_emailaddress %}
+              <input type="email" name="email" placeholder="E-mail адрес" autocomplete="email" value="{{ new_emailaddress.email }}" maxlength="320" class="form-control input-field-only-one" readonly="" required="" id="id_email">
+              <label for="id_email">{% trans "Email" %}</label>
+            {% else %}
+              <input type="email" name="email" placeholder="E-mail адрес" autocomplete="email" maxlength="320" class="form-control input-field-only-one" required="" id="id_email">
+              <label for="id_email">{% trans "Email" %}</label>
+            {% endif %}
+          </div>
+        </div>
+      {% endslot %}
+      {% slot actions %}
+        <div class="d-flex flex-column">
+          {% if new_emailaddress %}
+            <button class="btn btn-outline-dark ms-auto me-auto mt-3 py-2" type="submit" name="action_send">{% trans "Re-send Verification" %}</button>
+            <button class="btn btn-outline-danger ms-auto me-auto mt-3 py-2" type="submit" name="action_remove">{% trans "Cancel" %}</button>
+          {% else %}
+            <button class="btn btn-outline-dark ms-auto me-auto mt-3 py-2" type="submit" name="action_add">{% trans 'change_email' %}</button>
+          {% endif %}
+        </div>
+      {% endslot %}
+    {% endelement %}
+    <p class="mt-2 mb-3 ms-auto me-auto text-body-secondary">© Datanar <span id="year">2023</span></p>
+  </div>
+{% endblock %}

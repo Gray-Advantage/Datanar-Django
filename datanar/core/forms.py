@@ -1,3 +1,6 @@
+from django import forms
+
+
 class BootstrapFormMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -9,6 +12,8 @@ class BootstrapFormMixin:
         else:
             for field in self.visible_fields():
                 field.field.widget.attrs["class"] = "form-control input-field"
+                if isinstance(field.field.widget, forms.CheckboxInput):
+                    field.field.widget.attrs["class"] = "form-check-input"
 
         self.update_errors_class()
 

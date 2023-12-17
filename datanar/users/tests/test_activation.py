@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 import re
 from unittest.mock import patch
 
+from allauth.account.models import EmailAddress
 from django.core import mail
 from django.shortcuts import reverse
 from django.test import Client, override_settings, TestCase
@@ -14,20 +15,26 @@ class ActivationTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.data = {
-            "username": "TestUser",
-            "email": "test_user@email.com",
+            "username": "TestUser123",
+            "email": "test_user123@email.com",
+            "password1": "some_password_123!",
+            "password2": "some_password_123!",
+        }
+        self.data1 = {
+            "username": "TestUser321",
+            "email": "test_user321@email.com",
             "password1": "some_password_123!",
             "password2": "some_password_123!",
         }
 
     @override_settings(DEBUG=False, DEFAULT_USER_IS_ACTIVE=False)
     def test_activation_correct(self):
-        self.client.post(reverse("users:signup"), self.data)
-        user = User.objects.get(username=self.data["username"])
+        self.client.post(reverse("users:signup"), self.data1)
+        user = User.objects.get(username=self.data1["username"])
 
         self.assertFalse(
-            user.is_active,
-            "Неверное значение `is_active` у `user`",
+            EmailAddress.objects.get_verified(user),
+            "Неверное значение `verified` почты у `user`",
         )
 
         self.assertEqual(len(mail.outbox), 1, "Количество `mail.outbox` не 1")
@@ -35,12 +42,12 @@ class ActivationTest(TestCase):
         email_body = mail.outbox[0].body
         url = re.search(r"http://testserver(.+)", email_body).group(0)
 
-        self.client.get(url)
-        user = User.objects.get(username=self.data["username"])
+        self.client.post(url)
+        user = User.objects.get(username=self.data1["username"])
 
         self.assertTrue(
-            user.is_active,
-            "Неверное значение `is_active` у `user`",
+            bool(EmailAddress.objects.get_verified(user)),
+            "Неверное значение `verified` почты у `user`",
         )
 
     @override_settings(DEBUG=False, DEFAULT_USER_IS_ACTIVE=False)
@@ -53,8 +60,8 @@ class ActivationTest(TestCase):
         user = User.objects.get(username=self.data["username"])
 
         self.assertFalse(
-            user.is_active,
-            "Неверное значение `is_active` у `user`",
+            EmailAddress.objects.get_verified(user),
+            "Неверное значение `verified` почты у `user`",
         )
 
         self.assertEqual(len(mail.outbox), 1, "Количество `mail.outbox` не 1")
@@ -68,8 +75,8 @@ class ActivationTest(TestCase):
         user = User.objects.get(username=self.data["username"])
 
         self.assertFalse(
-            user.is_active,
-            "Неверное значение `is_active` у `user`",
+            EmailAddress.objects.get_verified(user),
+            "Неверное значение `verified` почты у `user`",
         )
 
 

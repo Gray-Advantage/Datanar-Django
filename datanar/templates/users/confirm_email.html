@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "email_confirmation" %}{% endblock %}
+
+{% block content %}
+  <div class="d-flex flex-column mt-5">
+    {% include "includes/logo.html" %}
+    <hr>
+    <h1 class="text-center mb-4">{% trans "email_confirmation" %}</h1>
+    <p class="text-center">{% trans "email_confirmation_description" %}</p>
+    {% if messages %}
+      {% for message in messages %}<p class="text-center">({{ message }})</p>{% endfor %}
+    {% endif %}
+    <hr class="mb-5">
+  </div>
+{% endblock %}

@@ -33,6 +33,9 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "redirects.apps.RedirectsConfig",
     "statistic.apps.StatisticConfig",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
 ]
 
 MIDDLEWARE = [
@@ -45,6 +48,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django_user_agents.middleware.UserAgentMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 if settings.DEBUG:
@@ -110,7 +114,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = ["users.backends.AuthBackend"]
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
 
 
 AUTH_USER_MODEL = "users.User"
@@ -122,6 +129,15 @@ DEFAULT_USER_IS_ACTIVE = bool(
 LOGIN_URL = "/auth/login/"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_CHANGE_EMAIL = True
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "<[DATANAR]> "
+SITE_ID = 1
 
 EMAIL_HOST = config("DJANGO_MAIL_HOST", default="smtp.mail.ru")
 EMAIL_PORT = config("DJANGO_MAIL_PORT", default=2525, cast=int)
@@ -159,3 +175,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 GEOIP_PATH = "geo_ip"
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"

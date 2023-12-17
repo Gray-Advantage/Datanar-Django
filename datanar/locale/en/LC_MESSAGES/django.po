@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-12 23:04+0300\n"
+"POT-Creation-Date: 2023-12-17 05:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\datanar\settings.py:137
+#: .\datanar\settings.py:156
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:138
+#: .\datanar\settings.py:157
 msgid "Russian"
 msgstr "Russian"
 
@@ -42,7 +42,7 @@ msgstr "The custom link should not have a '/'"
 msgid "custom_url_already_use"
 msgstr "This custom url is already in use. Please choose another one."
 
-#: .\redirects\forms.py:123"
+#: .\redirects\forms.py:123
 msgid "Password"
 msgstr "Password"
 
@@ -154,25 +154,134 @@ msgstr "Oops!"
 msgid "page_not_found"
 msgstr "Page not found"
 
-#: .\templates\404.html:13 .\templates\users\password_change_done.html:11
-#: .\templates\users\password_reset_complete.html:11
-#: .\templates\users\password_reset_done.html:11
+#: .\templates\404.html:13 .\templates\users\password_change_done.html:12
+#: .\templates\users\password_reset_complete.html:12
+#: .\templates\users\password_reset_done.html:12
 msgid "to_main"
 msgstr "To main"
+
+#: .\templates\account\email\account_already_exists_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you or someone else tried to signup for "
+"an\n"
+"account using email address:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"However, an account using that email address already exists.  In case you "
+"have\n"
+"forgotten about this, please use the password forgotten procedure to "
+"recover\n"
+"your account:\n"
+"\n"
+"%(password_reset_url)s"
+msgstr ""
+"You are receiving this email because you or someone else tried to signup for "
+"an\n"
+"account using email address:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"However, an account using that email address already exists.  In case you "
+"have\n"
+"forgotten about this, please use the password forgotten procedure to "
+"recover\n"
+"your account:\n"
+"\n"
+"%(password_reset_url)s"
+
+#: .\templates\account\email\account_already_exists_subject.txt:3
+msgid "Account Already Exists"
+msgstr "Account Already Exists"
+
+#: .\templates\account\email\base_message.txt:1
+#, python-format
+msgid "Hello from %(site_name)s!"
+msgstr "Hello from %(site_name)s!"
+
+#: .\templates\account\email\base_message.txt:5
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+
+#: .\templates\account\email\email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"You're receiving this email because user %(user_display)s has given your "
+"email address to register an account on %(site_domain)s.\n"
+"\n"
+"To confirm this is correct, go to %(activate_url)s"
+msgstr ""
+"You're receiving this email because user %(user_display)s has given your "
+"email address to register an account on %(site_domain)s.\n"
+"\n"
+"To confirm this is correct, go to %(activate_url)s"
+
+#: .\templates\account\email\email_confirmation_subject.txt:3
+msgid "Please Confirm Your Email Address"
+msgstr "Please Confirm Your Email Address"
+
+#: .\templates\account\email\password_reset_key_message.txt:4
+msgid ""
+"You're receiving this email because you or someone else has requested a "
+"password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+"You're receiving this email because you or someone else has requested a "
+"password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+
+#: .\templates\account\email\password_reset_key_message.txt:9
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr "In case you forgot, your username is %(username)s."
+
+#: .\templates\account\email\password_reset_key_subject.txt:3
+#: .\templates\account\email\unknown_account_subject.txt:3
+msgid "Password Reset Email"
+msgstr "Password Reset Email"
+
+#: .\templates\account\email\unknown_account_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you or someone else has requested a\n"
+"password for your user account. However, we do not have any record of a "
+"user\n"
+"with email %(email)s in our database.\n"
+"\n"
+"This mail can be safely ignored if you did not request a password reset.\n"
+"\n"
+"If it was you, you can sign up for an account using the link below."
+msgstr ""
+"You are receiving this email because you or someone else has requested a\n"
+"password for your user account. However, we do not have any record of a "
+"user\n"
+"with email %(email)s in our database.\n"
+"\n"
+"This mail can be safely ignored if you did not request a password reset.\n"
+"\n"
+"If it was you, you can sign up for an account using the link below."
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"
 msgstr "Datanar - Links Shortening"
 
-#: .\templates\homepage\main.html:25
+#: .\templates\homepage\main.html:22
 msgid "short_description_under_logo"
 msgstr "Shorten your link so that your customers don't have to see long URLs."
 
-#: .\templates\homepage\main.html:36
+#: .\templates\homepage\main.html:33
 msgid "shorten"
 msgstr "Shorten"
 
-#: .\templates\homepage\main.html:59
+#: .\templates\homepage\main.html:56
 msgid "copy"
 msgstr "Copy"
 
@@ -188,57 +297,125 @@ msgstr "About"
 msgid "API"
 msgstr "API"
 
-#: .\templates\includes\header.html:28
+#: .\templates\includes\header.html:29
 msgid "no_user"
 msgstr "No Username"
 
-#: .\templates\includes\header.html:35
+#: .\templates\includes\header.html:36 .\templates\users\profile.html:4
+#: .\templates\users\profile.html:7
 msgid "my_profile"
 msgstr "My profile"
 
-#: .\templates\includes\header.html:38
+#: .\templates\includes\header.html:39
 msgid "admin_panel"
 msgstr "Admin panel"
 
-#: .\templates\includes\header.html:42
+#: .\templates\includes\header.html:43
 msgid "exit"
 msgstr "Exit"
 
-#: .\templates\includes\header.html:47 .\templates\users\login.html:14
+#: .\templates\includes\header.html:48 .\templates\users\login.html:14
 msgid "sign_in"
 msgstr "Sign in"
 
-#: .\templates\includes\header.html:53
+#: .\templates\includes\header.html:55
 msgid "theme"
 msgstr "Theme"
 
-#: .\templates\includes\header.html:58
+#: .\templates\includes\header.html:60
 msgid "light"
 msgstr "Light"
 
-#: .\templates\includes\header.html:63
+#: .\templates\includes\header.html:65
 msgid "dark"
 msgstr "Dark"
 
-#: .\templates\includes\header.html:68
+#: .\templates\includes\header.html:70
 msgid "auto"
 msgstr "Auto"
 
-#: .\templates\includes\user_form.html:33
+#: .\templates\includes\user_form.html:50
 msgid "dont_have_account_yet"
 msgstr "Don't have an account yet?"
 
-#: .\templates\includes\user_form.html:33
+#: .\templates\includes\user_form.html:50
 msgid "create_it"
 msgstr "Create it!"
 
-#: .\templates\includes\user_form.html:34
+#: .\templates\includes\user_form.html:51
 msgid "forgot_password"
 msgstr "Forgot your password?"
 
 #: .\templates\redirect\redirect.html:4
 msgid "redirect_page"
 msgstr "Redirection"
+
+#: .\templates\users\confirm_email.html:5
+#: .\templates\users\confirm_email.html:11
+#: .\templates\users\confirm_email_from_sent.html:7
+#: .\templates\users\confirm_email_from_sent.html:13
+msgid "email_confirmation"
+msgstr "Confirm your email"
+
+#: .\templates\users\confirm_email.html:12
+msgid "email_confirmation_description"
+msgstr ""
+"We have sent an email to you for verification. Follow the link provided to "
+"finalize the signup process. If you do not see the verification email in "
+"your main inbox, check your spam folder. Please contact us if you do not "
+"receive the verification email within a few minutes."
+
+#: .\templates\users\confirm_email_from_sent.html:21
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
+"address for user %(user_display)s."
+msgstr ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
+"address for user <strong>%(user_display)s</strong>."
+
+#: .\templates\users\confirm_email_from_sent.html:29
+msgid "Confirm"
+msgstr "Confirm"
+
+#: .\templates\users\confirm_email_from_sent.html:36
+#, python-format
+msgid ""
+"Unable to confirm %(email)s because it is already confirmed by a different "
+"account."
+msgstr ""
+"Unable to confirm %(email)s because it is already confirmed by a different "
+"account."
+
+#: .\templates\users\confirm_email_from_sent.html:42
+#, python-format
+msgid ""
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
+msgstr ""
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
+
+#: .\templates\users\email_change.html:8
+msgid "email_change"
+msgstr "Confirm your email"
+
+#: .\templates\users\email_change.html:17
+#: .\templates\users\email_change.html:20
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\users\email_change.html:28
+msgid "Re-send Verification"
+msgstr "Re-send Verification"
+
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "Cancel"
+
+#: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
+msgid "change_email"
+msgstr "Changing the email"
 
 #: .\templates\users\login.html:5
 msgid "authorization"
@@ -257,7 +434,7 @@ msgstr "Logout"
 msgid "password_change"
 msgstr "Password change"
 
-#: .\templates\users\password_change.html:14
+#: .\templates\users\password_change.html:14 .\templates\users\profile.html:24
 msgid "change_password"
 msgstr "Change password"
 
@@ -265,7 +442,7 @@ msgstr "Change password"
 msgid "password_changed"
 msgstr "Password changed"
 
-#: .\templates\users\password_change_done.html:10
+#: .\templates\users\password_change_done.html:11
 msgid "your_password_be_success_changed"
 msgstr "Your password has been successfully changed!"
 
@@ -285,7 +462,7 @@ msgstr "Recover"
 msgid "password_recovered"
 msgstr "Password recovered"
 
-#: .\templates\users\password_reset_complete.html:10
+#: .\templates\users\password_reset_complete.html:11
 msgid "password_reset_completed_success"
 msgstr "Password reset was completed successfully"
 
@@ -293,9 +470,13 @@ msgstr "Password reset was completed successfully"
 msgid "reset"
 msgstr "Reset"
 
-#: .\templates\users\password_reset_done.html:10
+#: .\templates\users\password_reset_done.html:11
 msgid "email_instructions_for_password_recove_sent"
 msgstr "An email with instructions for password recovery has been sent"
+
+#: .\templates\users\profile.html:21
+msgid "save"
+msgstr "Save"
 
 #: .\templates\users\signup.html:5
 msgid "registration"
@@ -309,13 +490,10 @@ msgstr "Welcome to Datanar!"
 msgid "register"
 msgstr "Register"
 
-#: .\users\forms.py:35
-msgid "email"
-msgstr "Email"
+#: .\users\models.py:21
+msgid "avatar"
+msgstr "Avatar"
 
-#: .\users\views.py:38
-msgid "activation_of_the_datanar_account"
-msgstr "Activation of the Datanar account"
-
-#~ msgid "copy_to_clipboard"
-#~ msgstr "Copy to clipboard"
+#: .\users\views.py:32
+msgid "username_is_already_taken"
+msgstr "A user with that username already exists"
