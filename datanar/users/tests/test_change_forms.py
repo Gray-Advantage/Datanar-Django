@@ -1,6 +1,5 @@
 import re
 
-from allauth.account.models import EmailAddress
 from django.core import mail
 from django.shortcuts import reverse
 from django.test import Client, override_settings, TestCase
