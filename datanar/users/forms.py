@@ -1,12 +1,11 @@
-from django import forms
+from allauth.account.forms import AddEmailForm
+from allauth.account.forms import ChangePasswordForm
+from allauth.account.forms import LoginForm
+from allauth.account.forms import ResetPasswordForm
+from allauth.account.forms import ResetPasswordKeyForm
+from allauth.account.forms import SignupForm
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth.forms import PasswordResetForm
-from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.auth.forms import UserChangeForm
-from django.contrib.auth.forms import UserCreationForm
-from django.utils.translation import gettext_lazy as _
 
 from core.forms import BootstrapFormMixin
 from users.models import User
@@ -15,61 +14,51 @@ from users.models import User
 class UserForm(BootstrapFormMixin, UserChangeForm):
     password = None
 
+    def __init__(self, *args, **kwargs):
+        super(UserForm, self).__init__(*args, **kwargs)
+        self.fields[User.email.field.name].widget.attrs["readonly"] = True
+        self.fields[User.email.field.name].widget.attrs["disabled"] = True
+
     class Meta(UserChangeForm.Meta):
         model = get_user_model()
 
         fields = [
             User.username.field.name,
-            User.first_name.field.name,
-            User.last_name.field.name,
             User.email.field.name,
-        ]
-        exclude = [User.password.field.name]
-
-
-class DatanarAuthenticationForm(BootstrapFormMixin, AuthenticationForm):
-    pass
-
-
-class DatanarUserCreationForm(BootstrapFormMixin, UserCreationForm):
-    email = forms.EmailField(label=_("email"))
-
-    class Meta(UserCreationForm.Meta):
-        model = get_user_model()
-
-        fields = [
-            User.username.field.name,
-            User.email.field.name,
-            "password1",
-            "password2",
+            User.avatar.field.name,
         ]
 
-    def clean_username(self):
-        username = self.cleaned_data["username"]
-        try:
-            get_user_model().objects.get(username=username)
-        except get_user_model().DoesNotExist:
-            return username
-        raise forms.ValidationError(self.error_messages["duplicate_username"])
 
-
-class DatanarPasswordChangeForm(BootstrapFormMixin, PasswordChangeForm):
+class DatanarEmailForm(BootstrapFormMixin, AddEmailForm):
     pass
 
 
-class DatanarPasswordResetForm(BootstrapFormMixin, PasswordResetForm):
+class DatanarLoginForm(BootstrapFormMixin, LoginForm):
     pass
 
 
-class DatanarPasswordResetConfirmForm(BootstrapFormMixin, SetPasswordForm):
+class DatanarSignupForm(BootstrapFormMixin, SignupForm):
+    pass
+
+
+class DatanarChangePasswordForm(BootstrapFormMixin, ChangePasswordForm):
+    pass
+
+
+class DatanarResetPasswordForm(BootstrapFormMixin, ResetPasswordForm):
+    pass
+
+
+class DatanarResetPasswordKeyForm(BootstrapFormMixin, ResetPasswordKeyForm):
     pass
 
 
 __all__ = [
     UserForm,
-    DatanarAuthenticationForm,
-    DatanarUserCreationForm,
-    DatanarPasswordChangeForm,
-    DatanarPasswordResetForm,
-    DatanarPasswordResetConfirmForm,
+    DatanarLoginForm,
+    DatanarEmailForm,
+    DatanarSignupForm,
+    DatanarChangePasswordForm,
+    DatanarResetPasswordForm,
+    DatanarResetPasswordKeyForm,
 ]

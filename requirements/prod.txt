@@ -1,4 +1,5 @@
 Django==4.2.7
+django-allauth==0.59.0
 django-ckeditor==6.7.0
 django-cleanup==8.0.0
 django-user-agents==0.4.0

@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from django.shortcuts import reverse
 from django.test import Client, TestCase
 
@@ -33,7 +35,7 @@ class PasswordBeforeRedirectTest(TestCase):
         response = Client().get(reverse("redirects:redirect", args=["secret"]))
         self.assertNotEqual(
             response.status_code,
-            302,
+            HTTPStatus.FOUND,
             "Ссылка с паролем делает редирект",
         )
 

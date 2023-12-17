@@ -24,28 +24,30 @@
           </select>
         </div>
       </form>
-      {% if request.user.is_authenticated %}
-        {% trans "no_user" as no_user %}
-        <div class="dropdown ms-2">
-          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="{% if request.user.profile.has_image %}{{ request.user.profile.image.url }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="rounded-circle" width="48" height="48">
-            <strong>{{ request.user.username|default:no_user }}</strong>
+      {% if request.resolver_match.view_name == 'users:profile' or request.resolver_match.app_name != 'users' %}
+        {% if request.user.is_authenticated %}
+          {% trans "no_user" as no_user %}
+          <div class="dropdown ms-2">
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{% if request.user.has_avatar is not None %}{{ request.user.avatar.url }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="rounded-circle" width="48" height="48">
+              <strong>{{ request.user.username|default:no_user }}</strong>
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" href="{% url 'users:profile' %}">{% trans "my_profile" %}</a></li>
+              {% if request.user.is_staff %}
+                <li><a href="{% url 'admin:index' %}" class="dropdown-item">
+                  {% trans "admin_panel" %}
+                </a></li>
+              {% endif %}
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'account_logout' %}">{% trans "exit" %}</a></li>
+            </ul>
+          </div>
+        {% else %}
+          <a href="{% url 'account_login' %}" class="btn btn-outline-dark ms-2">
+            {% trans "sign_in" %}
           </a>
-          <ul class="dropdown-menu text-small" style="">
-            <li><a class="dropdown-item" >{% trans "my_profile" %}</a></li>
-            {% if request.user.is_staff %}
-              <li><a href="{% url 'admin:index' %}" class="dropdown-item">
-                {% trans "admin_panel" %}
-              </a></li>
-            {% endif %}
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{% url 'users:logout' %}">{% trans "exit" %}</a></li>
-          </ul>
-        </div>
-      {% else %}
-        <a href="{% url 'users:login' %}" class="btn btn-outline-primary ms-2">
-          {% trans "sign_in" %}
-        </a>
+        {% endif %}
       {% endif %}
       <li class="nav-item dropdown">
             <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle show" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (dark)">

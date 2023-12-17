@@ -5,14 +5,13 @@ from django.urls import include, path
 
 urlpatterns = [
     path("", include("homepage.urls")),
-    path("", include("redirects.urls")),
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
     path("auth/", include("users.urls")),
-    path("auth/", include("django.contrib.auth.urls")),
+    path("auth/", include("allauth.urls")),
     path("qr_code/", include("qr_codes.urls")),
+    path("", include("redirects.urls")),
 ]
-
 if settings.DEBUG:
     import debug_toolbar
 

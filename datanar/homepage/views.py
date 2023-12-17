@@ -25,7 +25,7 @@ class HomeView(FormView):
 
         messages.add_message(
             self.request,
-            messages.SUCCESS,
+            messages.INFO,
             redirect.short_link,
         )
 

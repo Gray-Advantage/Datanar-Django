@@ -1,59 +1,46 @@
-from django.conf import settings
-from django.contrib.auth import get_user_model
-from django.core.mail import send_mail
-from django.shortcuts import redirect
-from django.urls import reverse, reverse_lazy
-from django.utils import timezone
+from django.contrib.auth import views
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import FormView
-from django.views.generic.base import View
+from django.views.generic.edit import FormView
 
-from users import forms
+from users.forms import UserForm
 from users.models import User
 
 
-class SignUpView(FormView):
-    template_name = "users/signup.html"
-    form_class = forms.DatanarUserCreationForm
-    success_url = reverse_lazy("homepage:home")
-    model = User
+class AccountView(LoginRequiredMixin, FormView):
+    template_name = "users/profile.html"
+    form_class = UserForm
 
-    def form_valid(self, form):
-        user = User.objects.create_user(
-            username=form.cleaned_data["username"],
-            email=form.cleaned_data["email"],
-            password=form.cleaned_data["password1"],
-            is_active=settings.DEFAULT_USER_IS_ACTIVE,
-        )
+    def get_initial(self):
+        return {
+            "username": self.request.user.username,
+            "email": self.request.user.email,
+            "avatar": self.request.user.avatar,
+        }
 
-        activation_url = self.request.build_absolute_uri(
-            reverse(
-                "users:activate",
-                args=[form.cleaned_data["username"]],
-            ),
-        )
+    def post(self, request, *args, **kwargs):
+        post = request.POST.copy()
+        post["email"] = request.user.email
+        user_form = UserForm(post, request.FILES, instance=request.user)
+        new_username = user_form.cleaned_data.get("username")
 
-        if user.is_active is False:
-            send_mail(
-                _("activation_of_the_datanar_account"),
-                (
-                    f'{_("activate_your_account_12_hours_following_link")}'
-                    "\n\n"
-                    f"{activation_url}"
-                ),
-                None,
-                [form.cleaned_data["email"]],
-            )
-        return super().form_valid(form)
+        if new_username != request.user.username:
+            if user_form.is_valid():
+                if User.objects.filter(username=new_username).exists():
+                    user_form.add_error(
+                        "username",
+                        _("username_is_already_taken"),
+                    )
+        elif user_form.is_valid():
+            user_form.save()
+            return redirect("users:profile")
+
+        return render(request, "users/profile.html", {"form": user_form})
 
 
-class ActivateView(View):
-    def get(self, request, username):
-        user = get_user_model().objects.get(username=username)
-        if timezone.now() < user.date_joined + timezone.timedelta(hours=12):
-            user.is_active = True
-            user.save()
-        return redirect("homepage:home")
+class PasswordChangeDoneView(views.PasswordChangeDoneView):
+    pass
 
 
-__all__ = [SignUpView, ActivateView]
+__all__ = [AccountView, PasswordChangeDoneView]

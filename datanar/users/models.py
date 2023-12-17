@@ -3,6 +3,7 @@ from django.contrib.auth.models import (
     UserManager as DjangoUserManager,
 )
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class UserManager(DjangoUserManager):
@@ -15,7 +16,16 @@ class UserManager(DjangoUserManager):
 
 class User(AbstractUser):
     objects = UserManager()
-    email = models.EmailField(unique=True)
+
+    avatar = models.ImageField(
+        _("avatar"),
+        upload_to="avatars/",
+        null=True,
+        blank=True,
+    )
+
+    def has_avatar(self):
+        return self.avatar.url is None
 
 
 __all__ = [User]
