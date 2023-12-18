@@ -48,7 +48,7 @@
     <div class="list-group gap-2 ms-auto me-auto">
       {% for message in messages %}
         {% if message.level == 42 %}
-          {% include "includes/link_card.html" with message=message %}
+          {% include "includes/link_card.html" with link=message %}
         {% endif %}
       {% endfor %}
     </div>

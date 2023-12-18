@@ -26,6 +26,10 @@
           element.classList.remove('btn-outline-dark');
           element.classList.add('btn-outline-light');
       });
+      document.querySelectorAll('.btn-dark').forEach(element => {
+          element.classList.remove('btn-dark');
+          element.classList.add('btn-light');
+      });
     } else {
       document.documentElement.setAttribute('data-bs-theme', theme);
 
@@ -34,10 +38,18 @@
           element.classList.remove('btn-outline-dark');
           element.classList.add('btn-outline-light');
         });
+        document.querySelectorAll('.btn-dark').forEach(element => {
+          element.classList.remove('btn-dark');
+          element.classList.add('btn-light');
+        });
       } else {
         document.querySelectorAll('.btn-outline-light').forEach(element => {
           element.classList.remove('btn-outline-light');
           element.classList.add('btn-outline-dark');
+        });
+        document.querySelectorAll('.btn-light').forEach(element => {
+          element.classList.remove('btn-light');
+          element.classList.add('btn-dark');
         });
       }
     }

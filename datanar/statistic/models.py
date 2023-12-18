@@ -1,10 +1,38 @@
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from redirects import models as redirects_models
 
 
+class ClickManager(models.Manager):
+    def for_short_link_by_all_time(self, short_link):
+        return (
+            self.get_queryset()
+            .filter(redirect__short_link=short_link)
+            .prefetch_related("redirect")
+            .only("browser", "city", "country", "redirect_id", "os")
+        )
+
+    def for_short_link_by_last_year(self, short_link):
+        return self.for_short_link_by_all_time(short_link).filter(
+            clicked_at__gte=timezone.now() - timezone.timedelta(days=365),
+        )
+
+    def for_short_link_by_last_month(self, short_link):
+        return self.for_short_link_by_all_time(short_link).filter(
+            clicked_at__gte=timezone.now() - timezone.timedelta(days=30),
+        )
+
+    def for_short_link_by_last_day(self, short_link):
+        return self.for_short_link_by_all_time(short_link).filter(
+            clicked_at__gte=timezone.now() - timezone.timedelta(days=1),
+        )
+
+
 class Click(models.Model):
+    objects = ClickManager()
+
     clicked_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name=_("redirect_time"),
@@ -25,7 +53,6 @@ class Click(models.Model):
     )
     country = models.TextField(verbose_name=_("country"), null=True)
     city = models.TextField(verbose_name=_("city"), null=True)
-    referrer = models.TextField(null=True)
 
 
 __all__ = [Click]

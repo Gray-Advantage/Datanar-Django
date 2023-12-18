@@ -14,7 +14,6 @@ class ClickInline(admin.TabularInline):
         statistic_models.Click.city.field.name,
         statistic_models.Click.os.field.name,
         statistic_models.Click.browser.field.name,
-        statistic_models.Click.referrer.field.name,
     )
 
 

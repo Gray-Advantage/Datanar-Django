@@ -16,13 +16,9 @@
 
 
 {% block content %}
-
-  {% if messages %}
-      <div class="row mt-3">
-        {% for message in messages %}
-          {% include "includes/link_card.html" with message=message %}
-        {% endfor %}
-      </div>
-  {% endif %}
-
+  <div class="list-group gap-2 ms-auto me-auto">
+    {% for link in links %}
+      {% include "includes/link_card.html" with link=link %}
+    {% endfor %}
+  </div>
 {% endblock %}

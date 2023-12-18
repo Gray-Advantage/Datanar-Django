@@ -50,7 +50,7 @@
           {% trans "no_user" as no_user %}
           <div class="dropdown ms-2">
             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{% if request.user.profile.has_image %}{{ request.user.profile.image.url }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="rounded-circle" width="48" height="48">
+              <img src="{% if request.user.has_avatar %}{{ request.user.avatar.url }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="rounded-circle" width="48" height="48">
               <strong>{{ request.user.username|default:no_user }}</strong>
             </a>
             <ul class="dropdown-menu text-small" style="">

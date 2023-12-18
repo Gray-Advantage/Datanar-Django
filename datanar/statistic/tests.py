@@ -7,19 +7,22 @@ class ContextContentTest(TestCase):
 
     def test_my_links_context(self):
         client = Client()
-        client.login(username="bzorn", password="89884608152")
+        client.login(username="TestUser", password="qscdewazx")
+
         url = reverse("statistic:my_links")
         response = client.get(url)
+
         self.assertEqual(response.status_code, 200)
+
         self.assertQuerysetEqual(
-            response.context["messages"],
+            response.context["links"],
             [
-                "tersf",
-                "dfffdfdf",
-                "fdsfsdf",
-                "dfdfdfdfd",
-                "fdfdfdfd",
-                "ghghghghg",
+                "short_AAA",
+                "short_BBB",
+                "short_CCC",
+                "short_DDD",
+                "short_EEE",
+                "short_FFF",
             ],
         )
 
