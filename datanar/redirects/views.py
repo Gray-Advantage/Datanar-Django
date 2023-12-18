@@ -57,7 +57,6 @@ class RedirectView(View):
             browser=self.request.user_agent.browser.family,
             country=country,
             city=city,
-            referrer=self.request.META.get("HTTP_REFERER", None),
         )
 
         return HttpResponseRedirect(redirect.long_link)

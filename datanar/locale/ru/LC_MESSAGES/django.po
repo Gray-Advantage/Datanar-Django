@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-17 10:28+0300\n"
+"POT-Creation-Date: 2023-12-18 05:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,7 @@ msgid "custom_url_already_use"
 msgstr ""
 "Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
 
-#: .\redirects\forms.py:123
+#: .\redirects\forms.py:123 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Пароль"
 
@@ -125,33 +125,53 @@ msgstr "перенаправления"
 msgid "invalid_password"
 msgstr "Пароль не верный"
 
-#: .\statistic\models.py:10
+#: .\statistic\models.py:38
 msgid "redirect_time"
 msgstr "Время перенаправления"
 
-#: .\statistic\models.py:17
+#: .\statistic\models.py:45
 msgid "os"
 msgstr "ос"
 
-#: .\statistic\models.py:18
+#: .\statistic\models.py:46
 msgid "operating_system_from_which_redirect_was_made"
 msgstr "Операционная система с которой совершен переход"
 
-#: .\statistic\models.py:22
+#: .\statistic\models.py:50
 msgid "browser"
 msgstr "браузер"
 
-#: .\statistic\models.py:23
+#: .\statistic\models.py:51
 msgid "browser_from_which_redirect_was_made"
 msgstr "Браузер с которого совершен переход"
 
-#: .\statistic\models.py:26
+#: .\statistic\models.py:54
 msgid "country"
 msgstr "страна"
 
-#: .\statistic\models.py:27
+#: .\statistic\models.py:55
 msgid "city"
 msgstr "город"
+
+#: .\statistic\views.py:78
+msgid "Created"
+msgstr "Создан"
+
+#: .\statistic\views.py:78 .\templates\statistic\link_detail.html:61
+msgid "OS"
+msgstr "ОС"
+
+#: .\statistic\views.py:78
+msgid "Browser"
+msgstr "Браузер"
+
+#: .\statistic\views.py:78
+msgid "Country"
+msgstr "Страна"
+
+#: .\statistic\views.py:78
+msgid "City"
+msgstr "Город"
 
 #: .\templates\404.html:5
 msgid "oops"
@@ -347,7 +367,7 @@ msgstr "Войти"
 msgid "copy"
 msgstr "Скопировать"
 
-#: .\templates\includes\link_card.html:12
+#: .\templates\includes\link_card.html:13
 msgid "statistic"
 msgstr "Статистика"
 
@@ -366,6 +386,79 @@ msgstr "Забыли пароль?"
 #: .\templates\redirect\redirect.html:4
 msgid "redirect_page"
 msgstr "Перенаправление"
+
+#: .\templates\statistic\link_detail.html:5
+msgid "title__link_detail"
+msgstr "Ссылка - статистика"
+
+#: .\templates\statistic\link_detail.html:15
+msgid "link"
+msgstr "Ссылка"
+
+#: .\templates\statistic\link_detail.html:16
+msgid "original"
+msgstr "Оригинал"
+
+#: .\templates\statistic\link_detail.html:20
+msgid "сreated"
+msgstr "Создана"
+
+#: .\templates\statistic\link_detail.html:21
+msgid "transitions_are_available"
+msgstr "Переходов доступно"
+
+#: .\templates\statistic\link_detail.html:22
+msgid "valid_for_days"
+msgstr "Валидна дней"
+
+#: .\templates\statistic\link_detail.html:29
+#: .\templates\statistic\link_detail.html:30
+msgid "unlimited"
+msgstr "Неограниченно"
+
+#: .\templates\statistic\link_detail.html:31
+msgid "absent"
+msgstr "Отсутствует"
+
+#: .\templates\statistic\link_detail.html:36
+msgid "statistics_for"
+msgstr "Статистика за"
+
+#: .\templates\statistic\link_detail.html:37
+msgid "day"
+msgstr "день"
+
+#: .\templates\statistic\link_detail.html:38
+msgid "month"
+msgstr "месяц"
+
+#: .\templates\statistic\link_detail.html:39
+msgid "year"
+msgstr "год"
+
+#: .\templates\statistic\link_detail.html:40
+msgid "all_time"
+msgstr "всё время"
+
+#: .\templates\statistic\link_detail.html:42
+msgid "total_number_of_clicks_during_the_period"
+msgstr "Общее количество переходов за период"
+
+#: .\templates\statistic\link_detail.html:47
+msgid "Browsers"
+msgstr "Браузеры"
+
+#: .\templates\statistic\link_detail.html:75
+msgid "Countries"
+msgstr "Страны"
+
+#: .\templates\statistic\link_detail.html:89
+msgid "Cities"
+msgstr "Города"
+
+#: .\templates\statistic\link_detail.html:101
+msgid "download_statistics_for_the_period"
+msgstr "Скачать статистика за период"
 
 #: .\templates\statistic\my_links.html:5
 msgid "title__my_links"

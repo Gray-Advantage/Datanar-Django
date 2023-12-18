@@ -25,7 +25,7 @@ class User(AbstractUser):
     )
 
     def has_avatar(self):
-        return self.avatar.url is None
+        return self.avatar and self.avatar.url is not None
 
 
 __all__ = [User]

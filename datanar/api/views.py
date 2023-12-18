@@ -54,7 +54,7 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         redirect.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    def create(self, request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):  # noqa: CFQ004
         if request.data.get("long_link") is None:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         serializer_data = {}

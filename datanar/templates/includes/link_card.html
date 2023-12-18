@@ -2,25 +2,27 @@
 {% load i18n %}
 
 
-<div class="d-flex border rounded-3 mt-5">
+<div class="d-flex border rounded-3 mt-2">
   <div class="flex-grow-1 p-3 d-flex flex-column">
     <div class="d-flex">
-      {% include 'svg/link.svg' %}<a href="{% url 'redirects:redirect' message %}" target="_blank" class="h5"><strong>{{ request.get_host }}/{{ message }}</strong></a>
+      {% include 'svg/link.svg' %}<a href="{% url 'redirects:redirect' link %}" target="_blank" class="h5"><strong>{{ request.get_host }}/{{ link }}</strong></a>
     </div>
     <div class="mt-1">
-      <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.get_host }}/{{ message }}/">{% trans "copy" %}</button>
-      <a class="btn btn-outline-dark" href="/{{ message }}/">{% trans "statistic" %}</a>
+      <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.get_host }}/{{ link }}/">{% trans "copy" %}</button>
+      {% if request.user.is_authenticated %}
+        <a class="btn btn-outline-dark" href="{% url 'statistic:link_detail' link "all_time" %}">{% trans "statistic" %}</a>
+      {% endif %}
     </div>
   </div>
   <div class="vr h-auto"></div>
   <div>
     <div class="position-relative">
-      <img id="qrImage" class="img-fluid rounded-end" src="{% url 'qr_code:preview' message %}" height="105" width="105" alt="qr_code">
+      <img id="qrImage" class="img-fluid rounded-end" src="{% url 'qr_code:preview' link %}" height="105" width="105" alt="qr_code">
       <div class="overlay p-2 position-absolute border rounded-3 translate-middle">
         <div class="d-flex">
-          <a href="{% url 'qr_code:download' 'svg' message %}" class="btn btn-outline-dark">SVG</a>
-          <a href="{% url 'qr_code:download' 'jpg' message %}" class="ms-1 btn btn-outline-dark">JPG</a>
-          <a href="{% url 'qr_code:download' 'png' message %}" class="ms-1 btn btn-outline-dark">PNG</a>
+          <a href="{% url 'qr_code:download' 'svg' link %}" class="btn btn-outline-dark">SVG</a>
+          <a href="{% url 'qr_code:download' 'jpg' link %}" class="ms-1 btn btn-outline-dark">JPG</a>
+          <a href="{% url 'qr_code:download' 'png' link %}" class="ms-1 btn btn-outline-dark">PNG</a>
         </div>
       </div>
     </div>

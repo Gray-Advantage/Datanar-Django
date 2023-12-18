@@ -49,6 +49,7 @@
 
 ### Используемые фреймворки / библиотеки
 - [Bootstrap](https://getbootstrap.com/)
+- [Chart.js](https://www.chartjs.org/)
 - [DB-IP](https://db-ip.com)
 - [Django](https://www.djangoproject.com/)
 - [Segno](https://github.com/heuer/segno/)

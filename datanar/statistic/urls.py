@@ -6,4 +6,14 @@ app_name = "statistic"
 
 urlpatterns = [
     path("my_links/", views.MyLinksView.as_view(), name="my_links"),
+    path(
+        "my_links/<link>/<period>/",
+        views.LinkDetailView.as_view(),
+        name="link_detail",
+    ),
+    path(
+        "download/<link>/<period>/",
+        views.DownloadStatistic.as_view(),
+        name="download",
+    ),
 ]
