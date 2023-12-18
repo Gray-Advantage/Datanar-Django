@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-18 05:18+0300\n"
+"POT-Creation-Date: 2023-12-18 18:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,23 +153,23 @@ msgstr "страна"
 msgid "city"
 msgstr "город"
 
-#: .\statistic\views.py:78
+#: .\statistic\views.py:84
 msgid "Created"
 msgstr "Создан"
 
-#: .\statistic\views.py:78 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:85 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "ОС"
 
-#: .\statistic\views.py:78
+#: .\statistic\views.py:86
 msgid "Browser"
 msgstr "Браузер"
 
-#: .\statistic\views.py:78
+#: .\statistic\views.py:87
 msgid "Country"
 msgstr "Страна"
 
-#: .\statistic\views.py:78
+#: .\statistic\views.py:88
 msgid "City"
 msgstr "Город"
 
@@ -310,9 +310,54 @@ msgstr ""
 msgid "shorten"
 msgstr "Сократить"
 
-#: .\templates\includes\footer.html:5
+#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:5
 msgid "service_rules"
 msgstr "Правила сервиса"
+
+#: .\templates\homepage\service_rules.html:14
+msgid "datanar_rules"
+msgstr "Правила Сервиса Datanar"
+
+#: .\templates\homepage\service_rules.html:15
+msgid "welcome_service_rules"
+msgstr ""
+"Добро пожаловать на сервис сокращения ссылок Datanar. Используя наши услуги, "
+"вы автоматически соглашаетесь с нашими правилами. Пожалуйста, внимательно "
+"ознакомьтесь с ними."
+
+#: .\templates\homepage\service_rules.html:17
+msgid "rule_1"
+msgstr ""
+"1. Для создания учетной записи мы собираем электронную почту, логин и пароль "
+"пользователя. Мы уважаем вашу конфиденциальность. Все личные данные "
+"используются исключительно для управления вашей учетной записью и не "
+"передаются третьим лицам."
+
+#: .\templates\homepage\service_rules.html:18
+msgid "rule_2"
+msgstr ""
+"2. Мы прилагаем все возможные меры безопасности для защиты ваших данных. Ваш "
+"пароль хранятся в зашифрованном виде. Рекомендуем использовать сложные "
+"пароли и не делиться ими с другими."
+
+#: .\templates\homepage\service_rules.html:19
+msgid "rule_3"
+msgstr ""
+"3. При использовании наших услуг запрещено осуществлять действия, нарушающие "
+"закон, или использовать сервис способами, которые могут причинить вред "
+"другим пользователям или третьим лицам."
+
+#: .\templates\homepage\service_rules.html:20
+msgid "rule_4"
+msgstr ""
+"4. Мы оставляем за собой право вносить изменения в наши условия "
+"использования. При важных изменениях мы уведомим вас."
+
+#: .\templates\homepage\service_rules.html:22
+msgid "service_rules_thanks_for_choosing_us"
+msgstr ""
+"Спасибо за выбор Datanar! Мы ценим ваше доверие и стремимся предоставить вам "
+"удобный и безопасный сервис сокращения ссылок."
 
 #: .\templates\includes\footer.html:6
 msgid "about"
