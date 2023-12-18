@@ -6,5 +6,9 @@ app_name = "homepage"
 
 urlpatterns = [
     path("", views.HomeView.as_view(), name="home"),
-    path("service_rules", views.ServiceRulesView.as_view(), name="service_rules"),
+    path(
+        "service_rules",
+        views.ServiceRulesView.as_view(),
+        name="service_rules",
+    ),
 ]
