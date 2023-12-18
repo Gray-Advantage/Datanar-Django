@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic import FormView
+from django.views.generic.base import TemplateView
 
 from redirects.forms import RedirectForm, RedirectFormExtended
 from redirects.models import Redirect
@@ -30,6 +31,10 @@ class HomeView(FormView):
         )
 
         return super().form_valid(form)
+
+
+class ServiceRulesView(TemplateView):
+    template_name = "homepage/service_rules.html"
 
 
 __all__ = [HomeView]
