@@ -3,6 +3,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from statistic.models import Click
+
 
 class RedirectManager(models.Manager):
     def get_by_short_link(self, short_link):
@@ -17,14 +19,17 @@ class RedirectManager(models.Manager):
             < timezone.now()
         ):
             all_good = False
-        if redirect.validity_clicks == 0:
+        if (
+            redirect.validity_clicks
+            and Click.objects.count_for_short_link(redirect.short_link)
+            >= redirect.validity_clicks
+        ):
             all_good = False
 
         if all_good:
             return redirect
 
         redirect.delete()
-        redirect.save()
 
         return None
 

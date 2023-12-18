@@ -2,10 +2,16 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from redirects import models as redirects_models
-
 
 class ClickManager(models.Manager):
+    def count_for_short_link(self, short_link):
+        return (
+            self.get_queryset()
+            .filter(redirect__short_link=short_link)
+            .prefetch_related("redirect")
+            .count()
+        )
+
     def for_short_link_by_all_time(self, short_link):
         return (
             self.get_queryset()
@@ -38,7 +44,7 @@ class Click(models.Model):
         verbose_name=_("redirect_time"),
     )
     redirect = models.ForeignKey(
-        redirects_models.Redirect,
+        "redirects.Redirect",
         on_delete=models.CASCADE,
     )
     os = models.TextField(
