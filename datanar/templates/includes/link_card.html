@@ -1,12 +1,11 @@
 {% load static %}
 {% load i18n %}
 
+
 <div class="d-flex border rounded-3 mt-2">
   <div class="flex-grow-1 p-3 d-flex flex-column">
     <div class="d-flex">
-      {% include 'svg/link.svg' %}<a href="{% url 'redirects:redirect' link %}" target="_blank" class="h5">
-        <strong class="d-block text-truncate link-card">{{ request.get_host }}/{{ link }}</strong>
-      </a>
+      {% include 'svg/link.svg' %}<a href="{% url 'redirects:redirect' link %}" target="_blank" class="h5"><strong>{{ request.get_host }}/{{ link }}</strong></a>
     </div>
     <div class="mt-1">
       <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.get_host }}/{{ link }}/">{% trans "copy" %}</button>
