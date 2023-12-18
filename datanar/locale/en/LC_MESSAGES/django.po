@@ -305,6 +305,34 @@ msgstr "Shorten"
 msgid "service_rules"
 msgstr "Service rules"
 
+#: .\templates\homepage\service_rules.html:14
+msgid "datanar_rules"
+msgstr "Datanar Service Rules"
+
+#: .\templates\homepage\service_rules.html:15
+msgid "welcome_service_rules"
+msgstr "Welcome to the Datanar link shortening service. By using our services, you automatically agree to our rules. Please take a moment to familiarize yourself with them."
+
+#: .\templates\homepage\service_rules.html:17
+msgid "rule_1"
+msgstr "1. To create an account, we collect the user's email, username, and password. We respect your privacy. All personal data is used solely to manage your account and is not disclosed to third parties."
+
+#: .\templates\homepage\service_rules.html:18
+msgid "rule_2"
+msgstr "2. We implement all possible security measures to protect your data. Your password is stored in encrypted form. We recommend using complex passwords and not sharing them with others."
+
+#: .\templates\homepage\service_rules.html:19
+msgid "rule_3"
+msgstr "3. Using our services, it is prohibited to engage in actions that violate the law or to use the service in ways that may cause harm to other users or third parties."
+
+#: .\templates\homepage\service_rules.html:20
+msgid "rule_4"
+msgstr "4. We reserve the right to make changes to our terms of use. In the case of significant changes, we will notify you."
+
+#: .\templates\homepage\service_rules.html:22
+msgid "service_rules_thanks_for_choosing_us"
+msgstr "Thank you for choosing Datanar! We appreciate your trust and strive to provide you with a convenient and secure link shortening service."
+
 #: .\templates\includes\footer.html:6
 msgid "about"
 msgstr "About"
