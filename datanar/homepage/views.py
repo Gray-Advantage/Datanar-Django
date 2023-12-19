@@ -17,11 +17,6 @@ class HomeView(FormView):
         return RedirectForm
 
     def form_valid(self, form):
-        file = self.request.FILES.get("file")
-
-        if file is not None:
-            print("File!!!")
-
         redirect = Redirect.objects.create(**form.cleaned_data)
 
         if self.request.user.is_authenticated:
@@ -36,7 +31,6 @@ class HomeView(FormView):
         )
 
         return super().form_valid(form)
-
 
 
 class ServiceRulesView(TemplateView):
