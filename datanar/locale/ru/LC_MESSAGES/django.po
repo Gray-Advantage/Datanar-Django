@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-18 18:37+0300\n"
+"POT-Creation-Date: 2023-12-19 06:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\datanar\settings.py:158
+#: .\datanar\settings.py:161
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:159
+#: .\datanar\settings.py:162
 msgid "Russian"
 msgstr "Русский"
 
@@ -55,69 +55,69 @@ msgstr "Пароль"
 msgid "password_before_redirect"
 msgstr "Введите пароль перед перенаправлением"
 
-#: .\redirects\models.py:38
+#: .\redirects\models.py:43
 msgid "user"
 msgstr "пользователь"
 
-#: .\redirects\models.py:39
+#: .\redirects\models.py:44
 msgid "user_who_create_bond"
 msgstr "Пользователь, который создал связь меж короткой и длинной ссылкой."
 
-#: .\redirects\models.py:43
+#: .\redirects\models.py:48
 msgid "short_link"
 msgstr "короткая ссылка"
 
-#: .\redirects\models.py:44
+#: .\redirects\models.py:49
 msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
 "Сокращённая ссылка, по которой будет совершенно перенаправление на конечный "
 "ресурс."
 
-#: .\redirects\models.py:49
+#: .\redirects\models.py:54
 msgid "long_link"
 msgstr "длинная ссылка"
 
-#: .\redirects\models.py:50
+#: .\redirects\models.py:55
 msgid "resource_to_which_short_link_lead"
 msgstr "Конечный ресурс, до которого будет вести короткая ссылка."
 
-#: .\redirects\models.py:54
+#: .\redirects\models.py:59
 msgid "creation_time"
 msgstr "время создания"
 
-#: .\redirects\models.py:55
+#: .\redirects\models.py:60
 msgid "when_bond_was_create"
 msgstr "Когда было создана связь меж короткой и длинной ссылкой."
 
-#: .\redirects\models.py:59
+#: .\redirects\models.py:64
 msgid "password"
 msgstr "пароль"
 
-#: .\redirects\models.py:60
+#: .\redirects\models.py:65
 msgid "password_that_will_requested_to_redirect"
 msgstr "Пароль, который будет запрашиваться перед перенаправлением."
 
-#: .\redirects\models.py:66
+#: .\redirects\models.py:71
 msgid "valid_day_number"
 msgstr "валидное количество дней"
 
-#: .\redirects\models.py:67
+#: .\redirects\models.py:72
 msgid "how_many_day_link_will_be_valid"
 msgstr "Сколько дней будет валидна ссылка перед её удалением"
 
-#: .\redirects\models.py:73
+#: .\redirects\models.py:78
 msgid "valid_click_number"
 msgstr "валидное количество переходов"
 
-#: .\redirects\models.py:74
+#: .\redirects\models.py:79
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "Сколько переходов можно совершить по ссылке перед её удалением."
 
-#: .\redirects\models.py:81 .\redirects\models.py:85
+#: .\redirects\models.py:86 .\redirects\models.py:90
 msgid "redirect"
 msgstr "перенаправление"
 
-#: .\redirects\models.py:82
+#: .\redirects\models.py:87
 msgid "redirects"
 msgstr "перенаправления"
 
@@ -125,31 +125,31 @@ msgstr "перенаправления"
 msgid "invalid_password"
 msgstr "Пароль не верный"
 
-#: .\statistic\models.py:38
+#: .\statistic\models.py:44
 msgid "redirect_time"
 msgstr "Время перенаправления"
 
-#: .\statistic\models.py:45
+#: .\statistic\models.py:51
 msgid "os"
 msgstr "ос"
 
-#: .\statistic\models.py:46
+#: .\statistic\models.py:52
 msgid "operating_system_from_which_redirect_was_made"
 msgstr "Операционная система с которой совершен переход"
 
-#: .\statistic\models.py:50
+#: .\statistic\models.py:56
 msgid "browser"
 msgstr "браузер"
 
-#: .\statistic\models.py:51
+#: .\statistic\models.py:57
 msgid "browser_from_which_redirect_was_made"
 msgstr "Браузер с которого совершен переход"
 
-#: .\statistic\models.py:54
+#: .\statistic\models.py:60
 msgid "country"
 msgstr "страна"
 
-#: .\statistic\models.py:55
+#: .\statistic\models.py:61
 msgid "city"
 msgstr "город"
 
@@ -300,15 +300,31 @@ msgstr ""
 msgid "title__homepage"
 msgstr "Datanar - Сокращение ссылок"
 
-#: .\templates\homepage\main.html:22
+#: .\templates\homepage\main.html:25
 msgid "short_description_under_logo"
 msgstr ""
 "Сократите свою ссылку, чтобы вашим клиентам не пришлось видеть длинные url-"
 "адреса."
 
-#: .\templates\homepage\main.html:33
+#: .\templates\homepage\main.html:34
+msgid "label_link_file"
+msgstr "Выбран файл с ссылками"
+
+#: .\templates\homepage\main.html:37
+msgid "delete_file"
+msgstr "Удалить файл"
+
+#: .\templates\homepage\main.html:38
 msgid "shorten"
 msgstr "Сократить"
+
+#: .\templates\homepage\main.html:52
+msgid "message_error_count"
+msgstr "Пожалуйста, перетащите только один файл."
+
+#: .\templates\homepage\main.html:53
+msgid "message_error_type"
+msgstr "Пожалуйста, перетащите файл с расширением .xlsx или .txt."
 
 #: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:5
 msgid "service_rules"
@@ -408,11 +424,11 @@ msgstr "Выйти"
 msgid "sign_in"
 msgstr "Войти"
 
-#: .\templates\includes\link_card.html:11
+#: .\templates\includes\link_card.html:12
 msgid "copy"
 msgstr "Скопировать"
 
-#: .\templates\includes\link_card.html:13
+#: .\templates\includes\link_card.html:14
 msgid "statistic"
 msgstr "Статистика"
 
