@@ -11,4 +11,9 @@ urlpatterns = [
         views.ServiceRulesView.as_view(),
         name="service_rules",
     ),
+    path(
+        "about",
+        views.AboutView.as_view(),
+        name="about",
+    ),
 ]

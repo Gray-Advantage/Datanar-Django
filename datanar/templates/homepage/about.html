@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "about" %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link href="{% static 'css/homepage/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<h3 class="text-justify">Datanar - это веб-сервис по сокращению ссылок. С нашим сайтом вы легко можете сократить длинные url-адреса, делая их более удобными и простыми в использовании.</h3>
+<br>
+<h5 class="text-justify">С Datanar вы можете:</h5>
+<div class="d-flex">
+  <ul style="font-size:20px">
+    <li>Сократить ссылку</li>
+    <li>Получить сразу сгенерированный QR-code</li>
+    <li>Указать свой собственный короткий url-адрес</li>
+    <li>Отслеживать статистику переходов по ссылке</li>
+    <li>Выгружать статистику в удобном формате</li>
+    <li>Установить пароль для сокращённой ссылки</li>
+    <li>Указывать до какой даты будет работать ссылка</li>
+    <li>Указывать сколько переходов можно совершить по ссылке</li>
+    <li>Связать свой сервис с нашим по API</li>
+  </ul>
+</div>
+<br>
+<h5 class="text-justify">Сайт сделан с использованием:</h5>
+<div class="d-flex">
+  <ul style="font-size:20px">
+    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+    <li><a href="https://www.chartjs.org/">Chart.js</a></li>
+    <li><a href="https://db-ip.com">DB-IP</a></li>
+    <li><a href="https://www.djangoproject.com/">Django</a></li>
+    <li><a href="https://github.com/heuer/segno/">Segno</a></li>
+    <li><a href="https://sqids.org/">Sqids</a></li>
+  </ul>
+</div>
+<br>
+<h5 class="text-justify">Разработчики - эти прекрасные люди:</h5>
+<br>
+<div class="d-flex" style="font-size:20px">
+  <img src="{% static 'img/for_readme/sergey.jpg' %}" alt="sergey" class="me-3 rounded-circle" width="48" height="48">
+  <p class="me-2 mt-2">Андреев Сергей</p><a href="https://t.me/Gray_Advantage" class="me-2 mt-2">@Gray_Advantage</a>
+</div>
+<br>
+<div class="d-flex" style="font-size:20px">
+  <img src="{% static 'img/for_readme/vladimir.jpg' %}" alt="vladimir" class="me-3 rounded-circle" width="48" height="48">
+  <p class="me-2 mt-2">Клименко Владимир</p><a href="https://t.me/brandonzorn" class="me-2 mt-2">@brandonzorn</a>
+</div>
+<br>
+<div class="d-flex" style="font-size:20px">
+  <img src="{% static 'img/for_readme/artem.jpg' %}" alt="artem" class="rounded-circle me-3" width="48" height="48">
+  <p class="me-2 mt-2">Третьяков Артем</p><a href="https://t.me/piper273" class="me-2 mt-2">@piper273</a>
+</div>
+<br>
+<div class="text-center mb-3" style="font-size:20px">
+  <a href="https://gitlab.crja72.ru/django_2023/projects/datanar"><img src="{% static 'img/gitlab-logo.jpg' %}" alt="gitlab" class="me-2">Проект на GitLab</a>
+</div>
+{% endblock %}
