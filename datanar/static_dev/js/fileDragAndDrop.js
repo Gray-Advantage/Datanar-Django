@@ -4,8 +4,10 @@ const fileInput = document.getElementById("id_links_file");
 const longLinklabelNormal = document.getElementById("longLinklabelNormal");
 const longLinklabelFile = document.getElementById("longLinklabelFile");
 const longLinkField = document.getElementById("id_long_link");
+const fileNameField = document.getElementById("fileNameField");
 const messageErrorType = document.getElementById("messageErrorType").innerText;
 const messageErrorCount = document.getElementById("messageErrorCount").innerText;
+const container = document.getElementById("firstContainer");
 let timer;
 
 if (fileInput.value === "") {
@@ -20,11 +22,19 @@ if (fileInput.value === "") {
 
 deleteFileButton.addEventListener("click", event => {
   fileInput.value = "";
+
   deleteFileButton.classList.add("d-none");
+
   longLinklabelFile.classList.add("d-none");
   longLinklabelNormal.classList.remove("d-none");
+
   longLinkField.value = "";
   longLinkField.readOnly = false;
+  longLinkField.classList.remove("d-none");
+  container.insertBefore(longLinkField, container.firstChild);
+
+  fileNameField.value = "";
+  fileNameField.classList.add("d-none");
 });
 
 dropZone.addEventListener("dragover", event => {
@@ -72,13 +82,27 @@ dropZone.addEventListener("drop", event => {
   }
 
   const reader = new FileReader();
-  reader.onload = function(event) {
+  reader.onload = event => {
     fileInput.files = files;
+
     deleteFileButton.classList.remove("d-none");
+
     longLinklabelFile.classList.remove("d-none");
     longLinklabelNormal.classList.add("d-none");
-    longLinkField.value = fileName;
+
+    fileNameField.value = fileName;
+    fileNameField.classList.remove("d-none");
+    container.insertBefore(fileNameField, container.firstChild);
+
+    longLinkField.value = "https://some.plug.domin.com";
     longLinkField.readOnly = true;
+    longLinkField.classList.add("d-none");
   }
   reader.readAsDataURL(file);
+});
+
+document.getElementById('mainForm').addEventListener('submit', function() {
+  if (fileInput.value) {
+    document.getElementById('id_long_link').value = 'https://example.domin.com';
+  }
 });

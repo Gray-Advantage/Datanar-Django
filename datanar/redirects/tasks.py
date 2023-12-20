@@ -1,19 +1,46 @@
 from pathlib import Path
 
+import openpyxl
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 from django.conf import settings
 
 from datanar.celery import app
-from redirects.forms import RedirectForm
+from redirects.forms import RedirectFormExtended
 from redirects.models import Redirect
 from users.models import User
 
+validator = URLValidator()
+
 
 def get_from_txt(file_txt):
-    return [line.rstrip() for line in file_txt.readlines() if line]
+    answer = []
+    for line in map(lambda x: x.lstrip().rstrip(), file_txt.readlines()):
+        try:
+            validator(line)
+            if line.count("http:") > 1 or line.count("https:") > 1:
+                raise ValidationError("")
+            answer.append(line)
+        except ValidationError:
+            pass
+    return answer
 
 
 def get_from_xlsx(file_xlsx):
-    return []
+    workbook = openpyxl.load_workbook(file_xlsx.name)
+    sheet = workbook.active
+    answer = []
+    for row in sheet.iter_rows(min_row=1, max_col=1, values_only=True):
+        if row[0]:
+            line = row[0].lstrip().rstrip()
+            try:
+                validator(line)
+                if line.count("http:") > 1 or line.count("https:") > 1:
+                    raise ValidationError("")
+                answer.append(line)
+            except ValidationError:
+                pass
+    return answer
 
 
 def get_links(file_path):
@@ -46,7 +73,8 @@ def create_redirects(data, user_id):
         elif second:
             del data["custom_url"]
             second = False
-        form = RedirectForm(data)
+        form = RedirectFormExtended(data)
+        del form.cleaned_data["links_file"]
         redirect = Redirect.objects.create(**form.cleaned_data)
         redirect.user = User.objects.get(id=user_id)
         redirect.save()

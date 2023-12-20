@@ -28,17 +28,23 @@
         <p>{% trans "short_description_under_logo" %}</p>
       </div>
     </div>
-    <form class="mt-5" method="post" enctype="multipart/form-data">
+    <form id="mainForm" class="mt-5" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {% for field in form %}
         <div class="form-group col-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 ms-auto me-auto">
           {% if forloop.first %}
             <label id="longLinklabelNormal" for="{{ field.id_for_label }}">{{ field.label }}</label>
             <label id="longLinklabelFile" class="d-none" for="{{ field.id_for_label }}">{% trans "label_link_file" %}</label>
-            <div class="input-group mb-2">
+            <div id="firstContainer" class="input-group mb-2">
               {{ field }}
+              <input id="fileNameField" type="text" class="form-control input-field d-none" readonly="">
               <button type="button" id="deleteFileButton" class="btn btn-outline-danger d-none">{% trans "delete_file" %}</button>
               <input type="submit" class="btn btn-outline-dark" value="{% trans 'shorten' %}">
+              {% if field.errors %}
+                <div class="invalid-feedback">
+                  {{ field.errors|first }}
+                </div>
+              {% endif %}
             </div>
           {% else %}
             {% if "d-none" not in field.field.widget.attrs.class %}

@@ -108,6 +108,11 @@ class RedirectFormExtended(RedirectForm):
 
         self.fields["links_file"].widget.attrs["class"] = "d-none"
 
+    def clean(self):
+        if self.cleaned_data["links_file"]:
+            self.cleaned_data["long_link"] = "https://some.url.com/"
+        return super().clean()
+
     class Meta(RedirectForm.Meta):
         fields = [
             Redirect.long_link.field.name,
