@@ -3,6 +3,7 @@ import hashlib
 from django.views.generic import TemplateView
 from rest_framework import mixins, status, viewsets
 from rest_framework.generics import get_object_or_404
+from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from sqids import Sqids
 
@@ -23,7 +24,8 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
             token = request.query_params.get("token")
         else:
             token = request.data.get("token")
-        user = user_models.User.objects.filter(username=token).first()
+        token_instance = Token.objects.filter(key=token).first()
+        user = token_instance.user if token_instance else None
         if request.user.is_authenticated and not user:
             return request.user
         return user
