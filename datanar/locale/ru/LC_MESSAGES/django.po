@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-20 21:08+0300\n"
+"POT-Creation-Date: 2023-12-18 18:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -300,7 +300,79 @@ msgstr ""
 msgid "title__homepage"
 msgstr "Datanar - Сокращение ссылок"
 
-#: .\templates\homepage\main.html:28
+#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
+msgid "about"
+msgstr "О проекте"
+
+#: .\templates\homepage\about.html:14
+msgid "about_beginning"
+msgstr "Datanar - это веб-сервис по сокращению ссылок. С нашим сайтом вы легко можете сократить длинные url-адреса, делая их более удобными и простыми в использовании."
+
+#: .\templates\homepage\about.html:16
+msgid "about_you_can_do"
+msgstr "С Datanar вы можете:"
+
+#: .\templates\homepage\about.html:19
+msgid "can_do_1"
+msgstr "Сократить ссылку"
+
+#: .\templates\homepage\about.html:20
+msgid "can_do_2"
+msgstr "Получить сразу сгенерированный QR-code"
+
+#: .\templates\homepage\about.html:21
+msgid "can_do_3"
+msgstr "Указать свой собственный короткий url-адрес"
+
+#: .\templates\homepage\about.html:22
+msgid "can_do_4"
+msgstr "Отслеживать статистику переходов по ссылке"
+
+#: .\templates\homepage\about.html:23
+msgid "can_do_5"
+msgstr "Выгружать статистику в удобном формате"
+
+#: .\templates\homepage\about.html:24
+msgid "can_do_6"
+msgstr "Установить пароль для сокращённой ссылки"
+
+#: .\templates\homepage\about.html:25
+msgid "can_do_7"
+msgstr "Указывать до какой даты будет работать ссылка"
+
+#: .\templates\homepage\about.html:26
+msgid "can_do_8"
+msgstr "Указывать сколько переходов можно совершить по ссылке"
+
+#: .\templates\homepage\about.html:27
+msgid "can_do_9"
+msgstr "Связать свой сервис с нашим по API"
+
+#: .\templates\homepage\about.html:31
+msgid "about_using"
+msgstr "Сайт сделан с использованием:"
+
+#: .\templates\homepage\about.html:43
+msgid "developers"
+msgstr "Разработчики - эти прекрасные люди:"
+
+#: .\templates\homepage\about.html:47
+msgid "sergey"
+msgstr "Андреев Сергей"
+
+#: .\templates\homepage\about.html:52
+msgid "vladimir"
+msgstr "Клименко Владимир"
+
+#: .\templates\homepage\about.html:57
+msgid "artem"
+msgstr "Третьяков Артем"
+
+#: .\templates\homepage\about.html:61
+msgid "gitlab_project"
+msgstr "Проект на GitLab"
+
+#: .\templates\homepage\main.html:22
 msgid "short_description_under_logo"
 msgstr ""
 "Сократите свою ссылку, чтобы вашим клиентам не пришлось видеть длинные url-"
@@ -378,10 +450,6 @@ msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
 "Спасибо за выбор Datanar! Мы ценим ваше доверие и стремимся предоставить вам "
 "удобный и безопасный сервис сокращения ссылок."
-
-#: .\templates\includes\footer.html:6
-msgid "about"
-msgstr "О проекте"
 
 #: .\templates\includes\footer.html:7
 msgid "API"

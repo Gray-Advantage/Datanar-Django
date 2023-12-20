@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-20 21:08+0300\n"
+"POT-Creation-Date: 2023-12-20 02:12+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -293,7 +293,79 @@ msgstr ""
 msgid "title__homepage"
 msgstr "Datanar - Links Shortening"
 
-#: .\templates\homepage\main.html:28
+#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
+msgid "about"
+msgstr "About"
+
+#: .\templates\homepage\about.html:14
+msgid "about_beginning"
+msgstr "Datanar is a link shortening web service. On our website, you can easily shorten long URLs, making them more convenient and user-friendly."
+
+#: .\templates\homepage\about.html:16
+msgid "about_you_can_do"
+msgstr "With Datanar, you can:"
+
+#: .\templates\homepage\about.html:19
+msgid "can_do_1"
+msgstr "Shorten a link"
+
+#: .\templates\homepage\about.html:20
+msgid "can_do_2"
+msgstr "Get an instantly generated QR code"
+
+#: .\templates\homepage\about.html:21
+msgid "can_do_3"
+msgstr "Specify your own custom short URL"
+
+#: .\templates\homepage\about.html:22
+msgid "can_do_4"
+msgstr "Track link click statistics"
+
+#: .\templates\homepage\about.html:23
+msgid "can_do_5"
+msgstr "Download statistics in a convenient format"
+
+#: .\templates\homepage\about.html:24
+msgid "can_do_6"
+msgstr "Set a password for the shortened link"
+
+#: .\templates\homepage\about.html:25
+msgid "can_do_7"
+msgstr "Specify the expiration date of the link"
+
+#: .\templates\homepage\about.html:26
+msgid "can_do_8"
+msgstr "Set the number of clicks allowed for the link"
+
+#: .\templates\homepage\about.html:27
+msgid "can_do_9"
+msgstr "Integrate your service with ours through API"
+
+#: .\templates\homepage\about.html:31
+msgid "about_using"
+msgstr "The site is built using:"
+
+#: .\templates\homepage\about.html:43
+msgid "developers"
+msgstr "Meet the developers - these wonderful people:"
+
+#: .\templates\homepage\about.html:47
+msgid "sergey"
+msgstr "Andreev Sergey"
+
+#: .\templates\homepage\about.html:52
+msgid "vladimir"
+msgstr "Klimenko Vladimir"
+
+#: .\templates\homepage\about.html:57
+msgid "artem"
+msgstr "Tretyakov Artem"
+
+#: .\templates\homepage\about.html:61
+msgid "gitlab_project"
+msgstr "GitLab Project"
+
+#: .\templates\homepage\main.html:22
 msgid "short_description_under_logo"
 msgstr "Shorten your link so that your customers don't have to see long URLs."
 
@@ -369,10 +441,6 @@ msgstr ""
 "Thank you for choosing Datanar! We appreciate your trust and strive to "
 "provide you with a convenient and secure link shortening service."
 
-#: .\templates\includes\footer.html:6
-msgid "about"
-msgstr "About"
-
 #: .\templates\includes\footer.html:7
 msgid "API"
 msgstr "API"
@@ -418,11 +486,11 @@ msgstr "Exit"
 msgid "sign_in"
 msgstr "Sign in"
 
-#: .\templates\includes\link_card.html:12
+#: .\templates\includes\link_card.html:11
 msgid "copy"
 msgstr "Copy"
 
-#: .\templates\includes\link_card.html:14
+#: .\templates\includes\link_card.html:13
 msgid "statistic"
 msgstr "Statistics"
 

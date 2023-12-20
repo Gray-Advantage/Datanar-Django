@@ -62,11 +62,11 @@
 <Ещё формируется>
 
 ## Авторы
-![sergey](for_readme/sergey.jpg)
+![sergey](datanar/static_dev/img/for_readme/sergey.jpg)
 Андреев Сергей [@Gray_Advantage](https://t.me/Gray_Advantage)
 
-![vladimir](for_readme/vladimir.jpg)
+![vladimir](datanar/static_dev/img/for_readme/vladimir.jpg)
 Клименко Владимир [@brandonzorn](https://t.me/brandonzorn)
 
-![artem](for_readme/artem.jpg)
+![artem](datanar/static_dev/img/for_readme/artem.jpg)
 Третьяков Артем [@piper273](https://t.me/piper273)
