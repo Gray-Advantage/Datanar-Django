@@ -67,6 +67,7 @@ class ChangeFormTest(TestCase):
         self.assertEqual(user1, user)
         self.assertNotEqual(old_password, new_password)
 
+    @override_settings(ACCOUNT_EMAIL_VERIFICATION="mandatory")
     def test_change_email(self):
         self.client.post(reverse("users:signup"), self.data)
         email_body = mail.outbox[0].body

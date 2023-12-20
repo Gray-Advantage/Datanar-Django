@@ -13,7 +13,10 @@
 {% block js %}
   {{ block.super }}
   <script src="{% static 'js/copyText.js' %}"></script>
-  <script src="{% static 'js/fileDragAndGrop.js' %}"></script>
+  {% if request.user.is_authenticated %}
+    <script src="{% static 'js/fileDragAndDrop.js' %}"></script>
+    <script src="{% static 'js/fileLinksStatus.js' %}"></script>
+  {% endif %}
 {% endblock %}
 
 
@@ -38,7 +41,9 @@
               <input type="submit" class="btn btn-outline-dark" value="{% trans 'shorten' %}">
             </div>
           {% else %}
-            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {% if "d-none" not in field.field.widget.attrs.class %}
+              <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {% endif %}
             {{ field }}
           {% endif %}
           {% if field.errors %}
@@ -48,16 +53,19 @@
           {% endif %}
         </div>
       {% endfor %}
-      <input type="file" id="file_input" name="file" class="d-none">
       <p id="messageErrorCount" class="d-none">{% trans "message_error_count" %}</p>
       <p id="messageErrorType" class="d-none">{% trans "message_error_type" %}</p>
     </form>
 
     {% if messages %}
-      <div class="list-group gap-2 ms-auto me-auto">
+      <div class="list-group gap-2 ms-auto me-auto d-flex mb-3">
         {% for message in messages %}
-          {% if message.level == 42 %}
+          {% if message.level == SHORT_LINK %}
             {% include "includes/link_card.html" with link=message %}
+          {% elif message.level == LOADING_LINKS %}
+            <div id="fileLinksLoader" class="spinner-border text-dark ms-auto me-auto mt-5" role="status">
+              <span class="visually-hidden">{{ message }}</span>
+            </div>
           {% endif %}
         {% endfor %}
       </div>

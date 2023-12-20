@@ -31,6 +31,9 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
             else:
                 field.widget.attrs["class"] += " mb-2"
 
+    def __str__(self):
+        return f"{self.password}"
+
     class Meta:
         model = Redirect
 
@@ -89,13 +92,21 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
 
 
 class RedirectFormExtended(RedirectForm):
+    links_file = forms.FileField(required=False)
+
     field_order = [
         Redirect.long_link.field.name,
         "custom_url",
         Redirect.password.field.name,
         Redirect.validity_days.field.name,
         Redirect.validity_clicks.field.name,
+        "links_file",
     ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields["links_file"].widget.attrs["class"] = "d-none"
 
     class Meta(RedirectForm.Meta):
         fields = [

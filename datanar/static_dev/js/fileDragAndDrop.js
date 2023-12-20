@@ -1,6 +1,6 @@
 const dropZone = document.getElementById("drop_zone");
 const deleteFileButton = document.getElementById("deleteFileButton");
-const fileInput = document.getElementById("file_input");
+const fileInput = document.getElementById("id_links_file");
 const longLinklabelNormal = document.getElementById("longLinklabelNormal");
 const longLinklabelFile = document.getElementById("longLinklabelFile");
 const longLinkField = document.getElementById("id_long_link");

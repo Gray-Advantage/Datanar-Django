@@ -27,7 +27,7 @@ class ActivationTest(TestCase):
             "password2": "some_password_123!",
         }
 
-    @override_settings(DEBUG=False, DEFAULT_USER_IS_ACTIVE=False)
+    @override_settings(ACCOUNT_EMAIL_VERIFICATION="mandatory")
     def test_activation_correct(self):
         self.client.post(reverse("users:signup"), self.data1)
         user = User.objects.get(username=self.data1["username"])
@@ -50,7 +50,7 @@ class ActivationTest(TestCase):
             "Неверное значение `verified` почты у `user`",
         )
 
-    @override_settings(DEBUG=False, DEFAULT_USER_IS_ACTIVE=False)
+    @override_settings(ACCOUNT_EMAIL_VERIFICATION="mandatory")
     @patch.object(timezone, "now")
     def test_activation_wrong(self, mock_now):
         future_time = timezone.make_aware(datetime.now() + timedelta(hours=13))
