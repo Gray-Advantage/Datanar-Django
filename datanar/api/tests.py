@@ -11,12 +11,21 @@ class ApiContentTest(TestCase):
         client = Client()
 
         url = reverse("api:create_new_token")
-        response1 = client.post(url, data={"username": username, "password": password})
-        response2 = client.post(url, data={"username": username, "password": password})
+        response1 = client.post(
+            url,
+            data={"username": username, "password": password},
+        )
+        response2 = client.post(
+            url,
+            data={"username": username, "password": password},
+        )
 
         self.assertEqual(response1.status_code, 200)
         self.assertEqual(response2.status_code, 200)
-        self.assertNotEquals(response1.json()['token'], response2.json()['token'])
+        self.assertNotEquals(
+            response1.json()["token"],
+            response2.json()["token"],
+        )
 
     def test_token_context(self):
         username = "TestUser"
@@ -24,12 +33,18 @@ class ApiContentTest(TestCase):
         client = Client()
 
         url = reverse("api:get_token")
-        response1 = client.post(url, data={"username": username, "password": password})
-        response2 = client.post(url, data={"username": username, "password": password})
+        response1 = client.post(
+            url,
+            data={"username": username, "password": password},
+        )
+        response2 = client.post(
+            url,
+            data={"username": username, "password": password},
+        )
 
         self.assertEqual(response1.status_code, 200)
         self.assertEqual(response2.status_code, 200)
-        self.assertEqual(response1.json()['token'], response2.json()['token'])
+        self.assertEqual(response1.json()["token"], response2.json()["token"])
 
 
 __all__ = []
