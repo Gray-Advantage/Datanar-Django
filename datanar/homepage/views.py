@@ -37,4 +37,8 @@ class ServiceRulesView(TemplateView):
     template_name = "homepage/service_rules.html"
 
 
+class AboutView(TemplateView):
+    template_name = "homepage/about.html"
+
+
 __all__ = [HomeView]
