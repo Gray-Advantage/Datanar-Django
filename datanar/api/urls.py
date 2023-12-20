@@ -10,7 +10,8 @@ app_name = "api"
 
 urlpatterns = [
     path("docs/", views.APIDocumentationView.as_view(), name="api_docs"),
-    path('api-token-auth/', rest_views.obtain_auth_token)
+    path('api-token-auth/', rest_views.obtain_auth_token, name='get_token'),
+    path('api-token-auth-update/', views.CreateNewTokenView.as_view(), name="create_new_token")
 ]
 
 router = DefaultRouter()

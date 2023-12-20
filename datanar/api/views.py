@@ -2,6 +2,7 @@ import hashlib
 
 from django.views.generic import TemplateView
 from rest_framework import mixins, status, viewsets
+from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.generics import get_object_or_404
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
@@ -105,4 +106,16 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         )
 
 
-__all__ = [RedirectViewSet]
+class CreateNewTokenView(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        if not created:
+            token.delete()
+            token = Token.objects.create(user=user)
+        return Response({'token': token.key})
+
+
+__all__ = [RedirectViewSet, CreateNewTokenView]
