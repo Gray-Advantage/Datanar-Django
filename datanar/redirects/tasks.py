@@ -1,9 +1,9 @@
 from pathlib import Path
 
-import openpyxl
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
 from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
+import openpyxl
 
 from datanar.celery import app
 from redirects.forms import RedirectFormExtended
@@ -15,7 +15,7 @@ validator = URLValidator()
 
 def get_from_txt(file_txt):
     answer = []
-    for line in map(lambda x: x.lstrip().rstrip(), file_txt.readlines()):
+    for line in (x.lstrip().rstrip() for x in file_txt.readlines()):
         try:
             validator(line)
             if line.count("http:") > 1 or line.count("https:") > 1:
