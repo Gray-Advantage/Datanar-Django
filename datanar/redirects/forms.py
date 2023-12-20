@@ -107,6 +107,7 @@ class RedirectFormExtended(RedirectForm):
         super().__init__(*args, **kwargs)
 
         self.fields["links_file"].widget.attrs["class"] = "d-none"
+        self.fields["links_file"].widget.attrs["accept"] = ".txt, .xlsx"
 
     def clean(self):
         if self.cleaned_data["links_file"]:

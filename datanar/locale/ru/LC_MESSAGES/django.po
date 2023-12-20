@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-19 06:39+0300\n"
+"POT-Creation-Date: 2023-12-20 21:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,20 +38,20 @@ msgstr ""
 "Пользовательский URL-адрес, который вы хотели бы иметь вместо "
 "сгенерированного."
 
-#: .\redirects\forms.py:59
+#: .\redirects\forms.py:62
 msgid "custom_url_should_not_have_slash"
 msgstr "Кастомная ссылка не должна иметь '/'"
 
-#: .\redirects\forms.py:65
+#: .\redirects\forms.py:68
 msgid "custom_url_already_use"
 msgstr ""
 "Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
 
-#: .\redirects\forms.py:123 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:139 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Пароль"
 
-#: .\redirects\forms.py:124
+#: .\redirects\forms.py:140
 msgid "password_before_redirect"
 msgstr "Введите пароль перед перенаправлением"
 
@@ -121,7 +121,7 @@ msgstr "перенаправление"
 msgid "redirects"
 msgstr "перенаправления"
 
-#: .\redirects\views.py:38
+#: .\redirects\views.py:42
 msgid "invalid_password"
 msgstr "Пароль не верный"
 
@@ -300,29 +300,33 @@ msgstr ""
 msgid "title__homepage"
 msgstr "Datanar - Сокращение ссылок"
 
-#: .\templates\homepage\main.html:25
+#: .\templates\homepage\main.html:28
 msgid "short_description_under_logo"
 msgstr ""
 "Сократите свою ссылку, чтобы вашим клиентам не пришлось видеть длинные url-"
 "адреса."
 
-#: .\templates\homepage\main.html:34
+#: .\templates\homepage\main.html:37
 msgid "label_link_file"
 msgstr "Выбран файл с ссылками"
 
-#: .\templates\homepage\main.html:37
+#: .\templates\homepage\main.html:41
 msgid "delete_file"
 msgstr "Удалить файл"
 
-#: .\templates\homepage\main.html:38
+#: .\templates\homepage\main.html:42
+msgid "choose_file"
+msgstr "Выбрать файл"
+
+#: .\templates\homepage\main.html:43
 msgid "shorten"
 msgstr "Сократить"
 
-#: .\templates\homepage\main.html:52
+#: .\templates\homepage\main.html:63
 msgid "message_error_count"
 msgstr "Пожалуйста, перетащите только один файл."
 
-#: .\templates\homepage\main.html:53
+#: .\templates\homepage\main.html:64
 msgid "message_error_type"
 msgstr "Пожалуйста, перетащите файл с расширением .xlsx или .txt."
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-19 06:40+0300\n"
+"POT-Creation-Date: 2023-12-20 21:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,19 +34,19 @@ msgstr "Custom url"
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "A custom url that you would like to have instead of the generated one."
 
-#: .\redirects\forms.py:59
+#: .\redirects\forms.py:62
 msgid "custom_url_should_not_have_slash"
 msgstr "The custom link should not have a '/'"
 
-#: .\redirects\forms.py:65
+#: .\redirects\forms.py:68
 msgid "custom_url_already_use"
 msgstr "This custom url is already in use. Please choose another one."
 
-#: .\redirects\forms.py:123 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:139 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Password"
 
-#: .\redirects\forms.py:124
+#: .\redirects\forms.py:140
 msgid "password_before_redirect"
 msgstr "Enter the password before redirecting"
 
@@ -114,7 +114,7 @@ msgstr "redirect"
 msgid "redirects"
 msgstr "redirects"
 
-#: .\redirects\views.py:38
+#: .\redirects\views.py:42
 msgid "invalid_password"
 msgstr "The password is incorrect"
 
@@ -293,27 +293,31 @@ msgstr ""
 msgid "title__homepage"
 msgstr "Datanar - Links Shortening"
 
-#: .\templates\homepage\main.html:25
+#: .\templates\homepage\main.html:28
 msgid "short_description_under_logo"
 msgstr "Shorten your link so that your customers don't have to see long URLs."
 
-#: .\templates\homepage\main.html:34
+#: .\templates\homepage\main.html:37
 msgid "label_link_file"
 msgstr "Selected file with links"
 
-#: .\templates\homepage\main.html:37
+#: .\templates\homepage\main.html:41
 msgid "delete_file"
 msgstr "Delete file"
 
-#: .\templates\homepage\main.html:38
+#: .\templates\homepage\main.html:42
+msgid "choose_file"
+msgstr "Choose file"
+
+#: .\templates\homepage\main.html:43
 msgid "shorten"
 msgstr "Shorten"
 
-#: .\templates\homepage\main.html:52
+#: .\templates\homepage\main.html:63
 msgid "message_error_count"
 msgstr "Please drag and drop only one file."
 
-#: .\templates\homepage\main.html:53
+#: .\templates\homepage\main.html:64
 msgid "message_error_type"
 msgstr "Please drag and drop the file with the extension .xlsx or .txt."
 

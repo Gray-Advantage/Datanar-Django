@@ -1,5 +1,6 @@
 const dropZone = document.getElementById("drop_zone");
 const deleteFileButton = document.getElementById("deleteFileButton");
+const chooseFileButton = document.getElementById("chooseFileButton");
 const fileInput = document.getElementById("id_links_file");
 const longLinklabelNormal = document.getElementById("longLinklabelNormal");
 const longLinklabelFile = document.getElementById("longLinklabelFile");
@@ -20,7 +21,7 @@ if (fileInput.value === "") {
   longLinkField.readOnly = true;
 }
 
-deleteFileButton.addEventListener("click", event => {
+deleteFileButton.addEventListener("click", () => {
   fileInput.value = "";
 
   deleteFileButton.classList.add("d-none");
@@ -35,6 +36,10 @@ deleteFileButton.addEventListener("click", event => {
 
   fileNameField.value = "";
   fileNameField.classList.add("d-none");
+});
+
+chooseFileButton.addEventListener("click", () => {
+  fileInput.click();
 });
 
 dropZone.addEventListener("dragover", event => {
@@ -66,25 +71,69 @@ dropZone.addEventListener("drop", event => {
   dropZone.classList.remove("blur");
   dropZone.classList.remove("cursor-pointer-event-none");
 
-  const files = event.dataTransfer.files;
+  // const files = event.dataTransfer.files;
+
+  // if (files.length > 1) {
+  //   alert(messageErrorCount);
+  //   return;
+  // }
+  //
+  // const file = files[0];
+  // const fileName = file.name;
+  // const fileExtension = fileName.split('.').pop().toLowerCase();
+  // if (fileExtension !== 'xlsx' && fileExtension !== 'txt') {
+  //   alert(messageErrorType);
+  //   return;
+  // }
+
+  // const reader = new FileReader();
+  // reader.onload = event => {
+  //   fileInput.files = files;
+
+    // deleteFileButton.classList.remove("d-none");
+    //
+    // longLinklabelFile.classList.remove("d-none");
+    // longLinklabelNormal.classList.add("d-none");
+    //
+    // fileNameField.value = fileName;
+    // fileNameField.classList.remove("d-none");
+    // container.insertBefore(fileNameField, container.firstChild);
+    //
+    // longLinkField.value = "https://some.plug.domin.com";
+    // longLinkField.readOnly = true;
+    // longLinkField.classList.add("d-none");
+  // }
+  // reader.readAsDataURL(file);
+
+  fileInput.files = event.dataTransfer.files;
+});
+
+document.getElementById("mainForm").addEventListener("submit", () => {
+  if (fileInput.value) {
+    document.getElementById("id_long_link").value = "https://example.com";
+  }
+});
+
+fileInput.addEventListener("change", event => {
+  const files = event.target.files;
 
   if (files.length > 1) {
+    fileInput.value = "";
     alert(messageErrorCount);
     return;
   }
 
   const file = files[0];
   const fileName = file.name;
-  const fileExtension = fileName.split('.').pop().toLowerCase();
-  if (fileExtension !== 'xlsx' && fileExtension !== 'txt') {
+  const fileExtension = fileName.split(".").pop().toLowerCase();
+  if (fileExtension !== "xlsx" && fileExtension !== "txt") {
+    fileInput.value = "";
     alert(messageErrorType);
     return;
   }
 
   const reader = new FileReader();
   reader.onload = event => {
-    fileInput.files = files;
-
     deleteFileButton.classList.remove("d-none");
 
     longLinklabelFile.classList.remove("d-none");
@@ -99,10 +148,4 @@ dropZone.addEventListener("drop", event => {
     longLinkField.classList.add("d-none");
   }
   reader.readAsDataURL(file);
-});
-
-document.getElementById('mainForm').addEventListener('submit', function() {
-  if (fileInput.value) {
-    document.getElementById('id_long_link').value = 'https://example.domin.com';
-  }
 });
