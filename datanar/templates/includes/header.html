@@ -22,7 +22,7 @@
           </select>
         </div>
       </form>
-      <li class="nav-item dropdown">
+      <nav class="nav-item dropdown">
         <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle show" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (dark)">
           <span class="d-lg-none ms-2" id="bd-theme-text"></span>
           {% trans "theme" %}
@@ -44,7 +44,7 @@
             </button>
           </li>
         </ul>
-      </li>
+      </nav>
       {% if request.resolver_match.view_name == 'users:profile' or request.resolver_match.app_name != 'users' %}
         {% if request.user.is_authenticated %}
           {% trans "no_user" as no_user %}
