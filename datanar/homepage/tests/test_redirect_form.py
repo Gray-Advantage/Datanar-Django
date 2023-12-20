@@ -1,5 +1,6 @@
 from django.shortcuts import reverse
 from django.test import Client, override_settings, TestCase
+from django.utils import timezone
 
 from redirects.forms import RedirectForm, RedirectFormExtended
 from redirects.models import Redirect
@@ -79,7 +80,12 @@ class RedirectFormTest(TestCase):
         )
         user = User.objects.get(username=self.user_data["username"])
 
-        self.client.post(reverse("homepage:home"), data=self.form_data)
+        data = self.form_data.copy()
+        data["date_validity_field"] = (
+            timezone.now() + timezone.timedelta(days=data["validity_days"])
+        ).date()
+        del data["validity_days"]
+        self.client.post(reverse("homepage:home"), data=data)
 
         redirect = Redirect.objects.all().first()
 

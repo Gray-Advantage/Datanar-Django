@@ -2,6 +2,8 @@ import hashlib
 
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils import timezone
+from django.utils.functional import lazy
 from django.utils.translation import gettext_lazy as _
 from sqids import Sqids
 
@@ -10,6 +12,14 @@ from redirects.models import Redirect
 
 
 sqids = Sqids()
+
+
+class CustomDateField(forms.DateInput):
+    input_type = "date"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.attrs["min"] = timezone.now().date()
 
 
 class RedirectForm(BootstrapFormMixin, forms.ModelForm):
@@ -39,6 +49,7 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
 
         fields = [
             Redirect.long_link.field.name,
+            "custom_url",
         ]
 
         exclude = [
@@ -94,11 +105,22 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
 class RedirectFormExtended(RedirectForm):
     links_file = forms.FileField(required=False)
 
+    date_validity_field = forms.DateField(
+        label=lazy(
+            lambda: Redirect.validity_days.field.verbose_name.capitalize(),
+            str,
+        ),
+        help_text=Redirect.validity_days.field.help_text,
+        widget=CustomDateField(format="%Y-%m-%d"),
+        initial=(timezone.now() + timezone.timedelta(days=90)),
+        required=False,
+    )
+
     field_order = [
         Redirect.long_link.field.name,
         "custom_url",
         Redirect.password.field.name,
-        Redirect.validity_days.field.name,
+        "date_validity_field",
         Redirect.validity_clicks.field.name,
         "links_file",
     ]
@@ -112,13 +134,17 @@ class RedirectFormExtended(RedirectForm):
     def clean(self):
         if self.cleaned_data["links_file"]:
             self.cleaned_data["long_link"] = "https://some.url.com/"
+        delt = self.cleaned_data["date_validity_field"] - timezone.now().date()
+        self.cleaned_data["validity_days"] = delt.days
+        del self.cleaned_data["date_validity_field"]
         return super().clean()
 
     class Meta(RedirectForm.Meta):
         fields = [
             Redirect.long_link.field.name,
+            "custom_url",
             Redirect.password.field.name,
-            Redirect.validity_days.field.name,
+            "date_validity_field",
             Redirect.validity_clicks.field.name,
         ]
 
