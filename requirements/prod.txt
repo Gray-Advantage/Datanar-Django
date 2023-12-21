@@ -1,4 +1,4 @@
-celery==5.0.5
+celery==5.0.0
 Django==4.2.8
 django-allauth==0.59.0
 django-ckeditor==6.7.0
