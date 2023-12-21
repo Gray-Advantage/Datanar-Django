@@ -1,10 +1,16 @@
+from http import HTTPStatus
+
+from celery.result import AsyncResult
+from django.contrib import messages
 from django.contrib.gis.geoip2 import GeoIP2
 from django.http import Http404, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import View
 from geoip2.errors import AddressNotFoundError
 
+from datanar.message_levels import SHORT_LINK
 from redirects.forms import PasswordForm
 from redirects.models import Redirect
 from statistic.models import Click
@@ -60,6 +66,19 @@ class RedirectView(View):
         )
 
         return HttpResponseRedirect(redirect.long_link)
+
+
+class LinksFileStatus(View):
+    def get(self, request, *args, **kwargs):
+        task = AsyncResult(self.kwargs["work_id"])
+
+        if not task.ready():
+            return HttpResponse(status=HTTPStatus.ACCEPTED)
+
+        for line in task.result:
+            messages.add_message(request, SHORT_LINK, line)
+
+        return HttpResponseRedirect(reverse("homepage:home"))
 
 
 __all__ = [RedirectView]

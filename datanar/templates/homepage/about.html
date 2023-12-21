@@ -11,53 +11,67 @@
 
 
 {% block content %}
-<h3 class="text-justify">{% trans "about_beginning" %}</h3>
+<h3 class="text-center mt-5">{% trans "about_beginning" %}</h3>
 <br>
-<h5 class="text-justify">{% trans "about_you_can_do" %}</h5>
-<div class="d-flex">
-  <ul style="font-size:20px">
-    <li>{% trans "can_do_1" %}</li>
-    <li>{% trans "can_do_2" %}</li>
-    <li>{% trans "can_do_3" %}</li>
-    <li>{% trans "can_do_4" %}</li>
-    <li>{% trans "can_do_5" %}</li>
-    <li>{% trans "can_do_6" %}</li>
-    <li>{% trans "can_do_7" %}</li>
-    <li>{% trans "can_do_8" %}</li>
-    <li>{% trans "can_do_9" %}</li>
-  </ul>
+<div class="d-flex mt-5 row">
+  <div class="d-flex flex-column ms-auto me-auto col-12 col-lg-7">
+    <h5 class="text-justify">{% trans "about_you_can_do" %}</h5>
+    <div class="d-flex">
+      <ul class="font-20">
+        <li>{% trans "can_do_1" %}</li>
+        <li>{% trans "can_do_2" %}</li>
+        <li>{% trans "can_do_3" %}</li>
+        <li>{% trans "can_do_4" %}</li>
+        <li>{% trans "can_do_5" %}</li>
+        <li>{% trans "can_do_6" %}</li>
+        <li>{% trans "can_do_7" %}</li>
+        <li>{% trans "can_do_8" %}</li>
+        <li>{% trans "can_do_9" %}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="d-flex flex-column ms-auto me-auto col-12 col-lg-3">
+    <h5 class="text-justify">{% trans "about_using" %}</h5>
+    <div class="d-flex">
+      <ul class="font-20">
+        <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+        <li><a href="https://docs.celeryq.dev/en/stable/">Celery</a></li>
+        <li><a href="https://www.chartjs.org/">Chart.js</a></li>
+        <li><a href="https://db-ip.com">DB-IP</a></li>
+        <li><a href="https://www.djangoproject.com/">Django</a></li>
+        <li><a href="https://github.com/heuer/segno/">Segno</a></li>
+        <li><a href="https://sqids.org/">Sqids</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
-<br>
-<h5 class="text-justify">{% trans "about_using" %}</h5>
-<div class="d-flex">
-  <ul style="font-size:20px">
-    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
-    <li><a href="https://www.chartjs.org/">Chart.js</a></li>
-    <li><a href="https://db-ip.com">DB-IP</a></li>
-    <li><a href="https://www.djangoproject.com/">Django</a></li>
-    <li><a href="https://github.com/heuer/segno/">Segno</a></li>
-    <li><a href="https://sqids.org/">Sqids</a></li>
-  </ul>
+
+<h5 class="text-center mt-5">{% trans "developers" %}</h5>
+
+<div class="d-flex row mt-2">
+  <div class="d-flex col-12 col-xl-4 col-md-12">
+    <div class="ms-auto me-auto d-flex">
+      <img src="{% static 'img/for_readme/sergey.jpg' %}" alt="sergey" class="me-2 rounded-circle" width="32" height="32">
+      <p class="me-2 mt-1">{% trans "sergey" %}</p><a href="https://t.me/Gray_Advantage" class="me-2 mt-1">@Gray_Advantage</a>
+    </div>
+  </div>
+  <div class="d-flex col-12 col-xl-4 col-md-6">
+    <div class="ms-auto me-auto d-flex">
+      <img src="{% static 'img/for_readme/vladimir.jpg' %}" alt="vladimir" class="me-3 rounded-circle" width="32" height="32">
+      <p class="me-2 mt-1">{% trans "vladimir" %}</p><a href="https://t.me/brandonzorn" class="me-2 mt-1">@brandonzorn</a>
+    </div>
+  </div>
+  <div class="d-flex col-12 col-xl-4 col-md-6">
+    <div class="ms-auto me-auto d-flex">
+      <img src="{% static 'img/for_readme/artem.jpg' %}" alt="artem" class="rounded-circle me-3" width="32" height="32">
+      <p class="me-2 mt-1">{% trans "artem" %}</p><a href="https://t.me/piper273" class="me-2 mt-1">@piper273</a>
+    </div>
+  </div>
 </div>
-<br>
-<h5 class="text-justify">{% trans "developers" %}</h5>
-<br>
-<div class="d-flex" style="font-size:20px">
-  <img src="{% static 'img/for_readme/sergey.jpg' %}" alt="sergey" class="me-3 rounded-circle" width="48" height="48">
-  <p class="me-2 mt-2">{% trans "sergey" %}</p><a href="https://t.me/Gray_Advantage" class="me-2 mt-2">@Gray_Advantage</a>
-</div>
-<br>
-<div class="d-flex" style="font-size:20px">
-  <img src="{% static 'img/for_readme/vladimir.jpg' %}" alt="vladimir" class="me-3 rounded-circle" width="48" height="48">
-  <p class="me-2 mt-2">{% trans "vladimir" %}</p><a href="https://t.me/brandonzorn" class="me-2 mt-2">@brandonzorn</a>
-</div>
-<br>
-<div class="d-flex" style="font-size:20px">
-  <img src="{% static 'img/for_readme/artem.jpg' %}" alt="artem" class="rounded-circle me-3" width="48" height="48">
-  <p class="me-2 mt-2">{% trans "artem" %}</p><a href="https://t.me/piper273" class="me-2 mt-2">@piper273</a>
-</div>
-<br>
-<div class="text-center mb-3" style="font-size:20px">
-  <a href="https://gitlab.crja72.ru/django_2023/projects/datanar"><img src="{% static 'img/gitlab-logo.jpg' %}" alt="gitlab" class="me-2">{% trans "gitlab_project" %}</a>
+
+<div class="text-center font-20 mt-5 mb-3">
+  <a href="https://gitlab.crja72.ru/django_2023/projects/datanar">
+    <img src="{% static 'img/gitlab-logo.jpg' %}" alt="gitlab" class="me-2">{% trans "gitlab_project" %}
+  </a>
 </div>
 {% endblock %}

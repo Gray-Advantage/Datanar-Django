@@ -11,6 +11,7 @@ SECRET_KEY = config(
     default="this_is_test_key_-_some_very_dummy_secret_key",
     cast=str,
 )
+
 DEBUG = bool(strtobool(config("DJANGO_DEBUG", "False")))
 
 ALLOWED_HOSTS = config(
@@ -134,10 +135,10 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_CHANGE_EMAIL = True
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "none" if DEFAULT_USER_IS_ACTIVE else "mandatory"
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "<[DATANAR]> "
 SITE_ID = 1
@@ -157,6 +158,7 @@ LANGUAGE_CODE = "ru-ru"
 
 LANGUAGES = [
     ("en", _("English")),
+    ("uk", _("Ukrainian")),
     ("ru", _("Russian")),
 ]
 
@@ -175,9 +177,12 @@ STATICFILES_DIRS = [
     BASE_DIR / "static_dev/",
 ]
 
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "media/"
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 GEOIP_PATH = "geo_ip"
 
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"

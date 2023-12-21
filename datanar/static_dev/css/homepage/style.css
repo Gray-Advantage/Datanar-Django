@@ -14,9 +14,21 @@
 }
 
 .position-relative:hover .overlay{
-	display: flex;
-    flex-direction: column;
-    top: -15% !important;
-    left: 50% !important;
-    background-color: var(--bs-tertiary-bg);
+  display: flex;
+  flex-direction: column;
+  top: -15% !important;
+  left: 50% !important;
+  background-color: var(--bs-tertiary-bg);
+}
+
+.cursor-pointer-event-none * {
+    pointer-events: none;
+}
+
+.blur {
+  filter: blur(5px);
+}
+
+.font-20 {
+  font-size: 20px;
 }

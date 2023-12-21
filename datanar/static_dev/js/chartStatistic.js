@@ -11,26 +11,26 @@ const cityCanvas = document.getElementById("cityChart").getContext("2d");
 const cityData = document.querySelectorAll('#cityChart input[type="hidden"]');
 
 [
-    [browserCanvas, browserData],
-    [osCanvas, osData],
-    [countryCanvas, countryData],
-    [cityCanvas, cityData],
+  [browserCanvas, browserData],
+  [osCanvas, osData],
+  [countryCanvas, countryData],
+  [cityCanvas, cityData],
 ].forEach(elem => {
   let labels = [];
   let data = [];
 
   elem[1].forEach(input => {
-      labels.push(input.getAttribute('data-key'));
-      data.push(input.getAttribute('data-value'));
+    labels.push(input.getAttribute("data-key"));
+    data.push(input.getAttribute("data-value"));
   });
 
   new Chart(elem[0], {
-    type: 'pie',
+    type: "pie",
     data: {
       labels: labels,
       datasets: [{
-          data: data,
-          borderWidth: 1
+        data: data,
+        borderWidth: 1
       }]
     },
     options: {
