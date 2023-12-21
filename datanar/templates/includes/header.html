@@ -1,0 +1,79 @@
+{% load static %}
+{% load i18n %}
+
+<header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom container">
+  {% with request.resolver_match.view_name as view_name %}
+    <a {% if view_name != "homepage:home" %}href="{% url 'homepage:home' %}"{% endif %} class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      {% include 'svg/logo.svg' with class="ms-2 me-2" width=48 height=48 %}
+      <span class="fs-4 me-2">Datanar</span>
+    </a>
+    <nav class="nav nav-pills me-2">
+      <form action="{% url 'set_language' %}" method="post" class="form-inline d-flex">
+        {% csrf_token %}
+        <div class="form-group mt-auto mb-auto">
+          <select name="language" class="form-select" onchange="this.form.submit()" id="language">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% for lang_code, lang_name in LANGUAGES %}
+              <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                {{ lang_name }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      </form>
+      <nav class="nav-item dropdown">
+        <button class="btn border-0 py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center show" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (light)">
+          <i id="theme-icon-active" class="bi bi-0-circle-fill"></i>
+          <span class="d-lg-none ms-2" id="bd-theme-text">{% trans "theme" %}</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text" data-bs-popper="static">
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="false">
+              <i class="bi bi-sun-fill me-2"></i>
+              {% trans "light" %}
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+              <i class="bi bi-moon-stars-fill  me-2"></i>
+              {% trans "dark" %}
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+              <i class="bi bi-circle-half  me-2"></i>
+              {% trans "auto" %}
+            </button>
+          </li>
+        </ul>
+      </nav>
+      {% if request.resolver_match.view_name == 'users:profile' or request.resolver_match.app_name != 'users' %}
+        {% if request.user.is_authenticated %}
+          {% trans "no_user" as no_user %}
+          <div class="dropdown ms-2">
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{% if request.user.has_avatar %}{{ request.user.avatar.url }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="rounded-circle" width="48" height="48">
+              <strong>{{ request.user.username|default:no_user }}</strong>
+            </a>
+            <ul class="dropdown-menu text-small" style="">
+              <li><a class="dropdown-item" href="{% url 'users:profile' %}">{% trans "my_profile" %}</a></li>
+              <li><a href="{% url 'statistic:my_links' %}" class="dropdown-item" >{% trans "my_links" %}</a></li>
+              {% if request.user.is_staff %}
+                <li><a href="{% url 'admin:index' %}" class="dropdown-item">
+                  {% trans "admin_panel" %}
+                </a></li>
+              {% endif %}
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'users:logout' %}">{% trans "exit" %}</a></li>
+            </ul>
+          </div>
+        {% else %}
+          <a href="{% url 'users:login' %}" class="btn btn-outline-primary ms-2">
+            {% trans "sign_in" %}
+          </a>
+        {% endif %}
+      {% endif %}
+    </nav>
+  {% endwith %}
+</header>

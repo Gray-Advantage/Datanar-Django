@@ -1,0 +1,60 @@
+{% load static %}
+{% load i18n %}
+
+{% with request.resolver_match.view_name as view_name %}
+  <form method="POST" class="form-user-auth mt-5" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 ms-auto me-auto">
+      {% include 'includes/logo.html' %}
+      <h1 class="h3 mb-3 fw-normal text-center">{{ title }}</h1>
+
+      <div class="form-group d-flex flex-column">
+        {% for field in form %}
+          {% if field.field.widget.input_type != "checkbox" %}
+            <div class="form-floating">
+              {{ field }}
+              <label for="{{ field.id_for_label }}">
+                {% if view_name == "users:login" and forloop.first %}
+                  {{ field.field.widget.attrs.placeholder }}
+                {% else %}
+                  {{ field.label }}
+                {% endif %}
+              </label>
+              {% if field.errors %}
+                <div class="invalid-feedback">
+                  {{ field.errors|first }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% for field in form %}
+        {% if field.field.widget.input_type == "checkbox" %}
+          <div class="form-check ms-auto me-auto mt-3">
+            {{ field }}
+            <label class="form-check-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+          <div class="text-danger mt-1">{{ error }}</div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="d-flex flex-column">
+      <button class="btn btn-outline-dark mt-3 py-2 ms-auto me-auto" type="submit">{{ submit_text }}</button>
+      {% if view_name == "users:login" %}
+        <div class="ms-auto me-auto mt-3">
+          <p class="text-center">{% trans "dont_have_account_yet" %} <a href="{% url 'users:signup' %}" class="text-center">{% trans "create_it" %}</a></p>
+          <p class="text-center"><a href="{% url 'users:password_reset' %}" class="text-center">{% trans "forgot_password" %}</a></p>
+        </div>
+      {% endif %}
+      <p class="mt-2 mb-3 ms-auto me-auto text-body-secondary">© Datanar <span id="year">{% now "Y" %}</span></p>
+      <div class="hide">
+        <span id="serverTime" class="d-none">{{ server_time }}</span>
+      </div>
+    </div>
+  </form>
+{% endwith %}

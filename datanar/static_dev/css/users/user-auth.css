@@ -1,0 +1,23 @@
+.form-user-auth .form-floating:focus-within {
+  z-index: 2;
+}
+
+.input-field-only-one {
+  border-radius: var(--bs-border-radius);
+}
+
+.form-user-auth .form-group .form-floating:first-of-type .input-field {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-bottom: -1px;
+}
+
+.form-user-auth .form-group .form-floating:not(:first-child):not(:last-child) .input-field {
+  border-radius: 0;
+  margin-bottom: -1px;
+}
+
+.form-user-auth .form-group .form-floating:last-of-type .input-field {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

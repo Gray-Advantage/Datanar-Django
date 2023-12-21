@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "title__my_links" %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link href="{% static 'css/homepage/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/card-style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+  {{ block.super }}
+  <script src="{% static 'js/copyText.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+  <div class="list-group gap-2 ms-auto me-auto mb-3">
+    {% for link in links %}
+      {% include "includes/link_card.html" with link=link %}
+    {% endfor %}
+  </div>
+{% endblock %}

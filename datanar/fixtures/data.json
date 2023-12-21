@@ -1,0 +1,99 @@
+[
+{
+    "model": "redirects.redirect",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "short_link": "short_AAA",
+        "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "created_at": "2023-12-18T03:06:22.932Z",
+        "password": null,
+        "validity_days": 90,
+        "validity_clicks": null
+    }
+},
+{
+    "model": "redirects.redirect",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "short_link": "short_BBB",
+        "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "created_at": "2023-12-18T03:06:38.888Z",
+        "password": null,
+        "validity_days": 90,
+        "validity_clicks": null
+    }
+},
+{
+    "model": "redirects.redirect",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "short_link": "short_CCC",
+        "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "created_at": "2023-12-18T03:06:47.070Z",
+        "password": null,
+        "validity_days": 90,
+        "validity_clicks": null
+    }
+},
+{
+    "model": "redirects.redirect",
+    "pk": 4,
+    "fields": {
+        "user": 1,
+        "short_link": "short_DDD",
+        "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "created_at": "2023-12-18T03:06:56.451Z",
+        "password": null,
+        "validity_days": 90,
+        "validity_clicks": null
+    }
+},
+{
+    "model": "redirects.redirect",
+    "pk": 5,
+    "fields": {
+        "user": 1,
+        "short_link": "short_EEE",
+        "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "created_at": "2023-12-18T03:07:12.253Z",
+        "password": null,
+        "validity_days": 90,
+        "validity_clicks": null
+    }
+},
+{
+    "model": "redirects.redirect",
+    "pk": 6,
+    "fields": {
+        "user": 1,
+        "short_link": "short_FFF",
+        "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "created_at": "2023-12-18T03:07:21.875Z",
+        "password": null,
+        "validity_days": 90,
+        "validity_clicks": null
+    }
+},
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$tz9zAPHd48VQ1CxrsmEwVO$NeLVHy+k636CaZHTh1zMUvqPqh4+8PdE2INRzn+szuw=",
+        "last_login": "2023-12-18T03:05:36.780Z",
+        "is_superuser": false,
+        "username": "TestUser",
+        "first_name": "",
+        "last_name": "",
+        "email": "exampleac@yandex.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-12-18T03:05:08.451Z",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
