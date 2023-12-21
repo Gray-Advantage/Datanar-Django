@@ -9,6 +9,7 @@ geoip2==4.8.0
 openpyxl==3.1.2
 pillow==10.1.0
 python-decouple==3.8
+redis==4.6.0
 segno==1.6.0
 sorl-thumbnail==12.10.0
 sqids==0.4.1

@@ -10,6 +10,10 @@
      - [Windows](#windows)
      - [MacOS](#macos)
      - [Linux](#linux-debian--ubuntu)
+   - [Установка Redis](#установка-redis)
+     - [Windows](#windows-1)
+     - [MacOS](#macos-1)
+     - [Linux](#linux-debian--ubuntu-1)
    - [Клонирование репозитория](#клонирование-репозитория)
    - [Установка виртуального окружения](#установка-виртуального-окружения)
    - [Установка зависимостей](#установка-зависимостей)
@@ -88,7 +92,7 @@
   
 Если у вас его еще нет, вы можете скачать его с официального 
 [сайта](https://www.python.org/downloads/), рекомендуется установить версию в 
-диапазоне 3.8 - 3.11
+диапазоне 3.9 - 3.11
 
 ### Установка Git
 
@@ -127,6 +131,54 @@
 установлен правильно, с помощью команды `git --version`. 
 Эта команда должна вывести версию Git на экран.
 
+### Установка Redis
+
+Для celery (очередь задач, для обработки файлов c ссылками) требуется 
+установить redis
+
+#### Windows
+
+Redis официально не поддерживает Windows, поэтому ниже описанный способ может 
+не сработать (лично у нас получилось запустить, но без виртуального окружения)
+
+1. Скачать неофициальный [порт](https://github.com/tporadowski/redis/releases)
+и запустить установщик msi (от имени администратора)
+2. В диспетчере задач в службах должна появится служба Redis
+
+#### MacOS
+
+1. Откройте терминал.
+2. Установите [Homebrew](https://brew.sh/), если у вас его еще нет, с помощью 
+   следующей команды:
+    ```bash
+    /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+3. Установите Redis с помощью команды:
+    ```bash
+    brew install redis
+    ```
+4. Запустите Redis:
+    ```bash
+   brew services start redis
+    ```
+
+#### Linux (Debian / Ubuntu)
+
+1. Откройте терминал.
+2. Добавьте репозиторий
+   ```bash
+   curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+   echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+   ```
+3. Обновите список пакетов:
+    ```bash
+    sudo apt update
+    ```
+4. Установите Git с помощью следующих команд:
+    ```bash
+    sudo apt install redis
+    ```
+
 ### Клонирование репозитория
 
 1. Откройте терминал (cmd для Windows, Terminal для Mac).
@@ -138,6 +190,9 @@
     ```
 
 ### Установка виртуального окружения
+
+Напомним, что лично у нас на windows не получилось запустить redis в 
+виртуальном окружении, поэтому попробуйте пропустить шаг 2 и 3
 
 1. В терминале перейдите в директорию проекта:
    ```bash
@@ -249,6 +304,11 @@ python3 manage.py createsuperuser
 которая и приведёт вас в админ панель.
 
 ### Запуск сервера Django
+
+Запустите рабочий процесс celery в новой консоле:
+```bash
+celery -A datanar worker -l INFO
+```
 
 Запустите сервер Django с помощью следующей команды: 
 ```bash
