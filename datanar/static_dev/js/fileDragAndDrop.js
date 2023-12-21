@@ -79,6 +79,8 @@ dropZone.addEventListener("drop", event => {
   dropZone.classList.remove("cursor-pointer-event-none");
 
   fileInput.files = event.dataTransfer.files;
+
+  fileInput.dispatchEvent(new Event("change"));
 });
 
 document.getElementById("mainForm").addEventListener("submit", () => {
@@ -88,6 +90,7 @@ document.getElementById("mainForm").addEventListener("submit", () => {
 });
 
 fileInput.addEventListener("change", event => {
+  console.log("change!!!");
   const files = event.target.files;
 
   if (files.length > 1) {
