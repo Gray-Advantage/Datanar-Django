@@ -233,7 +233,7 @@ pip install -r requirements/prod.txt
 
 Также добавьте файл `.env` в текущую директорию со следующим содержанием:
 ```
-DJANGO_DEBUG=True
+DJANGO_DEBUG=False
 DJANGO_SECRET_KEY=this_is_test_key_-_some_very_dummy_secret_key
 DJANGO_ALLOWED_HOSTS=*
 DJANGO_MAIL_HOST=smtp.mail.ru
