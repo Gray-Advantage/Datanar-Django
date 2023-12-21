@@ -5,28 +5,28 @@
  */
 
 (() => {
-  'use strict';
+  "use strict";
 
-  const getStoredTheme = () => localStorage.getItem('theme');
-  const setStoredTheme = theme => localStorage.setItem('theme', theme);
+  const getStoredTheme = () => localStorage.getItem("theme");
+  const setStoredTheme = theme => localStorage.setItem("theme", theme);
 
   function setColors(mode) {
     let btnOutlineOriginal, btnOutlineNew, btnOriginal, btnNew, textOriginal, textNew;
 
     if (mode === "light") {
-      btnOutlineOriginal = 'btn-outline-light';
-      btnOutlineNew = 'btn-outline-dark';
-      btnOriginal = 'btn-light';
-      btnNew = 'btn-dark';
-      textOriginal = 'text-light';
-      textNew = 'text-dark';
+      btnOutlineOriginal = "btn-outline-light";
+      btnOutlineNew = "btn-outline-dark";
+      btnOriginal = "btn-light";
+      btnNew = "btn-dark";
+      textOriginal = "text-light";
+      textNew = "text-dark";
     } else {
-      btnOutlineOriginal = 'btn-outline-dark';
-      btnOutlineNew = 'btn-outline-light';
-      btnOriginal = 'btn-dark';
-      btnNew = 'btn-light';
-      textOriginal = 'text-dark';
-      textNew = 'text-light';
+      btnOutlineOriginal = "btn-outline-dark";
+      btnOutlineNew = "btn-outline-light";
+      btnOriginal = "btn-dark";
+      btnNew = "btn-light";
+      textOriginal = "text-dark";
+      textNew = "text-light";
     }
 
     document.querySelectorAll(`.${btnOutlineOriginal}`).forEach(element => {
@@ -51,15 +51,15 @@
       return storedTheme;
     }
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }
 
   const setTheme = theme => {
-    if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-bs-theme', 'dark');
-      setColors('dark');
+    if (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.setAttribute("data-bs-theme", "dark");
+      setColors("dark");
     } else {
-      document.documentElement.setAttribute('data-bs-theme', theme);
+      document.documentElement.setAttribute("data-bs-theme", theme);
       setColors(theme);
     }
 }
@@ -77,36 +77,36 @@
     const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
 
     document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-      element.classList.remove('active');
-      element.setAttribute('aria-pressed', 'false');
+      element.classList.remove("active");
+      element.setAttribute("aria-pressed", "false");
     });
 
-    btnToActive.classList.add('active');
-    btnToActive.setAttribute('aria-pressed', 'true');
+    btnToActive.classList.add("active");
+    btnToActive.setAttribute("aria-pressed", "true");
     const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`;
-    themeSwitcher.setAttribute('aria-label', themeSwitcherLabel);
+    themeSwitcher.setAttribute("aria-label", themeSwitcherLabel);
 
     if (focus) {
       themeSwitcher.focus();
     }
   }
 
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
     const storedTheme = getStoredTheme();
-    if (storedTheme !== 'light' && storedTheme !== 'dark') {
+    if (storedTheme !== "light" && storedTheme !== "dark") {
       setTheme(getPreferredTheme());
     }
   });
 
-  window.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener("DOMContentLoaded", () => {
     const preferredTheme = getPreferredTheme();
     setTheme(preferredTheme);
     showActiveTheme(preferredTheme);
 
     document.querySelectorAll('[data-bs-theme-value]')
       .forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          const theme = toggle.getAttribute('data-bs-theme-value');
+        toggle.addEventListener("click", () => {
+          const theme = toggle.getAttribute("data-bs-theme-value");
           setStoredTheme(theme);
           setTheme(theme);
           showActiveTheme(theme, true);
