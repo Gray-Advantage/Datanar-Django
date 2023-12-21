@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 06:58+0300\n"
+"POT-Creation-Date: 2023-12-21 15:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,10 @@ msgstr "Базовые формы"
 #: .\datanar\settings.py:160
 msgid "English"
 msgstr "Английский"
+
+#: .\datanar\settings.py:160
+msgid "Ukrainian"
+msgstr "Украинский"
 
 #: .\datanar\settings.py:161
 msgid "Russian"
@@ -81,7 +85,7 @@ msgstr "пользователь"
 
 #: .\redirects\models.py:45
 msgid "user_who_create_bond"
-msgstr "Пользователь, который создал связь меж короткой и длинной ссылкой."
+msgstr "Пользователь, который создал связь между короткой и длинной ссылкой."
 
 #: .\redirects\models.py:49
 msgid "short_link"
@@ -107,7 +111,7 @@ msgstr "время создания"
 
 #: .\redirects\models.py:61
 msgid "when_bond_was_create"
-msgstr "Когда было создана связь меж короткой и длинной ссылкой."
+msgstr "Когда была создана связь между короткой и длинной ссылкой."
 
 #: .\redirects\models.py:65
 msgid "password"
@@ -481,40 +485,40 @@ msgstr "API"
 msgid "theme"
 msgstr "Тема"
 
-#: .\templates\includes\header.html:33
+#: .\templates\includes\header.html:34
 msgid "light"
 msgstr "Светлая"
 
-#: .\templates\includes\header.html:38
+#: .\templates\includes\header.html:40
 msgid "dark"
 msgstr "Темная"
 
-#: .\templates\includes\header.html:43
+#: .\templates\includes\header.html:46
 msgid "auto"
 msgstr "Авто"
 
-#: .\templates\includes\header.html:50
+#: .\templates\includes\header.html:53
 msgid "no_user"
 msgstr "Нет имени пользователя"
 
-#: .\templates\includes\header.html:57 .\templates\users\profile.html:4
+#: .\templates\includes\header.html:60 .\templates\users\profile.html:4
 #: .\templates\users\profile.html:7
 msgid "my_profile"
 msgstr "Мой профиль"
 
-#: .\templates\includes\header.html:58
+#: .\templates\includes\header.html:61
 msgid "my_links"
 msgstr "Мои ссылки"
 
-#: .\templates\includes\header.html:61
+#: .\templates\includes\header.html:64
 msgid "admin_panel"
 msgstr "Админка"
 
-#: .\templates\includes\header.html:65
+#: .\templates\includes\header.html:68
 msgid "exit"
 msgstr "Выйти"
 
-#: .\templates\includes\header.html:70 .\templates\users\login.html:14
+#: .\templates\includes\header.html:73 .\templates\users\login.html:14
 msgid "sign_in"
 msgstr "Войти"
 

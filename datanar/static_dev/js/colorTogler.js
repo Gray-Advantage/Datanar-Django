@@ -62,27 +62,31 @@
       document.documentElement.setAttribute("data-bs-theme", theme);
       setColors(theme);
     }
-}
+  }
 
   setTheme(getPreferredTheme());
 
   const showActiveTheme = (theme, focus = false) => {
-    const themeSwitcher = document.querySelector('#bd-theme');
+    const themeSwitcher = document.querySelector("#bd-theme");
 
     if (!themeSwitcher) {
       return;
     }
 
     const themeSwitcherText = document.querySelector('#bd-theme-text');
+    const activeThemeIcon = document.querySelector("#theme-icon-active");
+
     const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+    const svgOfActiveBtn = btnToActive.querySelector("i").getAttribute("class")
 
     document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-      element.classList.remove("active");
-      element.setAttribute("aria-pressed", "false");
-    });
+      element.classList.remove("active")
+      element.setAttribute("aria-pressed", "false")
+    })
 
     btnToActive.classList.add("active");
     btnToActive.setAttribute("aria-pressed", "true");
+    activeThemeIcon.setAttribute("class", svgOfActiveBtn);
     const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`;
     themeSwitcher.setAttribute("aria-label", themeSwitcherLabel);
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 06:58+0300\n"
+"POT-Creation-Date: 2023-12-21 15:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,10 @@ msgstr "Base forms"
 #: .\datanar\settings.py:160
 msgid "English"
 msgstr "English"
+
+#: .\datanar\settings.py:160
+msgid "Ukrainian"
+msgstr "Ukrainian"
 
 #: .\datanar\settings.py:161
 msgid "Russian"
@@ -471,40 +475,40 @@ msgstr "API"
 msgid "theme"
 msgstr "Theme"
 
-#: .\templates\includes\header.html:33
+#: .\templates\includes\header.html:34
 msgid "light"
 msgstr "Light"
 
-#: .\templates\includes\header.html:38
+#: .\templates\includes\header.html:40
 msgid "dark"
 msgstr "Dark"
 
-#: .\templates\includes\header.html:43
+#: .\templates\includes\header.html:46
 msgid "auto"
 msgstr "Auto"
 
-#: .\templates\includes\header.html:50
+#: .\templates\includes\header.html:53
 msgid "no_user"
 msgstr "No Username"
 
-#: .\templates\includes\header.html:57 .\templates\users\profile.html:4
+#: .\templates\includes\header.html:60 .\templates\users\profile.html:4
 #: .\templates\users\profile.html:7
 msgid "my_profile"
 msgstr "My profile"
 
-#: .\templates\includes\header.html:58
+#: .\templates\includes\header.html:61
 msgid "my_links"
 msgstr "My links"
 
-#: .\templates\includes\header.html:61
+#: .\templates\includes\header.html:64
 msgid "admin_panel"
 msgstr "Admin panel"
 
-#: .\templates\includes\header.html:65
+#: .\templates\includes\header.html:68
 msgid "exit"
 msgstr "Exit"
 
-#: .\templates\includes\header.html:70 .\templates\users\login.html:14
+#: .\templates\includes\header.html:73 .\templates\users\login.html:14
 msgid "sign_in"
 msgstr "Sign in"
 
