@@ -22,10 +22,14 @@
 <div class="method-summary"></div>
 <h4><a href="#Redirects">Redirects</a></h4>
 <ul>
-  <li><a href="#deleteRedirectId"><code><span class="http-method">delete</span> /redirects/{id}/</code></a></li>
   <li><a href="#getRedirectId"><code><span class="http-method">get</span> /redirects/{id}/</code></a></li>
   <li><a href="#getRedirects"><code><span class="http-method">get</span> /redirects/</code></a></li>
   <li><a href="#postRedirects"><code><span class="http-method">post</span> /redirects/</code></a></li>
+  <li><a href="#deleteRedirectId"><code><span class="http-method">delete</span> /redirects/{id}/</code></a></li>
+</ul>
+<h4><a href="#QRcode">QR code</a></h4>
+<ul>
+  <li><a href="#getQrCode"><code><span class="http-method">get</span> /qr_code/download/</code></a></li>
 </ul>
 <h4><a href="#Token">Token</a></h4>
 <ul>
@@ -34,40 +38,8 @@
   </li>
 </ul>
 
-<h1><a id="Redirects">Redirects</a></h1>
-<div class="method"><a id="deleteRedirectId"></a>
-  <div class="method-path">
-
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /redirects/{id}/</code></pre>
-  </div>
-  <div class="method-summary">Delete redirect by id (<span class="nickname">deleteRedirectId</span>)</div>
-  <div class="method-notes"></div>
-
-  <h3 class="field-label">Path parameters</h3>
-  <div class="field-items">
-    <div class="param">id (required)</div>
-
-    <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Redirect id</div>
-  </div>  <!-- field-items -->
-
-
-  <h3 class="field-label">Query parameters</h3>
-  <div class="field-items">
-    <div class="param">token (required)</div>
-
-    <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; User token</div>
-  </div>  <!-- field-items -->
-
-
-  <h3 class="field-label">Responses</h3>
-  <h4 class="field-label">204</h4>
-  Successful operation
-  <a href="#"></a>
-  <h4 class="field-label">401</h4>
-  Invalid token supplied
-  <a href="#"></a>
-</div> <!-- method -->
 <hr/>
+<h1><a id="Redirects">Redirects</a></h1>
 <div class="method"><a id="getRedirectId"></a>
   <div class="method-path">
 
@@ -256,6 +228,62 @@
   <a href="#"></a>
   <h4 class="field-label">401</h4>
   Invalid token supplied
+  <a href="#"></a>
+</div> <!-- method -->
+<hr/>
+<div class="method"><a id="deleteRedirectId"></a>
+  <div class="method-path">
+
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /redirects/{id}/</code></pre>
+  </div>
+  <div class="method-summary">Delete redirect by id (<span class="nickname">deleteRedirectId</span>)</div>
+  <div class="method-notes"></div>
+
+  <h3 class="field-label">Path parameters</h3>
+  <div class="field-items">
+    <div class="param">id (required)</div>
+
+    <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Redirect id</div>
+  </div>  <!-- field-items -->
+
+
+  <h3 class="field-label">Query parameters</h3>
+  <div class="field-items">
+    <div class="param">token (required)</div>
+
+    <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; User token</div>
+  </div>  <!-- field-items -->
+
+
+  <h3 class="field-label">Responses</h3>
+  <h4 class="field-label">204</h4>
+  Successful operation
+  <a href="#"></a>
+  <h4 class="field-label">401</h4>
+  Invalid token supplied
+  <a href="#"></a>
+</div> <!-- method -->
+<hr/>
+<h1><a name="QRcode">QR code</a></h1>
+<div class="method"><a id="getQrCode"></a>
+  <div class="method-path">
+    <pre class="get"><code class="huge"><span class="http-method">get</span> {host_name}/qr_code/download/{type}/{short_link}/</code></pre>
+  </div>
+  <div class="method-summary">Get QR code for redirect (<span class="nickname">getQrCode</span>)</div>
+  <div class="method-notes"></div>
+
+
+  <h3 class="field-label">Query parameters</h3>
+  <div class="field-items">
+    <div class="param">type (required) </div>
+    <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; (jpg, png, svg)</div>
+    <div class="param">short_link (required)</div>
+    <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; User token</div>
+  </div>  <!-- field-items -->
+
+  <h3 class="field-label">Responses</h3>
+  <h4 class="field-label">200</h4>
+  Successful operation
   <a href="#"></a>
 </div> <!-- method -->
 <hr/>
