@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-20 02:12+0400\n"
+"POT-Creation-Date: 2023-12-21 04:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\datanar\settings.py:161
+#: .\api\apps.py:8
+msgid "api"
+msgstr "API"
+
+#: .\core\apps.py:8
+msgid "base_forms"
+msgstr "Base forms"
+
+#: .\datanar\settings.py:162
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:162
+#: .\datanar\settings.py:163
 msgid "Russian"
 msgstr "Russian"
 
-#: .\redirects\forms.py:17
+#: .\homepage\apps.py:8
+msgid "homepage"
+msgstr "Homepage"
+
+#: .\qr_codes\apps.py:8
+msgid "qr-codes"
+msgstr "QR-codes"
+
+#: .\redirects\apps.py:8 .\redirects\models.py:87
+msgid "redirects"
+msgstr "redirects"
+
+#: .\redirects\forms.py:27
 msgid "custom_url"
 msgstr "Custom url"
 
-#: .\redirects\forms.py:18
+#: .\redirects\forms.py:28
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "A custom url that you would like to have instead of the generated one."
 
-#: .\redirects\forms.py:62
+#: .\redirects\forms.py:73
 msgid "custom_url_should_not_have_slash"
 msgstr "The custom link should not have a '/'"
 
-#: .\redirects\forms.py:68
+#: .\redirects\forms.py:79
 msgid "custom_url_already_use"
 msgstr "This custom url is already in use. Please choose another one."
 
-#: .\redirects\forms.py:139 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:166 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Password"
 
-#: .\redirects\forms.py:140
+#: .\redirects\forms.py:167
 msgid "password_before_redirect"
 msgstr "Enter the password before redirecting"
 
@@ -110,13 +130,13 @@ msgstr "How many clicks can make on a link before deleting it."
 msgid "redirect"
 msgstr "redirect"
 
-#: .\redirects\models.py:87
-msgid "redirects"
-msgstr "redirects"
-
 #: .\redirects\views.py:42
 msgid "invalid_password"
 msgstr "The password is incorrect"
+
+#: .\statistic\apps.py:8 .\templates\includes\link_card.html:14
+msgid "statistic"
+msgstr "Statistics"
 
 #: .\statistic\models.py:44
 msgid "redirect_time"
@@ -289,17 +309,15 @@ msgstr ""
 "\n"
 "If it was you, you can sign up for an account using the link below."
 
-#: .\templates\api\api_docs.html:5 .\templates\homepage\main.html:5
-msgid "title__homepage"
-msgstr "Datanar - Links Shortening"
-
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
 msgid "about"
 msgstr "About"
 
 #: .\templates\homepage\about.html:14
 msgid "about_beginning"
-msgstr "Datanar is a link shortening web service. On our website, you can easily shorten long URLs, making them more convenient and user-friendly."
+msgstr ""
+"Datanar is a link shortening web service. On our website, you can easily "
+"shorten long URLs, making them more convenient and user-friendly."
 
 #: .\templates\homepage\about.html:16
 msgid "about_you_can_do"
@@ -365,7 +383,11 @@ msgstr "Tretyakov Artem"
 msgid "gitlab_project"
 msgstr "GitLab Project"
 
-#: .\templates\homepage\main.html:22
+#: .\templates\homepage\main.html:5
+msgid "title__homepage"
+msgstr "Datanar - Links Shortening"
+
+#: .\templates\homepage\main.html:28
 msgid "short_description_under_logo"
 msgstr "Shorten your link so that your customers don't have to see long URLs."
 
@@ -486,13 +508,9 @@ msgstr "Exit"
 msgid "sign_in"
 msgstr "Sign in"
 
-#: .\templates\includes\link_card.html:11
+#: .\templates\includes\link_card.html:12
 msgid "copy"
 msgstr "Copy"
-
-#: .\templates\includes\link_card.html:13
-msgid "statistic"
-msgstr "Statistics"
 
 #: .\templates\includes\user_form.html:50
 msgid "dont_have_account_yet"
@@ -726,6 +744,10 @@ msgstr "Welcome to Datanar!"
 #: .\templates\users\signup.html:14
 msgid "register"
 msgstr "Register"
+
+#: .\users\apps.py:8
+msgid "users"
+msgstr "Users"
 
 #: .\users\models.py:21
 msgid "avatar"
