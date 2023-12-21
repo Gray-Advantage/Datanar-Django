@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from celery.result import AsyncResult
 from django.contrib import messages
 from django.contrib.gis.geoip2 import GeoIP2
@@ -71,10 +73,11 @@ class LinksFileStatus(View):
         task = AsyncResult(self.kwargs["work_id"])
 
         if not task.ready():
-            return HttpResponse(status=202)
+            return HttpResponse(status=HTTPStatus.ACCEPTED)
 
         for line in task.result:
             messages.add_message(request, SHORT_LINK, line)
+
         return HttpResponseRedirect(reverse("homepage:home"))
 
 

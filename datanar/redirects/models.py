@@ -14,7 +14,8 @@ class RedirectManager(models.Manager):
         if redirect is None:
             return None
         if (
-            redirect.created_at
+            redirect.validity_days
+            and redirect.created_at
             + timezone.timedelta(days=redirect.validity_days)
             < timezone.now()
         ):

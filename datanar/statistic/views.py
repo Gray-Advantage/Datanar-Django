@@ -15,8 +15,8 @@ from statistic.models import Click
 def get_clicks_by_mode(short_link, mode):
     if mode in ["year", "month", "day"]:
         return eval(
-            f"Click.objects.for_short_link_by_last_{mode}(short_link)",
-            {"Click": Click, "short_link": short_link},
+            f"Click.objects.for_short_link_by_last_{mode}('{short_link}')",
+            {"Click": Click},
         )
     return Click.objects.for_short_link_by_all_time(short_link)
 
@@ -26,7 +26,7 @@ class MyLinksView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         redirects = Redirect.objects.filter(user=request.user).only(
-            "short_link",
+            Redirect.short_link.field.name,
         )
         context = {"links": [redirect.short_link for redirect in redirects]}
         return render(request, "statistic/my_links.html", context)
@@ -91,6 +91,7 @@ class DownloadStatistic(View):
 
         for col_num, header in enumerate(headers, 1):
             ws[f"{openpyxl.utils.get_column_letter(col_num)}1"] = header
+
         for number, click in enumerate(get_clicks_by_mode(link, period), 1):
             ws.append(
                 [
@@ -102,6 +103,7 @@ class DownloadStatistic(View):
                     click.city,
                 ],
             )
+
         for column_cells in ws.columns:
             length = max(len(str(cell.value)) for cell in column_cells) + 2
             ws.column_dimensions[
@@ -111,6 +113,7 @@ class DownloadStatistic(View):
         virtual_workbook = BytesIO()
         wb.save(virtual_workbook)
         virtual_workbook.seek(0)
+
         return FileResponse(
             virtual_workbook,
             as_attachment=True,

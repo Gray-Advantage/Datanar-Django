@@ -5,13 +5,13 @@ from django.urls import include, path
 
 urlpatterns = [
     path("", include("homepage.urls")),
-    path("statistics/", include("statistic.urls")),
     path("admin/", admin.site.urls),
-    path("i18n/", include("django.conf.urls.i18n")),
+    path("api/v1/", include("api.urls")),
     path("auth/", include("users.urls")),
     path("auth/", include("allauth.urls")),
-    path("api/v1/", include("api.urls")),
+    path("i18n/", include("django.conf.urls.i18n")),
     path("qr_code/", include("qr_codes.urls")),
+    path("statistics/", include("statistic.urls")),
     path("", include("redirects.urls")),
 ]
 
@@ -24,4 +24,4 @@ if settings.DEBUG:
     )
 
 
-__all__ = [urlpatterns]
+__all__ = []

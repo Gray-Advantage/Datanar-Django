@@ -23,12 +23,14 @@ class HomeView(FormView):
     def form_valid(self, form):
         if "links_file" in self.request.FILES:
             links_file = form.cleaned_data["links_file"]
+
             file_path = default_storage.save(
                 "link-files/" + links_file.name,
                 ContentFile(links_file.read()),
             )
             data = form.cleaned_data
             data["links_file"] = file_path
+
             task = create_redirects.delay(data, self.request.user.id)
 
             messages.add_message(
@@ -36,15 +38,15 @@ class HomeView(FormView):
                 LOADING_LINKS,
                 task.id,
             )
+
             return super().form_valid(form)
 
         if "links_file" in form.cleaned_data:
             del form.cleaned_data["links_file"]
-        redirect = Redirect.objects.create(**form.cleaned_data)
 
+        redirect = Redirect.objects.create(**form.cleaned_data)
         if self.request.user.is_authenticated:
             redirect.user = self.request.user
-
         redirect.save()
 
         messages.add_message(

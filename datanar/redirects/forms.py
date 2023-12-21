@@ -36,13 +36,9 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
         first = True
         for field in self.fields.values():
             field.widget.attrs.update({"placeholder": field.help_text})
-            if first:
-                first = False
-            else:
+            if not first:
                 field.widget.attrs["class"] += " mb-2"
-
-    def __str__(self):
-        return f"{self.password}"
+            first = False
 
     class Meta:
         model = Redirect
@@ -65,29 +61,27 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
         custom_url = self.cleaned_data.get("custom_url")
 
         if custom_url:
-            all_good = True
-
             if "/" in custom_url:
                 self.add_error(
                     "custom_url",
                     ValidationError(_("custom_url_should_not_have_slash")),
                 )
-                all_good = False
             if Redirect.objects.get_by_short_link(custom_url):
                 self.add_error(
                     "custom_url",
                     ValidationError(_("custom_url_already_use")),
                 )
-                all_good = False
 
-            if all_good:
-                self.cleaned_data["short_link"] = custom_url
+            if not self.errors:
+                self.cleaned_data[Redirect.short_link.field.name] = custom_url
                 del self.cleaned_data["custom_url"]
+
                 return self.cleaned_data
+
             return None
 
         counter = 0
-        string = self.cleaned_data["long_link"]
+        string = self.cleaned_data[Redirect.long_link.field.name]
         while True:
             temp_string = f"{string}{counter}" if counter > 0 else string
             hash_object = hashlib.sha256(temp_string.encode())
@@ -97,8 +91,9 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
                 break
             counter += 1
 
-        self.cleaned_data["short_link"] = short_link
+        self.cleaned_data[Redirect.short_link.field.name] = short_link
         del self.cleaned_data["custom_url"]
+
         return self.cleaned_data
 
 
@@ -112,7 +107,6 @@ class RedirectFormExtended(RedirectForm):
         ),
         help_text=Redirect.validity_days.field.help_text,
         widget=CustomDateField(format="%Y-%m-%d"),
-        initial=(timezone.now() + timezone.timedelta(days=90)),
         required=False,
     )
 
@@ -132,11 +126,17 @@ class RedirectFormExtended(RedirectForm):
         self.fields["links_file"].widget.attrs["accept"] = ".txt, .xlsx"
 
     def clean(self):
-        if self.cleaned_data["links_file"]:
-            self.cleaned_data["long_link"] = "https://some.url.com/"
-        delt = self.cleaned_data["date_validity_field"] - timezone.now().date()
-        self.cleaned_data["validity_days"] = delt.days
+        if self.cleaned_data["date_validity_field"] is None:
+            self.cleaned_data[Redirect.validity_days.field.name] = None
+            del self.cleaned_data["date_validity_field"]
+            return super().clean()
+
+        delta = (
+            self.cleaned_data["date_validity_field"] - timezone.now().date()
+        )
+        self.cleaned_data[Redirect.validity_days.field.name] = delta.days
         del self.cleaned_data["date_validity_field"]
+
         return super().clean()
 
     class Meta(RedirectForm.Meta):

@@ -49,6 +49,7 @@
 
 ### Используемые фреймворки / библиотеки
 - [Bootstrap](https://getbootstrap.com/)
+- [Celery](https://docs.celeryq.dev/en/stable/)
 - [Chart.js](https://www.chartjs.org/)
 - [DB-IP](https://db-ip.com)
 - [Django](https://www.djangoproject.com/)

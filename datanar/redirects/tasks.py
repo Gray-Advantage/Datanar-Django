@@ -73,11 +73,14 @@ def create_redirects(data, user_id):
         elif second:
             del data["custom_url"]
             second = False
+
         form = RedirectFormExtended(data)
         del form.cleaned_data["links_file"]
+
         redirect = Redirect.objects.create(**form.cleaned_data)
         redirect.user = User.objects.get(id=user_id)
         redirect.save()
+
         answer.append(redirect.short_link)
 
     return answer
