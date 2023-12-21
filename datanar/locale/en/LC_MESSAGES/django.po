@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 15:46+0300\n"
+"POT-Creation-Date: 2023-12-21 16:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,11 +30,11 @@ msgstr "Base forms"
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:160
+#: .\datanar\settings.py:161
 msgid "Ukrainian"
 msgstr "Ukrainian"
 
-#: .\datanar\settings.py:161
+#: .\datanar\settings.py:162
 msgid "Russian"
 msgstr "Russian"
 
@@ -395,27 +395,33 @@ msgstr "Datanar - Links Shortening"
 msgid "short_description_under_logo"
 msgstr "Shorten your link so that your customers don't have to see long URLs."
 
-#: .\templates\homepage\main.html:37
+#: .\templates\homepage\main.html:30
+msgid "short_description_about_supported_files"
+msgstr ""
+"You can select or drag a file with an extension .txt/.xlsx. In txt, "
+"each row is treated as a link, and xlsx treats each row of the first column"
+
+#: .\templates\homepage\main.html:40
 msgid "label_link_file"
 msgstr "Selected file with links"
 
-#: .\templates\homepage\main.html:41
+#: .\templates\homepage\main.html:44
 msgid "delete_file"
 msgstr "Delete file"
 
-#: .\templates\homepage\main.html:43
+#: .\templates\homepage\main.html:46
 msgid "choose_file"
 msgstr "Choose file"
 
-#: .\templates\homepage\main.html:45
+#: .\templates\homepage\main.html:48
 msgid "shorten"
 msgstr "Shorten"
 
-#: .\templates\homepage\main.html:65
+#: .\templates\homepage\main.html:68
 msgid "message_error_count"
 msgstr "Please drag and drop only one file."
 
-#: .\templates\homepage\main.html:66
+#: .\templates\homepage\main.html:69
 msgid "message_error_type"
 msgstr "Please drag and drop the file with the extension .xlsx or .txt."
 
@@ -597,13 +603,13 @@ msgstr "Browsers"
 msgid "Countries"
 msgstr "Countries"
 
-#: .\templates\statistic\link_detail.html:83
-msgid "ip_geo_by_DB-IP"
-msgstr "IP Geolocation by DB-IP"
-
-#: .\templates\statistic\link_detail.html:90
+#: .\templates\statistic\link_detail.html:89
 msgid "Cities"
 msgstr "Cities"
+
+#: .\templates\statistic\link_detail.html:101
+msgid "ip_geo_by_DB-IP"
+msgstr "IP Geolocation by DB-IP"
 
 #: .\templates\statistic\link_detail.html:102
 msgid "download_statistics_for_the_period"

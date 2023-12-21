@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 15:46+0300\n"
+"POT-Creation-Date: 2023-12-21 16:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,11 +32,11 @@ msgstr "Базовые формы"
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:160
+#: .\datanar\settings.py:161
 msgid "Ukrainian"
 msgstr "Украинский"
 
-#: .\datanar\settings.py:161
+#: .\datanar\settings.py:162
 msgid "Russian"
 msgstr "Русский"
 
@@ -404,27 +404,34 @@ msgstr ""
 "Сократите свою ссылку, чтобы вашим клиентам не пришлось видеть длинные url-"
 "адреса."
 
-#: .\templates\homepage\main.html:37
+#: .\templates\homepage\main.html:30
+msgid "short_description_about_supported_files"
+msgstr ""
+"Вы можете выбрать или перетащить файл c расширением .txt/.xlsx. В txt каждая "
+"строчка рассматривается как ссылка, а xlsx каждая строчка первого столбца"
+
+
+#: .\templates\homepage\main.html:40
 msgid "label_link_file"
 msgstr "Выбран файл с ссылками"
 
-#: .\templates\homepage\main.html:41
+#: .\templates\homepage\main.html:44
 msgid "delete_file"
 msgstr "Удалить файл"
 
-#: .\templates\homepage\main.html:43
+#: .\templates\homepage\main.html:46
 msgid "choose_file"
 msgstr "Выбрать файл"
 
-#: .\templates\homepage\main.html:45
+#: .\templates\homepage\main.html:48
 msgid "shorten"
 msgstr "Сократить"
 
-#: .\templates\homepage\main.html:65
+#: .\templates\homepage\main.html:68
 msgid "message_error_count"
 msgstr "Пожалуйста, перетащите только один файл."
 
-#: .\templates\homepage\main.html:66
+#: .\templates\homepage\main.html:69
 msgid "message_error_type"
 msgstr "Пожалуйста, перетащите файл с расширением .xlsx или .txt."
 
@@ -607,13 +614,13 @@ msgstr "Браузеры"
 msgid "Countries"
 msgstr "Страны"
 
-#: .\templates\statistic\link_detail.html:83
-msgid "ip_geo_by_DB-IP"
-msgstr "IP геолокация от DB-IP"
-
-#: .\templates\statistic\link_detail.html:90
+#: .\templates\statistic\link_detail.html:89
 msgid "Cities"
 msgstr "Города"
+
+#: .\templates\statistic\link_detail.html:101
+msgid "ip_geo_by_DB-IP"
+msgstr "IP геолокация от DB-IP"
 
 #: .\templates\statistic\link_detail.html:102
 msgid "download_statistics_for_the_period"
