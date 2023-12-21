@@ -23,23 +23,26 @@
         </div>
       </form>
       <nav class="nav-item dropdown">
-        <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle show" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (dark)">
-          <span class="d-lg-none ms-2" id="bd-theme-text"></span>
-          {% trans "theme" %}
+        <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center show" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (light)">
+          <i id="theme-icon-active" class="bi bi-0-circle-fill"></i>
+          <span class="d-lg-none ms-2" id="bd-theme-text">{% trans "theme" %}</span>
         </button>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text" data-bs-popper="static">
           <li>
-            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="false">
+              <i class="bi bi-sun-fill"></i>
               {% trans "light" %}
             </button>
           </li>
           <li>
             <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+              <i class="bi bi-moon-stars-fill"></i>
               {% trans "dark" %}
             </button>
           </li>
           <li>
-            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+              <i class="bi bi-circle-half"></i>
               {% trans "auto" %}
             </button>
           </li>
