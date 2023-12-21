@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-20 02:12+0400\n"
+"POT-Creation-Date: 2023-12-21 15:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,15 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\datanar\settings.py:158
+#: .\datanar\settings.py:159
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:159
+#: .\datanar\settings.py:160
+msgid "Ukrainian"
+msgstr "Украинский"
+
+#: .\datanar\settings.py:161
 msgid "Russian"
 msgstr "Русский"
 
@@ -61,7 +65,7 @@ msgstr "пользователь"
 
 #: .\redirects\models.py:44
 msgid "user_who_create_bond"
-msgstr "Пользователь, который создал связь меж короткой и длинной ссылкой."
+msgstr "Пользователь, который создал связь между короткой и длинной ссылкой."
 
 #: .\redirects\models.py:48
 msgid "short_link"
@@ -87,7 +91,7 @@ msgstr "время создания"
 
 #: .\redirects\models.py:60
 msgid "when_bond_was_create"
-msgstr "Когда было создана связь меж короткой и длинной ссылкой."
+msgstr "Когда была создана связь между короткой и длинной ссылкой."
 
 #: .\redirects\models.py:64
 msgid "password"
@@ -296,17 +300,16 @@ msgstr ""
 "Если это были вы, вы можете зарегистрироваться на сайте, используя ссылку "
 "ниже."
 
-#: .\templates\api\api_docs.html:5 .\templates\homepage\main.html:5
-msgid "title__homepage"
-msgstr "Datanar - Сокращение ссылок"
-
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
 msgid "about"
 msgstr "О проекте"
 
 #: .\templates\homepage\about.html:14
 msgid "about_beginning"
-msgstr "Datanar - это веб-сервис по сокращению ссылок. С нашим сайтом вы легко можете сократить длинные url-адреса, делая их более удобными и простыми в использовании."
+msgstr ""
+"Datanar - это веб-сервис по сокращению ссылок. С нашим сайтом вы легко "
+"можете сократить длинные url-адреса, делая их более удобными и простыми в "
+"использовании."
 
 #: .\templates\homepage\about.html:16
 msgid "about_you_can_do"
@@ -372,13 +375,17 @@ msgstr "Третьяков Артем"
 msgid "gitlab_project"
 msgstr "Проект на GitLab"
 
-#: .\templates\homepage\main.html:22
+#: .\templates\homepage\main.html:5
+msgid "title__homepage"
+msgstr "Datanar - Сокращение ссылок"
+
+#: .\templates\homepage\main.html:23
 msgid "short_description_under_logo"
 msgstr ""
 "Сократите свою ссылку, чтобы вашим клиентам не пришлось видеть длинные url-"
 "адреса."
 
-#: .\templates\homepage\main.html:33
+#: .\templates\homepage\main.html:34
 msgid "shorten"
 msgstr "Сократить"
 
@@ -439,48 +446,48 @@ msgstr "API"
 msgid "theme"
 msgstr "Тема"
 
-#: .\templates\includes\header.html:33
+#: .\templates\includes\header.html:34
 msgid "light"
 msgstr "Светлая"
 
-#: .\templates\includes\header.html:38
+#: .\templates\includes\header.html:40
 msgid "dark"
 msgstr "Темная"
 
-#: .\templates\includes\header.html:43
+#: .\templates\includes\header.html:46
 msgid "auto"
 msgstr "Авто"
 
-#: .\templates\includes\header.html:50
+#: .\templates\includes\header.html:53
 msgid "no_user"
 msgstr "Нет имени пользователя"
 
-#: .\templates\includes\header.html:57 .\templates\users\profile.html:4
+#: .\templates\includes\header.html:60 .\templates\users\profile.html:4
 #: .\templates\users\profile.html:7
 msgid "my_profile"
 msgstr "Мой профиль"
 
-#: .\templates\includes\header.html:58
+#: .\templates\includes\header.html:61
 msgid "my_links"
 msgstr "Мои ссылки"
 
-#: .\templates\includes\header.html:61
+#: .\templates\includes\header.html:64
 msgid "admin_panel"
 msgstr "Админка"
 
-#: .\templates\includes\header.html:65
+#: .\templates\includes\header.html:68
 msgid "exit"
 msgstr "Выйти"
 
-#: .\templates\includes\header.html:70 .\templates\users\login.html:14
+#: .\templates\includes\header.html:73 .\templates\users\login.html:14
 msgid "sign_in"
 msgstr "Войти"
 
-#: .\templates\includes\link_card.html:11
+#: .\templates\includes\link_card.html:12
 msgid "copy"
 msgstr "Скопировать"
 
-#: .\templates\includes\link_card.html:13
+#: .\templates\includes\link_card.html:14
 msgid "statistic"
 msgstr "Статистика"
 
