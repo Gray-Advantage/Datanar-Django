@@ -18,7 +18,7 @@
   <div class="vr h-auto"></div>
   <div>
     <div class="position-relative">
-      <img id="qrImage" class="img-fluid rounded-end" src="{% url 'qr_code:preview' link %}" height="105" width="105" alt="qr_code">
+      <img class="img-fluid rounded-end" src="{% url 'qr_code:preview' link %}" height="105" width="105" alt="qr_code">
       <div class="overlay p-2 position-absolute border rounded-3 translate-middle">
         <div class="d-flex">
           <a href="{% url 'qr_code:download' 'svg' link %}" class="btn btn-outline-dark">SVG</a>
