@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 04:16+0300\n"
+"POT-Creation-Date: 2023-12-21 06:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,11 +26,11 @@ msgstr "API"
 msgid "base_forms"
 msgstr "Base forms"
 
-#: .\datanar\settings.py:162
+#: .\datanar\settings.py:160
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:163
+#: .\datanar\settings.py:161
 msgid "Russian"
 msgstr "Russian"
 
@@ -42,7 +42,7 @@ msgstr "Homepage"
 msgid "qr-codes"
 msgstr "QR-codes"
 
-#: .\redirects\apps.py:8 .\redirects\models.py:87
+#: .\redirects\apps.py:8 .\redirects\models.py:88
 msgid "redirects"
 msgstr "redirects"
 
@@ -54,11 +54,11 @@ msgstr "Custom url"
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "A custom url that you would like to have instead of the generated one."
 
-#: .\redirects\forms.py:73
+#: .\redirects\forms.py:67
 msgid "custom_url_should_not_have_slash"
 msgstr "The custom link should not have a '/'"
 
-#: .\redirects\forms.py:79
+#: .\redirects\forms.py:72
 msgid "custom_url_already_use"
 msgstr "This custom url is already in use. Please choose another one."
 
@@ -70,71 +70,71 @@ msgstr "Password"
 msgid "password_before_redirect"
 msgstr "Enter the password before redirecting"
 
-#: .\redirects\models.py:43
+#: .\redirects\models.py:44
 msgid "user"
 msgstr "user"
 
-#: .\redirects\models.py:44
+#: .\redirects\models.py:45
 msgid "user_who_create_bond"
 msgstr "The user who created the bond between the short and long link."
 
-#: .\redirects\models.py:48
+#: .\redirects\models.py:49
 msgid "short_link"
 msgstr "short link"
 
-#: .\redirects\models.py:49
+#: .\redirects\models.py:50
 msgid "shorten_link_to_redirect_to_resource"
 msgstr "A shortened link that will be used to redirect to the final resource."
 
-#: .\redirects\models.py:54
+#: .\redirects\models.py:55
 msgid "long_link"
 msgstr "long link"
 
-#: .\redirects\models.py:55
+#: .\redirects\models.py:56
 msgid "resource_to_which_short_link_lead"
 msgstr "The final resource to which the short link will lead."
 
-#: .\redirects\models.py:59
+#: .\redirects\models.py:60
 msgid "creation_time"
 msgstr "creation time"
 
-#: .\redirects\models.py:60
+#: .\redirects\models.py:61
 msgid "when_bond_was_create"
 msgstr "When a bond was created between a short and a long link."
 
-#: .\redirects\models.py:64
+#: .\redirects\models.py:65
 msgid "password"
 msgstr "password"
 
-#: .\redirects\models.py:65
+#: .\redirects\models.py:66
 msgid "password_that_will_requested_to_redirect"
 msgstr "The password that will be requested before redirection."
 
-#: .\redirects\models.py:71
+#: .\redirects\models.py:72
 msgid "valid_day_number"
 msgstr "valid number of days"
 
-#: .\redirects\models.py:72
+#: .\redirects\models.py:73
 msgid "how_many_day_link_will_be_valid"
 msgstr "How many days will the link be valid before deleting it."
 
-#: .\redirects\models.py:78
+#: .\redirects\models.py:79
 msgid "valid_click_number"
 msgstr "valid number of clicks"
 
-#: .\redirects\models.py:79
+#: .\redirects\models.py:80
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "How many clicks can make on a link before deleting it."
 
-#: .\redirects\models.py:86 .\redirects\models.py:90
+#: .\redirects\models.py:87 .\redirects\models.py:91
 msgid "redirect"
 msgstr "redirect"
 
-#: .\redirects\views.py:42
+#: .\redirects\views.py:44
 msgid "invalid_password"
 msgstr "The password is incorrect"
 
-#: .\statistic\apps.py:8 .\templates\includes\link_card.html:14
+#: .\statistic\apps.py:9 .\templates\includes\link_card.html:14
 msgid "statistic"
 msgstr "Statistics"
 
@@ -319,67 +319,67 @@ msgstr ""
 "Datanar is a link shortening web service. On our website, you can easily "
 "shorten long URLs, making them more convenient and user-friendly."
 
-#: .\templates\homepage\about.html:16
+#: .\templates\homepage\about.html:18
 msgid "about_you_can_do"
 msgstr "With Datanar, you can:"
 
-#: .\templates\homepage\about.html:19
+#: .\templates\homepage\about.html:21
 msgid "can_do_1"
 msgstr "Shorten a link"
 
-#: .\templates\homepage\about.html:20
+#: .\templates\homepage\about.html:22
 msgid "can_do_2"
 msgstr "Get an instantly generated QR code"
 
-#: .\templates\homepage\about.html:21
+#: .\templates\homepage\about.html:23
 msgid "can_do_3"
 msgstr "Specify your own custom short URL"
 
-#: .\templates\homepage\about.html:22
+#: .\templates\homepage\about.html:24
 msgid "can_do_4"
 msgstr "Track link click statistics"
 
-#: .\templates\homepage\about.html:23
+#: .\templates\homepage\about.html:25
 msgid "can_do_5"
 msgstr "Download statistics in a convenient format"
 
-#: .\templates\homepage\about.html:24
+#: .\templates\homepage\about.html:26
 msgid "can_do_6"
 msgstr "Set a password for the shortened link"
 
-#: .\templates\homepage\about.html:25
+#: .\templates\homepage\about.html:27
 msgid "can_do_7"
 msgstr "Specify the expiration date of the link"
 
-#: .\templates\homepage\about.html:26
+#: .\templates\homepage\about.html:28
 msgid "can_do_8"
 msgstr "Set the number of clicks allowed for the link"
 
-#: .\templates\homepage\about.html:27
+#: .\templates\homepage\about.html:29
 msgid "can_do_9"
 msgstr "Integrate your service with ours through API"
 
-#: .\templates\homepage\about.html:31
+#: .\templates\homepage\about.html:34
 msgid "about_using"
 msgstr "The site is built using:"
 
-#: .\templates\homepage\about.html:43
+#: .\templates\homepage\about.html:49
 msgid "developers"
 msgstr "Meet the developers - these wonderful people:"
 
-#: .\templates\homepage\about.html:47
+#: .\templates\homepage\about.html:55
 msgid "sergey"
 msgstr "Andreev Sergey"
 
-#: .\templates\homepage\about.html:52
+#: .\templates\homepage\about.html:61
 msgid "vladimir"
 msgstr "Klimenko Vladimir"
 
-#: .\templates\homepage\about.html:57
+#: .\templates\homepage\about.html:67
 msgid "artem"
 msgstr "Tretyakov Artem"
 
-#: .\templates\homepage\about.html:61
+#: .\templates\homepage\about.html:74
 msgid "gitlab_project"
 msgstr "GitLab Project"
 
@@ -399,19 +399,19 @@ msgstr "Selected file with links"
 msgid "delete_file"
 msgstr "Delete file"
 
-#: .\templates\homepage\main.html:42
+#: .\templates\homepage\main.html:43
 msgid "choose_file"
 msgstr "Choose file"
 
-#: .\templates\homepage\main.html:43
+#: .\templates\homepage\main.html:45
 msgid "shorten"
 msgstr "Shorten"
 
-#: .\templates\homepage\main.html:63
+#: .\templates\homepage\main.html:65
 msgid "message_error_count"
 msgstr "Please drag and drop only one file."
 
-#: .\templates\homepage\main.html:64
+#: .\templates\homepage\main.html:66
 msgid "message_error_type"
 msgstr "Please drag and drop the file with the extension .xlsx or .txt."
 
@@ -593,11 +593,15 @@ msgstr "Browsers"
 msgid "Countries"
 msgstr "Countries"
 
-#: .\templates\statistic\link_detail.html:89
+#: .\templates\statistic\link_detail.html:83
+msgid "ip_geo_by_DB-IP"
+msgstr "IP Geolocation by DB-IP"
+
+#: .\templates\statistic\link_detail.html:90
 msgid "Cities"
 msgstr "Cities"
 
-#: .\templates\statistic\link_detail.html:101
+#: .\templates\statistic\link_detail.html:102
 msgid "download_statistics_for_the_period"
 msgstr "Download statistics for the period"
 
@@ -749,7 +753,7 @@ msgstr "Register"
 msgid "users"
 msgstr "Users"
 
-#: .\users\models.py:21
+#: .\users\models.py:8
 msgid "avatar"
 msgstr "Avatar"
 

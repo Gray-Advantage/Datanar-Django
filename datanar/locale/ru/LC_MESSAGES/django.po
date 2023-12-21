@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 04:16+0300\n"
+"POT-Creation-Date: 2023-12-21 06:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,11 +28,11 @@ msgstr "API"
 msgid "base_forms"
 msgstr "Базовые формы"
 
-#: .\datanar\settings.py:162
+#: .\datanar\settings.py:160
 msgid "English"
 msgstr "Английский"
 
-#: .\datanar\settings.py:163
+#: .\datanar\settings.py:161
 msgid "Russian"
 msgstr "Русский"
 
@@ -44,7 +44,7 @@ msgstr "Домашняя страница"
 msgid "qr-codes"
 msgstr "QR-коды"
 
-#: .\redirects\apps.py:8 .\redirects\models.py:87
+#: .\redirects\apps.py:8 .\redirects\models.py:88
 msgid "redirects"
 msgstr "перенаправления"
 
@@ -58,11 +58,11 @@ msgstr ""
 "Пользовательский URL-адрес, который вы хотели бы иметь вместо "
 "сгенерированного."
 
-#: .\redirects\forms.py:73
+#: .\redirects\forms.py:67
 msgid "custom_url_should_not_have_slash"
 msgstr "Кастомная ссылка не должна иметь '/'"
 
-#: .\redirects\forms.py:79
+#: .\redirects\forms.py:72
 msgid "custom_url_already_use"
 msgstr ""
 "Этот кастомный url-адрес уже используется. Пожалуйста, выберите другой."
@@ -75,73 +75,73 @@ msgstr "Пароль"
 msgid "password_before_redirect"
 msgstr "Введите пароль перед перенаправлением"
 
-#: .\redirects\models.py:43
+#: .\redirects\models.py:44
 msgid "user"
 msgstr "пользователь"
 
-#: .\redirects\models.py:44
+#: .\redirects\models.py:45
 msgid "user_who_create_bond"
 msgstr "Пользователь, который создал связь меж короткой и длинной ссылкой."
 
-#: .\redirects\models.py:48
+#: .\redirects\models.py:49
 msgid "short_link"
 msgstr "короткая ссылка"
 
-#: .\redirects\models.py:49
+#: .\redirects\models.py:50
 msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
 "Сокращённая ссылка, по которой будет совершенно перенаправление на конечный "
 "ресурс."
 
-#: .\redirects\models.py:54
+#: .\redirects\models.py:55
 msgid "long_link"
 msgstr "длинная ссылка"
 
-#: .\redirects\models.py:55
+#: .\redirects\models.py:56
 msgid "resource_to_which_short_link_lead"
 msgstr "Конечный ресурс, до которого будет вести короткая ссылка."
 
-#: .\redirects\models.py:59
+#: .\redirects\models.py:60
 msgid "creation_time"
 msgstr "время создания"
 
-#: .\redirects\models.py:60
+#: .\redirects\models.py:61
 msgid "when_bond_was_create"
 msgstr "Когда было создана связь меж короткой и длинной ссылкой."
 
-#: .\redirects\models.py:64
+#: .\redirects\models.py:65
 msgid "password"
 msgstr "пароль"
 
-#: .\redirects\models.py:65
+#: .\redirects\models.py:66
 msgid "password_that_will_requested_to_redirect"
 msgstr "Пароль, который будет запрашиваться перед перенаправлением."
 
-#: .\redirects\models.py:71
+#: .\redirects\models.py:72
 msgid "valid_day_number"
 msgstr "валидное количество дней"
 
-#: .\redirects\models.py:72
+#: .\redirects\models.py:73
 msgid "how_many_day_link_will_be_valid"
 msgstr "Сколько дней будет валидна ссылка перед её удалением"
 
-#: .\redirects\models.py:78
+#: .\redirects\models.py:79
 msgid "valid_click_number"
 msgstr "валидное количество переходов"
 
-#: .\redirects\models.py:79
+#: .\redirects\models.py:80
 msgid "how_many_click_on_link_will_be_valid"
 msgstr "Сколько переходов можно совершить по ссылке перед её удалением."
 
-#: .\redirects\models.py:86 .\redirects\models.py:90
+#: .\redirects\models.py:87 .\redirects\models.py:91
 msgid "redirect"
 msgstr "перенаправление"
 
-#: .\redirects\views.py:42
+#: .\redirects\views.py:44
 msgid "invalid_password"
 msgstr "Пароль не верный"
 
-#: .\statistic\apps.py:8 .\templates\includes\link_card.html:14
+#: .\statistic\apps.py:9 .\templates\includes\link_card.html:14
 msgid "statistic"
 msgstr "Статистика"
 
@@ -225,8 +225,7 @@ msgid ""
 "%(password_reset_url)s"
 msgstr ""
 "Вы получили это письмо, потому что вы или кто-то другой попытались "
-"зарегистрироваться на сайте с использованием адреса электронной "
-"почты:\n"
+"зарегистрироваться на сайте с использованием адреса электронной почты:\n"
 "\n"
 "%(email)s\n"
 "\n"
@@ -327,67 +326,67 @@ msgstr ""
 "можете сократить длинные url-адреса, делая их более удобными и простыми в "
 "использовании."
 
-#: .\templates\homepage\about.html:16
+#: .\templates\homepage\about.html:18
 msgid "about_you_can_do"
 msgstr "С Datanar вы можете:"
 
-#: .\templates\homepage\about.html:19
+#: .\templates\homepage\about.html:21
 msgid "can_do_1"
 msgstr "Сократить ссылку"
 
-#: .\templates\homepage\about.html:20
+#: .\templates\homepage\about.html:22
 msgid "can_do_2"
 msgstr "Получить сразу сгенерированный QR-code"
 
-#: .\templates\homepage\about.html:21
+#: .\templates\homepage\about.html:23
 msgid "can_do_3"
 msgstr "Указать свой собственный короткий url-адрес"
 
-#: .\templates\homepage\about.html:22
+#: .\templates\homepage\about.html:24
 msgid "can_do_4"
 msgstr "Отслеживать статистику переходов по ссылке"
 
-#: .\templates\homepage\about.html:23
+#: .\templates\homepage\about.html:25
 msgid "can_do_5"
 msgstr "Выгружать статистику в удобном формате"
 
-#: .\templates\homepage\about.html:24
+#: .\templates\homepage\about.html:26
 msgid "can_do_6"
 msgstr "Установить пароль для сокращённой ссылки"
 
-#: .\templates\homepage\about.html:25
+#: .\templates\homepage\about.html:27
 msgid "can_do_7"
 msgstr "Указывать до какой даты будет работать ссылка"
 
-#: .\templates\homepage\about.html:26
+#: .\templates\homepage\about.html:28
 msgid "can_do_8"
 msgstr "Указывать сколько переходов можно совершить по ссылке"
 
-#: .\templates\homepage\about.html:27
+#: .\templates\homepage\about.html:29
 msgid "can_do_9"
 msgstr "Связать свой сервис с нашим по API"
 
-#: .\templates\homepage\about.html:31
+#: .\templates\homepage\about.html:34
 msgid "about_using"
 msgstr "Сайт сделан с использованием:"
 
-#: .\templates\homepage\about.html:43
+#: .\templates\homepage\about.html:49
 msgid "developers"
 msgstr "Разработчики - эти прекрасные люди:"
 
-#: .\templates\homepage\about.html:47
+#: .\templates\homepage\about.html:55
 msgid "sergey"
 msgstr "Андреев Сергей"
 
-#: .\templates\homepage\about.html:52
+#: .\templates\homepage\about.html:61
 msgid "vladimir"
 msgstr "Клименко Владимир"
 
-#: .\templates\homepage\about.html:57
+#: .\templates\homepage\about.html:67
 msgid "artem"
 msgstr "Третьяков Артем"
 
-#: .\templates\homepage\about.html:61
+#: .\templates\homepage\about.html:74
 msgid "gitlab_project"
 msgstr "Проект на GitLab"
 
@@ -409,19 +408,19 @@ msgstr "Выбран файл с ссылками"
 msgid "delete_file"
 msgstr "Удалить файл"
 
-#: .\templates\homepage\main.html:42
+#: .\templates\homepage\main.html:43
 msgid "choose_file"
 msgstr "Выбрать файл"
 
-#: .\templates\homepage\main.html:43
+#: .\templates\homepage\main.html:45
 msgid "shorten"
 msgstr "Сократить"
 
-#: .\templates\homepage\main.html:63
+#: .\templates\homepage\main.html:65
 msgid "message_error_count"
 msgstr "Пожалуйста, перетащите только один файл."
 
-#: .\templates\homepage\main.html:64
+#: .\templates\homepage\main.html:66
 msgid "message_error_type"
 msgstr "Пожалуйста, перетащите файл с расширением .xlsx или .txt."
 
@@ -604,13 +603,17 @@ msgstr "Браузеры"
 msgid "Countries"
 msgstr "Страны"
 
-#: .\templates\statistic\link_detail.html:89
+#: .\templates\statistic\link_detail.html:83
+msgid "ip_geo_by_DB-IP"
+msgstr "IP геолокация от DB-IP"
+
+#: .\templates\statistic\link_detail.html:90
 msgid "Cities"
 msgstr "Города"
 
-#: .\templates\statistic\link_detail.html:101
+#: .\templates\statistic\link_detail.html:102
 msgid "download_statistics_for_the_period"
-msgstr "Скачать статистика за период"
+msgstr "Скачать статистику за период"
 
 #: .\templates\statistic\my_links.html:5
 msgid "title__my_links"
@@ -761,7 +764,7 @@ msgstr "Зарегистрироваться"
 msgid "users"
 msgstr "Пользователи"
 
-#: .\users\models.py:21
+#: .\users\models.py:8
 msgid "avatar"
 msgstr "Аватар"
 
