@@ -5,6 +5,7 @@ from django.test import Client, TestCase
 import parameterized
 
 from redirects.models import Redirect
+from statistic.models import Click
 
 
 class TestShortLinks(TestCase):
@@ -88,7 +89,24 @@ class TestShortLinks(TestCase):
         response = self.client.get(
             reverse("redirects:redirect", args=[messages[0].message]),
         )
+
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
+
+    def test_create_click(self):
+        click_count = Click.objects.count()
+        response = self.client.post(
+            reverse("homepage:home"),
+            data=self.form_data,
+            follow=True,
+        )
+        messages = list(response.context["messages"])
+        self.client.get(
+            reverse("redirects:redirect", args=[messages[0].message]),
+        )
+        self.assertEqual(
+            Click.objects.count(),
+            click_count + 1,
+        )
 
 
 __all__ = []
