@@ -39,7 +39,9 @@
               {{ field }}
               <input id="fileNameField" type="text" class="form-control input-field d-none" readonly="">
               <button type="button" id="deleteFileButton" class="btn btn-outline-danger d-none">{% trans "delete_file" %}</button>
-              <button type="button" id="chooseFileButton" class="btn btn-outline-dark">{% trans "choose_file" %}</button>
+              {% if request.user.is_authenticated %}
+                <button type="button" id="chooseFileButton" class="btn btn-outline-dark">{% trans "choose_file" %}</button>
+              {% endif %}
               <input type="submit" class="btn btn-outline-dark" value="{% trans 'shorten' %}">
               {% if field.errors %}
                 <div class="invalid-feedback">
