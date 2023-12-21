@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "registration" %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/users/user-auth.css' %}">
+{% endblock %}
+
+{% block content %}
+  {% trans "greeting" as greeting %}
+  {% trans "register" as register %}
+  {% include "includes/user_form.html" with title=greeting submit_text=register %}
+{% endblock %}

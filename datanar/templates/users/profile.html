@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "my_profile" %}{% endblock %}
+
+{% block content %}
+  <h1 class="text-center">{% trans "my_profile" %}</h1>
+  <form class="d-flex flex-column mt-5" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group col-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mb-2 ms-auto me-auto">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+          <div class="invalid-feedback">
+            {{ field.errors|first }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    <button class="btn btn-outline-dark ms-auto me-auto mt-3">{% trans "save" %}</button>
+    <div class="d-flex ms-auto me-auto mt-3">
+      <a class="btn btn-outline-danger me-5" href="{% url 'users:email_change' %}">{% trans "change_email" %}</a>
+      <a class="btn btn-outline-danger" href="{% url 'users:password_change' %}">{% trans "change_password" %}</a>
+    </div>
+  </form>
+{% endblock %}

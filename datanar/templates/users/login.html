@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "authorization" %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/users/user-auth.css' %}">
+{% endblock %}
+
+{% block content %}
+  {% trans 'log_in_to_datanar' as log_in_to_datanar %}
+  {% trans 'sign_in' as sign_in %}
+  {% include "includes/user_form.html" with title=log_in_to_datanar submit_text=sign_in %}
+{% endblock %}

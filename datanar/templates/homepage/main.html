@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "title__homepage" %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link href="{% static 'css/homepage/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/card-style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+  {{ block.super }}
+  <script src="{% static 'js/copyText.js' %}"></script>
+  {% if request.user.is_authenticated %}
+    <script src="{% static 'js/fileDragAndDrop.js' %}"></script>
+    <script src="{% static 'js/fileLinksStatus.js' %}"></script>
+  {% endif %}
+{% endblock %}
+
+
+{% block content %}
+  <div id="drop_zone" class="flex-grow-1">
+    <div class="d-flex mt-5">
+      <div class="ms-auto me-auto">
+        {% include "includes/logo.html" %}
+        <p class="text-center">{% trans "short_description_under_logo" %}</p>
+        {% if request.user.is_authenticated %}
+          <p class="text-center">{% trans "short_description_about_supported_files" %}</p>
+        {% endif %}
+      </div>
+    </div>
+    <form id="mainForm" class="mt-3" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-group col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 ms-auto me-auto">
+          {% if forloop.first %}
+            <label id="longLinklabelNormal" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <label id="longLinklabelFile" class="d-none" for="{{ field.id_for_label }}">{% trans "label_link_file" %}</label>
+            <div id="firstContainer" class="input-group mb-2">
+              {{ field }}
+              <input id="fileNameField" type="text" class="form-control input-field d-none" readonly="">
+              <button type="button" id="deleteFileButton" class="btn btn-outline-danger d-none">{% trans "delete_file" %}</button>
+              {% if request.user.is_authenticated %}
+                <button type="button" id="chooseFileButton" class="btn btn-outline-dark">{% trans "choose_file" %}</button>
+              {% endif %}
+              <input type="submit" class="btn btn-outline-dark" value="{% trans 'shorten' %}">
+              {% if field.errors %}
+                <div class="invalid-feedback">
+                  {{ field.errors|first }}
+                </div>
+              {% endif %}
+            </div>
+          {% else %}
+            {% if "d-none" not in field.field.widget.attrs.class %}
+              <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {% endif %}
+            {{ field }}
+          {% endif %}
+          {% if field.errors %}
+            <div class="invalid-feedback">
+              {{ field.errors|first }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <p id="messageErrorCount" class="d-none">{% trans "message_error_count" %}</p>
+      <p id="messageErrorType" class="d-none">{% trans "message_error_type" %}</p>
+    </form>
+
+    {% if messages %}
+      <div class="list-group gap-2 ms-auto me-auto d-flex mb-3">
+        {% for message in messages %}
+          {% if message.level == SHORT_LINK %}
+            {% include "includes/link_card.html" with link=message %}
+          {% elif message.level == LOADING_LINKS %}
+            <div id="fileLinksLoader" class="spinner-border text-dark ms-auto me-auto mt-5" role="status">
+              <span class="visually-hidden">{{ message }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

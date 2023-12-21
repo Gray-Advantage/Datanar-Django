@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "redirect_page" %}{% endblock %}
+
+{% block content %}
+  <form class="mt-5" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group col-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 ms-auto me-auto">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+          <div class="invalid-feedback">
+            {{ field.errors|first }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </form>
+{% endblock %}
