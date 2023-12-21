@@ -158,6 +158,7 @@ LANGUAGE_CODE = "ru-ru"
 
 LANGUAGES = [
     ("en", _("English")),
+    ("uk", _("Ukrainian")),
     ("ru", _("Russian")),
 ]
 
