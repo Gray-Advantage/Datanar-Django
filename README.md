@@ -148,7 +148,6 @@ Redis официально не поддерживает Windows, поэтому
 1. Скачать неофициальный [порт](https://github.com/tporadowski/redis/releases)
 и запустить установщик msi (от имени администратора)
 2. В диспетчере задач в службах должна появится служба Redis
-3. Также для windows нужно установить [getttext](https://mlocati.github.io/articles/gettext-iconv-windows.html)
 
 #### MacOS
 
@@ -183,7 +182,7 @@ Redis официально не поддерживает Windows, поэтому
 
 #### Windows
 
-Скачать и запустить [установщик](https://github.com/tporadowski/redis/releases)
+Скачать и запустить [установщик](https://mlocati.github.io/articles/gettext-iconv-windows.html)
 gettext для windows 
 
 #### MacOS
