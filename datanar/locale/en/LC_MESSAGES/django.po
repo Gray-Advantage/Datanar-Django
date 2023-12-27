@@ -32,11 +32,11 @@ msgstr "English"
 
 #: .\datanar\settings.py:161
 msgid "Ukrainian"
-msgstr "Ukrainian"
+msgstr "Український"
 
 #: .\datanar\settings.py:162
 msgid "Russian"
-msgstr "Russian"
+msgstr "Русский"
 
 #: .\homepage\apps.py:8
 msgid "homepage"

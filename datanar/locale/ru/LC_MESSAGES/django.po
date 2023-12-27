@@ -30,11 +30,11 @@ msgstr "Базовые формы"
 
 #: .\datanar\settings.py:160
 msgid "English"
-msgstr "Английский"
+msgstr "English"
 
 #: .\datanar\settings.py:161
 msgid "Ukrainian"
-msgstr "Украинский"
+msgstr "Український"
 
 #: .\datanar\settings.py:162
 msgid "Russian"

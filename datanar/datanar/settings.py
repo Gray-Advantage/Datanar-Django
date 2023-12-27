@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "statistic.apps.StatisticConfig",
     "allauth",
     "allauth.account",
-    "allauth.socialaccount",
 ]
 
 MIDDLEWARE = [
@@ -158,8 +157,8 @@ LANGUAGE_CODE = "ru-ru"
 
 LANGUAGES = [
     ("en", _("English")),
-    ("uk", _("Ukrainian")),
     ("ru", _("Russian")),
+    ("uk", _("Ukrainian")),
 ]
 
 LOCALE_PATHS = (BASE_DIR / "locale/",)

@@ -20,7 +20,9 @@ geo_ip = GeoIP2()
 
 class RedirectView(View):
     def get(self, request, *args, **kwargs):
-        redirect = Redirect.objects.get_by_short_link(kwargs["short_link"])
+        redirect = Redirect.objects.get_by_short_link(
+            kwargs[Redirect.short_link.field.name]
+        )
 
         if redirect is None:
             raise Http404
@@ -32,7 +34,9 @@ class RedirectView(View):
         return self.perform_redirect(redirect)
 
     def post(self, request, *args, **kwargs):
-        redirect = Redirect.objects.get_by_short_link(kwargs["short_link"])
+        redirect = Redirect.objects.get_by_short_link(
+            kwargs[Redirect.short_link.field.name]
+        )
         form = PasswordForm(request.POST)
 
         if (
