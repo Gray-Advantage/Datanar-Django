@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404, render
 from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 import openpyxl
 
 from redirects.models import Redirect
@@ -21,15 +22,15 @@ def get_clicks_by_mode(short_link, mode):
     return Click.objects.for_short_link_by_all_time(short_link)
 
 
-class MyLinksView(LoginRequiredMixin, View):
+class MyLinksView(LoginRequiredMixin, ListView):
     template_name = "statistic/my_links.html"
+    context_object_name = "links"
 
-    def get(self, request, *args, **kwargs):
-        redirects = Redirect.objects.filter(user=request.user).only(
+    def get_queryset(self):
+        redirects = Redirect.objects.filter(user=self.request.user).only(
             Redirect.short_link.field.name,
         )
-        context = {"links": [redirect.short_link for redirect in redirects]}
-        return render(request, "statistic/my_links.html", context)
+        return [redirect.short_link for redirect in redirects]
 
 
 class LinkDetailView(LoginRequiredMixin, DetailView):
