@@ -58,10 +58,10 @@ class HomeView(FormView):
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
-        contex = super().get_context_data(**kwargs)
-        contex["SHORT_LINK"] = SHORT_LINK
-        contex["LOADING_LINKS"] = LOADING_LINKS
-        return contex
+        context = super().get_context_data(**kwargs)
+        context["SHORT_LINK"] = SHORT_LINK
+        context["LOADING_LINKS"] = LOADING_LINKS
+        return context
 
 
 class ServiceRulesView(TemplateView):
