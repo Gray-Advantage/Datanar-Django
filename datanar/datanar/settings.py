@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+VERSION = "1.0.0"
+
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
     default="this_is_test_key_-_some_very_dummy_secret_key",
@@ -77,6 +79,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django_settings_export.settings_export",
             ],
         },
     },
@@ -185,3 +188,7 @@ GEOIP_PATH = "geo_ip"
 
 CELERY_BROKER_URL = "redis://localhost:6379/0"
 CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+
+SETTINGS_EXPORT = [
+    "VERSION",
+]
