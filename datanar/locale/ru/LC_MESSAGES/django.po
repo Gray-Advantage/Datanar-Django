@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 16:40+0300\n"
+"POT-Creation-Date: 2023-12-28 08:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,17 +28,17 @@ msgstr "API"
 msgid "base_forms"
 msgstr "Базовые формы"
 
-#: .\datanar\settings.py:160
-msgid "English"
-msgstr "Английский"
-
-#: .\datanar\settings.py:161
-msgid "Ukrainian"
-msgstr "Украинский"
-
 #: .\datanar\settings.py:162
+msgid "English"
+msgstr "English"
+
+#: .\datanar\settings.py:163
 msgid "Russian"
 msgstr "Русский"
+
+#: .\datanar\settings.py:164
+msgid "Ukrainian"
+msgstr "Український"
 
 #: .\homepage\apps.py:8
 msgid "homepage"
@@ -123,7 +123,7 @@ msgstr "Пароль, который будет запрашиваться пе�
 
 #: .\redirects\models.py:72
 msgid "valid_day_number"
-msgstr "валидное количество дней"
+msgstr "срок годности"
 
 #: .\redirects\models.py:73
 msgid "how_many_day_link_will_be_valid"
@@ -141,7 +141,7 @@ msgstr "Сколько переходов можно совершить по с�
 msgid "redirect"
 msgstr "перенаправление"
 
-#: .\redirects\views.py:44
+#: .\redirects\views.py:48
 msgid "invalid_password"
 msgstr "Пароль не верный"
 
@@ -177,27 +177,27 @@ msgstr "страна"
 msgid "city"
 msgstr "город"
 
-#: .\statistic\views.py:84
+#: .\statistic\views.py:85
 msgid "Created"
 msgstr "Создан"
 
-#: .\statistic\views.py:85 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:86 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "ОС"
 
-#: .\statistic\views.py:86
+#: .\statistic\views.py:87
 msgid "Browser"
 msgstr "Браузер"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:88
 msgid "Country"
 msgstr "Страна"
 
-#: .\statistic\views.py:88
+#: .\statistic\views.py:89
 msgid "City"
 msgstr "Город"
 
-#: .\templates\404.html:5
+#: .\templates\404.html:5 .\templates\500.html:5
 msgid "oops"
 msgstr "Упс!"
 
@@ -205,11 +205,16 @@ msgstr "Упс!"
 msgid "page_not_found"
 msgstr "Страница не найдена"
 
-#: .\templates\404.html:13 .\templates\users\password_change_done.html:12
+#: .\templates\404.html:13 .\templates\500.html:13
+#: .\templates\users\password_change_done.html:12
 #: .\templates\users\password_reset_complete.html:12
 #: .\templates\users\password_reset_done.html:12
 msgid "to_main"
 msgstr "На главную"
+
+#: .\templates\500.html:11
+msgid "server_error"
+msgstr "Ошибка сервера"
 
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
@@ -323,74 +328,74 @@ msgstr ""
 msgid "about"
 msgstr "О проекте"
 
-#: .\templates\homepage\about.html:14
+#: .\templates\homepage\about.html:13
 msgid "about_beginning"
 msgstr ""
 "Datanar - это веб-сервис по сокращению ссылок. С нашим сайтом вы легко "
 "можете сократить длинные url-адреса, делая их более удобными и простыми в "
 "использовании."
 
-#: .\templates\homepage\about.html:18
+#: .\templates\homepage\about.html:17
 msgid "about_you_can_do"
 msgstr "С Datanar вы можете:"
 
-#: .\templates\homepage\about.html:21
+#: .\templates\homepage\about.html:20
 msgid "can_do_1"
 msgstr "Сократить ссылку"
 
-#: .\templates\homepage\about.html:22
+#: .\templates\homepage\about.html:21
 msgid "can_do_2"
 msgstr "Получить сразу сгенерированный QR-code"
 
-#: .\templates\homepage\about.html:23
+#: .\templates\homepage\about.html:22
 msgid "can_do_3"
 msgstr "Указать свой собственный короткий url-адрес"
 
-#: .\templates\homepage\about.html:24
+#: .\templates\homepage\about.html:23
 msgid "can_do_4"
 msgstr "Отслеживать статистику переходов по ссылке"
 
-#: .\templates\homepage\about.html:25
+#: .\templates\homepage\about.html:24
 msgid "can_do_5"
 msgstr "Выгружать статистику в удобном формате"
 
-#: .\templates\homepage\about.html:26
+#: .\templates\homepage\about.html:25
 msgid "can_do_6"
 msgstr "Установить пароль для сокращённой ссылки"
 
-#: .\templates\homepage\about.html:27
+#: .\templates\homepage\about.html:26
 msgid "can_do_7"
 msgstr "Указывать до какой даты будет работать ссылка"
 
-#: .\templates\homepage\about.html:28
+#: .\templates\homepage\about.html:27
 msgid "can_do_8"
 msgstr "Указывать сколько переходов можно совершить по ссылке"
 
-#: .\templates\homepage\about.html:29
+#: .\templates\homepage\about.html:28
 msgid "can_do_9"
 msgstr "Связать свой сервис с нашим по API"
 
-#: .\templates\homepage\about.html:34
+#: .\templates\homepage\about.html:33
 msgid "about_using"
 msgstr "Сайт сделан с использованием:"
 
-#: .\templates\homepage\about.html:49
+#: .\templates\homepage\about.html:48
 msgid "developers"
 msgstr "Разработчики - эти прекрасные люди:"
 
-#: .\templates\homepage\about.html:55
+#: .\templates\homepage\about.html:54
 msgid "sergey"
 msgstr "Андреев Сергей"
 
-#: .\templates\homepage\about.html:61
+#: .\templates\homepage\about.html:60
 msgid "vladimir"
 msgstr "Клименко Владимир"
 
-#: .\templates\homepage\about.html:67
+#: .\templates\homepage\about.html:66
 msgid "artem"
 msgstr "Третьяков Артем"
 
-#: .\templates\homepage\about.html:74
+#: .\templates\homepage\about.html:73
 msgid "gitlab_project"
 msgstr "Проект на GitLab"
 
@@ -398,40 +403,39 @@ msgstr "Проект на GitLab"
 msgid "title__homepage"
 msgstr "Datanar - Сокращение ссылок"
 
-#: .\templates\homepage\main.html:28
+#: .\templates\homepage\main.html:27
 msgid "short_description_under_logo"
 msgstr ""
 "Сократите свою ссылку, чтобы вашим клиентам не пришлось видеть длинные url-"
 "адреса."
 
-#: .\templates\homepage\main.html:30
+#: .\templates\homepage\main.html:29
 msgid "short_description_about_supported_files"
 msgstr ""
 "Вы можете выбрать или перетащить файл c расширением .txt/.xlsx. В txt каждая "
 "строчка рассматривается как ссылка, а xlsx каждая строчка первого столбца"
 
-
-#: .\templates\homepage\main.html:40
+#: .\templates\homepage\main.html:39
 msgid "label_link_file"
 msgstr "Выбран файл с ссылками"
 
-#: .\templates\homepage\main.html:44
+#: .\templates\homepage\main.html:43
 msgid "delete_file"
 msgstr "Удалить файл"
 
-#: .\templates\homepage\main.html:46
+#: .\templates\homepage\main.html:45
 msgid "choose_file"
 msgstr "Выбрать файл"
 
-#: .\templates\homepage\main.html:48
+#: .\templates\homepage\main.html:47
 msgid "shorten"
 msgstr "Сократить"
 
-#: .\templates\homepage\main.html:68
+#: .\templates\homepage\main.html:67
 msgid "message_error_count"
 msgstr "Пожалуйста, перетащите только один файл."
 
-#: .\templates\homepage\main.html:69
+#: .\templates\homepage\main.html:68
 msgid "message_error_type"
 msgstr "Пожалуйста, перетащите файл с расширением .xlsx или .txt."
 
@@ -439,18 +443,18 @@ msgstr "Пожалуйста, перетащите файл с расширен�
 msgid "service_rules"
 msgstr "Правила сервиса"
 
-#: .\templates\homepage\service_rules.html:14
+#: .\templates\homepage\service_rules.html:13
 msgid "datanar_rules"
 msgstr "Правила Сервиса Datanar"
 
-#: .\templates\homepage\service_rules.html:15
+#: .\templates\homepage\service_rules.html:14
 msgid "welcome_service_rules"
 msgstr ""
 "Добро пожаловать на сервис сокращения ссылок Datanar. Используя наши услуги, "
 "вы автоматически соглашаетесь с нашими правилами. Пожалуйста, внимательно "
 "ознакомьтесь с ними."
 
-#: .\templates\homepage\service_rules.html:17
+#: .\templates\homepage\service_rules.html:16
 msgid "rule_1"
 msgstr ""
 "1. Для создания учетной записи мы собираем электронную почту, логин и пароль "
@@ -458,27 +462,27 @@ msgstr ""
 "используются исключительно для управления вашей учетной записью и не "
 "передаются третьим лицам."
 
-#: .\templates\homepage\service_rules.html:18
+#: .\templates\homepage\service_rules.html:17
 msgid "rule_2"
 msgstr ""
 "2. Мы прилагаем все возможные меры безопасности для защиты ваших данных. Ваш "
 "пароль хранятся в зашифрованном виде. Рекомендуем использовать сложные "
 "пароли и не делиться ими с другими."
 
-#: .\templates\homepage\service_rules.html:19
+#: .\templates\homepage\service_rules.html:18
 msgid "rule_3"
 msgstr ""
 "3. При использовании наших услуг запрещено осуществлять действия, нарушающие "
 "закон, или использовать сервис способами, которые могут причинить вред "
 "другим пользователям или третьим лицам."
 
-#: .\templates\homepage\service_rules.html:20
+#: .\templates\homepage\service_rules.html:19
 msgid "rule_4"
 msgstr ""
 "4. Мы оставляем за собой право вносить изменения в наши условия "
 "использования. При важных изменениях мы уведомим вас."
 
-#: .\templates\homepage\service_rules.html:22
+#: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
 "Спасибо за выбор Datanar! Мы ценим ваше доверие и стремимся предоставить вам "
@@ -488,19 +492,19 @@ msgstr ""
 msgid "API"
 msgstr "API"
 
-#: .\templates\includes\header.html:28
+#: .\templates\includes\header.html:14
 msgid "theme"
 msgstr "Тема"
 
-#: .\templates\includes\header.html:34
+#: .\templates\includes\header.html:20
 msgid "light"
 msgstr "Светлая"
 
-#: .\templates\includes\header.html:40
+#: .\templates\includes\header.html:26
 msgid "dark"
 msgstr "Темная"
 
-#: .\templates\includes\header.html:46
+#: .\templates\includes\header.html:32
 msgid "auto"
 msgstr "Авто"
 
@@ -525,9 +529,13 @@ msgstr "Админка"
 msgid "exit"
 msgstr "Выйти"
 
-#: .\templates\includes\header.html:73 .\templates\users\login.html:14
+#: .\templates\includes\header.html:73 .\templates\users\login.html:13
 msgid "sign_in"
 msgstr "Войти"
+
+#: .\templates\includes\header.html:76 .\templates\users\signup.html:5
+msgid "registration"
+msgstr "Регистрация"
 
 #: .\templates\includes\link_card.html:12
 msgid "copy"
@@ -702,7 +710,7 @@ msgstr "Сменить почту"
 msgid "authorization"
 msgstr "Авторизация"
 
-#: .\templates\users\login.html:13
+#: .\templates\users\login.html:12
 msgid "log_in_to_datanar"
 msgstr "Войти в Datanar!"
 
@@ -711,11 +719,11 @@ msgid "logout"
 msgstr "Выход"
 
 #: .\templates\users\password_change.html:5
-#: .\templates\users\password_change.html:13
+#: .\templates\users\password_change.html:12
 msgid "password_change"
 msgstr "Смена пароля"
 
-#: .\templates\users\password_change.html:14 .\templates\users\profile.html:24
+#: .\templates\users\password_change.html:13 .\templates\users\profile.html:24
 msgid "change_password"
 msgstr "Сменить пароль"
 
@@ -728,14 +736,14 @@ msgid "your_password_be_success_changed"
 msgstr "Ваш пароль успешно изменен!"
 
 #: .\templates\users\password_reset.html:5
-#: .\templates\users\password_reset.html:13
+#: .\templates\users\password_reset.html:12
 #: .\templates\users\password_reset_confirm.html:5
-#: .\templates\users\password_reset_confirm.html:13
+#: .\templates\users\password_reset_confirm.html:12
 #: .\templates\users\password_reset_done.html:5
 msgid "password_recovery"
 msgstr "Восстановление пароля"
 
-#: .\templates\users\password_reset.html:14
+#: .\templates\users\password_reset.html:13
 msgid "recover"
 msgstr "Восстановить"
 
@@ -747,7 +755,7 @@ msgstr "Пароль восстановлен"
 msgid "password_reset_completed_success"
 msgstr "Сброс пароля был успешно завершён"
 
-#: .\templates\users\password_reset_confirm.html:14
+#: .\templates\users\password_reset_confirm.html:13
 msgid "reset"
 msgstr "Сброс"
 
@@ -759,15 +767,11 @@ msgstr "Письмо с инструкциями по восстановлени
 msgid "save"
 msgstr "Сохранить"
 
-#: .\templates\users\signup.html:5
-msgid "registration"
-msgstr "Регистрация"
-
-#: .\templates\users\signup.html:13
+#: .\templates\users\signup.html:12
 msgid "greeting"
 msgstr "Добро пожаловать на Datanar!"
 
-#: .\templates\users\signup.html:14
+#: .\templates\users\signup.html:13
 msgid "register"
 msgstr "Зарегистрироваться"
 

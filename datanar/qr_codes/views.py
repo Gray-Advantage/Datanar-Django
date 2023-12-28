@@ -17,7 +17,7 @@ class QRCodePreview(View):
 
 class QRCodeDownload(View):
     def get(self, request, img_format, short_link):
-        qr = segno.make_qr(request.build_absolute_uri("/" + short_link))
+        qr = segno.make_qr(request.build_absolute_uri(f"/{short_link}"))
 
         if img_format == "jpg":
             buffer = BytesIO()

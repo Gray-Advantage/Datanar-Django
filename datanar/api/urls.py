@@ -19,7 +19,7 @@ urlpatterns = [
 ]
 
 router = DefaultRouter()
-router.register(r"redirects", views.RedirectViewSet, basename="redirect")
+router.register("redirects", views.RedirectViewSet, basename="redirect")
 urlpatterns += router.urls
 
 
