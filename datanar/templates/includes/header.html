@@ -7,25 +7,11 @@
       {% include 'svg/logo.svg' with class="ms-2 me-2" width=48 height=48 %}
       <span class="fs-4 me-2">Datanar</span>
     </a>
-    <nav class="nav nav-pills me-2">
-      <form action="{% url 'set_language' %}" method="post" class="form-inline d-flex">
-        {% csrf_token %}
-        <div class="form-group mt-auto mb-auto">
-          <select name="language" class="form-select" onchange="this.form.submit()" id="language">
-            {% get_current_language as LANGUAGE_CODE %}
-            {% get_available_languages as LANGUAGES %}
-            {% for lang_code, lang_name in LANGUAGES %}
-              <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
-                {{ lang_name }}
-              </option>
-            {% endfor %}
-          </select>
-        </div>
-      </form>
-      <nav class="nav-item dropdown">
-        <button class="btn border-0 py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center show" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (light)">
+    <nav class="d-flex">
+      <nav class="my-auto nav-item dropdown">
+        <button class="btn border-0 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (light)">
           <i id="theme-icon-active" class="bi bi-0-circle-fill"></i>
-          <span class="d-lg-none ms-2" id="bd-theme-text">{% trans "theme" %}</span>
+          <span class="d-none d-lg-block" id="bd-theme-text">{% trans "theme" %}</span>
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text" data-bs-popper="static">
           <li>
@@ -42,12 +28,26 @@
           </li>
           <li>
             <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-              <i class="bi bi-circle-half  me-2"></i>
+              <i class="bi bi-circle-half me-2"></i>
               {% trans "auto" %}
             </button>
           </li>
         </ul>
       </nav>
+      <form action="{% url 'set_language' %}" method="post" class="form-inline d-flex me-2">
+        {% csrf_token %}
+        <div class="form-group mt-auto mb-auto">
+          <select name="language" class="form-select" onchange="this.form.submit()" id="language">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% for lang_code, lang_name in LANGUAGES %}
+              <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                {{ lang_name }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      </form>
       {% if request.resolver_match.view_name == 'users:profile' or request.resolver_match.app_name != 'users' %}
         {% if request.user.is_authenticated %}
           {% trans "no_user" as no_user %}
@@ -69,8 +69,11 @@
             </ul>
           </div>
         {% else %}
-          <a href="{% url 'users:login' %}" class="btn btn-outline-primary ms-2">
+          <a href="{% url 'users:login' %}" class="btn btn-outline-primary my-auto me-2">
             {% trans "sign_in" %}
+          </a>
+          <a href="{% url 'users:signup' %}" class="btn btn-outline-primary my-auto">
+            {% trans "registration" %}
           </a>
         {% endif %}
       {% endif %}
