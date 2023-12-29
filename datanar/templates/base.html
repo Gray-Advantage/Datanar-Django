@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load tz_detect %}
 
 <!DOCTYPE html>
 
@@ -18,6 +19,7 @@
     {% endblock %}
   </head>
 
+  {% tz_detect %}
   <body class="container d-flex flex-column min-vh-100">
     {% include "includes/header.html" %}
     <main class="flex-grow-1 d-flex flex-column">

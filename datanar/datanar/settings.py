@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "statistic.apps.StatisticConfig",
     "allauth",
     "allauth.account",
+    "tz_detect",
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "django_user_agents.middleware.UserAgentMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    "tz_detect.middleware.TimezoneMiddleware",
 ]
 
 if settings.DEBUG:
