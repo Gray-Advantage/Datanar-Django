@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "1.0.0"
+VERSION = "1.5.0"
 
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "statistic.apps.StatisticConfig",
     "allauth",
     "allauth.account",
+    "tz_detect",
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "django_user_agents.middleware.UserAgentMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    "tz_detect.middleware.TimezoneMiddleware",
 ]
 
 if settings.DEBUG:
