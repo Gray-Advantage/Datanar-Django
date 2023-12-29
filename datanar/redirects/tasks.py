@@ -63,10 +63,17 @@ def create_redirects(data, user_id):
     del data["links_file"]
 
     answer = []
+
+    # Для первой ссылки используется custom_url, если есть, т.к. под капотом в
+    # data custom_url превратилось в short_link, то указываем это явно
     first = True
+    # Начиная с второго у нас нет custom_url, поэтому удаляем, чтобы short_link
+    # генерировался сам
     second = True
+
     for long_link in links:
         data["long_link"] = long_link
+
         if first:
             data["custom_url"] = data["short_link"]
             first = False
