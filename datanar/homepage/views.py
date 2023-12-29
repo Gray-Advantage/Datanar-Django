@@ -34,7 +34,9 @@ class HomeView(FormView):
             data["links_file"] = file_path
 
             task = create_redirects.delay(
-                data, self.request.user.id, self.request.get_host()
+                data,
+                self.request.user.id,
+                self.request.get_host(),
             )
 
             messages.add_message(
