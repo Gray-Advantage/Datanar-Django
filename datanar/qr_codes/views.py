@@ -9,7 +9,11 @@ import segno
 
 class QRCodePreview(View):
     def get(self, request, short_link):
-        qr = segno.make_qr(request.build_absolute_uri(f"/{short_link}"))
+        qr = segno.make_qr(
+            request.build_absolute_uri(
+                short_link if "/" in short_link else f"/{short_link}",
+            ),
+        )
         response = HttpResponse(content_type="image/png")
         qr.save(response, kind="png", scale=10)
         return response
@@ -17,8 +21,11 @@ class QRCodePreview(View):
 
 class QRCodeDownload(View):
     def get(self, request, img_format, short_link):
-        qr = segno.make_qr(request.build_absolute_uri(f"/{short_link}"))
-
+        qr = segno.make_qr(
+            request.build_absolute_uri(
+                short_link if "/" in short_link else f"/{short_link}",
+            ),
+        )
         if img_format == "jpg":
             buffer = BytesIO()
             qr.save(buffer, kind="png", scale=35)

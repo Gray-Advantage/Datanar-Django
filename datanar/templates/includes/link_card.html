@@ -4,13 +4,14 @@
 <div class="d-flex border rounded-3 mt-2">
   <div class="flex-grow-1 p-3 d-flex flex-column">
     <div class="d-flex">
-      {% include 'svg/link.svg' %}<a href="{% url 'redirects:redirect' link %}" target="_blank" class="h5">
-        <strong class="d-block text-truncate link-card">{{ request.get_host }}/{{ link }}</strong>
+      {% include 'svg/link.svg' %}
+      <a href="{% if '/' in link.message %}{{ request.scheme }}://{{ request.get_host }}{{ link }}{% else %}{% url 'redirects:redirect' link %}{% endif %}" target="_blank" class="h5">
+        <strong class="d-block text-truncate link-card">{{ request.get_host }}{% if '/' not in link.message %}/{% endif %}{{ link }}</strong>
       </a>
     </div>
     <div class="mt-1">
-      <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.get_host }}/{{ link }}/">{% trans "copy" %}</button>
-      {% if request.user.is_authenticated %}
+      <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.scheme }}://{{ request.get_host }}{% if '/' not in link.message %}/{% endif %}{{ link }}">{% trans "copy" %}</button>
+      {% if request.user.is_authenticated and '/' not in link.message %}
         <a class="btn btn-outline-dark" href="{% url 'statistic:link_detail' link "all_time" %}">{% trans "statistic" %}</a>
       {% endif %}
     </div>

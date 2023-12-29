@@ -12,6 +12,7 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     path("qr_code/", include("qr_codes.urls")),
     path("statistics/", include("statistic.urls")),
+    path("tz_detect/", include("tz_detect.urls")),
     path("", include("redirects.urls")),
 ]
 
