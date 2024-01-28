@@ -24,13 +24,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements/dev.txt
-        cd ./datanar
     - name: Lint with flake8
       run: |
+        cd ./datanar
         flake8 . --config=.flake8
     - name: Lint with black
       run: |
+        cd ./datanar
         black . --check --verbose --diff --line-length 79
     - name: Django testing
       run: |
+        cd ./datanar
         python manage.py test
