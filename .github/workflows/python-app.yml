@@ -26,12 +26,10 @@ jobs:
         pip install -r requirements/dev.txt
     - name: Lint with flake8
       run: |
-        cd ./datanar
-        flake8 . --config=.flake8
+        flake8 ./datanar/ --config=.flake8
     - name: Lint with black
       run: |
-        cd ./datanar
-        black . --check --verbose --diff --line-length 79
+        black ./datanar/ --check --verbose --diff --line-length 79
     - name: Django testing
       run: |
         cd ./datanar
