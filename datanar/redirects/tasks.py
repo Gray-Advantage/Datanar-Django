@@ -1,4 +1,5 @@
 from pathlib import Path
+from urllib.parse import urlparse
 
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -58,17 +59,24 @@ def get_links(file_path):
 
 
 @app.task()
-def create_redirects(data, user_id):
+def create_redirects(data, user_id, host):
     links = get_links(data["links_file"])
     del data["links_file"]
 
     answer = []
+
+    # Для первой ссылки используется custom_url, если есть, т.к. под капотом в
+    # data custom_url превратилось в short_link, то указываем это явно
     first = True
+    # Начиная с второго у нас нет custom_url, поэтому удаляем, чтобы short_link
+    # генерировался сам
     second = True
+
     for long_link in links:
-        data["long_link"] = long_link
+        data[Redirect.long_link.field.name] = long_link
+
         if first:
-            data["custom_url"] = data["short_link"]
+            data["custom_url"] = data[Redirect.short_link.field.name]
             first = False
         elif second:
             del data["custom_url"]
@@ -77,11 +85,17 @@ def create_redirects(data, user_id):
         form = RedirectFormExtended(data)
         del form.cleaned_data["links_file"]
 
-        redirect = Redirect.objects.create(**form.cleaned_data)
-        redirect.user = User.objects.get(id=user_id)
-        redirect.save()
+        url_long_link = urlparse(long_link)
 
-        answer.append(redirect.short_link)
+        if url_long_link.netloc != host:
+            redirect = Redirect.objects.create(**form.cleaned_data)
+            redirect.user = User.objects.get(id=user_id)
+            redirect.save()
+            short_link = redirect.short_link
+        else:
+            short_link = url_long_link.path
+
+        answer.append(short_link)
 
     return answer
 

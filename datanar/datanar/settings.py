@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+VERSION = "1.5.1"
+
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
     default="this_is_test_key_-_some_very_dummy_secret_key",
@@ -39,7 +41,7 @@ INSTALLED_APPS = [
     "statistic.apps.StatisticConfig",
     "allauth",
     "allauth.account",
-    "allauth.socialaccount",
+    "tz_detect",
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "django_user_agents.middleware.UserAgentMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    "tz_detect.middleware.TimezoneMiddleware",
 ]
 
 if settings.DEBUG:
@@ -78,6 +81,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django_settings_export.settings_export",
             ],
         },
     },
@@ -158,8 +162,8 @@ LANGUAGE_CODE = "ru-ru"
 
 LANGUAGES = [
     ("en", _("English")),
-    ("uk", _("Ukrainian")),
     ("ru", _("Russian")),
+    ("uk", _("Ukrainian")),
 ]
 
 LOCALE_PATHS = (BASE_DIR / "locale/",)
@@ -186,3 +190,7 @@ GEOIP_PATH = "geo_ip"
 
 CELERY_BROKER_URL = "redis://localhost:6379/0"
 CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+
+SETTINGS_EXPORT = [
+    "VERSION",
+]

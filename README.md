@@ -4,7 +4,7 @@
 - [Введение](#введение)
 - [Структура проекта](#структура-проекта)
    - [База данных](#база-данных)
-- [Развёртывание](#Развёртывание)
+- [Локальное развёртывание](#локальное-развёртывание)
    - [Установка Python](#установка-python)
    - [Установка Git](#установка-git)
      - [Windows](#windows)
@@ -14,6 +14,10 @@
      - [Windows](#windows-1)
      - [MacOS](#macos-1)
      - [Linux](#linux-debian--ubuntu-1)
+   - [Установка gettext](#установка-gettext)
+     - [Windows](#windows-2)
+     - [MacOS](#macos-2)
+     - [Linux](#linux-debian--ubuntu-2)
    - [Клонирование репозитория](#клонирование-репозитория)
    - [Установка виртуального окружения](#установка-виртуального-окружения)
    - [Установка зависимостей](#установка-зависимостей)
@@ -85,7 +89,7 @@
 - Click - хранит информацию о переходе по redirect 
 (Для статистики и для ограничения по переходам)
 
-## Развёртывание
+## Локальное развёртывание
 
 ### Установка Python
 Для запуска этого проекта вам потребуется Python. 
@@ -133,7 +137,7 @@
 
 ### Установка Redis
 
-Для celery (очередь задач, для обработки файлов c ссылками) требуется 
+Для celery (очередь задач, для обработки файлов со ссылками) требуется 
 установить redis
 
 #### Windows
@@ -144,7 +148,6 @@ Redis официально не поддерживает Windows, поэтому
 1. Скачать неофициальный [порт](https://github.com/tporadowski/redis/releases)
 и запустить установщик msi (от имени администратора)
 2. В диспетчере задач в службах должна появится служба Redis
-3. Также для windows нужно установить [getttext](https://mlocati.github.io/articles/gettext-iconv-windows.html)
 
 #### MacOS
 
@@ -166,25 +169,53 @@ Redis официально не поддерживает Windows, поэтому
 #### Linux (Debian / Ubuntu)
 
 1. Откройте терминал.
-2. Добавьте репозиторий
-   ```bash
-   curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
-   echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
-   ```
-3. Обновите список пакетов:
+2. Обновите список пакетов:
     ```bash
     sudo apt update
     ```
-4. Установите Git с помощью следующих команд:
+3. Установите Redis с помощью следующих команд:
     ```bash
     sudo apt install redis
+    ```
+
+### Установка gettext
+
+#### Windows
+
+Скачать и запустить [установщик](https://mlocati.github.io/articles/gettext-iconv-windows.html)
+gettext для windows 
+
+#### MacOS
+
+1. Откройте терминал.
+2. Установите [Homebrew](https://brew.sh/), если у вас его еще нет, с помощью 
+   следующей команды:
+    ```bash
+    /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+3. Установите gettext с помощью команды:
+    ```bash
+    brew install gettext
+    ```
+
+#### Linux (Debian / Ubuntu)
+
+1. Откройте терминал.
+2. Обновите список пакетов:
+    ```bash
+    sudo apt update
+    ```
+3. Установите gettext с помощью следующих команд:
+    ```bash
+    sudo apt install gettext
     ```
 
 ### Клонирование репозитория
 
 1. Откройте терминал (cmd для Windows, Terminal для Mac).
 2. Перейдите в директорию, где вы хотите сохранить проект, используя команду 
-`cd`. Например: `cd C:\Users\YourUsername\Documents`
+`cd`. Например: `cd C:\Users\YourUsername\Documents\myProjects\sites` или 
+`cd ~/myProject/sites`
 3. Клонируйте репозиторий, используя следующую команду:
     ```bash
     git clone https://gitlab.crja72.ru/django_2023/projects/datanar.git
@@ -275,12 +306,22 @@ DEFAULT_USER_IS_ACTIVE=False
 django-admin compilemessages
 ```
 
-Перейдите в директорию `datanar`
+Если возникает ошибка, по перейдите в директорию `datanar`:
 ```bash
 cd datanar
 ```
 
-Создайте миграции для базы данных.
+И повторите немного изменённую команду:
+```bash
+python3 manage.py compilemessages
+```
+
+Перейдите в директорию `datanar`, если вы этого ещё не сделали:
+```bash
+cd datanar
+```
+
+Создайте базу данных:
 ```bash
 python3 manage.py migrate
 ```
@@ -291,7 +332,7 @@ python3 manage.py migrate
 python3 manage.py collectstatic
 ```
 
-Ещё нужно будет создать суперпользователя (админа) сайта.
+Ещё нужно будет создать суперпользователя (админа) сайта:
 ```bash
 python3 manage.py createsuperuser
 ```
@@ -337,7 +378,8 @@ DJANGO_DEBUG=True
 ...
 ```
 
-Установив зависимости `test.txt`, вы также получите возможность запустить тесты для локальной проверки целостности проекта:
+Установив зависимости `test.txt`, вы также получите возможность запустить тесты
+для локальной проверки целостности проекта:
 ```bash
 python3 manage.py test
 ```
@@ -346,7 +388,8 @@ python3 manage.py test
 
 ***
 
-После запуска вы должны иметь возможность открыть проект в браузере по адресу http://127.0.0.1:8000/.
+После запуска вы должны иметь возможность открыть проект в браузере по адресу 
+http://127.0.0.1:8000/.
 
 Вы потрясающие! ©
 

@@ -1,3 +1,5 @@
+from urllib.parse import urlparse
+
 from django.contrib import messages
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
@@ -31,7 +33,11 @@ class HomeView(FormView):
             data = form.cleaned_data
             data["links_file"] = file_path
 
-            task = create_redirects.delay(data, self.request.user.id)
+            task = create_redirects.delay(
+                data,
+                self.request.user.id,
+                self.request.get_host(),
+            )
 
             messages.add_message(
                 self.request,
@@ -44,24 +50,31 @@ class HomeView(FormView):
         if "links_file" in form.cleaned_data:
             del form.cleaned_data["links_file"]
 
-        redirect = Redirect.objects.create(**form.cleaned_data)
-        if self.request.user.is_authenticated:
-            redirect.user = self.request.user
-        redirect.save()
+        long_link = form.cleaned_data[Redirect.long_link.field.name]
+        url_long_link = urlparse(long_link)
+
+        if url_long_link.netloc != self.request.get_host():
+            redirect = Redirect.objects.create(**form.cleaned_data)
+            if self.request.user.is_authenticated:
+                redirect.user = self.request.user
+            redirect.save()
+            short_link = redirect.short_link
+        else:
+            short_link = url_long_link.path
 
         messages.add_message(
             self.request,
             SHORT_LINK,
-            redirect.short_link,
+            short_link,
         )
 
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
-        contex = super().get_context_data(**kwargs)
-        contex["SHORT_LINK"] = SHORT_LINK
-        contex["LOADING_LINKS"] = LOADING_LINKS
-        return contex
+        context = super().get_context_data(**kwargs)
+        context["SHORT_LINK"] = SHORT_LINK
+        context["LOADING_LINKS"] = LOADING_LINKS
+        return context
 
 
 class ServiceRulesView(TemplateView):
