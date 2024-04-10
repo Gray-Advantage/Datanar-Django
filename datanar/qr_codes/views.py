@@ -44,9 +44,9 @@ class QRCodeDownload(View):
             buffer.getvalue(),
             content_type=f"image/{img_format}",
         )
-        response[
-            "Content-Disposition"
-        ] = f'attachment; filename="qr_code.{img_format}"'
+        response["Content-Disposition"] = (
+            f'attachment; filename="qr_code.{img_format}"'
+        )
         return response
 
 
