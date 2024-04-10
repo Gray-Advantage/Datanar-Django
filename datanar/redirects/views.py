@@ -49,7 +49,7 @@ class RedirectView(View):
         return render(request, "redirect/redirect.html", {"form": form})
 
     def perform_redirect(self, redirect):
-        ip_address = self.request.META.get("REMOTE_ADDR", None)
+        ip_address = self.request.META.get("HTTP_X_REAL_IP", None)
 
         try:
             country = geo_ip.country_name(ip_address)
