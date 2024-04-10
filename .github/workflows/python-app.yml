@@ -59,7 +59,7 @@ jobs:
         script: |
           sudo supervisorctl stop all
           cd ~/datanar
-          git reset --hard HEAD
+          git reset --hard origin/main
           git pull
           source venv/bin/activate
           pip install -r requirements/dev.txt
