@@ -98,6 +98,19 @@ DATABASES = {
 }
 
 
+if not strtobool(config("DJANGO_USE_SIMPLE_DATABASE", "True")):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": config("DJANGO_DATABASE_NAME", cast=str),
+            "USER": config("DJANGO_DATABASE_USER", cast=str),
+            "PASSWORD": config("DJANGO_DATABASE_PASSWORD", cast=str),
+            "HOST": "localhost",
+            "PORT": "",
+        },
+    }
+
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": (
@@ -131,7 +144,7 @@ AUTHENTICATION_BACKENDS = [
 AUTH_USER_MODEL = "users.User"
 
 DEFAULT_USER_IS_ACTIVE = bool(
-    strtobool(config("DEFAULT_USER_IS_ACTIVE", "False")),
+    strtobool(config("DJANGO_DEFAULT_USER_IS_ACTIVE", "False")),
 )
 
 LOGIN_URL = "/auth/login/"
