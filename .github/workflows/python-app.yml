@@ -60,7 +60,7 @@ jobs:
           sudo supervisorctl stop all
           cd ~/datanar
           git reset --hard origin/main
-          git pull
+          git pull origin main
           source venv/bin/activate
           pip install -r requirements/dev.txt
           cd ~/datanar/datanar
