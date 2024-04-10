@@ -1,4 +1,4 @@
-black==23.12.0
+black==24.3.0
 django-debug-toolbar==4.2.0
 flake8-absolute-import==1.0.0.2
 flake8-commas==2.1.0
