@@ -218,7 +218,7 @@ gettext для windows
 `cd ~/myProject/sites`
 3. Клонируйте репозиторий, используя следующую команду:
     ```bash
-    git clone https://gitlab.crja72.ru/django_2023/projects/datanar.git
+    git clone https://github.com/Gray-Advantage/Datanar-Django.git
     ```
 
 ### Установка виртуального окружения
