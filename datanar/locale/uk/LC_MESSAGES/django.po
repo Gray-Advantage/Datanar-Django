@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-28 08:07+0300\n"
+"POT-Creation-Date: 2024-04-11 17:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,15 +29,15 @@ msgstr "API"
 msgid "base_forms"
 msgstr "Базові форми"
 
-#: .\datanar\settings.py:162
+#: .\datanar\settings.py:177
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:163
+#: .\datanar\settings.py:178
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:164
+#: .\datanar\settings.py:179
 msgid "Ukrainian"
 msgstr "Український"
 
@@ -145,7 +145,7 @@ msgstr "перенапрямок"
 msgid "invalid_password"
 msgstr "Пароль не вірний"
 
-#: .\statistic\apps.py:9 .\templates\includes\link_card.html:14
+#: .\statistic\apps.py:9 .\templates\includes\link_card.html:16
 msgid "statistic"
 msgstr "Статистика"
 
@@ -394,9 +394,9 @@ msgstr "Клименко Володимир"
 msgid "artem"
 msgstr "Третьяков Артем"
 
-#: .\templates\homepage\about.html:73
-msgid "gitlab_project"
-msgstr "Проект на GitLab"
+#: .\templates\homepage\about.html:72
+msgid "github_project"
+msgstr "Проект на Github"
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"
@@ -536,7 +536,7 @@ msgstr "Увійти"
 msgid "registration"
 msgstr "Реєстрація"
 
-#: .\templates\includes\link_card.html:12
+#: .\templates\includes\link_card.html:13
 msgid "copy"
 msgstr "Копіювати"
 

@@ -64,8 +64,8 @@ jobs:
           source venv/bin/activate
           pip install -r requirements/dev.txt
           cd ~/datanar/datanar
-          python manage.py makemigrations
           python manage.py migrate
+          python manage.py compilemessages
           python manage.py collectstatic --no-input
           deactivate
           cd ~
