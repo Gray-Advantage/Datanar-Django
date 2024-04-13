@@ -1,0 +1,801 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-12 01:37+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\api\apps.py:8
+msgid "api"
+msgstr "API"
+
+#: .\core\apps.py:8
+msgid "base_forms"
+msgstr "Perusmuodot"
+
+#: .\datanar\settings.py:177
+msgid "English"
+msgstr "English"
+
+#: .\datanar\settings.py:178
+msgid "Russian"
+msgstr "Русский"
+
+#: .\datanar\settings.py:179
+msgid "Ukrainian"
+msgstr "Український"
+
+#: .\datanar\settings.py:180
+msgid "Bulgarian"
+msgstr "Български"
+
+#: .\datanar\settings.py:181
+msgid "German"
+msgstr "Deutsch"
+
+#: .\datanar\settings.py:182
+msgid "Spanish"
+msgstr "Español"
+
+#: .\datanar\settings.py:183
+msgid "French"
+msgstr "Français"
+
+#: .\datanar\settings.py:184
+msgid "Japanese"
+msgstr "日本語"
+
+#: .\homepage\apps.py:8
+msgid "homepage"
+msgstr "Page d’accueil"
+
+#: .\qr_codes\apps.py:8
+msgid "qr-codes"
+msgstr "Codes QR"
+
+#: .\redirects\apps.py:8 .\redirects\models.py:88
+msgid "redirects"
+msgstr "Redirections"
+
+#: .\redirects\forms.py:27
+msgid "custom_url"
+msgstr "URL personnalisé"
+
+#: .\redirects\forms.py:28
+msgid "custom_url_that_would_like_have_instead_generated_one"
+msgstr "URL personnalisé que vous aimeriez avoir à la place de "
+"celui généré."
+
+#: .\redirects\forms.py:67
+msgid "custom_url_should_not_have_slash"
+msgstr "Le lien personnalisé ne doit pas contenir ‘/’"
+
+#: .\redirects\forms.py:72
+msgid "custom_url_already_use"
+msgstr "Cet URL personnalisé est déjà utilisé. Veuillez en choisir un autre."
+
+#: .\redirects\forms.py:166 .\templates\statistic\link_detail.html:23
+msgid "Password"
+msgstr "Mot de passe"
+
+#: .\redirects\forms.py:167
+msgid "password_before_redirect"
+msgstr "Entrez le mot de passe avant la redirection"
+
+#: .\redirects\models.py:44
+msgid "user"
+msgstr "utilisateur"
+
+#: .\redirects\models.py:45
+msgid "user_who_create_bond"
+msgstr "Utilisateur qui a créé le lien entre l’URL court et long."
+
+#: .\redirects\models.py:49
+msgid "short_link"
+msgstr "lien court"
+
+#: .\redirects\models.py:50
+msgid "shorten_link_to_redirect_to_resource"
+msgstr "Lien raccourci qui sera redirigé vers la ressource finale."
+
+#: .\redirects\models.py:55
+msgid "long_link"
+msgstr "lien long"
+
+#: .\redirects\models.py:56
+msgid "resource_to_which_short_link_lead"
+msgstr "Ressource finale vers laquelle le lien court mènera."
+
+#: .\redirects\models.py:60
+msgid "creation_time"
+msgstr "heure de création"
+
+#: .\redirects\models.py:61
+msgid "when_bond_was_create"
+msgstr "Quand le lien entre l’URL court et long a été créé."
+
+#: .\redirects\models.py:65
+msgid "password"
+msgstr "mot de passe"
+
+#: .\redirects\models.py:66
+msgid "password_that_will_requested_to_redirect"
+msgstr "Mot de passe qui sera demandé avant la redirection."
+
+#: .\redirects\models.py:72
+msgid "valid_day_number"
+msgstr "durée de validité"
+
+#: .\redirects\models.py:73
+msgid "how_many_day_link_will_be_valid"
+msgstr "Combien de jours le lien sera valide avant sa suppression"
+
+#: .\redirects\models.py:79
+msgid "valid_click_number"
+msgstr "nombre valide de transitions"
+
+#: .\redirects\models.py:80
+msgid "how_many_click_on_link_will_be_valid"
+msgstr "Combien de transitions peuvent être effectuées sur le lien avant sa suppression."
+
+#: .\redirects\models.py:87 .\redirects\models.py:91
+msgid "redirect"
+msgstr "redirection"
+
+#: .\redirects\views.py:48
+msgid "invalid_password"
+msgstr "Le mot de passe est incorrect"
+
+#: .\statistic\apps.py:9 .\templates\includes\link_card.html:16
+msgid "statistic"
+msgstr "Statistiques"
+
+#: .\statistic\models.py:44
+msgid "redirect_time"
+msgstr "Temps de redirection"
+
+#: .\statistic\models.py:51
+msgid "os"
+msgstr "os"
+
+#: .\statistic\models.py:52
+msgid "operating_system_from_which_redirect_was_made"
+msgstr "Système d’exploitation à partir duquel la transition a été effectuée"
+
+#: .\statistic\models.py:56
+msgid "browser"
+msgstr "navigateur"
+
+#: .\statistic\models.py:57
+msgid "browser_from_which_redirect_was_made"
+msgstr "Navigateur à partir duquel la transition a été effectuée"
+
+#: .\statistic\models.py:60
+msgid "country"
+msgstr "pays"
+
+#: .\statistic\models.py:61
+msgid "city"
+msgstr "ville"
+
+#: .\statistic\views.py:85
+msgid "Created"
+msgstr "Créé"
+
+#: .\statistic\views.py:86 .\templates\statistic\link_detail.html:61
+msgid "OS"
+msgstr "OS"
+
+#: .\statistic\views.py:87
+msgid "Browser"
+msgstr "Navigateur"
+
+#: .\statistic\views.py:88
+msgid "Country"
+msgstr "Pays"
+
+#: .\statistic\views.py:89
+msgid "City"
+msgstr "Ville"
+
+#: .\templates\404.html:5 .\templates\500.html:5
+msgid "oops"
+msgstr "Oups"
+
+#: .\templates\404.html:11
+msgid "page_not_found"
+msgstr "Page non trouvée"
+
+#: .\templates\404.html:13 .\templates\500.html:13
+#: .\templates\users\password_change_done.html:12
+#: .\templates\users\password_reset_complete.html:12
+#: .\templates\users\password_reset_done.html:12
+msgid "to_main"
+msgstr "Retour à l’accueil"
+
+#: .\templates\500.html:11
+msgid "server_error"
+msgstr "Erreur serveur"
+
+#: .\templates\account\email\account_already_exists_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you or someone else tried to signup for "
+"an\n"
+"account using email address:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"However, an account using that email address already exists.  In case you "
+"have\n"
+"forgotten about this, please use the password forgotten procedure to "
+"recover\n"
+"your account:\n"
+"\n"
+"%(password_reset_url)s"
+msgstr ""
+"Vous avez reçu cet e-mail parce que vous ou quelqu’un d’autre a essayé "
+"de vous inscrire sur le site en utilisant l’adresse e-mail:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"Cependant, un compte avec cette adresse e-mail existe déjà. Si "
+"vous l’avez oublié, veuillez utiliser la procédure de récupération "
+"du mot de passe pour récupérer votre compte:\n” “\n” “%(password_reset_url)s"
+
+#: .\templates\account\email\account_already_exists_subject.txt:3
+msgid "Account Already Exists"
+msgstr "Le compte existe déjà"
+
+#: .\templates\account\email\base_message.txt:1
+#, python-format
+msgid "Hello from %(site_name)s!"
+msgstr "Bonjour de %(site_name)s!"
+
+#: .\templates\account\email\base_message.txt:5
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr "Merci d’utiliser %(site_name)s!\n"
+"%(site_domain)s"
+
+#: .\templates\account\email\email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"You're receiving this email because user %(user_display)s has given your "
+"email address to register an account on %(site_domain)s.\n"
+"\n"
+"To confirm this is correct, go to %(activate_url)s"
+msgstr ""
+"Vous avez reçu cet e-mail parce que l’utilisateur %(user_display)s a "
+"indiqué votre adresse e-mail pour l’inscription d’un compte sur"
+" %(site_domain)s.\n"
+"\n"
+"Pour confirmer que c’est correct, veuillez vous rendre à "
+"l’adresse %(activate_url)s"
+
+#: .\templates\account\email\email_confirmation_subject.txt:3
+msgid "Please Confirm Your Email Address"
+msgstr "Veuillez confirmer votre adresse e-mail"
+
+#: .\templates\account\email\password_reset_key_message.txt:4
+msgid ""
+"You're receiving this email because you or someone else has requested a "
+"password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+"Vous avez reçu cet e-mail parce que vous ou quelqu’un d’autre a demandé la "
+"réinitialisation du mot de passe de votre compte.\n"
+"Vous pouvez l’ignorer en toute sécurité si vous n’avez pas demandé de "
+"réinitialisation du mot de passe. Cliquez sur le lien ci-dessous pour "
+"réinitialiser votre mot de passe."
+
+#: .\templates\account\email\password_reset_key_message.txt:9
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr "Au cas où vous l’auriez oublié, votre nom d’utilisateur est "
+"%(username)s."
+
+
+#: .\templates\account\email\password_reset_key_subject.txt:3
+#: .\templates\account\email\unknown_account_subject.txt:3
+msgid "Password Reset Email"
+msgstr "Email de réinitialisation du mot de passe"
+
+#: .\templates\account\email\unknown_account_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you or someone else has requested a\n"
+"password for your user account. However, we do not have any record of a "
+"user\n"
+"with email %(email)s in our database.\n"
+"\n"
+"This mail can be safely ignored if you did not request a password reset.\n"
+"\n"
+"If it was you, you can sign up for an account using the link below."
+msgstr ""
+"Vous recevez cet e-mail parce que vous ou quelqu’un d’autre a demandé\n"
+"la réinitialisation du mot de passe de votre compte. Cependant, nous n’avons "
+"aucun enregistrement d’un utilisateur\n"
+"avec l’adresse e-mail %(email)s dans notre base de données.\n"
+"\n"
+"Cet e-mail peut être ignoré en toute sécurité si vous n’avez pas demandé de "
+"réinitialisation "
+"du mot de passe.\n"
+"\n"
+"Si c’était vous, vous pouvez vous inscrire sur le site en utilisant le lien "
+"ci-dessous."
+
+#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
+msgid "about"
+msgstr "À propos du projet"
+
+#: .\templates\homepage\about.html:13
+msgid "about_beginning"
+msgstr "Datanar est un service web de raccourcissement de liens. Avec notre "
+"site, vous pouvez facilement " "raccourcir les URL longues, les rendant plus "
+"pratiques et simples à utiliser."
+
+#: .\templates\homepage\about.html:17
+msgid "about_you_can_do"
+msgstr "Avec Datanar, vous pouvez:"
+
+#: .\templates\homepage\about.html:20
+msgid "can_do_1"
+msgstr "Raccourcir un lien"
+
+#: .\templates\homepage\about.html:21
+msgid "can_do_2"
+msgstr "Obtenir immédiatement un QR-code généré"
+
+#: .\templates\homepage\about.html:22
+msgid "can_do_3"
+msgstr "Indiquer votre propre URL court"
+
+#: .\templates\homepage\about.html:23
+msgid "can_do_4"
+msgstr "Suivre les statistiques des transitions sur le lien"
+
+#: .\templates\homepage\about.html:24
+msgid "can_do_5"
+msgstr "Exporter les statistiques dans un format pratique"
+
+#: .\templates\homepage\about.html:25
+msgid "can_do_6"
+msgstr "Configurer un mot de passe pour le lien raccourci"
+
+#: .\templates\homepage\about.html:26
+msgid "can_do_7"
+msgstr "Indiquer jusqu’à quelle date le lien sera actif"
+
+#: .\templates\homepage\about.html:27
+msgid "can_do_8"
+msgstr "Indiquer combien de transitions peuvent être effectuées sur le lien"
+
+#: .\templates\homepage\about.html:28
+msgid "can_do_9"
+msgstr "Lier votre service au nôtre via API"
+
+#: .\templates\homepage\about.html:33
+msgid "about_using"
+msgstr "Le site est fait avec :"
+
+#: .\templates\homepage\about.html:48
+msgid "developers"
+msgstr "Les développeurs - ces belles personnes :"
+
+#: .\templates\homepage\about.html:54
+msgid "sergey"
+msgstr "Andreev Sergey"
+
+#: .\templates\homepage\about.html:60
+msgid "vladimir"
+msgstr "Klimenko Vladimir"
+
+#: .\templates\homepage\about.html:66
+msgid "artem"
+msgstr "Tretiakov Artem"
+
+#: .\templates\homepage\about.html:72
+msgid "github_project"
+msgstr "Projet sur Github"
+
+#: .\templates\homepage\main.html:5
+msgid "title__homepage"
+msgstr "Datanar - Raccourcissement des liens"
+
+#: .\templates\homepage\main.html:27
+msgid "short_description_under_logo"
+msgstr "Raccourcissez votre lien pour que vos clients n’aient pas à voir de "
+"longues url-” “adresses."
+
+#: .\templates\homepage\main.html:29
+msgid "short_description_about_supported_files"
+msgstr "Vous pouvez choisir ou glisser-déposer un fichier avec l’extension "
+".txt/.xlsx. Dans le txt chaque ligne est considérée comme un lien, et dans "
+"le xlsx chaque ligne de la première colonne"
+
+#: .\templates\homepage\main.html:39
+msgid "label_link_file"
+msgstr "Fichier de liens sélectionné"
+
+#: .\templates\homepage\main.html:43
+msgid "delete_file"
+msgstr "Supprimer le fichier"
+
+#: .\templates\homepage\main.html:45
+msgid "choose_file"
+msgstr "Sélectionner un fichier"
+
+#: .\templates\homepage\main.html:47
+msgid "shorten"
+msgstr "Raccourcir"
+
+#: .\templates\homepage\main.html:67
+msgid "message_error_count"
+msgstr "Veuillez glisser-déposer un seul fichier."
+
+#: .\templates\homepage\main.html:68
+msgid "message_error_type"
+msgstr "Veuillez glisser-déposer un fichier avec l’extension .xlsx ou .txt."
+
+#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:5
+msgid "service_rules"
+msgstr "Règles du service"
+
+#: .\templates\homepage\service_rules.html:13
+msgid "datanar_rules"
+msgstr "Règles du Service Datanar"
+
+#: .\templates\homepage\service_rules.html:14
+msgid "welcome_service_rules"
+msgstr "Bienvenue sur le service de raccourcissement de liens Datanar. "
+"En utilisant nos services, vous acceptez automatiquement nos règles. "
+"Veuillez les lire attentivement."
+
+#: .\templates\homepage\service_rules.html:16
+msgid "rule_1"
+msgstr "1. Pour créer un compte, nous recueillons l’e-mail, le login et le "
+"mot de passe "
+"de l’utilisateur. Nous respectons votre confidentialité. Toutes les données "
+"personnelles "
+"sont utilisées uniquement pour gérer votre compte et ne "
+"sont pas transmises à des tiers."
+
+#: .\templates\homepage\service_rules.html:17
+msgid "rule_2"
+msgstr "2. Nous prenons toutes les mesures de sécurité possibles pour "
+"protéger vos données. Votre "
+"mot de passe est stocké sous forme cryptée. Nous recommandons d’utiliser des "
+"mots de passe complexes et de ne pas les partager avec d’autres."
+
+#: .\templates\homepage\service_rules.html:18
+msgid "rule_3"
+msgstr "3. Lors de l’utilisation de nos services, il est interdit de commettre"
+" des actes qui violent "
+"la loi, ou d’utiliser le service de manière à causer du tort "
+"à d’autres "
+"utilisateurs ou à des tiers."
+
+#: .\templates\homepage\service_rules.html:19
+msgid "rule_4"
+msgstr "4. Nous nous réservons le droit de modifier nos conditions "
+"d’utilisation. En cas de changements importants, nous vous en informerons."
+
+#: .\templates\homepage\service_rules.html:21
+msgid "service_rules_thanks_for_choosing_us"
+msgstr "Merci d’avoir choisi Datanar ! Nous apprécions votre confiance et "
+"nous nous efforçons de vous fournir "
+"un service de raccourcissement de liens pratique et sûr."
+
+#: .\templates\includes\footer.html:7
+msgid "API"
+msgstr "API"
+
+#: .\templates\includes\header.html:14
+msgid "theme"
+msgstr "Thème"
+
+#: .\templates\includes\header.html:20
+msgid "light"
+msgstr "Clair"
+
+#: .\templates\includes\header.html:26
+msgid "dark"
+msgstr "Sombre"
+
+#: .\templates\includes\header.html:32
+msgid "auto"
+msgstr "Auto"
+
+#: .\templates\includes\header.html:53
+msgid "no_user"
+msgstr "Pas de nom d’utilisateur"
+
+#: .\templates\includes\header.html:60 .\templates\users\profile.html:4
+#: .\templates\users\profile.html:7
+msgid "my_profile"
+msgstr "Mon profil"
+
+#: .\templates\includes\header.html:61
+msgid "my_links"
+msgstr "Mes liens"
+
+#: .\templates\includes\header.html:64
+msgid "admin_panel"
+msgstr "Admin"
+
+#: .\templates\includes\header.html:68
+msgid "exit"
+msgstr "Se déconnecter"
+
+#: .\templates\includes\header.html:73 .\templates\users\login.html:13
+msgid "sign_in"
+msgstr "Se connecter"
+
+#: .\templates\includes\header.html:76 .\templates\users\signup.html:5
+msgid "registration"
+msgstr "Inscription"
+
+#: .\templates\includes\link_card.html:13
+msgid "copy"
+msgstr "Copier"
+
+#: .\templates\includes\user_form.html:50
+msgid "dont_have_account_yet"
+msgstr "Pas encore de compte ?"
+
+#: .\templates\includes\user_form.html:50
+msgid "create_it"
+msgstr "Créez-le !"
+
+#: .\templates\includes\user_form.html:51
+msgid "forgot_password"
+msgstr "Mot de passe oublié ?"
+
+#: .\templates\redirect\redirect.html:4
+msgid "redirect_page"
+msgstr "Redirection"
+
+#: .\templates\statistic\link_detail.html:5
+msgid "title__link_detail"
+msgstr "Lien - statistiques"
+
+#: .\templates\statistic\link_detail.html:15
+msgid "link"
+msgstr "Lien"
+
+#: .\templates\statistic\link_detail.html:16
+msgid "original"
+msgstr "Original"
+
+#: .\templates\statistic\link_detail.html:20
+msgid "сreated"
+msgstr "Créé"
+
+#: .\templates\statistic\link_detail.html:21
+msgid "transitions_are_available"
+msgstr "Transitions disponibles"
+
+#: .\templates\statistic\link_detail.html:22
+msgid "valid_for_days"
+msgstr "Valide jours"
+
+#: .\templates\statistic\link_detail.html:29
+#: .\templates\statistic\link_detail.html:30
+msgid "unlimited"
+msgstr "Illimité"
+
+#: .\templates\statistic\link_detail.html:31
+msgid "absent"
+msgstr "Absent"
+
+#: .\templates\statistic\link_detail.html:36
+msgid "statistics_for"
+msgstr "Statistiques pour"
+
+#: .\templates\statistic\link_detail.html:37
+msgid "day"
+msgstr "jour"
+
+#: .\templates\statistic\link_detail.html:38
+msgid "month"
+msgstr "mois"
+
+#: .\templates\statistic\link_detail.html:39
+msgid "year"
+msgstr "an"
+
+#: .\templates\statistic\link_detail.html:40
+msgid "all_time"
+msgstr "toute la période"
+
+#: .\templates\statistic\link_detail.html:42
+msgid "total_number_of_clicks_during_the_period"
+msgstr "Nombre total de transitions pour la période"
+
+#: .\templates\statistic\link_detail.html:47
+msgid "Browsers"
+msgstr "Navigateurs"
+
+#: .\templates\statistic\link_detail.html:75
+msgid "Countries"
+msgstr "Pays"
+
+#: .\templates\statistic\link_detail.html:89
+msgid "Cities"
+msgstr "Villes"
+
+#: .\templates\statistic\link_detail.html:101
+msgid "ip_geo_by_DB-IP"
+msgstr "Géolocalisation IP de DB-IP"
+
+#: .\templates\statistic\link_detail.html:102
+msgid "download_statistics_for_the_period"
+msgstr "Télécharger les statistiques pour la période"
+
+#: .\templates\statistic\my_links.html:5
+msgid "title__my_links"
+msgstr "Mes liens"
+
+#: .\templates\users\confirm_email.html:5
+#: .\templates\users\confirm_email.html:11
+#: .\templates\users\confirm_email_from_sent.html:7
+#: .\templates\users\confirm_email_from_sent.html:13
+msgid "email_confirmation"
+msgstr "Confirmez votre mail"
+
+#: .\templates\users\confirm_email.html:12
+msgid "email_confirmation_description"
+msgstr "Nous vous avons envoyé un e-mail de confirmation. Veuillez suivre "
+"le lien indiqué pour terminer le processus d’inscription. Si vous ne voyez "
+"pas "
+"l’e-mail de confirmation dans votre boîte de réception principale, "
+"vérifiez votre dossier spam. Veuillez nous contacter si vous ne recevez pas "
+"l’e-mail de confirmation dans les prochaines minutes."
+
+#: .\templates\users\confirm_email_from_sent.html:18
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
+"address for user %(user_display)s."
+msgstr "Veuillez confirmer que <a href=\"mailto:%(email)s\">%(email)s</a> "
+"est l’adresse e-mail pour l’utilisateur <strong>%(user_display)s</strong>."
+
+#: .\templates\users\confirm_email_from_sent.html:26
+msgid "Confirm"
+msgstr "Confirmer"
+
+#: .\templates\users\confirm_email_from_sent.html:33
+#, python-format
+msgid ""
+"Unable to confirm %(email)s because it is already confirmed by a different "
+"account."
+msgstr "La confirmation pour %(email)s est désactivée, car elle a déjà été "
+"confirmée par un autre "
+"utilisateur"
+
+#: .\templates\users\confirm_email_from_sent.html:39
+#, python-format
+msgid ""
+"This email confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new email confirmation request</a>."
+msgstr ""
+"La durée de validité de ce lien de confirmation a expiré ou il est invalide. "
+ "<a href=\"%(email_url)s\">Veuillez envoyer une nouvelle demande.</a>."
+
+#: .\templates\users\email_change.html:8
+msgid "email_change"
+msgstr "Changement de mail"
+
+#: .\templates\users\email_change.html:17
+#: .\templates\users\email_change.html:20
+msgid "Email"
+msgstr "Adresse e-mail"
+
+#: .\templates\users\email_change.html:28
+msgid "Re-send Verification"
+msgstr "Renvoi de la confirmation"
+
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "Annuler"
+
+#: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
+msgid "change_email"
+msgstr "Changer de mail"
+
+#: .\templates\users\login.html:5
+msgid "authorization"
+msgstr "Authentification"
+
+#: .\templates\users\login.html:12
+msgid "log_in_to_datanar"
+msgstr "Connectez-vous à Datanar !"
+
+#: .\templates\users\logout.html:4
+msgid "logout"
+msgstr "Déconnexion"
+
+#: .\templates\users\password_change.html:5
+#: .\templates\users\password_change.html:12
+msgid "password_change"
+msgstr "Changement de mot de passe"
+
+#: .\templates\users\password_change.html:13 .\templates\users\profile.html:24
+msgid "change_password"
+msgstr "Changer le mot de passe"
+
+#: .\templates\users\password_change_done.html:5
+msgid "password_changed"
+msgstr "Mot de passe modifié"
+
+#: .\templates\users\password_change_done.html:11
+msgid "your_password_be_success_changed"
+msgstr "Votre mot de passe a été modifié avec succès !"
+
+#: .\templates\users\password_reset.html:5
+#: .\templates\users\password_reset.html:12
+#: .\templates\users\password_reset_confirm.html:5
+#: .\templates\users\password_reset_confirm.html:12
+#: .\templates\users\password_reset_done.html:5
+msgid "password_recovery"
+msgstr "Récupération du mot de passe"
+
+#: .\templates\users\password_reset.html:13
+msgid "recover"
+msgstr "Récupérer"
+
+#: .\templates\users\password_reset_complete.html:5
+msgid "password_recovered"
+msgstr "Mot de passe récupéré"
+
+#: .\templates\users\password_reset_complete.html:11
+msgid "password_reset_completed_success"
+msgstr "La réinitialisation du mot de passe a été réussie"
+
+#: .\templates\users\password_reset_confirm.html:13
+msgid "reset"
+msgstr "Réinitialiser"
+
+#: .\templates\users\password_reset_done.html:11
+msgid "email_instructions_for_password_recove_sent"
+msgstr "Un e-mail avec les instructions de récupération du mot de passe a été envoyé"
+
+#: .\templates\users\profile.html:21
+msgid "save"
+msgstr "Sauvegarder"
+
+#: .\templates\users\signup.html:12
+msgid "greeting"
+msgstr "Bienvenue sur Datanar !"
+
+#: .\templates\users\signup.html:13
+msgid "register"
+msgstr "S’inscrire"
+
+#: .\users\apps.py:8
+msgid "users"
+msgstr "Utilisateurs"
+
+#: .\users\models.py:8
+msgid "avatar"
+msgstr "Avatar"
+
+#: .\users\views.py:33
+msgid "username_is_already_taken"
+msgstr "Un utilisateur avec ce nom existe déjà"
