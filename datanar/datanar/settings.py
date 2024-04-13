@@ -179,6 +179,7 @@ LANGUAGES = [
     ("uk", _("Ukrainian")),  # ready
     ("bg", _("Bulgarian")),  # ready
     ("de", _("German")),  # ready
+    ("ja", _("Japanese")),  # ready
 ]
 
 LOCALE_PATHS = (BASE_DIR / "locale/",)
