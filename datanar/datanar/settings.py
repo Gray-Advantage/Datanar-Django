@@ -174,9 +174,11 @@ EMAIL_HOST_PASSWORD = config(
 LANGUAGE_CODE = "ru-ru"
 
 LANGUAGES = [
-    ("en", _("English")),
-    ("ru", _("Russian")),
-    ("uk", _("Ukrainian")),
+    ("en", _("English")),  # ready
+    ("ru", _("Russian")),  # ready
+    ("uk", _("Ukrainian")),  # ready
+    ("bg", _("Bulgarian")),  # ready
+    ("de", _("German")),  # ready
 ]
 
 LOCALE_PATHS = (BASE_DIR / "locale/",)
