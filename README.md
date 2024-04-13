@@ -82,7 +82,7 @@
 ### База данных
 
 Функциональная структура базы данных следующая:
-![scheme](scheme.png)
+![scheme](datanar/static_dev/img/for_readme/scheme.png)
 
 Основных моделей две - Redirect и Click
 - Redirect - хранит в себе связь между длинной и короткой ссылкой
