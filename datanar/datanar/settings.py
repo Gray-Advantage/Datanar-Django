@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "1.5.2"
+VERSION = "1.5.6"
 
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
@@ -174,13 +174,14 @@ EMAIL_HOST_PASSWORD = config(
 LANGUAGE_CODE = "ru-ru"
 
 LANGUAGES = [
-    ("en", _("English")),  # ready
-    ("ru", _("Russian")),  # ready
-    ("uk", _("Ukrainian")),  # ready
-    ("bg", _("Bulgarian")),  # ready
-    ("de", _("German")),  # ready
-    ("es", _("Spanish")),  # ready
-    ("ja", _("Japanese")),  # ready
+    ("en", _("English")),
+    ("ru", _("Russian")),
+    ("uk", _("Ukrainian")),
+    ("bg", _("Bulgarian")),
+    ("de", _("German")),
+    ("es", _("Spanish")),
+    ("fr", _("French")),
+    ("ja", _("Japanese")),
 ]
 
 LOCALE_PATHS = (BASE_DIR / "locale/",)
