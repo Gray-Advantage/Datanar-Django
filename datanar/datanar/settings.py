@@ -179,6 +179,7 @@ LANGUAGES = [
     ("uk", _("Ukrainian")),  # ready
     ("bg", _("Bulgarian")),  # ready
     ("de", _("German")),  # ready
+    ("es", _("Spanish")),  # ready
     ("ja", _("Japanese")),  # ready
 ]
 
