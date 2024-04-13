@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 17:45+0300\n"
+"POT-Creation-Date: 2024-04-12 01:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,6 +40,26 @@ msgstr "Русский"
 #: .\datanar\settings.py:179
 msgid "Ukrainian"
 msgstr "Український"
+
+#: .\datanar\settings.py:180
+msgid "Bulgarian"
+msgstr "Български"
+
+#: .\datanar\settings.py:181
+msgid "German"
+msgstr "Deutsch"
+
+#: .\datanar\settings.py:182
+msgid "Spanish"
+msgstr "Español"
+
+#: .\datanar\settings.py:183
+msgid "French"
+msgstr "Français"
+
+#: .\datanar\settings.py:184
+msgid "Japanese"
+msgstr "日本語"
 
 #: .\homepage\apps.py:8
 msgid "homepage"
