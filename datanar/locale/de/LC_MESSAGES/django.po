@@ -289,7 +289,9 @@ msgid ""
 msgstr ""
 "Sie haben diese E-Mail erhalten, weil der Benutzer %(user_display)s Ihre "
 "E-Mail-Adresse zur Registrierung eines Kontos auf %(site_domain)s angegeben "
-"hat.\n” “\n” “Um zu bestätigen, dass dies korrekt ist, gehen Sie bitte zu "
+"hat.\n"
+"\n"
+"Um zu bestätigen, dass dies korrekt ist, gehen Sie bitte zu "
 "%(activate_url)s"
 
 #: .\templates\account\email\email_confirmation_subject.txt:3

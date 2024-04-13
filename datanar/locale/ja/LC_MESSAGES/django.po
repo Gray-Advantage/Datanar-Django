@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-12 01:36+0300\n"
+"POT-Creation-Date: 2024-04-12 01:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,14 +16,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 #: .\api\apps.py:8
 msgid "api"
 msgstr "API"
 
 #: .\core\apps.py:8
 msgid "base_forms"
-msgstr "Основни форми"
+msgstr "基本フォーム"
 
 #: .\datanar\settings.py:177
 msgid "English"
@@ -59,178 +59,174 @@ msgstr "日本語"
 
 #: .\homepage\apps.py:8
 msgid "homepage"
-msgstr "Начална страница"
+msgstr "ホームページ"
 
 #: .\qr_codes\apps.py:8
 msgid "qr-codes"
-msgstr "QR-кодове"
+msgstr "QRコード"
 
 #: .\redirects\apps.py:8 .\redirects\models.py:88
 msgid "redirects"
-msgstr "пренасочване"
+msgstr "リダイレクト"
 
 #: .\redirects\forms.py:27
 msgid "custom_url"
-msgstr "Персонализиран URL адрес"
+msgstr "カスタムURLアドレス"
 
 #: .\redirects\forms.py:28
 msgid "custom_url_that_would_like_have_instead_generated_one"
-msgstr "Персонализиран URL адрес, който бихте искали да имате вместо "
-"генерирания."
+msgstr "生成されたものの代わりに持ちたいユーザー定義のURLアドレス。"
 
 #: .\redirects\forms.py:67
 msgid "custom_url_should_not_have_slash"
-msgstr "Персонализираната връзка не трябва да има ‘/’"
+msgstr "カスタムリンクには’/'を含めてはならない"
 
 #: .\redirects\forms.py:72
 msgid "custom_url_already_use"
-msgstr ""
-"Този персонализиран URL адрес вече се използва. Моля, изберете друг."
+msgstr "このカスタムURLアドレスはすでに使用されています。別のものを選んでください。"
 
 #: .\redirects\forms.py:166 .\templates\statistic\link_detail.html:23
 msgid "Password"
-msgstr "Парола"
+msgstr "パスワード"
 
 #: .\redirects\forms.py:167
 msgid "password_before_redirect"
-msgstr "Въведете парола преди пренасочване"
+msgstr "リダイレクトする前にパスワードを入力してください"
 
 #: .\redirects\models.py:44
 msgid "user"
-msgstr "потребител"
+msgstr "ユーザー"
 
 #: .\redirects\models.py:45
 msgid "user_who_create_bond"
-msgstr "Потребителят, който създаде връзка между кратка и дълга връзка."
+msgstr "短いリンクと長いリンクの間の関連を作成したユーザー。"
 
 #: .\redirects\models.py:49
 msgid "short_link"
-msgstr "кратка връзка"
+msgstr "短いリンク"
 
 #: .\redirects\models.py:50
 msgid "shorten_link_to_redirect_to_resource"
-msgstr "Съкратена връзка, по която ще бъде извършено пренасочване към крайния "
-"ресурс."
+msgstr "最終リソースにリダイレクトされる短縮リンク。"
 
 #: .\redirects\models.py:55
 msgid "long_link"
-msgstr "дълга връзка"
+msgstr "長いリンク"
 
 #: .\redirects\models.py:56
 msgid "resource_to_which_short_link_lead"
-msgstr "Крайният ресурс, до който ще води кратката връзка."
+msgstr "短いリンクが指す最終リソース。"
 
 #: .\redirects\models.py:60
 msgid "creation_time"
-msgstr "време на създаване"
+msgstr "作成時間"
 
 #: .\redirects\models.py:61
 msgid "when_bond_was_create"
-msgstr "Кога е създадена връзката между кратката и дългата връзка."
+msgstr "短いリンクと長いリンクの間の関連が作成されたとき。"
 
 #: .\redirects\models.py:65
 msgid "password"
-msgstr "парола"
+msgstr "パスワード"
 
 #: .\redirects\models.py:66
 msgid "password_that_will_requested_to_redirect"
-msgstr "Паролата, която ще бъде поискана преди пренасочване."
+msgstr "リダイレクトする前に要求されるパスワード。"
 
 #: .\redirects\models.py:72
 msgid "valid_day_number"
-msgstr "срок на годност"
+msgstr "有効期限"
 
 #: .\redirects\models.py:73
 msgid "how_many_day_link_will_be_valid"
-msgstr "Колко дни връзката ще бъде валидна преди нейното изтриване"
+msgstr "リンクが削除される前に有効な日数。"
 
 #: .\redirects\models.py:79
 msgid "valid_click_number"
-msgstr "валиден брой преходи"
+msgstr "有効なリダイレクト数"
 
 #: .\redirects\models.py:80
 msgid "how_many_click_on_link_will_be_valid"
-msgstr "Колко прехода могат да бъдат извършени по връзката преди нейното "
-"изтриване."
+msgstr "リンクが削除される前に何回リダイレクトできるか。"
 
 #: .\redirects\models.py:87 .\redirects\models.py:91
 msgid "redirect"
-msgstr "пренасочване"
+msgstr "リダイレクト"
 
 #: .\redirects\views.py:48
 msgid "invalid_password"
-msgstr "Паролата не е верна"
+msgstr "パスワードが間違っています"
 
 #: .\statistic\apps.py:9 .\templates\includes\link_card.html:16
 msgid "statistic"
-msgstr "Статистика"
+msgstr "統計"
 
 #: .\statistic\models.py:44
 msgid "redirect_time"
-msgstr "Време за пренасочване"
+msgstr "リダイレクト時間"
 
 #: .\statistic\models.py:51
 msgid "os"
-msgstr "ос"
+msgstr "os"
 
 #: .\statistic\models.py:52
 msgid "operating_system_from_which_redirect_was_made"
-msgstr "Операционната система, с която е извършен прехода"
+msgstr "リダイレクトが行われたオペレーティングシステム。"
 
 #: .\statistic\models.py:56
 msgid "browser"
-msgstr "браузер"
+msgstr "ブラウザ"
 
 #: .\statistic\models.py:57
 msgid "browser_from_which_redirect_was_made"
-msgstr "Браузерът, от който е извършен прехода"
+msgstr "リダイレクトが行われたブラウザ。"
 
 #: .\statistic\models.py:60
 msgid "country"
-msgstr "държава"
+msgstr "国"
 
 #: .\statistic\models.py:61
 msgid "city"
-msgstr "град"
+msgstr "都市"
 
 #: .\statistic\views.py:85
 msgid "Created"
-msgstr "Създаден"
+msgstr "作成された"
 
 #: .\statistic\views.py:86 .\templates\statistic\link_detail.html:61
 msgid "OS"
-msgstr "ОС"
+msgstr "OS"
 
 #: .\statistic\views.py:87
 msgid "Browser"
-msgstr "Браузер"
+msgstr "ブラウザ"
 
 #: .\statistic\views.py:88
 msgid "Country"
-msgstr "Държава"
+msgstr "国"
 
 #: .\statistic\views.py:89
 msgid "City"
-msgstr "Град"
+msgstr "都市"
 
 #: .\templates\404.html:5 .\templates\500.html:5
 msgid "oops"
-msgstr "Опа!"
+msgstr "おっと！"
 
 #: .\templates\404.html:11
 msgid "page_not_found"
-msgstr "Страницата не е намерена"
+msgstr "ページが見つかりません"
 
 #: .\templates\404.html:13 .\templates\500.html:13
 #: .\templates\users\password_change_done.html:12
 #: .\templates\users\password_reset_complete.html:12
 #: .\templates\users\password_reset_done.html:12
 msgid "to_main"
-msgstr "Към началната страница"
+msgstr "ホームに戻る"
 
 #: .\templates\500.html:11
 msgid "server_error"
-msgstr "Грешка в сървъра"
+msgstr "サーバーエラー"
 
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
@@ -249,32 +245,33 @@ msgid ""
 "\n"
 "%(password_reset_url)s"
 msgstr ""
-"Получихте това писмо, защото вие или някой друг се опита да се регистрира на "
-"сайта, използвайки следния имейл адрес:\n"
- "\n"
- "%(email)s\n"
- "\n"
- "Въпреки това, вече съществува акаунт с този имейл адрес. Ако сте го "
- "забравили, моля, използвайте процедурата за възстановяване на паролата, за "
- "да възстановите своя акаунт:\n"
- "\n"
- "%(password_reset_url)s"
+"あなたがこのメールを受け取ったのは、あなた自身または他の誰かが\n"
+"次の電子メールアドレスを使用してサイトに登録しようとしたからです:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"しかし、この電子メールアドレスのアカウントはすでに存在します。もし\n"
+"忘れていたら、パスワ"
+"ードのリカバリープロセスを使用してアカウントを\n"
+"リカバリーしてください:\n"
+"\n"
+"%(password_reset_url)s"
 
 #: .\templates\account\email\account_already_exists_subject.txt:3
 msgid "Account Already Exists"
-msgstr "Вече съществува акаунт"
+msgstr "アカウントはすでに存在します"
 
 #: .\templates\account\email\base_message.txt:1
 #, python-format
 msgid "Hello from %(site_name)s!"
-msgstr "Здравей от %(site_name)s!"
+msgstr "%(site_name)sからのこんにちは！"
 
 #: .\templates\account\email\base_message.txt:5
 #, python-format
 msgid ""
 "Thank you for using %(site_name)s!\n"
 "%(site_domain)s"
-msgstr "Благодарим ви, че използвате %(site_name)s!\n"
+msgstr "%(site_name)sをご利用いただきありがとうございます！\n"
 "%(site_domain)s"
 
 #: .\templates\account\email\email_confirmation_message.txt:5
@@ -285,15 +282,14 @@ msgid ""
 "\n"
 "To confirm this is correct, go to %(activate_url)s"
 msgstr ""
-"Получихте това писмо, защото потребител %(user_display)s е посочил вашия "
-"имейл адрес за регистрация на акаунт на %(site_domain)s.\n"
+"あなたがこのメールを受け取ったのは、ユーザー%(user_display)sがあなたの\n"
+"電子メールアドレスを%(site_domain)sのアカウント登録に使用したからです。\n"
 "\n"
-"За да потвърдите, че това е вярно, моля, посетете следния адрес "
-"%(activate_url)s"
+"これが正しいことを確認するために、次のURLにアクセスしてください：%(activate_url)s"
 
 #: .\templates\account\email\email_confirmation_subject.txt:3
 msgid "Please Confirm Your Email Address"
-msgstr "Моля, потвърдете вашия имейл адрес"
+msgstr "あなたのメールアドレスを確認してください"
 
 #: .\templates\account\email\password_reset_key_message.txt:4
 msgid ""
@@ -302,20 +298,20 @@ msgid ""
 "It can be safely ignored if you did not request a password reset. Click the "
 "link below to reset your password."
 msgstr ""
-"Получихте това писмо, защото вие или някой друг е поискал смяна на паролата "
-"за вашия акаунт.\n"
-"Можете да го игнорирате безопасно, ако не сте поискали смяна на паролата. "
-"Натиснете върху връзката по-долу, за да смените вашата парола."
+"あなたがこのメールを受け取ったのは、あなた自身または他の誰かが\n"
+"あなたのアカウントのパスワードをリセットするようにリクエストしたからです。\n"
+"パスワードのリセットをリクエストしていない場合、このメールは無視して\n"
+"安全に処理できます。パスワードをリセットするには、以下のリンクをクリックしてください。"
 
 #: .\templates\account\email\password_reset_key_message.txt:9
 #, python-format
 msgid "In case you forgot, your username is %(username)s."
-msgstr "Ако сте забравили, вашето потребителско име е %(username)s."
+msgstr "忘れてしまった場合のために、あなたのユーザー名は%(username)sです。"
 
 #: .\templates\account\email\password_reset_key_subject.txt:3
 #: .\templates\account\email\unknown_account_subject.txt:3
 msgid "Password Reset Email"
-msgstr "Писмо за смяна на паролата"
+msgstr "パスワードリセットメール"
 
 #: .\templates\account\email\unknown_account_message.txt:4
 #, python-format
@@ -329,170 +325,167 @@ msgid ""
 "\n"
 "If it was you, you can sign up for an account using the link below."
 msgstr ""
-"Получавате това писмо, защото вие или някой друг е поискал смяна на паролата"
-" за вашия акаунт. Въпреки това, нямаме никакви записи за потребител с имейл "
-"адрес %(email)s в нашата база данни.\n"
+"あなたがこのメールを受け取っているのは、あなた自身または他の誰かが\n"
+"あなたのアカウントのパスワードをリセットするようにリクエストしたからです。しかし、私たちのデ"
+"ータベースには\n"
+"電子メールアドレス%(email)sのユーザーに関する記録はありません。\n"
 "\n"
-"Можете да игнорирате това писмо безопасно, ако не сте поискали смяна на "
-"паролата.\n"
+"パスワードのリセットをリクエストしていない場合、このメールは無視して\n"
+"安全に処理できます。\n"
 "\n"
-"Ако това сте вие, можете да се регистрирате на сайта, използвайки връзката "
-"по-долу."
+"もしこれがあなたであれば、以下のリンクを使用してサイトに登"
+"録することができます。"
 
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
 msgid "about"
-msgstr "За проекта"
+msgstr "プロジェクトについて"
 
 #: .\templates\homepage\about.html:13
 msgid "about_beginning"
-msgstr ""
-"Datanar е уеб услуга за съкращаване на връзки. С нашия сайт лесно можете да "
-"съкратите дълги URL адреси, като ги правите по-удобни и лесни за използване."
+msgstr "Datanarは、リンクの短縮を行うウェブサービスです。私たちのサイトを使えば、長いURLア"
+"ドレスを簡単に\n"
+"短縮して、より便利で使いやすくすることができます。"
 
 #: .\templates\homepage\about.html:17
 msgid "about_you_can_do"
-msgstr "С Datanar можете да:"
+msgstr "Datanarを使えば、次のことができます："
 
 #: .\templates\homepage\about.html:20
 msgid "can_do_1"
-msgstr "Съкратете връзка"
+msgstr "リンクを短縮する"
 
 #: .\templates\homepage\about.html:21
 msgid "can_do_2"
-msgstr "Получете веднага генериран QR-код"
+msgstr "すぐに生成されるQRコードを取得する"
 
 #: .\templates\homepage\about.html:22
 msgid "can_do_3"
-msgstr "Посочете свой собствен кратък URL адрес"
+msgstr "自分の短いURLアドレスを指定する"
 
 #: .\templates\homepage\about.html:23
 msgid "can_do_4"
-msgstr "Проследявайте статистиката на преминаванията по връзката"
+msgstr "リンクのリダイレクト統計を追跡する"
 
 #: .\templates\homepage\about.html:24
 msgid "can_do_5"
-msgstr "Изтеглете статистиката в удобен формат"
+msgstr "統計を便利な形式でエクスポートする"
 
 #: .\templates\homepage\about.html:25
 msgid "can_do_6"
-msgstr "Задайте парола за съкратената връзка"
+msgstr "短縮リンクにパスワードを設定する"
 
 #: .\templates\homepage\about.html:26
 msgid "can_do_7"
-msgstr "Посочете до коя дата ще работи връзката"
+msgstr "リンクが動作する日付を指定する"
 
 #: .\templates\homepage\about.html:27
 msgid "can_do_8"
-msgstr "Посочете колко преминавания могат да бъде направени по връзката"
+msgstr "リンクを通じて何回リダイレクトできるかを指定する"
 
 #: .\templates\homepage\about.html:28
 msgid "can_do_9"
-msgstr "Свържете своята услуга с нашата чрез API"
+msgstr "あなたのサービスを私たちのAPIと連携する"
 
 #: .\templates\homepage\about.html:33
 msgid "about_using"
-msgstr "Сайтът е направен с използването на:"
+msgstr "このサイトは以下を使用して作成されました："
 
 #: .\templates\homepage\about.html:48
 msgid "developers"
-msgstr "Разработчиците - тези прекрасни хора:"
+msgstr "開発者 - これらの素晴らしい人々："
 
 #: .\templates\homepage\about.html:54
 msgid "sergey"
-msgstr "Андреев Сергей"
+msgstr "アンドレーエフ・セルゲイ"
 
 #: .\templates\homepage\about.html:60
 msgid "vladimir"
-msgstr "Клименко Владимир"
+msgstr "クリメンコ・ウラジミール"
 
 #: .\templates\homepage\about.html:66
 msgid "artem"
-msgstr "Третяков Артьом"
+msgstr "トレチャコフ・アルテム"
 
 #: .\templates\homepage\about.html:72
 msgid "github_project"
-msgstr "Проектът в Github"
+msgstr "Githubのプロジェクト"
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"
-msgstr "Datanar - Съкращаване на връзки"
+msgstr "Datanar - リンクの短縮"
 
 #: .\templates\homepage\main.html:27
 msgid "short_description_under_logo"
-msgstr "Съкратете вашата връзка, така че вашите клиенти да не трябва да виждат"
-" дълги URL адреси."
+msgstr "あなたのリンクを短縮して、お客様が長いURLを見る必要がなくなります。"
 
 #: .\templates\homepage\main.html:29
 msgid "short_description_about_supported_files"
-msgstr "Можете да изберете или да плъзнете файл с разширение .txt/.xlsx. В txt"
-" всяка линия се разглежда като връзка, а в xlsx всяка линия на първата колона"
+msgstr ".txt/.xlsxの拡張子を持つファイルを選択またはドラッグアンドドロップできます。txtで"
+"は各行がリンクとして扱われ、xlsxでは最初の列の各行が扱われます"
 
 #: .\templates\homepage\main.html:39
 msgid "label_link_file"
-msgstr "Избран файл с връзки"
+msgstr "リンクのあるファイルが選択されました"
 
 #: .\templates\homepage\main.html:43
 msgid "delete_file"
-msgstr "Изтрий файл"
+msgstr "ファイルを削除"
 
 #: .\templates\homepage\main.html:45
 msgid "choose_file"
-msgstr "Изберете файл"
+msgstr "ファイルを選択"
 
 #: .\templates\homepage\main.html:47
 msgid "shorten"
-msgstr "Съкрати"
+msgstr "短縮する"
 
 #: .\templates\homepage\main.html:67
 msgid "message_error_count"
-msgstr "Моля, плъзнете само един файл."
+msgstr "ファイルは一つだけドラッグアンドドロップしてください。"
 
 #: .\templates\homepage\main.html:68
 msgid "message_error_type"
-msgstr "Моля, плъзнете файл с разширение .xlsx или .txt."
+msgstr ".xlsxまたは.txtの拡張子を持つファイルをドラッグアンドドロップしてください。"
 
 #: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:5
 msgid "service_rules"
-msgstr "Правила на услугата"
+msgstr "サービスの規則"
 
 #: .\templates\homepage\service_rules.html:13
 msgid "datanar_rules"
-msgstr "Правила на услугата Datanar"
+msgstr "Datanarサービスの規則"
 
 #: .\templates\homepage\service_rules.html:14
 msgid "welcome_service_rules"
-msgstr "Добре дошли в услугата за съкращаване на връзки Datanar. Използвайки "
-"нашите услуги, автоматично се съгласявате с нашите правила. Моля, внимателно"
-" се запознайте с тях."
+msgstr "Datanarのリンク短縮サービスへようこそ。私たちのサービスを利用することで、あなたは自"
+"動的に私たちの規則に同意することになります。それらを注意深くお読みください。"
 
 #: .\templates\homepage\service_rules.html:16
 msgid "rule_1"
-msgstr "1. За създаване на акаунт ние събираме имейл, потребителско име и "
-"парола на потребителя. Ние уважаваме вашата конфиденциалност. Всички лични "
-"данни се използват само за управление на вашия акаунт и не се предават на "
-"трети страни."
+msgstr "1. アカウントを作成するために、私たちはユーザーのメールアドレス、ログイン名、パスワ"
+"ードを収集します。私たちはあなたのプライバシーを尊重します。すべての個人情報は、あなたのアカ"
+"ウントの管理のためだけに使用され、第三者には提供されません。"
 
 #: .\templates\homepage\service_rules.html:17
 msgid "rule_2"
-msgstr "2. Ние прилагаме всички възможни мерки за сигурност за защита на "
-"вашите данни. Вашата парола се съхранява в криптиран вид. Препоръчваме да "
-"използвате сложни пароли и да не ги споделяте с други."
+msgstr "2. 私たちはあなたのデータを保護するために可能なすべての安全対策を講じています。あな"
+"たのパスワードは暗号化されて保存されます。複雑なパスワードを使用し、他人と共有しないことをお"
+"勧めします。"
 
 #: .\templates\homepage\service_rules.html:18
 msgid "rule_3"
-msgstr "3. При използване на нашите услуги е забранено да се извършват "
-"действия, нарушаващи закона, или да се използва услугата по начини, които "
-"могат да причинят вред на други потребители или на трети страни."
+msgstr "3. 私たちのサービスを利用する際には、法律を違反する行為を行ったり、他のユーザーや第"
+"三者に害を及ぼす可能性のある方法でサービスを利用することは禁止されています。"
 
 #: .\templates\homepage\service_rules.html:19
 msgid "rule_4"
-msgstr "4. Ние си запазваме правото да внасяме промени в нашите условия за "
-"използване. При важни промени ще ви уведомим."
+msgstr "4. 私たちは、私たちの利用規約に変更を加える権利を留保しています。重要な変更があった"
+"場合は、あなたに通知します。"
 
 #: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
-msgstr "Благодарим ви, че избрахте Datanar! Ние ценим вашето доверие и се "
-"стремим да ви предоставим удобна и безопасна услуга за съкращаване на връзки."
+msgstr "Datanarを選んでいただきありがとうございます！私たちはあなたの信頼を大切にし、便利"
+"で安全なリンク短縮サービスを提供することを目指しています。"
 
 #: .\templates\includes\footer.html:7
 msgid "API"
@@ -500,245 +493,241 @@ msgstr "API"
 
 #: .\templates\includes\header.html:14
 msgid "theme"
-msgstr "Тема"
+msgstr "テーマ"
 
 #: .\templates\includes\header.html:20
 msgid "light"
-msgstr "Светла"
+msgstr "ライト"
 
 #: .\templates\includes\header.html:26
 msgid "dark"
-msgstr "Тъмна"
+msgstr "ダーク"
 
 #: .\templates\includes\header.html:32
 msgid "auto"
-msgstr "Авто"
+msgstr "オート"
 
 #: .\templates\includes\header.html:53
 msgid "no_user"
-msgstr "Няма потребителско име"
+msgstr "ユーザー名がありません"
 
 #: .\templates\includes\header.html:60 .\templates\users\profile.html:4
 #: .\templates\users\profile.html:7
 msgid "my_profile"
-msgstr "Моят профил"
+msgstr "マイプロフィール"
 
 #: .\templates\includes\header.html:61
 msgid "my_links"
-msgstr "Моите връзки"
+msgstr "マイリンク"
 
 #: .\templates\includes\header.html:64
 msgid "admin_panel"
-msgstr "Админ панел"
+msgstr "管理者"
 
 #: .\templates\includes\header.html:68
 msgid "exit"
-msgstr "Изход"
+msgstr "ログアウト"
 
 #: .\templates\includes\header.html:73 .\templates\users\login.html:13
 msgid "sign_in"
-msgstr "Вход"
+msgstr "ログイン"
 
 #: .\templates\includes\header.html:76 .\templates\users\signup.html:5
 msgid "registration"
-msgstr "Регистрация"
+msgstr "登録"
 
 #: .\templates\includes\link_card.html:13
 msgid "copy"
-msgstr "Копирай"
+msgstr "コピー"
 
 #: .\templates\includes\user_form.html:50
 msgid "dont_have_account_yet"
-msgstr "Още нямате акаунт?"
+msgstr "まだアカウントがありませんか？"
 
 #: .\templates\includes\user_form.html:50
 msgid "create_it"
-msgstr "Създайте го!"
+msgstr "作成しましょう！"
 
 #: .\templates\includes\user_form.html:51
 msgid "forgot_password"
-msgstr "Забравили сте паролата?"
+msgstr "パスワードを忘れましたか？"
 
 #: .\templates\redirect\redirect.html:4
 msgid "redirect_page"
-msgstr "Пренасочване"
+msgstr "リダイレクト"
 
 #: .\templates\statistic\link_detail.html:5
 msgid "title__link_detail"
-msgstr "Връзка - статистика"
+msgstr "リンク - 統計"
 
 #: .\templates\statistic\link_detail.html:15
 msgid "link"
-msgstr "Връзка"
+msgstr "リンク"
 
 #: .\templates\statistic\link_detail.html:16
 msgid "original"
-msgstr "Оригинал"
+msgstr "オリジナル"
 
 #: .\templates\statistic\link_detail.html:20
 msgid "сreated"
-msgstr "Създадена"
+msgstr "作成されました"
 
 #: .\templates\statistic\link_detail.html:21
 msgid "transitions_are_available"
-msgstr "Достъпни преходи"
+msgstr "利用可能なリダイレクト"
 
 #: .\templates\statistic\link_detail.html:22
 msgid "valid_for_days"
-msgstr "Валидна дни"
+msgstr "有効な日数"
 
 #: .\templates\statistic\link_detail.html:29
 #: .\templates\statistic\link_detail.html:30
 msgid "unlimited"
-msgstr "Неограничено"
+msgstr "無制限"
 
 #: .\templates\statistic\link_detail.html:31
 msgid "absent"
-msgstr "Липсва"
+msgstr "存在しません"
 
 #: .\templates\statistic\link_detail.html:36
 msgid "statistics_for"
-msgstr "Статистика за"
+msgstr "期間の統計"
 
 #: .\templates\statistic\link_detail.html:37
 msgid "day"
-msgstr "ден"
+msgstr "日"
 
 #: .\templates\statistic\link_detail.html:38
 msgid "month"
-msgstr "месец"
+msgstr "月"
 
 #: .\templates\statistic\link_detail.html:39
 msgid "year"
-msgstr "година"
+msgstr "年"
 
 #: .\templates\statistic\link_detail.html:40
 msgid "all_time"
-msgstr "цялото време"
+msgstr "全期間"
 
 #: .\templates\statistic\link_detail.html:42
 msgid "total_number_of_clicks_during_the_period"
-msgstr "Общ брой преходи за периода"
+msgstr "期間中の総リダイレクト数"
 
 #: .\templates\statistic\link_detail.html:47
 msgid "Browsers"
-msgstr "Браузери"
+msgstr "ブラウザ"
 
 #: .\templates\statistic\link_detail.html:75
 msgid "Countries"
-msgstr "Държави"
+msgstr "国"
 
 #: .\templates\statistic\link_detail.html:89
 msgid "Cities"
-msgstr "Държави"
+msgstr "都市"
 
 #: .\templates\statistic\link_detail.html:101
 msgid "ip_geo_by_DB-IP"
-msgstr "IP геолокация от DB-IP"
+msgstr "DB-IPからのIPジオロケーション"
 
 #: .\templates\statistic\link_detail.html:102
 msgid "download_statistics_for_the_period"
-msgstr "Изтеглете статистиката за периода"
+msgstr "期間の統計をダウンロード"
 
 #: .\templates\statistic\my_links.html:5
 msgid "title__my_links"
-msgstr "Моите връзки"
+msgstr "マイリンク"
 
 #: .\templates\users\confirm_email.html:5
 #: .\templates\users\confirm_email.html:11
 #: .\templates\users\confirm_email_from_sent.html:7
 #: .\templates\users\confirm_email_from_sent.html:13
 msgid "email_confirmation"
-msgstr "Потвърдете своя имейл"
+msgstr "あなたのメールを確認してください"
 
 #: .\templates\users\confirm_email.html:12
 msgid "email_confirmation_description"
-msgstr "Изпратихме ви имейл за потвърждение. Моля, следвайте указаната "
-"връзка, за да завършите процеса на регистрация. Ако не виждате имейла за "
-"потвърждение в основната си пощенска кутия, проверете папката за спам. "
-"Моля, свържете се с нас, ако не получите имейл за потвърждение в рамките на "
-"няколко минути."
+msgstr ""
+"登録プロセスを完了してください。もし、あなたのメインのメールボックスに確認の電子メールを見つ"
+"けられない場合は、スパムフォルダを確認してください。数分以内に確認の電子メールが届かない場合"
+"は、私たちに連絡してください。"
 
 #: .\templates\users\confirm_email_from_sent.html:18
 #, python-format
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
-msgstr ""
-"Моля, потвърдете, че <a href=\"mailto:%(email)s\">%(email)s</a> е имейл "
-"адресът за потребител <strong>%(user_display)s</strong>."
+msgstr "ユーザー<strong>%(user_display)s</strong>のメールアドレスとして"
+"<a href=\"mailto:%(email)s\">%(email)s</a>を確認してください。"
 
 #: .\templates\users\confirm_email_from_sent.html:26
 msgid "Confirm"
-msgstr ""
+msgstr "確認"
 
 #: .\templates\users\confirm_email_from_sent.html:33
 #, python-format
 msgid ""
 "Unable to confirm %(email)s because it is already confirmed by a different "
 "account."
-msgstr ""
-"Потвърждението за %(email)s е деактивирано, тъй като вече е потвърдено от "
-"друг потребител"
+msgstr "%(email)sの確認は無効化されました、なぜならそれはすでに他のユーザーによって確認さ"
+"れているからです"
 
 #: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
 msgid ""
 "This email confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new email confirmation request</a>."
-msgstr ""
-"Срокът на действие на тази връзка за потвърждение е изтекъл или е невалидна. "
-"\"<a href=\"%(email_url)s\">Моля, изпратете нова заявка.</a>."
+msgstr "この確認リンクの有効期限が切れているか、無効です。<a href=\"%(email_url)s\">新"
+"しいリクエストを送信してください。</a>."
 
 #: .\templates\users\email_change.html:8
 msgid "email_change"
-msgstr "Промяна на имейла"
+msgstr "メールアドレスの変更"
 
 #: .\templates\users\email_change.html:17
 #: .\templates\users\email_change.html:20
 msgid "Email"
-msgstr "Имейл адрес"
+msgstr "電子メールアドレス"
 
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
-msgstr "Повторно изпращане на потвърждение"
+msgstr "確認の再送信"
 
 #: .\templates\users\email_change.html:29
 msgid "Cancel"
-msgstr "Отказ"
+msgstr "キャンセル"
 
 #: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
 msgid "change_email"
-msgstr "Промени имейла"
+msgstr "メールアドレスを変更"
 
 #: .\templates\users\login.html:5
 msgid "authorization"
-msgstr "Авторизация"
+msgstr "ログイン"
 
 #: .\templates\users\login.html:12
 msgid "log_in_to_datanar"
-msgstr "Влезте в Datanar!"
+msgstr "Datanarにログイン！"
 
 #: .\templates\users\logout.html:4
 msgid "logout"
-msgstr "Изход"
+msgstr "ログアウト"
 
 #: .\templates\users\password_change.html:5
 #: .\templates\users\password_change.html:12
 msgid "password_change"
-msgstr "Промяна на паролата"
+msgstr "パスワードの変更"
 
 #: .\templates\users\password_change.html:13 .\templates\users\profile.html:24
 msgid "change_password"
-msgstr "Промени паролата"
+msgstr "パスワードを変更"
 
 #: .\templates\users\password_change_done.html:5
 msgid "password_changed"
-msgstr "Паролата е променена"
+msgstr "パスワードが変更されました"
 
 #: .\templates\users\password_change_done.html:11
 msgid "your_password_be_success_changed"
-msgstr "Вашата парола беше успешно променена!"
+msgstr "あなたのパスワードは正常に変更されました！"
 
 #: .\templates\users\password_reset.html:5
 #: .\templates\users\password_reset.html:12
@@ -746,48 +735,48 @@ msgstr "Вашата парола беше успешно променена!"
 #: .\templates\users\password_reset_confirm.html:12
 #: .\templates\users\password_reset_done.html:5
 msgid "password_recovery"
-msgstr "Възстановяване на паролата"
+msgstr "パスワードのリカバリー"
 
 #: .\templates\users\password_reset.html:13
 msgid "recover"
-msgstr "Възстанови"
+msgstr "リカバリー"
 
 #: .\templates\users\password_reset_complete.html:5
 msgid "password_recovered"
-msgstr "Паролата е възстановена"
+msgstr "パスワードがリカバリーされました"
 
 #: .\templates\users\password_reset_complete.html:11
 msgid "password_reset_completed_success"
-msgstr "Смяната на паролата беше успешно завършена"
+msgstr "パスワードのリセットが正常に完了しました"
 
 #: .\templates\users\password_reset_confirm.html:13
 msgid "reset"
-msgstr "Смяна"
+msgstr "リセット"
 
 #: .\templates\users\password_reset_done.html:11
 msgid "email_instructions_for_password_recove_sent"
-msgstr "Изпратено е писмо с инструкции за възстановяване на паролата"
+msgstr "パスワードリカバリーの指示が含まれたメールが送信されました"
 
 #: .\templates\users\profile.html:21
 msgid "save"
-msgstr "Запази"
+msgstr "保存"
 
 #: .\templates\users\signup.html:12
 msgid "greeting"
-msgstr "Добре дошли в Datanar!"
+msgstr "Datanarへようこそ！"
 
 #: .\templates\users\signup.html:13
 msgid "register"
-msgstr "Регистрирайте се"
+msgstr "登録"
 
 #: .\users\apps.py:8
 msgid "users"
-msgstr "Потребители"
+msgstr "ユーザー"
 
 #: .\users\models.py:8
 msgid "avatar"
-msgstr "Аватар"
+msgstr "アバター"
 
 #: .\users\views.py:33
 msgid "username_is_already_taken"
-msgstr "Вече съществува потребител с това име"
+msgstr "そのユーザー名はすでに存在します"
