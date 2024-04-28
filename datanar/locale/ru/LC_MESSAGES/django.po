@@ -38,7 +38,7 @@ msgstr "Русский"
 
 #: .\datanar\settings.py:179
 msgid "Ukrainian"
-msgstr "Український"
+msgstr "Українська"
 
 #: .\datanar\settings.py:180
 msgid "Bulgarian"
