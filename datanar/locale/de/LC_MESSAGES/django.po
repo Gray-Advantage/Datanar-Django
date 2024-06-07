@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-12 01:37+0300\n"
+"POT-Creation-Date: 2024-06-07 18:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\api\apps.py:8
 msgid "api"
 msgstr "API"
@@ -75,8 +76,8 @@ msgstr "Benutzerdefinierte URL"
 
 #: .\redirects\forms.py:28
 msgid "custom_url_that_would_like_have_instead_generated_one"
-msgstr "Benutzerdefinierte URL, die Sie anstelle der generierten haben "
-"möchten."
+msgstr ""
+"Benutzerdefinierte URL, die Sie anstelle der generierten haben möchten."
 
 #: .\redirects\forms.py:67
 msgid "custom_url_should_not_have_slash"
@@ -84,8 +85,9 @@ msgstr "Benutzerdefinierte Verknüpfung darf kein ‘/’ enthalten"
 
 #: .\redirects\forms.py:72
 msgid "custom_url_already_use"
-msgstr "Diese benutzerdefinierte URL wird bereits verwendet. Bitte wählen Sie "
-"eine andere"
+msgstr ""
+"Diese benutzerdefinierte URL wird bereits verwendet. Bitte wählen Sie eine "
+"andere"
 
 #: .\redirects\forms.py:166 .\templates\statistic\link_detail.html:23
 msgid "Password"
@@ -101,8 +103,9 @@ msgstr "Benutzer"
 
 #: .\redirects\models.py:45
 msgid "user_who_create_bond"
-msgstr "Benutzer, der die Verbindung zwischen kurzer und langer Verknüpfung "
-"erstellt hat."
+msgstr ""
+"Benutzer, der die Verbindung zwischen kurzer und langer Verknüpfung erstellt "
+"hat."
 
 #: .\redirects\models.py:49
 msgid "short_link"
@@ -110,8 +113,8 @@ msgstr "Kurze Verknüpfung"
 
 #: .\redirects\models.py:50
 msgid "shorten_link_to_redirect_to_resource"
-msgstr "Verkürzte Verknüpfung, über die die Weiterleitung zum Endressource "
-"erfolgt."
+msgstr ""
+"Verkürzte Verknüpfung, über die die Weiterleitung zum Endressource erfolgt."
 
 #: .\redirects\models.py:55
 msgid "long_link"
@@ -127,8 +130,8 @@ msgstr "Erstellungszeit"
 
 #: .\redirects\models.py:61
 msgid "when_bond_was_create"
-msgstr "Wann wurde die Verbindung zwischen kurzer und langer Verknüpfung "
-"erstellt."
+msgstr ""
+"Wann wurde die Verbindung zwischen kurzer und langer Verknüpfung erstellt."
 
 #: .\redirects\models.py:65
 msgid "password"
@@ -152,8 +155,9 @@ msgstr "Gültige Anzahl von Übergängen"
 
 #: .\redirects\models.py:80
 msgid "how_many_click_on_link_will_be_valid"
-msgstr "Wie viele Übergänge können über den Link gemacht werden, bevor er "
-"gelöscht wird."
+msgstr ""
+"Wie viele Übergänge können über den Link gemacht werden, bevor er gelöscht "
+"wird."
 
 #: .\redirects\models.py:87 .\redirects\models.py:91
 msgid "redirect"
@@ -195,23 +199,27 @@ msgstr "land"
 msgid "city"
 msgstr "stadt"
 
-#: .\statistic\views.py:85
+#: .\statistic\views.py:75
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: .\statistic\views.py:87
 msgid "Created"
 msgstr "Erstellt"
 
-#: .\statistic\views.py:86 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:88 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "BS"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:89
 msgid "Browser"
 msgstr "Browser"
 
-#: .\statistic\views.py:88
+#: .\statistic\views.py:90
 msgid "Country"
 msgstr "Land"
 
-#: .\statistic\views.py:89
+#: .\statistic\views.py:91
 msgid "City"
 msgstr "Stadt"
 
@@ -251,14 +259,15 @@ msgid ""
 "\n"
 "%(password_reset_url)s"
 msgstr ""
-"Sie haben diese E-Mail erhalten, weil Sie oder jemand anderes versucht haben,"
-" sich auf der Website mit der folgenden E-Mail-Adresse zu registrieren:\n"
+"Sie haben diese E-Mail erhalten, weil Sie oder jemand anderes versucht "
+"haben, sich auf der Website mit der folgenden E-Mail-Adresse zu "
+"registrieren:\n"
 "\n"
 "%(email)s\n"
 "\n"
 "Es gibt jedoch bereits ein Konto mit dieser E-Mail-Adresse. Wenn Sie dies "
-"vergessen haben, verwenden Sie bitte das "
-"Passwort-Wiederherstellungsverfahren, um Ihr Konto wiederherzustellen:\n"
+"vergessen haben, verwenden Sie bitte das Passwort-"
+"Wiederherstellungsverfahren, um Ihr Konto wiederherzustellen:\n"
 "\n"
 "%(password_reset_url)s"
 
@@ -276,7 +285,8 @@ msgstr "Hallo von %(site_name)s!"
 msgid ""
 "Thank you for using %(site_name)s!\n"
 "%(site_domain)s"
-msgstr "Danke, dass Sie %(site_name)s verwenden!\n"
+msgstr ""
+"Danke, dass Sie %(site_name)s verwenden!\n"
 "%(site_domain)s"
 
 #: .\templates\account\email\email_confirmation_message.txt:5
@@ -287,17 +297,15 @@ msgid ""
 "\n"
 "To confirm this is correct, go to %(activate_url)s"
 msgstr ""
-"Sie haben diese E-Mail erhalten, weil der Benutzer %(user_display)s Ihre "
-"E-Mail-Adresse zur Registrierung eines Kontos auf %(site_domain)s angegeben "
+"Sie haben diese E-Mail erhalten, weil der Benutzer %(user_display)s Ihre E-"
+"Mail-Adresse zur Registrierung eines Kontos auf %(site_domain)s angegeben "
 "hat.\n"
 "\n"
-"Um zu bestätigen, dass dies korrekt ist, gehen Sie bitte zu "
-"%(activate_url)s"
+"Um zu bestätigen, dass dies korrekt ist, gehen Sie bitte zu %(activate_url)s"
 
 #: .\templates\account\email\email_confirmation_subject.txt:3
 msgid "Please Confirm Your Email Address"
 msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse"
-
 
 #: .\templates\account\email\password_reset_key_message.txt:4
 msgid ""
@@ -305,8 +313,9 @@ msgid ""
 "password reset for your user account.\n"
 "It can be safely ignored if you did not request a password reset. Click the "
 "link below to reset your password."
-msgstr "Sie haben diese E-Mail erhalten, weil Sie oder jemand anderes ein "
-"Passwort-Reset für Ihr Konto angefordert hat.\n"
+msgstr ""
+"Sie haben diese E-Mail erhalten, weil Sie oder jemand anderes ein Passwort-"
+"Reset für Ihr Konto angefordert hat.\n"
 "Sie können es sicher ignorieren, wenn Sie kein Passwort-Reset angefordert "
 "haben. Klicken Sie auf den untenstehenden Link, um Ihr Passwort "
 "zurückzusetzen."
@@ -332,7 +341,8 @@ msgid ""
 "This mail can be safely ignored if you did not request a password reset.\n"
 "\n"
 "If it was you, you can sign up for an account using the link below."
-msgstr "Sie erhalten diese E-Mail, weil Sie oder jemand anderes\n"
+msgstr ""
+"Sie erhalten diese E-Mail, weil Sie oder jemand anderes\n"
 "ein Passwort-Reset für Ihr Konto angefordert hat. Allerdings haben wir keine "
 "Aufzeichnungen über einen Benutzer\n"
 "mit der E-Mail-Adresse %(email)s in unserer Datenbank.\n"
@@ -340,8 +350,8 @@ msgstr "Sie erhalten diese E-Mail, weil Sie oder jemand anderes\n"
 "Sie können diese E-Mail sicher ignorieren, wenn Sie kein Passwort-Reset "
 "angefordert haben.\n"
 "\n"
-"Wenn Sie es waren, können Sie sich auf der Website registrieren, indem "
-"Sie den untenstehenden Link verwenden."
+"Wenn Sie es waren, können Sie sich auf der Website registrieren, indem Sie "
+"den untenstehenden Link verwenden."
 
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
 msgid "about"
@@ -349,9 +359,10 @@ msgstr "Über das Projekt"
 
 #: .\templates\homepage\about.html:13
 msgid "about_beginning"
-msgstr "Datanar ist ein Webdienst zur Verkürzung von Links. Mit unserer "
-"Website können Sie lange URLs leicht verkürzen und sie benutzerfreundlicher "
-"und einfacher zu bedienen machen."
+msgstr ""
+"Datanar ist ein Webdienst zur Verkürzung von Links. Mit unserer Website "
+"können Sie lange URLs leicht verkürzen und sie benutzerfreundlicher und "
+"einfacher zu bedienen machen."
 
 #: .\templates\homepage\about.html:17
 msgid "about_you_can_do"
@@ -423,13 +434,14 @@ msgstr "Datanar - Linkverkürzung"
 
 #: .\templates\homepage\main.html:27
 msgid "short_description_under_logo"
-msgstr "Verkürzen Sie Ihren Link, damit Ihre Kunden keine langen URLs sehen müssen."
+msgstr ""
+"Verkürzen Sie Ihren Link, damit Ihre Kunden keine langen URLs sehen müssen."
 
 #: .\templates\homepage\main.html:29
 msgid "short_description_about_supported_files"
-msgstr "Sie können eine Datei mit der Endung .txt/.xlsx auswählen oder ziehen."
-" In txt wird jede Zeile als Link betrachtet, in xlsx jede Zeile der ersten "
-"Spalte"
+msgstr ""
+"Sie können eine Datei mit der Endung .txt/.xlsx auswählen oder ziehen. In "
+"txt wird jede Zeile als Link betrachtet, in xlsx jede Zeile der ersten Spalte"
 
 #: .\templates\homepage\main.html:39
 msgid "label_link_file"
@@ -465,38 +477,43 @@ msgstr "Datanar Service Regeln"
 
 #: .\templates\homepage\service_rules.html:14
 msgid "welcome_service_rules"
-msgstr "Willkommen beim Datanar Linkverkürzungsdienst. Durch die Nutzung "
-"unserer Dienste stimmen Sie automatisch unseren Regeln zu. Bitte lesen Sie "
-"sie sorgfältig durch."
+msgstr ""
+"Willkommen beim Datanar Linkverkürzungsdienst. Durch die Nutzung unserer "
+"Dienste stimmen Sie automatisch unseren Regeln zu. Bitte lesen Sie sie "
+"sorgfältig durch."
 
 #: .\templates\homepage\service_rules.html:16
 msgid "rule_1"
-msgstr "1. Für die Erstellung eines Kontos sammeln wir E-Mail, Login und "
-"Passwort des Benutzers. Wir respektieren Ihre Privatsphäre. Alle persönlichen"
-" Daten werden ausschließlich zur Verwaltung Ihres Kontos verwendet und nicht"
-" an Dritte weitergegeben."
+msgstr ""
+"1. Für die Erstellung eines Kontos sammeln wir E-Mail, Login und Passwort "
+"des Benutzers. Wir respektieren Ihre Privatsphäre. Alle persönlichen Daten "
+"werden ausschließlich zur Verwaltung Ihres Kontos verwendet und nicht an "
+"Dritte weitergegeben."
 
 #: .\templates\homepage\service_rules.html:17
 msgid "rule_2"
-msgstr "2. Wir ergreifen alle möglichen Sicherheitsmaßnahmen zum Schutz Ihrer"
-" Daten. Ihr Passwort wird verschlüsselt gespeichert. Wir empfehlen die "
-"Verwendung komplexer Passwörter und diese nicht mit anderen zu teilen."
+msgstr ""
+"2. Wir ergreifen alle möglichen Sicherheitsmaßnahmen zum Schutz Ihrer Daten. "
+"Ihr Passwort wird verschlüsselt gespeichert. Wir empfehlen die Verwendung "
+"komplexer Passwörter und diese nicht mit anderen zu teilen."
 
 #: .\templates\homepage\service_rules.html:18
 msgid "rule_3"
-msgstr "3. Bei der Nutzung unserer Dienste ist es verboten, gesetzeswidrige "
+msgstr ""
+"3. Bei der Nutzung unserer Dienste ist es verboten, gesetzeswidrige "
 "Handlungen durchzuführen oder den Dienst auf eine Weise zu nutzen, die "
 "anderen Benutzern oder Dritten schaden könnte."
 
 #: .\templates\homepage\service_rules.html:19
 msgid "rule_4"
-msgstr "4. Wir behalten uns das Recht vor, Änderungen an unseren "
-"Nutzungsbedingungen vorzunehmen. Bei wichtigen Änderungen werden wir Sie "
-"informieren."
+msgstr ""
+"4. Wir behalten uns das Recht vor, Änderungen an unseren Nutzungsbedingungen "
+"vorzunehmen. Bei wichtigen Änderungen werden wir Sie informieren."
 
 #: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
-msgstr "Danke, dass Sie Datanar gewählt haben! Wir schätzen Ihr Vertrauen und "
+msgstr ""
+"Danke, dass Sie Datanar gewählt haben! Wir schätzen Ihr Vertrauen und "
 "bemühen uns, Ihnen einen bequemen und sicheren Linkverkürzungsdienst zu "
 "bieten."
 
@@ -660,11 +677,11 @@ msgstr "Bestätigen Sie Ihre E-Mail"
 #: .\templates\users\confirm_email.html:12
 msgid "email_confirmation_description"
 msgstr ""
-"Wir haben Ihnen eine Bestätigungs-E-Mail gesendet. Bitte folgen Sie dem Link"
-" in der E-Mail, um die Registrierung abzuschließen. Wenn Sie die "
-"Bestätigungs-E-Mail nicht in Ihrem Hauptpostfach sehen, überprüfen Sie Ihren "
-"Spam-Ordner. Bitte kontaktieren Sie uns, wenn Sie die Bestätigungs-E-Mail "
-"nicht innerhalb weniger Minuten erhalten."
+"Wir haben Ihnen eine Bestätigungs-E-Mail gesendet. Bitte folgen Sie dem Link "
+"in der E-Mail, um die Registrierung abzuschließen. Wenn Sie die Bestätigungs-"
+"E-Mail nicht in Ihrem Hauptpostfach sehen, überprüfen Sie Ihren Spam-Ordner. "
+"Bitte kontaktieren Sie uns, wenn Sie die Bestätigungs-E-Mail nicht innerhalb "
+"weniger Minuten erhalten."
 
 #: .\templates\users\confirm_email_from_sent.html:18
 #, python-format
@@ -672,8 +689,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"Bitte bestätigen Sie, dass <a href=\"mailto:%(email)s\">%(email)s</a> "
-"die E-Mail-Adresse für den Benutzer <strong>%(user_display)s</strong> ist."
+"Bitte bestätigen Sie, dass <a href=\"mailto:%(email)s\">%(email)s</a> die E-"
+"Mail-Adresse für den Benutzer <strong>%(user_display)s</strong> ist."
 
 #: .\templates\users\confirm_email_from_sent.html:26
 msgid "Confirm"
@@ -684,8 +701,9 @@ msgstr "Bestätigen"
 msgid ""
 "Unable to confirm %(email)s because it is already confirmed by a different "
 "account."
-msgstr "Die Bestätigung für %(email)s wurde deaktiviert, da sie bereits von "
-"einem anderen Benutzer bestätigt wurde."
+msgstr ""
+"Die Bestätigung für %(email)s wurde deaktiviert, da sie bereits von einem "
+"anderen Benutzer bestätigt wurde."
 
 #: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
@@ -693,8 +711,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Der Bestätigungslink für diese E-Mail ist abgelaufen oder ungültig. "
-"<a href=\"%(email_url)s\">Bitte senden Sie eine neue Anfrage.</a>."
+"Der Bestätigungslink für diese E-Mail ist abgelaufen oder ungültig. <a href="
+"\"%(email_url)s\">Bitte senden Sie eine neue Anfrage.</a>."
 
 #: .\templates\users\email_change.html:8
 msgid "email_change"
@@ -772,7 +790,8 @@ msgstr "Zurücksetzen"
 
 #: .\templates\users\password_reset_done.html:11
 msgid "email_instructions_for_password_recove_sent"
-msgstr "Eine E-Mail mit Anweisungen zur Passwort-Wiederherstellung wurde gesendet"
+msgstr ""
+"Eine E-Mail mit Anweisungen zur Passwort-Wiederherstellung wurde gesendet"
 
 #: .\templates\users\profile.html:21
 msgid "save"

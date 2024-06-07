@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-12 01:37+0300\n"
+"POT-Creation-Date: 2024-06-07 18:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
 #: .\api\apps.py:8
 msgid "api"
 msgstr "API"
@@ -83,7 +84,8 @@ msgstr "カスタムリンクには’/'を含めてはならない"
 
 #: .\redirects\forms.py:72
 msgid "custom_url_already_use"
-msgstr "このカスタムURLアドレスはすでに使用されています。別のものを選んでください。"
+msgstr ""
+"このカスタムURLアドレスはすでに使用されています。別のものを選んでください。"
 
 #: .\redirects\forms.py:166 .\templates\statistic\link_detail.html:23
 msgid "Password"
@@ -189,23 +191,27 @@ msgstr "国"
 msgid "city"
 msgstr "都市"
 
-#: .\statistic\views.py:85
+#: .\statistic\views.py:75
+msgid "Unknown"
+msgstr "不明"
+
+#: .\statistic\views.py:87
 msgid "Created"
 msgstr "作成された"
 
-#: .\statistic\views.py:86 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:88 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "OS"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:89
 msgid "Browser"
 msgstr "ブラウザ"
 
-#: .\statistic\views.py:88
+#: .\statistic\views.py:90
 msgid "Country"
 msgstr "国"
 
-#: .\statistic\views.py:89
+#: .\statistic\views.py:91
 msgid "City"
 msgstr "都市"
 
@@ -251,8 +257,7 @@ msgstr ""
 "%(email)s\n"
 "\n"
 "しかし、この電子メールアドレスのアカウントはすでに存在します。もし\n"
-"忘れていたら、パスワ"
-"ードのリカバリープロセスを使用してアカウントを\n"
+"忘れていたら、パスワードのリカバリープロセスを使用してアカウントを\n"
 "リカバリーしてください:\n"
 "\n"
 "%(password_reset_url)s"
@@ -271,7 +276,8 @@ msgstr "%(site_name)sからのこんにちは！"
 msgid ""
 "Thank you for using %(site_name)s!\n"
 "%(site_domain)s"
-msgstr "%(site_name)sをご利用いただきありがとうございます！\n"
+msgstr ""
+"%(site_name)sをご利用いただきありがとうございます！\n"
 "%(site_domain)s"
 
 #: .\templates\account\email\email_confirmation_message.txt:5
@@ -285,7 +291,8 @@ msgstr ""
 "あなたがこのメールを受け取ったのは、ユーザー%(user_display)sがあなたの\n"
 "電子メールアドレスを%(site_domain)sのアカウント登録に使用したからです。\n"
 "\n"
-"これが正しいことを確認するために、次のURLにアクセスしてください：%(activate_url)s"
+"これが正しいことを確認するために、次のURLにアクセスしてください："
+"%(activate_url)s"
 
 #: .\templates\account\email\email_confirmation_subject.txt:3
 msgid "Please Confirm Your Email Address"
@@ -301,7 +308,8 @@ msgstr ""
 "あなたがこのメールを受け取ったのは、あなた自身または他の誰かが\n"
 "あなたのアカウントのパスワードをリセットするようにリクエストしたからです。\n"
 "パスワードのリセットをリクエストしていない場合、このメールは無視して\n"
-"安全に処理できます。パスワードをリセットするには、以下のリンクをクリックしてください。"
+"安全に処理できます。パスワードをリセットするには、以下のリンクをクリックして"
+"ください。"
 
 #: .\templates\account\email\password_reset_key_message.txt:9
 #, python-format
@@ -326,15 +334,15 @@ msgid ""
 "If it was you, you can sign up for an account using the link below."
 msgstr ""
 "あなたがこのメールを受け取っているのは、あなた自身または他の誰かが\n"
-"あなたのアカウントのパスワードをリセットするようにリクエストしたからです。しかし、私たちのデ"
-"ータベースには\n"
+"あなたのアカウントのパスワードをリセットするようにリクエストしたからです。し"
+"かし、私たちのデータベースには\n"
 "電子メールアドレス%(email)sのユーザーに関する記録はありません。\n"
 "\n"
 "パスワードのリセットをリクエストしていない場合、このメールは無視して\n"
 "安全に処理できます。\n"
 "\n"
-"もしこれがあなたであれば、以下のリンクを使用してサイトに登"
-"録することができます。"
+"もしこれがあなたであれば、以下のリンクを使用してサイトに登録することができま"
+"す。"
 
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
 msgid "about"
@@ -342,8 +350,9 @@ msgstr "プロジェクトについて"
 
 #: .\templates\homepage\about.html:13
 msgid "about_beginning"
-msgstr "Datanarは、リンクの短縮を行うウェブサービスです。私たちのサイトを使えば、長いURLア"
-"ドレスを簡単に\n"
+msgstr ""
+"Datanarは、リンクの短縮を行うウェブサービスです。私たちのサイトを使えば、長い"
+"URLアドレスを簡単に\n"
 "短縮して、より便利で使いやすくすることができます。"
 
 #: .\templates\homepage\about.html:17
@@ -420,8 +429,9 @@ msgstr "あなたのリンクを短縮して、お客様が長いURLを見る必
 
 #: .\templates\homepage\main.html:29
 msgid "short_description_about_supported_files"
-msgstr ".txt/.xlsxの拡張子を持つファイルを選択またはドラッグアンドドロップできます。txtで"
-"は各行がリンクとして扱われ、xlsxでは最初の列の各行が扱われます"
+msgstr ""
+".txt/.xlsxの拡張子を持つファイルを選択またはドラッグアンドドロップできます。"
+"txtでは各行がリンクとして扱われ、xlsxでは最初の列の各行が扱われます"
 
 #: .\templates\homepage\main.html:39
 msgid "label_link_file"
@@ -445,7 +455,8 @@ msgstr "ファイルは一つだけドラッグアンドドロップしてくだ
 
 #: .\templates\homepage\main.html:68
 msgid "message_error_type"
-msgstr ".xlsxまたは.txtの拡張子を持つファイルをドラッグアンドドロップしてください。"
+msgstr ""
+".xlsxまたは.txtの拡張子を持つファイルをドラッグアンドドロップしてください。"
 
 #: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:5
 msgid "service_rules"
@@ -457,35 +468,44 @@ msgstr "Datanarサービスの規則"
 
 #: .\templates\homepage\service_rules.html:14
 msgid "welcome_service_rules"
-msgstr "Datanarのリンク短縮サービスへようこそ。私たちのサービスを利用することで、あなたは自"
-"動的に私たちの規則に同意することになります。それらを注意深くお読みください。"
+msgstr ""
+"Datanarのリンク短縮サービスへようこそ。私たちのサービスを利用することで、あな"
+"たは自動的に私たちの規則に同意することになります。それらを注意深くお読みくだ"
+"さい。"
 
 #: .\templates\homepage\service_rules.html:16
 msgid "rule_1"
-msgstr "1. アカウントを作成するために、私たちはユーザーのメールアドレス、ログイン名、パスワ"
-"ードを収集します。私たちはあなたのプライバシーを尊重します。すべての個人情報は、あなたのアカ"
-"ウントの管理のためだけに使用され、第三者には提供されません。"
+msgstr ""
+"1. アカウントを作成するために、私たちはユーザーのメールアドレス、ログイン名、"
+"パスワードを収集します。私たちはあなたのプライバシーを尊重します。すべての個"
+"人情報は、あなたのアカウントの管理のためだけに使用され、第三者には提供されま"
+"せん。"
 
 #: .\templates\homepage\service_rules.html:17
 msgid "rule_2"
-msgstr "2. 私たちはあなたのデータを保護するために可能なすべての安全対策を講じています。あな"
-"たのパスワードは暗号化されて保存されます。複雑なパスワードを使用し、他人と共有しないことをお"
-"勧めします。"
+msgstr ""
+"2. 私たちはあなたのデータを保護するために可能なすべての安全対策を講じていま"
+"す。あなたのパスワードは暗号化されて保存されます。複雑なパスワードを使用し、"
+"他人と共有しないことをお勧めします。"
 
 #: .\templates\homepage\service_rules.html:18
 msgid "rule_3"
-msgstr "3. 私たちのサービスを利用する際には、法律を違反する行為を行ったり、他のユーザーや第"
-"三者に害を及ぼす可能性のある方法でサービスを利用することは禁止されています。"
+msgstr ""
+"3. 私たちのサービスを利用する際には、法律を違反する行為を行ったり、他のユー"
+"ザーや第三者に害を及ぼす可能性のある方法でサービスを利用することは禁止されて"
+"います。"
 
 #: .\templates\homepage\service_rules.html:19
 msgid "rule_4"
-msgstr "4. 私たちは、私たちの利用規約に変更を加える権利を留保しています。重要な変更があった"
-"場合は、あなたに通知します。"
+msgstr ""
+"4. 私たちは、私たちの利用規約に変更を加える権利を留保しています。重要な変更が"
+"あった場合は、あなたに通知します。"
 
 #: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
-msgstr "Datanarを選んでいただきありがとうございます！私たちはあなたの信頼を大切にし、便利"
-"で安全なリンク短縮サービスを提供することを目指しています。"
+msgstr ""
+"Datanarを選んでいただきありがとうございます！私たちはあなたの信頼を大切にし、"
+"便利で安全なリンク短縮サービスを提供することを目指しています。"
 
 #: .\templates\includes\footer.html:7
 msgid "API"
@@ -647,17 +667,18 @@ msgstr "あなたのメールを確認してください"
 #: .\templates\users\confirm_email.html:12
 msgid "email_confirmation_description"
 msgstr ""
-"登録プロセスを完了してください。もし、あなたのメインのメールボックスに確認の電子メールを見つ"
-"けられない場合は、スパムフォルダを確認してください。数分以内に確認の電子メールが届かない場合"
-"は、私たちに連絡してください。"
+"登録プロセスを完了してください。もし、あなたのメインのメールボックスに確認の"
+"電子メールを見つけられない場合は、スパムフォルダを確認してください。数分以内"
+"に確認の電子メールが届かない場合は、私たちに連絡してください。"
 
 #: .\templates\users\confirm_email_from_sent.html:18
 #, python-format
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
-msgstr "ユーザー<strong>%(user_display)s</strong>のメールアドレスとして"
-"<a href=\"mailto:%(email)s\">%(email)s</a>を確認してください。"
+msgstr ""
+"ユーザー<strong>%(user_display)s</strong>のメールアドレスとして<a href="
+"\"mailto:%(email)s\">%(email)s</a>を確認してください。"
 
 #: .\templates\users\confirm_email_from_sent.html:26
 msgid "Confirm"
@@ -668,16 +689,18 @@ msgstr "確認"
 msgid ""
 "Unable to confirm %(email)s because it is already confirmed by a different "
 "account."
-msgstr "%(email)sの確認は無効化されました、なぜならそれはすでに他のユーザーによって確認さ"
-"れているからです"
+msgstr ""
+"%(email)sの確認は無効化されました、なぜならそれはすでに他のユーザーによって確"
+"認されているからです"
 
 #: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
 msgid ""
 "This email confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new email confirmation request</a>."
-msgstr "この確認リンクの有効期限が切れているか、無効です。<a href=\"%(email_url)s\">新"
-"しいリクエストを送信してください。</a>."
+msgstr ""
+"この確認リンクの有効期限が切れているか、無効です。<a href=\"%(email_url)s\">"
+"新しいリクエストを送信してください。</a>."
 
 #: .\templates\users\email_change.html:8
 msgid "email_change"

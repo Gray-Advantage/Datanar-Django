@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-12 01:37+0300\n"
+"POT-Creation-Date: 2024-06-07 18:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\api\apps.py:8
 msgid "api"
 msgstr "API"
@@ -107,8 +108,8 @@ msgstr "enlace corto"
 
 #: .\redirects\models.py:50
 msgid "shorten_link_to_redirect_to_resource"
-msgstr "Enlace acortado por el cual se realizará la redirección al recurso "
-"final."
+msgstr ""
+"Enlace acortado por el cual se realizará la redirección al recurso final."
 
 #: .\redirects\models.py:55
 msgid "long_link"
@@ -148,7 +149,8 @@ msgstr "cantidad válida de redirecciones"
 
 #: .\redirects\models.py:80
 msgid "how_many_click_on_link_will_be_valid"
-msgstr "Cuántas redirecciones se pueden hacer en el enlace antes de su eliminación."
+msgstr ""
+"Cuántas redirecciones se pueden hacer en el enlace antes de su eliminación."
 
 #: .\redirects\models.py:87 .\redirects\models.py:91
 msgid "redirect"
@@ -190,23 +192,27 @@ msgstr "país"
 msgid "city"
 msgstr "ciudad"
 
-#: .\statistic\views.py:85
+#: .\statistic\views.py:75
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: .\statistic\views.py:87
 msgid "Created"
 msgstr "Creado"
 
-#: .\statistic\views.py:86 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:88 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "SO"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:89
 msgid "Browser"
 msgstr "Navegador"
 
-#: .\statistic\views.py:88
+#: .\statistic\views.py:90
 msgid "Country"
 msgstr "País"
 
-#: .\statistic\views.py:89
+#: .\statistic\views.py:91
 msgid "City"
 msgstr "Ciudad"
 
@@ -246,8 +252,8 @@ msgid ""
 "\n"
 "%(password_reset_url)s"
 msgstr ""
-"Recibiste este correo porque tú o alguien más intentó registrarse en el sitio"
-" usando la dirección de correo electrónico:\n"
+"Recibiste este correo porque tú o alguien más intentó registrarse en el "
+"sitio usando la dirección de correo electrónico:\n"
 "\n"
 "%(email)s\n"
 "\n"
@@ -271,7 +277,8 @@ msgstr "Hola de %(site_name)s!"
 msgid ""
 "Thank you for using %(site_name)s!\n"
 "%(site_domain)s"
-msgstr "¡Gracias por usar %(site_name)s!\n"
+msgstr ""
+"¡Gracias por usar %(site_name)s!\n"
 "%(site_domain)s"
 
 #: .\templates\account\email\email_confirmation_message.txt:5
@@ -298,16 +305,16 @@ msgid ""
 "It can be safely ignored if you did not request a password reset. Click the "
 "link below to reset your password."
 msgstr ""
-"Recibiste este correo porque tú o alguien más solicitó un restablecimiento de"
-" contraseña para tu cuenta.\n"
+"Recibiste este correo porque tú o alguien más solicitó un restablecimiento "
+"de contraseña para tu cuenta.\n"
 "Puedes ignorarlo de manera segura si no solicitaste un restablecimiento de "
 "contraseña. Haz clic en el enlace de abajo para restablecer tu contraseña."
 
 #: .\templates\account\email\password_reset_key_message.txt:9
 #, python-format
 msgid "In case you forgot, your username is %(username)s."
-msgstr "En caso de que lo hayas olvidado, tu nombre de usuario es "
-"%(username)s."
+msgstr ""
+"En caso de que lo hayas olvidado, tu nombre de usuario es %(username)s."
 
 #: .\templates\account\email\password_reset_key_subject.txt:3
 #: .\templates\account\email\unknown_account_subject.txt:3
@@ -342,9 +349,10 @@ msgstr "Sobre el proyecto"
 
 #: .\templates\homepage\about.html:13
 msgid "about_beginning"
-msgstr "Datanar es un servicio web para acortar enlaces. Con nuestro sitio, "
-"puedes acortar fácilmente las URL largas, haciéndolas más convenientes y "
-"simples de usar."
+msgstr ""
+"Datanar es un servicio web para acortar enlaces. Con nuestro sitio, puedes "
+"acortar fácilmente las URL largas, haciéndolas más convenientes y simples de "
+"usar."
 
 #: .\templates\homepage\about.html:17
 msgid "about_you_can_do"
@@ -420,9 +428,10 @@ msgstr "Acorta tu enlace para que tus clientes no tengan que ver largas URL."
 
 #: .\templates\homepage\main.html:29
 msgid "short_description_about_supported_files"
-msgstr "Puedes seleccionar o arrastrar un archivo con extensión .txt/.xlsx. "
-"En txt cada línea se considera como un enlace, y en xlsx cada línea de la "
-"primera columna"
+msgstr ""
+"Puedes seleccionar o arrastrar un archivo con extensión .txt/.xlsx. En txt "
+"cada línea se considera como un enlace, y en xlsx cada línea de la primera "
+"columna"
 
 #: .\templates\homepage\main.html:39
 msgid "label_link_file"
@@ -458,38 +467,44 @@ msgstr "Reglas del Servicio Datanar"
 
 #: .\templates\homepage\service_rules.html:14
 msgid "welcome_service_rules"
-msgstr "Bienvenido al servicio de acortamiento de enlaces Datanar. Al utilizar"
-" nuestros servicios, automáticamente aceptas nuestras reglas. Por favor, "
+msgstr ""
+"Bienvenido al servicio de acortamiento de enlaces Datanar. Al utilizar "
+"nuestros servicios, automáticamente aceptas nuestras reglas. Por favor, "
 "léelas detenidamente."
 
 #: .\templates\homepage\service_rules.html:16
 msgid "rule_1"
-msgstr "1. Para crear una cuenta, recopilamos el correo electrónico, el nombre"
-" de usuario y la contraseña del usuario. Respetamos tu privacidad. Todos los"
-" datos personales se utilizan exclusivamente para gestionar tu cuenta y no "
-"se comparten con terceros."
+msgstr ""
+"1. Para crear una cuenta, recopilamos el correo electrónico, el nombre de "
+"usuario y la contraseña del usuario. Respetamos tu privacidad. Todos los "
+"datos personales se utilizan exclusivamente para gestionar tu cuenta y no se "
+"comparten con terceros."
 
 #: .\templates\homepage\service_rules.html:17
 msgid "rule_2"
-msgstr "2. Tomamos todas las medidas de seguridad posibles para proteger tus "
-"datos. Tu contraseña se almacena en forma encriptada. Recomendamos usar "
-"contraseñas complejas y no compartirlas con otros."
+msgstr ""
+"2. Tomamos todas las medidas de seguridad posibles para proteger tus datos. "
+"Tu contraseña se almacena en forma encriptada. Recomendamos usar contraseñas "
+"complejas y no compartirlas con otros."
 
 #: .\templates\homepage\service_rules.html:18
 msgid "rule_3"
-msgstr "3. Al utilizar nuestros servicios, está prohibido realizar acciones "
-"que violen la ley, o utilizar el servicio de formas que puedan causar daño "
-"a otros usuarios o a terceros."
+msgstr ""
+"3. Al utilizar nuestros servicios, está prohibido realizar acciones que "
+"violen la ley, o utilizar el servicio de formas que puedan causar daño a "
+"otros usuarios o a terceros."
 
 #: .\templates\homepage\service_rules.html:19
 msgid "rule_4"
-msgstr "4. Nos reservamos el derecho de hacer cambios en nuestros términos de"
-" uso. Te notificaremos en caso de cambios importantes."
+msgstr ""
+"4. Nos reservamos el derecho de hacer cambios en nuestros términos de uso. "
+"Te notificaremos en caso de cambios importantes."
 
 #: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
-msgstr "¡Gracias por elegir Datanar! Apreciamos tu confianza y nos esforzamos "
-"por ofrecerte un servicio de acortamiento de enlaces cómodo y seguro."
+msgstr ""
+"¡Gracias por elegir Datanar! Apreciamos tu confianza y nos esforzamos por "
+"ofrecerte un servicio de acortamiento de enlaces cómodo y seguro."
 
 #: .\templates\includes\footer.html:7
 msgid "API"
@@ -650,10 +665,11 @@ msgstr "Confirma tu correo"
 
 #: .\templates\users\confirm_email.html:12
 msgid "email_confirmation_description"
-msgstr "Hemos enviado un correo electrónico de confirmación. Sigue el enlace "
+msgstr ""
+"Hemos enviado un correo electrónico de confirmación. Sigue el enlace "
 "proporcionado para completar el proceso de registro. Si no ves el correo "
-"electrónico de confirmación en tu bandeja de entrada principal, revisa la"
-" carpeta de spam. Por favor, contáctanos si no recibes el correo electrónico "
+"electrónico de confirmación en tu bandeja de entrada principal, revisa la "
+"carpeta de spam. Por favor, contáctanos si no recibes el correo electrónico "
 "de confirmación en unos minutos."
 
 #: .\templates\users\confirm_email_from_sent.html:18
@@ -661,9 +677,10 @@ msgstr "Hemos enviado un correo electrónico de confirmación. Sigue el enlace "
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
-msgstr "Por favor confirma que <a href=\"mailto:%(email)s\">%(email)s</a> es "
-"la dirección de correo electrónico para el usuario "
-"<strong>%(user_display)s</strong>."
+msgstr ""
+"Por favor confirma que <a href=\"mailto:%(email)s\">%(email)s</a> es la "
+"dirección de correo electrónico para el usuario <strong>%(user_display)s</"
+"strong>."
 
 #: .\templates\users\confirm_email_from_sent.html:26
 msgid "Confirm"
@@ -674,7 +691,8 @@ msgstr "Confirmar"
 msgid ""
 "Unable to confirm %(email)s because it is already confirmed by a different "
 "account."
-msgstr "La confirmación para %(email)s está desactivada, ya que ya ha sido "
+msgstr ""
+"La confirmación para %(email)s está desactivada, ya que ya ha sido "
 "confirmada por otro usuario"
 
 #: .\templates\users\confirm_email_from_sent.html:39
@@ -683,8 +701,8 @@ msgid ""
 "This email confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"El plazo de validez de este enlace de confirmación ha expirado o es inválido."
-" <a href=\"%(email_url)s\">Por favor, solicita una nueva.</a>."
+"El plazo de validez de este enlace de confirmación ha expirado o es "
+"inválido. <a href=\"%(email_url)s\">Por favor, solicita una nueva.</a>."
 
 #: .\templates\users\email_change.html:8
 msgid "email_change"
