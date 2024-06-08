@@ -71,7 +71,9 @@ class LinkDetailView(LoginRequiredMixin, DetailView):
     def _get_statistic(self, clicks, field):
         res = {}
         for click in clicks:
-            res[click.__dict__[field]] = res.get(click.__dict__[field], 0) + 1
+            if (field_value := click.__dict__[field]) is None:
+                field_value = _("Unknown")
+            res[field_value] = res.get(field_value, 0) + 1
         return res
 
 
