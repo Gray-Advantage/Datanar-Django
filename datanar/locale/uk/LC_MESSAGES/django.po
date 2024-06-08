@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-12 01:33+0300\n"
+"POT-Creation-Date: 2024-06-07 18:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -197,23 +197,27 @@ msgstr "країна"
 msgid "city"
 msgstr "місто"
 
-#: .\statistic\views.py:85
+#: .\statistic\views.py:75
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: .\statistic\views.py:87
 msgid "Created"
 msgstr "Створено"
 
-#: .\statistic\views.py:86 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:88 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "ОС"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:89
 msgid "Browser"
 msgstr "Браузер"
 
-#: .\statistic\views.py:88
+#: .\statistic\views.py:90
 msgid "Country"
 msgstr "Країна"
 
-#: .\statistic\views.py:89
+#: .\statistic\views.py:91
 msgid "City"
 msgstr "Місто"
 

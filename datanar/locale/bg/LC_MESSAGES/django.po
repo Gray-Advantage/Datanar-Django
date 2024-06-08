@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-12 01:36+0300\n"
+"POT-Creation-Date: 2024-06-07 18:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\api\apps.py:8
 msgid "api"
 msgstr "API"
@@ -75,8 +76,8 @@ msgstr "Персонализиран URL адрес"
 
 #: .\redirects\forms.py:28
 msgid "custom_url_that_would_like_have_instead_generated_one"
-msgstr "Персонализиран URL адрес, който бихте искали да имате вместо "
-"генерирания."
+msgstr ""
+"Персонализиран URL адрес, който бихте искали да имате вместо генерирания."
 
 #: .\redirects\forms.py:67
 msgid "custom_url_should_not_have_slash"
@@ -84,8 +85,7 @@ msgstr "Персонализираната връзка не трябва да �
 
 #: .\redirects\forms.py:72
 msgid "custom_url_already_use"
-msgstr ""
-"Този персонализиран URL адрес вече се използва. Моля, изберете друг."
+msgstr "Този персонализиран URL адрес вече се използва. Моля, изберете друг."
 
 #: .\redirects\forms.py:166 .\templates\statistic\link_detail.html:23
 msgid "Password"
@@ -109,8 +109,8 @@ msgstr "кратка връзка"
 
 #: .\redirects\models.py:50
 msgid "shorten_link_to_redirect_to_resource"
-msgstr "Съкратена връзка, по която ще бъде извършено пренасочване към крайния "
-"ресурс."
+msgstr ""
+"Съкратена връзка, по която ще бъде извършено пренасочване към крайния ресурс."
 
 #: .\redirects\models.py:55
 msgid "long_link"
@@ -150,8 +150,8 @@ msgstr "валиден брой преходи"
 
 #: .\redirects\models.py:80
 msgid "how_many_click_on_link_will_be_valid"
-msgstr "Колко прехода могат да бъдат извършени по връзката преди нейното "
-"изтриване."
+msgstr ""
+"Колко прехода могат да бъдат извършени по връзката преди нейното изтриване."
 
 #: .\redirects\models.py:87 .\redirects\models.py:91
 msgid "redirect"
@@ -193,23 +193,27 @@ msgstr "държава"
 msgid "city"
 msgstr "град"
 
-#: .\statistic\views.py:85
+#: .\statistic\views.py:75
+msgid "Unknown"
+msgstr "Неизвестен"
+
+#: .\statistic\views.py:87
 msgid "Created"
 msgstr "Създаден"
 
-#: .\statistic\views.py:86 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:88 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "ОС"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:89
 msgid "Browser"
 msgstr "Браузер"
 
-#: .\statistic\views.py:88
+#: .\statistic\views.py:90
 msgid "Country"
 msgstr "Държава"
 
-#: .\statistic\views.py:89
+#: .\statistic\views.py:91
 msgid "City"
 msgstr "Град"
 
@@ -251,14 +255,14 @@ msgid ""
 msgstr ""
 "Получихте това писмо, защото вие или някой друг се опита да се регистрира на "
 "сайта, използвайки следния имейл адрес:\n"
- "\n"
- "%(email)s\n"
- "\n"
- "Въпреки това, вече съществува акаунт с този имейл адрес. Ако сте го "
- "забравили, моля, използвайте процедурата за възстановяване на паролата, за "
- "да възстановите своя акаунт:\n"
- "\n"
- "%(password_reset_url)s"
+"\n"
+"%(email)s\n"
+"\n"
+"Въпреки това, вече съществува акаунт с този имейл адрес. Ако сте го "
+"забравили, моля, използвайте процедурата за възстановяване на паролата, за "
+"да възстановите своя акаунт:\n"
+"\n"
+"%(password_reset_url)s"
 
 #: .\templates\account\email\account_already_exists_subject.txt:3
 msgid "Account Already Exists"
@@ -274,7 +278,8 @@ msgstr "Здравей от %(site_name)s!"
 msgid ""
 "Thank you for using %(site_name)s!\n"
 "%(site_domain)s"
-msgstr "Благодарим ви, че използвате %(site_name)s!\n"
+msgstr ""
+"Благодарим ви, че използвате %(site_name)s!\n"
 "%(site_domain)s"
 
 #: .\templates\account\email\email_confirmation_message.txt:5
