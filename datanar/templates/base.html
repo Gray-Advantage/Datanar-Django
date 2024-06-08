@@ -11,7 +11,6 @@
 
     <title>{% block title %}{% endblock %}</title>
 
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/colorTogler.js' %}"></script>
 
     <link rel="icon" type="image/ico" href="{% static 'img/favicon.ico' %}">
@@ -31,6 +30,7 @@
       {% endblock %}
     </main>
     {% include "includes/footer.html" %}
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     {% block js %}
 
     {% endblock %}
