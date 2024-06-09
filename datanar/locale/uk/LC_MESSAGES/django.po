@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-07 18:18+0300\n"
+"POT-Creation-Date: 2024-06-09 13:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,6 +69,10 @@ msgstr "Домашня сторінка"
 msgid "qr-codes"
 msgstr "QR-коди"
 
+#: .\redirects\admin.py:30 .\redirects\models.py:55
+msgid "long_link"
+msgstr "довге посилання"
+
 #: .\redirects\apps.py:8 .\redirects\models.py:88
 msgid "redirects"
 msgstr "перенапрямки"
@@ -91,11 +95,15 @@ msgid "custom_url_already_use"
 msgstr ""
 "Ця кастомна url-адреса вже використовується. Будь ласка, виберіть інший."
 
-#: .\redirects\forms.py:166 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:139
+msgid "date_validity_invalid"
+msgstr "Термін придатності не може бути менше поточної дати"
+
+#: .\redirects\forms.py:171 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Пароль"
 
-#: .\redirects\forms.py:167
+#: .\redirects\forms.py:172
 msgid "password_before_redirect"
 msgstr "Введіть пароль перед перенаправленням"
 
@@ -116,10 +124,6 @@ msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
 "Скорочене посилання, за яким буде повністю перенаправлення на кінцевий "
 "ресурс."
-
-#: .\redirects\models.py:55
-msgid "long_link"
-msgstr "довге посилання"
 
 #: .\redirects\models.py:56
 msgid "resource_to_which_short_link_lead"

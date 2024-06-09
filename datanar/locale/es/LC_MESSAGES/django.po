@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-07 18:18+0300\n"
+"POT-Creation-Date: 2024-06-09 13:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,6 +66,10 @@ msgstr "Página de inicio"
 msgid "qr-codes"
 msgstr "Códigos QR"
 
+#: .\redirects\admin.py:30 .\redirects\models.py:55
+msgid "long_link"
+msgstr "enlace largo"
+
 #: .\redirects\apps.py:8 .\redirects\models.py:88
 msgid "redirects"
 msgstr "Redirecciones"
@@ -86,11 +90,15 @@ msgstr "El enlace personalizado no debe tener ‘/’"
 msgid "custom_url_already_use"
 msgstr "Esta URL personalizada ya está en uso. Por favor, elige otra."
 
-#: .\redirects\forms.py:166 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:139
+msgid "date_validity_invalid"
+msgstr "La fecha de caducidad no puede ser inferior a la fecha actual"
+
+#: .\redirects\forms.py:171 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Contraseña"
 
-#: .\redirects\forms.py:167
+#: .\redirects\forms.py:172
 msgid "password_before_redirect"
 msgstr "Introduce la contraseña antes de la redirección"
 
@@ -110,10 +118,6 @@ msgstr "enlace corto"
 msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
 "Enlace acortado por el cual se realizará la redirección al recurso final."
-
-#: .\redirects\models.py:55
-msgid "long_link"
-msgstr "enlace largo"
 
 #: .\redirects\models.py:56
 msgid "resource_to_which_short_link_lead"
