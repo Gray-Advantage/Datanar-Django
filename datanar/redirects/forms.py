@@ -134,8 +134,12 @@ class RedirectFormExtended(RedirectForm):
         delta = (
             self.cleaned_data["date_validity_field"] - timezone.now().date()
         )
-        self.cleaned_data[Redirect.validity_days.field.name] = delta.days
-        del self.cleaned_data["date_validity_field"]
+
+        if delta.days < 0:
+            self.add_error("date_validity_field", _("date_validity_invalid"))
+        else:
+            self.cleaned_data[Redirect.validity_days.field.name] = delta.days
+            del self.cleaned_data["date_validity_field"]
 
         return super().clean()
 

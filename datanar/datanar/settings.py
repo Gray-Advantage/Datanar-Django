@@ -140,7 +140,6 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-
 AUTH_USER_MODEL = "users.User"
 
 DEFAULT_USER_IS_ACTIVE = bool(
