@@ -21,18 +21,21 @@
     {% endblock %}
   </head>
 
-  {% tz_detect %}
   <body class="container d-flex flex-column min-vh-100">
     {% include "includes/header.html" %}
+
     <main class="flex-grow-1 d-flex flex-column">
       {% block content %}
 
       {% endblock %}
     </main>
+
     {% include "includes/footer.html" %}
+
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     {% block js %}
 
     {% endblock %}
+    {% tz_detect %}
   </body>
 </html>

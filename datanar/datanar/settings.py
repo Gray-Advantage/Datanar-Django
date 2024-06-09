@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "1.5.8"
+VERSION = "1.5.9"
 
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
@@ -139,7 +139,6 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
-
 
 AUTH_USER_MODEL = "users.User"
 
