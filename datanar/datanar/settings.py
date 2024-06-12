@@ -1,6 +1,5 @@
-import sys
-
 from pathlib import Path
+import sys
 
 from decouple import config, strtobool
 from django.conf import settings
