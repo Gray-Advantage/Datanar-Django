@@ -16,7 +16,7 @@ urlpatterns = [
     path("", include("redirects.urls")),
 ]
 
-if settings.DEBUG:
+if settings.DEBUG and settings.NOT_TESTING:
     import debug_toolbar
 
     urlpatterns.append(path("__debug__/", include(debug_toolbar.urls)))

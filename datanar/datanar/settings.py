@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 
 from decouple import config, strtobool
 from django.conf import settings
@@ -6,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "1.5.9"
+VERSION = "1.6.0"
 
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
@@ -15,6 +16,32 @@ SECRET_KEY = config(
 )
 
 DEBUG = bool(strtobool(config("DJANGO_DEBUG", "False")))
+
+NOT_TESTING = "test" not in sys.argv
+
+if "None" != config("DJANGO_LOG_FILE_PATH", default="None", cast=str):
+    LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "verbose": {
+                "format": "{levelname}\n{asctime}\n>>> {message}\n",
+                "style": "{",
+            },
+        },
+        "handlers": {
+            "file": {
+                "level": "WARNING",
+                "class": "logging.FileHandler",
+                "filename": config("DJANGO_LOG_FILE_PATH", cast=str),
+                "formatter": "verbose",
+            },
+        },
+        "root": {
+            "handlers": ["file"],
+            "level": "WARNING",
+        },
+    }
 
 ALLOWED_HOSTS = config(
     "DJANGO_ALLOWED_HOSTS",
@@ -58,7 +85,7 @@ MIDDLEWARE = [
     "tz_detect.middleware.TimezoneMiddleware",
 ]
 
-if settings.DEBUG:
+if settings.DEBUG and NOT_TESTING:
     INSTALLED_APPS.append("debug_toolbar")
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
     INTERNAL_IPS = ["127.0.0.1"]
