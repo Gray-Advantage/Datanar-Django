@@ -19,28 +19,29 @@ DEBUG = bool(strtobool(config("DJANGO_DEBUG", "False")))
 
 NOT_TESTING = "test" not in sys.argv
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "verbose": {
-            "format": "{levelname}\n{asctime}\n>>> {message}\n",
-            "style": "{",
+if "None" != config("DJANGO_LOG_FILE_PATH", default="None", cast=str):
+    LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "verbose": {
+                "format": "{levelname}\n{asctime}\n>>> {message}\n",
+                "style": "{",
+            },
         },
-    },
-    "handlers": {
-        "file": {
+        "handlers": {
+            "file": {
+                "level": "WARNING",
+                "class": "logging.FileHandler",
+                "filename": config("DJANGO_LOG_FILE_PATH", cast=str),
+                "formatter": "verbose",
+            },
+        },
+        "root": {
+            "handlers": ["file"],
             "level": "WARNING",
-            "class": "logging.FileHandler",
-            "filename": config("DJANGO_LOG_FILE_PATH", cast=str),
-            "formatter": "verbose",
         },
-    },
-    "root": {
-        "handlers": ["file"],
-        "level": "WARNING",
-    },
-}
+    }
 
 ALLOWED_HOSTS = config(
     "DJANGO_ALLOWED_HOSTS",
