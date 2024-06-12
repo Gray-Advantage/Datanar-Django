@@ -14,12 +14,16 @@ from redirects.models import Redirect
 sqids = Sqids()
 
 
+def _now_date():
+    return timezone.now().date()
+
+
 class CustomDateField(forms.DateInput):
     input_type = "date"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.attrs["min"] = timezone.now().date()
+        self.attrs["min"] = _now_date()
 
 
 class RedirectForm(BootstrapFormMixin, forms.ModelForm):
@@ -124,6 +128,7 @@ class RedirectFormExtended(RedirectForm):
 
         self.fields["links_file"].widget.attrs["class"] = "d-none"
         self.fields["links_file"].widget.attrs["accept"] = ".txt, .xlsx"
+        self.fields["date_validity_field"].widget.attrs["min"] = _now_date()
 
     def clean(self):
         if self.cleaned_data["date_validity_field"] is None:
