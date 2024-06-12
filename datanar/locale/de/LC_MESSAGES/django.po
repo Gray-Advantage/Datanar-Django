@@ -560,7 +560,7 @@ msgstr "Admin"
 
 #: .\templates\includes\header.html:68
 msgid "exit"
-msgstr "Abmelden"
+msgstr "Ausloggen"
 
 #: .\templates\includes\header.html:73 .\templates\users\login.html:13
 msgid "sign_in"
