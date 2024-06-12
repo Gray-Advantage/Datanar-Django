@@ -545,7 +545,7 @@ msgstr "Admin panel"
 
 #: .\templates\includes\header.html:68
 msgid "exit"
-msgstr "Exit"
+msgstr "Sign out"
 
 #: .\templates\includes\header.html:73 .\templates\users\login.html:13
 msgid "sign_in"
@@ -721,7 +721,7 @@ msgstr "Cancel"
 
 #: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
 msgid "change_email"
-msgstr "Changing the email"
+msgstr "Change email"
 
 #: .\templates\users\login.html:5
 msgid "authorization"

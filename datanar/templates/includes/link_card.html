@@ -10,7 +10,7 @@
       </a>
     </div>
     <div class="mt-1">
-      <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.scheme }}://{{ request.get_host }}{% if '/' not in link.message %}/{% endif %}{{ link }}">{% trans "copy" %}</button>
+      <button class="copy-text-field btn btn-outline-dark" data-link="{{ request.scheme }}://{{ request.get_host }}{% if '/' not in link.message or '/' not in link %}/{% endif %}{{ link }}">{% trans "copy" %}</button>
       {% if request.user.is_authenticated %}
         {% if '/' not in link.message or '/' not in link %}
           <a class="btn btn-outline-dark" href="{% url 'statistic:link_detail' link "all_time" %}">{% trans "statistic" %}</a>
