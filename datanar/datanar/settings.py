@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "1.5.9"
+VERSION = "1.6.0"
 
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
@@ -15,6 +15,29 @@ SECRET_KEY = config(
 )
 
 DEBUG = bool(strtobool(config("DJANGO_DEBUG", "False")))
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname}\n{asctime}\n>>> {message}\n",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "file": {
+            "level": "WARNING",
+            "class": "logging.FileHandler",
+            "filename": config("DJANGO_LOG_FILE_PATH", cast=str),
+            "formatter": "verbose",
+        },
+    },
+    "root": {
+        "handlers": ["file"],
+        "level": "WARNING",
+    },
+}
 
 ALLOWED_HOSTS = config(
     "DJANGO_ALLOWED_HOSTS",

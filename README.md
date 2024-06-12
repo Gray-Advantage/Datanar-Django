@@ -272,11 +272,25 @@ DJANGO_MAIL_PORT=2525
 DJANGO_MAIL_USER=webmaster@localhost
 DJANGO_MAIL_PASSWORD=this_very_secret_password_for_smtp_mail
 DEFAULT_USER_IS_ACTIVE=False
+DJANGO_USE_SIMPLE_DATABASE=True
+DJANGO_LOG_FILE_PATH=/path/to/log/file
 ```
 `DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS` замените на свои значения.
 
 `DJANGO_MAIL_HOST`, `DJANGO_MAIL_PORT`, `DJANGO_MAIL_USER`,
 `DJANGO_MAIL_PASSWORD` - настройки почтового сервиса, используйте свои.
+
+`DJANGO_LOG_FILE_PATH` - путь, по которому приложение будет записывать все логи
+(уровень логирования WARNING и выше)
+
+`DJANGO_USE_SIMPLE_DATABASE` - Если `True`, то приложение будет использовать в 
+качестве базы данных простой файл.
+Если установлено значение `False`, то необходимо указать настройки для сложной
+СУБД ([postgresql](https://www.postgresql.org/)):
+`DJANGO_DATABASE_NAME` - название вашей БД, `DJANGO_DATABASE_USER` - имя 
+пользователя БД, `DJANGO_DATABASE_PASSWORD` - пароль пользователя БД. 
+Предполагается, что БД находиться там же, где и приложения и работает на порту
+5432
 
 Настройка `DEFAULT_USER_IS_ACTIVE=False` - означает, что перед использованием 
 сервиса обязательно требуется подтверждённая почта, установите `True`, если
