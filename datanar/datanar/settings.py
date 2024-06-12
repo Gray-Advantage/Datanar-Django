@@ -1,3 +1,5 @@
+import sys
+
 from pathlib import Path
 
 from decouple import config, strtobool
@@ -15,6 +17,8 @@ SECRET_KEY = config(
 )
 
 DEBUG = bool(strtobool(config("DJANGO_DEBUG", "False")))
+
+NOT_TESTING = "test" not in sys.argv
 
 LOGGING = {
     "version": 1,
@@ -81,7 +85,7 @@ MIDDLEWARE = [
     "tz_detect.middleware.TimezoneMiddleware",
 ]
 
-if settings.DEBUG:
+if settings.DEBUG and NOT_TESTING:
     INSTALLED_APPS.append("debug_toolbar")
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
     INTERNAL_IPS = ["127.0.0.1"]
