@@ -58,6 +58,9 @@
     if (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
       document.documentElement.setAttribute("data-bs-theme", "dark");
       setColors("dark");
+    } else if (theme === "auto") {
+      document.documentElement.setAttribute("data-bs-theme", "light");
+      setColors("light");
     } else {
       document.documentElement.setAttribute("data-bs-theme", theme);
       setColors(theme);
