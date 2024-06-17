@@ -1,6 +1,8 @@
+from pathlib import Path
+
 from django.conf import settings
-from django.views.generic import TemplateView, ListView
 from django.http import HttpResponseRedirect
+from django.views.generic import ListView, TemplateView
 
 from core.mixins import FormMethodExtender, StaffUserRequiredMixin
 from redirects.models import Redirect
@@ -12,9 +14,11 @@ class AllLinksView(StaffUserRequiredMixin, FormMethodExtender, ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        redirects = Redirect.objects.all().only(
-            Redirect.short_link.field.name
-        ).order_by("-created_at")
+        redirects = (
+            Redirect.objects.all()
+            .only(Redirect.short_link.field.name)
+            .order_by("-created_at")
+        )
         return [redirect.short_link for redirect in redirects]
 
     def delete(self, request):
@@ -34,13 +38,13 @@ class LogView(StaffUserRequiredMixin, FormMethodExtender, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if settings.LOG_FILE_PATH:
-            with open(settings.LOG_FILE_PATH, "rt") as log:
+            with Path(settings.LOG_FILE_PATH).open("rt") as log:
                 context["log"] = log.read()
         return context
 
     def delete(self, request):
         if settings.LOG_FILE_PATH:
-            with open(settings.LOG_FILE_PATH, "w") as log:
+            with Path(settings.LOG_FILE_PATH).open("w") as log:
                 log.write("")
         return HttpResponseRedirect(request.get_full_path())
 

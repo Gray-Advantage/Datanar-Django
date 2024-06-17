@@ -29,9 +29,13 @@ class MyLinksView(LoginRequiredMixin, FormMethodExtender, ListView):
     paginate_by = 7
 
     def get_queryset(self):
-        redirects = Redirect.objects.filter(user=self.request.user).only(
-            Redirect.short_link.field.name,
-        ).order_by("-created_at")
+        redirects = (
+            Redirect.objects.filter(user=self.request.user)
+            .only(
+                Redirect.short_link.field.name,
+            )
+            .order_by("-created_at")
+        )
         return [redirect.short_link for redirect in redirects]
 
     def delete(self, request):

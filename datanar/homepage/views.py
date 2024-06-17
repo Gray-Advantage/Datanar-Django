@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 from django.contrib import messages
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from django.http import FileResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 from django.views.generic.base import TemplateView
