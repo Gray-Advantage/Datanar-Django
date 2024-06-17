@@ -26,7 +26,7 @@ class ApiContentTest(TestCase):
 
         self.assertEqual(response1.status_code, 200)
         self.assertEqual(response2.status_code, 200)
-        self.assertNotEquals(
+        self.assertNotEqual(
             response1.json()["token"],
             response2.json()["token"],
         )

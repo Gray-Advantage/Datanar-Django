@@ -17,12 +17,12 @@ class ContextContentTest(TestCase):
         self.assertQuerysetEqual(
             response.context["links"],
             [
-                "short_AAA",
-                "short_BBB",
-                "short_CCC",
-                "short_DDD",
-                "short_EEE",
                 "short_FFF",
+                "short_EEE",
+                "short_DDD",
+                "short_CCC",
+                "short_BBB",
+                "short_AAA",
             ],
         )
 
