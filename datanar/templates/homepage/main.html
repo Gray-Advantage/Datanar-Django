@@ -10,11 +10,12 @@
 {% endblock %}
 
 {% block js %}
-  {{ block.super }}
-  <script src="{% static 'js/copyText.js' %}"></script>
+  <script src="{% static 'js/qr_codes/copyText.js' %}"></script>
+  <script src="{% static 'js/qr_codes/displayQRModalPreview.js' %}"></script>
+  <script src="{% static 'js/qr_codes/deleteQRModal.js' %}"></script>
   {% if request.user.is_authenticated %}
-    <script src="{% static 'js/fileDragAndDrop.js' %}"></script>
-    <script src="{% static 'js/fileLinksStatus.js' %}"></script>
+    <script src="{% static 'js/homepage/fileDragAndDrop.js' %}"></script>
+    <script src="{% static 'js/homepage/fileLinksStatus.js' %}"></script>
   {% endif %}
 {% endblock %}
 
@@ -81,5 +82,8 @@
         {% endfor %}
       </div>
     {% endif %}
+
+    {% include "includes/QR_modal_preview.html" %}
+    {% include "includes/QR_modal_delete.html" %}
   </div>
 {% endblock %}

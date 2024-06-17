@@ -1,7 +1,7 @@
 from io import BytesIO
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import FileResponse
+from django.http import FileResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from django.views import View
@@ -9,6 +9,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 import openpyxl
 
+from core.mixins import FormMethodExtender
 from redirects.models import Redirect
 from statistic.models import Click
 
@@ -22,15 +23,23 @@ def get_clicks_by_mode(short_link, mode):
     return Click.objects.for_short_link_by_all_time(short_link)
 
 
-class MyLinksView(LoginRequiredMixin, ListView):
+class MyLinksView(LoginRequiredMixin, FormMethodExtender, ListView):
     template_name = "statistic/my_links.html"
     context_object_name = "links"
+    paginate_by = 7
 
     def get_queryset(self):
         redirects = Redirect.objects.filter(user=self.request.user).only(
             Redirect.short_link.field.name,
-        )
+        ).order_by("-created_at")
         return [redirect.short_link for redirect in redirects]
+
+    def delete(self, request):
+        Redirect.objects.filter(
+            short_link=request.POST.get("short_link"),
+            user=request.user,
+        ).delete()
+        return HttpResponseRedirect(request.get_full_path())
 
 
 class LinkDetailView(LoginRequiredMixin, DetailView):
@@ -38,7 +47,10 @@ class LinkDetailView(LoginRequiredMixin, DetailView):
     context_object_name = "redirect"
 
     def get_object(self, queryset=None):
-        return get_object_or_404(Redirect, short_link=self.kwargs["link"])
+        link = get_object_or_404(Redirect, short_link=self.kwargs["link"])
+        if link.user == self.request.user or self.request.user.is_staff:
+            return link
+        return self.handle_no_permission()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -124,4 +136,4 @@ class DownloadStatistic(View):
         )
 
 
-__all__ = [MyLinksView]
+__all__ = [MyLinksView, LinkDetailView, DownloadStatistic]

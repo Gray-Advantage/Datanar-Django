@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "1.6.3"
+VERSION = "1.7.0"
 
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
@@ -19,13 +19,15 @@ DEBUG = bool(strtobool(config("DJANGO_DEBUG", "False")))
 
 NOT_TESTING = "test" not in sys.argv
 
-if "None" != config("DJANGO_LOG_FILE_PATH", default="None", cast=str):
+LOG_FILE_PATH = config("DJANGO_LOG_FILE_PATH", default="", cast=str)
+
+if LOG_FILE_PATH:
     LOGGING = {
         "version": 1,
         "disable_existing_loggers": False,
         "formatters": {
             "verbose": {
-                "format": "{levelname}\n{asctime}\n>>> {message}\n",
+                "format": "\n{levelname}\n{asctime}\n>>> {message}",
                 "style": "{",
             },
         },
@@ -33,7 +35,7 @@ if "None" != config("DJANGO_LOG_FILE_PATH", default="None", cast=str):
             "file": {
                 "level": "WARNING",
                 "class": "logging.FileHandler",
-                "filename": config("DJANGO_LOG_FILE_PATH", cast=str),
+                "filename": LOG_FILE_PATH,
                 "formatter": "verbose",
             },
         },
@@ -60,6 +62,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "api.apps.ApiConfig",
+    "dashboard.apps.DashboardConfig",
     "core.apps.CoreConfig",
     "qr_codes.apps.QrCodesConfig",
     "homepage.apps.HomepageConfig",

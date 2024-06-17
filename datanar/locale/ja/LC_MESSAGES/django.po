@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 13:59+0300\n"
+"POT-Creation-Date: 2024-06-17 22:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,35 +26,39 @@ msgstr "API"
 msgid "base_forms"
 msgstr "基本フォーム"
 
-#: .\datanar\settings.py:177
+#: .\dashboard\apps.py:8 .\templates\includes\header.html:65
+msgid "dashboard"
+msgstr "ダッシュボード"
+
+#: .\datanar\settings.py:206
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:178
+#: .\datanar\settings.py:207
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:179
+#: .\datanar\settings.py:208
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\datanar\settings.py:180
+#: .\datanar\settings.py:209
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:181
+#: .\datanar\settings.py:210
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:182
+#: .\datanar\settings.py:211
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:183
+#: .\datanar\settings.py:212
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:184
+#: .\datanar\settings.py:213
 msgid "Japanese"
 msgstr "日本語"
 
@@ -74,32 +78,32 @@ msgstr "長いリンク"
 msgid "redirects"
 msgstr "リダイレクト"
 
-#: .\redirects\forms.py:27
+#: .\redirects\forms.py:30
 msgid "custom_url"
 msgstr "カスタムURLアドレス"
 
-#: .\redirects\forms.py:28
+#: .\redirects\forms.py:31
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "生成されたものの代わりに持ちたいユーザー定義のURLアドレス。"
 
-#: .\redirects\forms.py:67
+#: .\redirects\forms.py:70
 msgid "custom_url_should_not_have_slash"
 msgstr "カスタムリンクには’/'を含めてはならない"
 
-#: .\redirects\forms.py:72
+#: .\redirects\forms.py:75
 msgid "custom_url_already_use"
 msgstr ""
 "このカスタムURLアドレスはすでに使用されています。別のものを選んでください。"
 
-#: .\redirects\forms.py:139
+#: .\redirects\forms.py:143
 msgid "date_validity_invalid"
 msgstr "有効期限は現在の日付より小さくすることはできません"
 
-#: .\redirects\forms.py:171 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:174 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "パスワード"
 
-#: .\redirects\forms.py:172
+#: .\redirects\forms.py:175
 msgid "password_before_redirect"
 msgstr "リダイレクトする前にパスワードを入力してください"
 
@@ -163,7 +167,7 @@ msgstr "リダイレクト"
 msgid "invalid_password"
 msgstr "パスワードが間違っています"
 
-#: .\statistic\apps.py:9 .\templates\includes\link_card.html:16
+#: .\statistic\apps.py:9 .\templates\includes\link_card.html:13
 msgid "statistic"
 msgstr "統計"
 
@@ -195,44 +199,48 @@ msgstr "国"
 msgid "city"
 msgstr "都市"
 
-#: .\statistic\views.py:75
+#: .\statistic\views.py:87
 msgid "Unknown"
 msgstr "不明"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:99
 msgid "Created"
 msgstr "作成された"
 
-#: .\statistic\views.py:88 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:100 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "OS"
 
-#: .\statistic\views.py:89
+#: .\statistic\views.py:101
 msgid "Browser"
 msgstr "ブラウザ"
 
-#: .\statistic\views.py:90
+#: .\statistic\views.py:102
 msgid "Country"
 msgstr "国"
 
-#: .\statistic\views.py:91
+#: .\statistic\views.py:103
 msgid "City"
 msgstr "都市"
 
-#: .\templates\404.html:5 .\templates\500.html:5
+#: .\templates\403.html:5 .\templates\404.html:5 .\templates\500.html:5
 msgid "oops"
 msgstr "おっと！"
 
-#: .\templates\404.html:11
-msgid "page_not_found"
-msgstr "ページが見つかりません"
+#: .\templates\403.html:11
+msgid "access_denied"
+msgstr "アクセス拒否"
 
-#: .\templates\404.html:13 .\templates\500.html:13
+#: .\templates\403.html:13 .\templates\404.html:13 .\templates\500.html:13
 #: .\templates\users\password_change_done.html:12
 #: .\templates\users\password_reset_complete.html:12
 #: .\templates\users\password_reset_done.html:12
 msgid "to_main"
 msgstr "ホームに戻る"
+
+#: .\templates\404.html:11
+msgid "page_not_found"
+msgstr "ページが見つかりません"
 
 #: .\templates\500.html:11
 msgid "server_error"
@@ -348,7 +356,59 @@ msgstr ""
 "もしこれがあなたであれば、以下のリンクを使用してサイトに登録することができま"
 "す。"
 
-#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
+#: .\templates\dashboard\all_links.html:5
+msgid "title__dashboard__all_links"
+msgstr "すべてのリンク"
+
+#: .\templates\dashboard\base.html:12
+msgid "all_links_list"
+msgstr "すべてのリンク"
+
+#: .\templates\dashboard\base.html:17
+msgid "redirect_black_list"
+msgstr "ドメインのブラックリスト"
+
+#: .\templates\dashboard\base.html:22
+msgid "server_logs"
+msgstr "サーバーログ"
+
+#: .\templates\dashboard\base.html:27 .\templates\includes\header.html:68
+msgid "admin_panel"
+msgstr "管理者"
+
+#: .\templates\dashboard\black_list.html:5
+msgid "title__dashboard__black_list"
+msgstr "ドメインのブラックリスト"
+
+#: .\templates\dashboard\log.html:5
+msgid "title__dashboard__logs"
+msgstr "サーバーログ"
+
+#: .\templates\dashboard\log.html:17
+msgid "refresh"
+msgstr "リフレッシュ"
+
+#: .\templates\dashboard\log.html:18 .\templates\dashboard\log.html:37
+msgid "clear_log"
+msgstr "クリアログ"
+
+#: .\templates\dashboard\log.html:26
+#: .\templates\includes\QR_modal_delete.html:7
+msgid "are_you_sure"
+msgstr "本気？"
+
+#: .\templates\dashboard\log.html:30
+#: .\templates\includes\QR_modal_delete.html:11
+msgid "this_action_cannot_be_undone"
+msgstr "この操作は元に戻すことはできません"
+
+#: .\templates\dashboard\log.html:33
+#: .\templates\includes\QR_modal_delete.html:14
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:8
 msgid "about"
 msgstr "プロジェクトについて"
 
@@ -427,42 +487,42 @@ msgstr "Githubのプロジェクト"
 msgid "title__homepage"
 msgstr "Datanar - リンクの短縮"
 
-#: .\templates\homepage\main.html:27
+#: .\templates\homepage\main.html:28
 msgid "short_description_under_logo"
 msgstr "あなたのリンクを短縮して、お客様が長いURLを見る必要がなくなります。"
 
-#: .\templates\homepage\main.html:29
+#: .\templates\homepage\main.html:30
 msgid "short_description_about_supported_files"
 msgstr ""
 ".txt/.xlsxの拡張子を持つファイルを選択またはドラッグアンドドロップできます。"
 "txtでは各行がリンクとして扱われ、xlsxでは最初の列の各行が扱われます"
 
-#: .\templates\homepage\main.html:39
+#: .\templates\homepage\main.html:40
 msgid "label_link_file"
 msgstr "リンクのあるファイルが選択されました"
 
-#: .\templates\homepage\main.html:43
+#: .\templates\homepage\main.html:44
 msgid "delete_file"
 msgstr "ファイルを削除"
 
-#: .\templates\homepage\main.html:45
+#: .\templates\homepage\main.html:46
 msgid "choose_file"
 msgstr "ファイルを選択"
 
-#: .\templates\homepage\main.html:47
+#: .\templates\homepage\main.html:48
 msgid "shorten"
 msgstr "短縮する"
 
-#: .\templates\homepage\main.html:67
+#: .\templates\homepage\main.html:68
 msgid "message_error_count"
 msgstr "ファイルは一つだけドラッグアンドドロップしてください。"
 
-#: .\templates\homepage\main.html:68
+#: .\templates\homepage\main.html:69
 msgid "message_error_type"
 msgstr ""
 ".xlsxまたは.txtの拡張子を持つファイルをドラッグアンドドロップしてください。"
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:5
+#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "サービスの規則"
 
@@ -511,7 +571,12 @@ msgstr ""
 "Datanarを選んでいただきありがとうございます！私たちはあなたの信頼を大切にし、"
 "便利で安全なリンク短縮サービスを提供することを目指しています。"
 
-#: .\templates\includes\footer.html:7
+#: .\templates\includes\QR_modal_delete.html:19
+#: .\templates\includes\link_card.html:17
+msgid "Delete"
+msgstr "削除"
+
+#: .\templates\includes\footer.html:9
 msgid "API"
 msgstr "API"
 
@@ -544,23 +609,19 @@ msgstr "マイプロフィール"
 msgid "my_links"
 msgstr "マイリンク"
 
-#: .\templates\includes\header.html:64
-msgid "admin_panel"
-msgstr "管理者"
-
-#: .\templates\includes\header.html:68
+#: .\templates\includes\header.html:72
 msgid "exit"
 msgstr "ログアウト"
 
-#: .\templates\includes\header.html:73 .\templates\users\login.html:13
+#: .\templates\includes\header.html:77 .\templates\users\login.html:13
 msgid "sign_in"
 msgstr "ログイン"
 
-#: .\templates\includes\header.html:76 .\templates\users\signup.html:5
+#: .\templates\includes\header.html:80 .\templates\users\signup.html:5
 msgid "registration"
 msgstr "登録"
 
-#: .\templates\includes\link_card.html:13
+#: .\templates\includes\link_card.html:10
 msgid "copy"
 msgstr "コピー"
 
@@ -718,10 +779,6 @@ msgstr "電子メールアドレス"
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
 msgstr "確認の再送信"
-
-#: .\templates\users\email_change.html:29
-msgid "Cancel"
-msgstr "キャンセル"
 
 #: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
 msgid "change_email"

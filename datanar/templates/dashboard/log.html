@@ -1,0 +1,43 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "title__dashboard__logs" %}{% endblock %}
+
+{% block css %}
+  <link href="{% static 'css/dashboard/log.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/dashboard/log.js' %}"></script>
+{% endblock %}
+
+{% block dashboard_content %}
+  <div class="d-flex">
+    <a class="btn btn-outline-light ms-auto me-2" href="."><i class="bi bi-arrow-clockwise"></i> {% trans "refresh" %}</a>
+    <button class="btn btn-outline-danger me-auto" data-bs-toggle="modal" data-bs-target="#clearLog"><i class="bi bi-trash-fill"></i> {% trans "clear_log" %}</button>
+  </div>
+  <textarea id="logs" class="form-control no-resize flex-grow-1 mt-2" readonly disabled>{{ log }}</textarea>
+
+  <div class="modal fade" id="clearLog" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">{% trans "are_you_sure" %}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          {% trans "this_action_cannot_be_undone" %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">{% trans "Cancel" %}</button>
+          <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="_method" value="delete" hidden="hidden">
+            <button type="submit" class="btn btn-outline-danger">{% trans "clear_log" %}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

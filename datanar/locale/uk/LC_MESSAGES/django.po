@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 13:59+0300\n"
+"POT-Creation-Date: 2024-06-17 22:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,35 +29,39 @@ msgstr "API"
 msgid "base_forms"
 msgstr "Базові форми"
 
-#: .\datanar\settings.py:177
+#: .\dashboard\apps.py:8 .\templates\includes\header.html:65
+msgid "dashboard"
+msgstr "Приладова панель"
+
+#: .\datanar\settings.py:206
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:178
+#: .\datanar\settings.py:207
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:179
+#: .\datanar\settings.py:208
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\datanar\settings.py:180
+#: .\datanar\settings.py:209
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:181
+#: .\datanar\settings.py:210
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:182
+#: .\datanar\settings.py:211
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:183
+#: .\datanar\settings.py:212
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:184
+#: .\datanar\settings.py:213
 msgid "Japanese"
 msgstr "日本語"
 
@@ -77,33 +81,33 @@ msgstr "довге посилання"
 msgid "redirects"
 msgstr "перенапрямки"
 
-#: .\redirects\forms.py:27
+#: .\redirects\forms.py:30
 msgid "custom_url"
 msgstr "Кастомна url-адреса"
 
-#: .\redirects\forms.py:28
+#: .\redirects\forms.py:31
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr ""
 "Користувальницька URL-адреса, яку ви хотіли б мати замість згенерованого."
 
-#: .\redirects\forms.py:67
+#: .\redirects\forms.py:70
 msgid "custom_url_should_not_have_slash"
 msgstr "Кастомне посилання не повинно мати '/'"
 
-#: .\redirects\forms.py:72
+#: .\redirects\forms.py:75
 msgid "custom_url_already_use"
 msgstr ""
 "Ця кастомна url-адреса вже використовується. Будь ласка, виберіть інший."
 
-#: .\redirects\forms.py:139
+#: .\redirects\forms.py:143
 msgid "date_validity_invalid"
 msgstr "Термін придатності не може бути менше поточної дати"
 
-#: .\redirects\forms.py:171 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:174 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Пароль"
 
-#: .\redirects\forms.py:172
+#: .\redirects\forms.py:175
 msgid "password_before_redirect"
 msgstr "Введіть пароль перед перенаправленням"
 
@@ -169,7 +173,7 @@ msgstr "перенапрямок"
 msgid "invalid_password"
 msgstr "Пароль не вірний"
 
-#: .\statistic\apps.py:9 .\templates\includes\link_card.html:16
+#: .\statistic\apps.py:9 .\templates\includes\link_card.html:13
 msgid "statistic"
 msgstr "Статистика"
 
@@ -201,44 +205,48 @@ msgstr "країна"
 msgid "city"
 msgstr "місто"
 
-#: .\statistic\views.py:75
+#: .\statistic\views.py:87
 msgid "Unknown"
 msgstr "Невідомо"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:99
 msgid "Created"
 msgstr "Створено"
 
-#: .\statistic\views.py:88 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:100 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "ОС"
 
-#: .\statistic\views.py:89
+#: .\statistic\views.py:101
 msgid "Browser"
 msgstr "Браузер"
 
-#: .\statistic\views.py:90
+#: .\statistic\views.py:102
 msgid "Country"
 msgstr "Країна"
 
-#: .\statistic\views.py:91
+#: .\statistic\views.py:103
 msgid "City"
 msgstr "Місто"
 
-#: .\templates\404.html:5 .\templates\500.html:5
+#: .\templates\403.html:5 .\templates\404.html:5 .\templates\500.html:5
 msgid "oops"
 msgstr "Упс!"
 
-#: .\templates\404.html:11
-msgid "page_not_found"
-msgstr "Сторінка не знайдена"
+#: .\templates\403.html:11
+msgid "access_denied"
+msgstr "Доступ заборонено"
 
-#: .\templates\404.html:13 .\templates\500.html:13
+#: .\templates\403.html:13 .\templates\404.html:13 .\templates\500.html:13
 #: .\templates\users\password_change_done.html:12
 #: .\templates\users\password_reset_complete.html:12
 #: .\templates\users\password_reset_done.html:12
 msgid "to_main"
 msgstr "На головну"
+
+#: .\templates\404.html:11
+msgid "page_not_found"
+msgstr "Сторінка не знайдена"
 
 #: .\templates\500.html:11
 msgid "server_error"
@@ -351,7 +359,59 @@ msgstr ""
 "Якщо це були ви, ви можете зареєструватися на сайті, використовуючи "
 "посилання нижче."
 
-#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
+#: .\templates\dashboard\all_links.html:5
+msgid "title__dashboard__all_links"
+msgstr "Всі посилання"
+
+#: .\templates\dashboard\base.html:12
+msgid "all_links_list"
+msgstr "Всі посилання"
+
+#: .\templates\dashboard\base.html:17
+msgid "redirect_black_list"
+msgstr "Чорний список доменів"
+
+#: .\templates\dashboard\base.html:22
+msgid "server_logs"
+msgstr "Журнали сервера"
+
+#: .\templates\dashboard\base.html:27 .\templates\includes\header.html:68
+msgid "admin_panel"
+msgstr "Адмінка"
+
+#: .\templates\dashboard\black_list.html:5
+msgid "title__dashboard__black_list"
+msgstr "Чорний список доменів"
+
+#: .\templates\dashboard\log.html:5
+msgid "title__dashboard__logs"
+msgstr "Журнали сервера"
+
+#: .\templates\dashboard\log.html:17
+msgid "refresh"
+msgstr "Оновити"
+
+#: .\templates\dashboard\log.html:18 .\templates\dashboard\log.html:37
+msgid "clear_log"
+msgstr "Очистити журнал"
+
+#: .\templates\dashboard\log.html:26
+#: .\templates\includes\QR_modal_delete.html:7
+msgid "are_you_sure"
+msgstr "Ви впевнені?"
+
+#: .\templates\dashboard\log.html:30
+#: .\templates\includes\QR_modal_delete.html:11
+msgid "this_action_cannot_be_undone"
+msgstr "Ця дія не може бути скасована"
+
+#: .\templates\dashboard\log.html:33
+#: .\templates\includes\QR_modal_delete.html:14
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "Відміна"
+
+#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:8
 msgid "about"
 msgstr "Про проект"
 
@@ -430,43 +490,43 @@ msgstr "Проект на Github"
 msgid "title__homepage"
 msgstr "Datanar - Скорочення посилань"
 
-#: .\templates\homepage\main.html:27
+#: .\templates\homepage\main.html:28
 msgid "short_description_under_logo"
 msgstr ""
 "Скоротіть своє посилання, щоб вашим клієнтам не довелося бачити довгі url-"
 "адреси."
 
-#: .\templates\homepage\main.html:29
+#: .\templates\homepage\main.html:30
 msgid "short_description_about_supported_files"
 msgstr ""
 "Ви можете вибрати або перетягнути файл C розширенням .txt/.xlsx. У txt кожен "
 "рядок розглядається як посилання, а xlsx кожен рядок першого стовпця"
 
-#: .\templates\homepage\main.html:39
+#: .\templates\homepage\main.html:40
 msgid "label_link_file"
 msgstr "Вибрано файл із посиланнями"
 
-#: .\templates\homepage\main.html:43
+#: .\templates\homepage\main.html:44
 msgid "delete_file"
 msgstr "Видалити файл"
 
-#: .\templates\homepage\main.html:45
+#: .\templates\homepage\main.html:46
 msgid "choose_file"
 msgstr "Вибрати файл"
 
-#: .\templates\homepage\main.html:47
+#: .\templates\homepage\main.html:48
 msgid "shorten"
 msgstr "Скоротити"
 
-#: .\templates\homepage\main.html:67
+#: .\templates\homepage\main.html:68
 msgid "message_error_count"
 msgstr "Будь ласка, перетягніть лише один файл."
 
-#: .\templates\homepage\main.html:68
+#: .\templates\homepage\main.html:69
 msgid "message_error_type"
 msgstr "Будь ласка, перетягніть файл із розширенням .xlsx або .txt."
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:5
+#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "Правила сервісу"
 
@@ -515,7 +575,12 @@ msgstr ""
 "Дякую за вибір Datanar! Ми цінуємо вашу довіру і прагнемо надати вам зручний "
 "та безпечний сервіс скорочення посилань."
 
-#: .\templates\includes\footer.html:7
+#: .\templates\includes\QR_modal_delete.html:19
+#: .\templates\includes\link_card.html:17
+msgid "Delete"
+msgstr "Видалити"
+
+#: .\templates\includes\footer.html:9
 msgid "API"
 msgstr "API"
 
@@ -548,23 +613,19 @@ msgstr "Мій профіль"
 msgid "my_links"
 msgstr "Мої посилання"
 
-#: .\templates\includes\header.html:64
-msgid "admin_panel"
-msgstr "Адмінка"
-
-#: .\templates\includes\header.html:68
+#: .\templates\includes\header.html:72
 msgid "exit"
 msgstr "Вийти"
 
-#: .\templates\includes\header.html:73 .\templates\users\login.html:13
+#: .\templates\includes\header.html:77 .\templates\users\login.html:13
 msgid "sign_in"
 msgstr "Увійти"
 
-#: .\templates\includes\header.html:76 .\templates\users\signup.html:5
+#: .\templates\includes\header.html:80 .\templates\users\signup.html:5
 msgid "registration"
 msgstr "Реєстрація"
 
-#: .\templates\includes\link_card.html:13
+#: .\templates\includes\link_card.html:10
 msgid "copy"
 msgstr "Копіювати"
 
@@ -724,10 +785,6 @@ msgstr "Адреса електронної пошти"
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
 msgstr "Повторне надсилання підтвердження"
-
-#: .\templates\users\email_change.html:29
-msgid "Cancel"
-msgstr "Відміна"
 
 #: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
 msgid "change_email"

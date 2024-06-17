@@ -12,7 +12,7 @@ urlpatterns = [
     ),
     path("my_links/", views.MyLinksView.as_view(), name="my_links"),
     path(
-        "my_links/<link>/<period>/",
+        "links/<link>/<period>/",
         views.LinkDetailView.as_view(),
         name="link_detail",
     ),

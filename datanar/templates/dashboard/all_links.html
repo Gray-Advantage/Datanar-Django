@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends "dashboard/base.html" %}
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "title__my_links" %}{% endblock %}
+{% block title %}{% trans "title__dashboard__all_links" %}{% endblock %}
 
 {% block css %}
   <link href="{% static 'css/homepage/style.css' %}" rel="stylesheet">
@@ -15,9 +15,9 @@
   <script src="{% static 'js/qr_codes/deleteQRModal.js' %}"></script>
 {% endblock %}
 
-{% block content %}
+{% block dashboard_content %}
   {% include "includes/paginator.html" %}
-  <div class="list-group gap-2 mx-auto">
+  <div class="list-group gap-2 mx-auto mb-3">
     {% for link in links %}
       {% include "includes/link_card.html" with link=link %}
     {% endfor %}
