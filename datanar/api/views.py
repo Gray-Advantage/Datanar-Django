@@ -28,11 +28,6 @@ class APIDocumentationView(TemplateView):
     template_name = "api/api_docs.html"
 
 
-class DefaultWrongView(APIView):
-    def dispatch(self, request, *args, **kwargs):
-        return Response(status=status.HTTP_400_BAD_REQUEST)
-
-
 class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
     def _get_user(self, request):
         token = request.query_params.get("token", request.data.get("token"))
