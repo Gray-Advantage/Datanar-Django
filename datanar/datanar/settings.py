@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "1.7.1"
+VERSION = "1.7.2"
 
 SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
