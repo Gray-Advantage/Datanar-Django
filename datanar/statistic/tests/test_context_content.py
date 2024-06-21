@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class ContextContentTest(TestCase):
-    fixtures = ["fixtures/data.json"]
+    fixtures = ["fixtures/for_test_data.json"]
 
     def test_my_links_context(self):
         client = Client()

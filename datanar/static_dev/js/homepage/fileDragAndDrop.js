@@ -16,16 +16,10 @@ const messageErrorCount = document.getElementById("messageErrorCount").innerText
 
 let timer;
 
-
-if (fileInput.value === "") {
+if (fileInput.value !== "" || longLinkField.value === "https://example.com") {
+  fileInput.value = "";
   longLinkField.value = "";
   longLinkField.readOnly = false;
-} else {
-  deleteFileButton.classList.remove("d-none");
-
-  longLinklabelFile.classList.remove("d-none");
-  longLinklabelNormal.classList.add("d-none");
-  longLinkField.readOnly = true;
 }
 
 deleteFileButton.addEventListener("click", () => {
@@ -85,12 +79,11 @@ dropZone.addEventListener("drop", event => {
 
 document.getElementById("mainForm").addEventListener("submit", () => {
   if (fileInput.value) {
-    document.getElementById("id_long_link").value = "https://example.com";
+    longLinkField.value = "https://example.com";
   }
 });
 
 fileInput.addEventListener("change", event => {
-  console.log("change!!!");
   const files = event.target.files;
 
   if (files.length > 1) {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-17 22:21+0300\n"
+"POT-Creation-Date: 2024-06-20 22:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,18 @@ msgstr "Perusmuodot"
 #: .\dashboard\apps.py:8 .\templates\includes\header.html:65
 msgid "dashboard"
 msgstr "Tableau de bord"
+
+#: .\dashboard\models.py:19 .\dashboard\models.py:25 .\dashboard\models.py:29
+msgid "domain_regex"
+msgstr "Régularité du domaine"
+
+#: .\dashboard\models.py:20 .\templates\dashboard\black_list.html:17
+msgid "domain_regex_that_will_be_prohibited_from_shortening"
+msgstr "Expression régulière pour le domaine à ne pas réduire"
+
+#: .\dashboard\models.py:26
+msgid "domains_regex"
+msgstr "Régularité des domaines"
 
 #: .\datanar\settings.py:206
 msgid "English"
@@ -78,31 +90,35 @@ msgstr "lien long"
 msgid "redirects"
 msgstr "Redirections"
 
-#: .\redirects\forms.py:30
+#: .\redirects\forms.py:31
 msgid "custom_url"
 msgstr "URL personnalisé"
 
-#: .\redirects\forms.py:31
+#: .\redirects\forms.py:32
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "URL personnalisé que vous aimeriez avoir à la place de celui généré."
 
-#: .\redirects\forms.py:70
+#: .\redirects\forms.py:72
 msgid "custom_url_should_not_have_slash"
 msgstr "Le lien personnalisé ne doit pas contenir ‘/’"
 
-#: .\redirects\forms.py:75
+#: .\redirects\forms.py:77
 msgid "custom_url_already_use"
 msgstr "Cet URL personnalisé est déjà utilisé. Veuillez en choisir un autre."
 
-#: .\redirects\forms.py:143
+#: .\redirects\forms.py:90
+msgid "this_url_is_blocked"
+msgstr "Cette URL est bloquée"
+
+#: .\redirects\forms.py:151
 msgid "date_validity_invalid"
 msgstr "La durée de validité ne peut pas être inférieure à la date actuelle"
 
-#: .\redirects\forms.py:174 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Mot de passe"
 
-#: .\redirects\forms.py:175
+#: .\redirects\forms.py:183
 msgid "password_before_redirect"
 msgstr "Entrez le mot de passe avant la redirection"
 
@@ -200,27 +216,27 @@ msgstr "pays"
 msgid "city"
 msgstr "ville"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:91
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: .\statistic\views.py:99
+#: .\statistic\views.py:103
 msgid "Created"
 msgstr "Créé"
 
-#: .\statistic\views.py:100 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:104 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "OS"
 
-#: .\statistic\views.py:101
+#: .\statistic\views.py:105
 msgid "Browser"
 msgstr "Navigateur"
 
-#: .\statistic\views.py:102
+#: .\statistic\views.py:106
 msgid "Country"
 msgstr "Pays"
 
-#: .\statistic\views.py:103
+#: .\statistic\views.py:107
 msgid "City"
 msgstr "Ville"
 
@@ -382,6 +398,52 @@ msgstr "Panneau d'admin"
 msgid "title__dashboard__black_list"
 msgstr "Liste noire des domaines"
 
+#: .\templates\dashboard\black_list.html:13
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:17
+msgid "Add"
+msgstr "Ajouter"
+
+#: .\templates\dashboard\black_list.html:18
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:18
+msgid "Change"
+msgstr "Modification"
+
+#: .\templates\dashboard\black_list.html:19
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:19
+#: .\templates\includes\link_card.html:17
+#: .\templates\qr_codes\QR_modal_delete.html:19
+msgid "Delete"
+msgstr "Supprimer"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:8
+msgid "new_blocked_domain_regex"
+msgstr "Ajouter un domaine verrouillé"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:16
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:17
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:14
+#: .\templates\dashboard\log.html:33
+#: .\templates\qr_codes\QR_modal_delete.html:14
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "Annuler"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:8
+msgid "change_blocked_domain_regex"
+msgstr "Modifier le domaine verrouillé"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:7
+#: .\templates\dashboard\log.html:26
+#: .\templates\qr_codes\QR_modal_delete.html:7
+msgid "are_you_sure"
+msgstr "Êtes-vous sûre?"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:11
+#: .\templates\dashboard\log.html:30
+#: .\templates\qr_codes\QR_modal_delete.html:11
+msgid "this_action_cannot_be_undone"
+msgstr "Cette action ne peut pas être annulée"
+
 #: .\templates\dashboard\log.html:5
 msgid "title__dashboard__logs"
 msgstr "Journaux du serveur"
@@ -393,22 +455,6 @@ msgstr "Rafraîchir"
 #: .\templates\dashboard\log.html:18 .\templates\dashboard\log.html:37
 msgid "clear_log"
 msgstr "Effacer le journal"
-
-#: .\templates\dashboard\log.html:26
-#: .\templates\includes\QR_modal_delete.html:7
-msgid "are_you_sure"
-msgstr "Êtes-vous sûre?"
-
-#: .\templates\dashboard\log.html:30
-#: .\templates\includes\QR_modal_delete.html:11
-msgid "this_action_cannot_be_undone"
-msgstr "Cette action ne peut pas être annulée"
-
-#: .\templates\dashboard\log.html:33
-#: .\templates\includes\QR_modal_delete.html:14
-#: .\templates\users\email_change.html:29
-msgid "Cancel"
-msgstr "Annuler"
 
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:8
 msgid "about"
@@ -576,11 +622,6 @@ msgstr ""
 "Merci d’avoir choisi Datanar ! Nous apprécions votre confiance et nous nous "
 "efforçons de vous fournir un service de raccourcissement de liens pratique "
 "et sûr."
-
-#: .\templates\includes\QR_modal_delete.html:19
-#: .\templates\includes\link_card.html:17
-msgid "Delete"
-msgstr "Supprimer"
 
 #: .\templates\includes\footer.html:9
 msgid "API"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-17 22:21+0300\n"
+"POT-Creation-Date: 2024-06-20 22:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,18 @@ msgstr "基本フォーム"
 #: .\dashboard\apps.py:8 .\templates\includes\header.html:65
 msgid "dashboard"
 msgstr "ダッシュボード"
+
+#: .\dashboard\models.py:19 .\dashboard\models.py:25 .\dashboard\models.py:29
+msgid "domain_regex"
+msgstr "ドメイン規則性"
+
+#: .\dashboard\models.py:20 .\templates\dashboard\black_list.html:17
+msgid "domain_regex_that_will_be_prohibited_from_shortening"
+msgstr "短縮が許可されないドメインの正規表現"
+
+#: .\dashboard\models.py:26
+msgid "domains_regex"
+msgstr "ドメインレギュラー"
 
 #: .\datanar\settings.py:206
 msgid "English"
@@ -78,32 +90,36 @@ msgstr "長いリンク"
 msgid "redirects"
 msgstr "リダイレクト"
 
-#: .\redirects\forms.py:30
+#: .\redirects\forms.py:31
 msgid "custom_url"
 msgstr "カスタムURLアドレス"
 
-#: .\redirects\forms.py:31
+#: .\redirects\forms.py:32
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "生成されたものの代わりに持ちたいユーザー定義のURLアドレス。"
 
-#: .\redirects\forms.py:70
+#: .\redirects\forms.py:72
 msgid "custom_url_should_not_have_slash"
 msgstr "カスタムリンクには’/'を含めてはならない"
 
-#: .\redirects\forms.py:75
+#: .\redirects\forms.py:77
 msgid "custom_url_already_use"
 msgstr ""
 "このカスタムURLアドレスはすでに使用されています。別のものを選んでください。"
 
-#: .\redirects\forms.py:143
+#: .\redirects\forms.py:90
+msgid "this_url_is_blocked"
+msgstr "このURLはブロックされています"
+
+#: .\redirects\forms.py:151
 msgid "date_validity_invalid"
 msgstr "有効期限は現在の日付より小さくすることはできません"
 
-#: .\redirects\forms.py:174 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "パスワード"
 
-#: .\redirects\forms.py:175
+#: .\redirects\forms.py:183
 msgid "password_before_redirect"
 msgstr "リダイレクトする前にパスワードを入力してください"
 
@@ -199,27 +215,27 @@ msgstr "国"
 msgid "city"
 msgstr "都市"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:91
 msgid "Unknown"
 msgstr "不明"
 
-#: .\statistic\views.py:99
+#: .\statistic\views.py:103
 msgid "Created"
 msgstr "作成された"
 
-#: .\statistic\views.py:100 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:104 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "OS"
 
-#: .\statistic\views.py:101
+#: .\statistic\views.py:105
 msgid "Browser"
 msgstr "ブラウザ"
 
-#: .\statistic\views.py:102
+#: .\statistic\views.py:106
 msgid "Country"
 msgstr "国"
 
-#: .\statistic\views.py:103
+#: .\statistic\views.py:107
 msgid "City"
 msgstr "都市"
 
@@ -380,6 +396,52 @@ msgstr "管理者"
 msgid "title__dashboard__black_list"
 msgstr "ドメインのブラックリスト"
 
+#: .\templates\dashboard\black_list.html:13
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:17
+msgid "Add"
+msgstr "追加"
+
+#: .\templates\dashboard\black_list.html:18
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:18
+msgid "Change"
+msgstr "変更"
+
+#: .\templates\dashboard\black_list.html:19
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:19
+#: .\templates\includes\link_card.html:17
+#: .\templates\qr_codes\QR_modal_delete.html:19
+msgid "Delete"
+msgstr "削除"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:8
+msgid "new_blocked_domain_regex"
+msgstr "ブロックされたドメインを追加する"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:16
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:17
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:14
+#: .\templates\dashboard\log.html:33
+#: .\templates\qr_codes\QR_modal_delete.html:14
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:8
+msgid "change_blocked_domain_regex"
+msgstr "ブロックされたドメインを変更する"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:7
+#: .\templates\dashboard\log.html:26
+#: .\templates\qr_codes\QR_modal_delete.html:7
+msgid "are_you_sure"
+msgstr "本気？"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:11
+#: .\templates\dashboard\log.html:30
+#: .\templates\qr_codes\QR_modal_delete.html:11
+msgid "this_action_cannot_be_undone"
+msgstr "この操作は元に戻すことはできません"
+
 #: .\templates\dashboard\log.html:5
 msgid "title__dashboard__logs"
 msgstr "サーバーログ"
@@ -391,22 +453,6 @@ msgstr "リフレッシュ"
 #: .\templates\dashboard\log.html:18 .\templates\dashboard\log.html:37
 msgid "clear_log"
 msgstr "クリアログ"
-
-#: .\templates\dashboard\log.html:26
-#: .\templates\includes\QR_modal_delete.html:7
-msgid "are_you_sure"
-msgstr "本気？"
-
-#: .\templates\dashboard\log.html:30
-#: .\templates\includes\QR_modal_delete.html:11
-msgid "this_action_cannot_be_undone"
-msgstr "この操作は元に戻すことはできません"
-
-#: .\templates\dashboard\log.html:33
-#: .\templates\includes\QR_modal_delete.html:14
-#: .\templates\users\email_change.html:29
-msgid "Cancel"
-msgstr "キャンセル"
 
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:8
 msgid "about"
@@ -570,11 +616,6 @@ msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
 "Datanarを選んでいただきありがとうございます！私たちはあなたの信頼を大切にし、"
 "便利で安全なリンク短縮サービスを提供することを目指しています。"
-
-#: .\templates\includes\QR_modal_delete.html:19
-#: .\templates\includes\link_card.html:17
-msgid "Delete"
-msgstr "削除"
 
 #: .\templates\includes\footer.html:9
 msgid "API"

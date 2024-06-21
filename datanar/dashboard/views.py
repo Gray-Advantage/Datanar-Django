@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import ListView, TemplateView
 
 from core.mixins import FormMethodExtender, StaffUserRequiredMixin
+from dashboard.models import BlockedDomain
 from redirects.models import Redirect
 
 
@@ -28,8 +29,28 @@ class AllLinksView(StaffUserRequiredMixin, FormMethodExtender, ListView):
         return HttpResponseRedirect(request.get_full_path())
 
 
-class BlackListView(StaffUserRequiredMixin, TemplateView):
+class BlackListView(StaffUserRequiredMixin, FormMethodExtender, ListView):
     template_name = "dashboard/black_list.html"
+    context_object_name = "domains"
+    model = BlockedDomain
+
+    def delete(self, request):
+        BlockedDomain.objects.filter(id=request.POST.get("id")).delete()
+        return HttpResponseRedirect(request.get_full_path())
+
+    def patch(self, request):
+        BlockedDomain.objects.filter(
+            id=request.POST.get("id"),
+        ).update(
+            domain_regex=request.POST.get("new_domain_regex"),
+        )
+        return HttpResponseRedirect(request.get_full_path())
+
+    def put(self, request):
+        BlockedDomain.objects.create(
+            domain_regex=request.POST.get("new_domain_regex"),
+        )
+        return HttpResponseRedirect(request.get_full_path())
 
 
 class LogView(StaffUserRequiredMixin, FormMethodExtender, TemplateView):

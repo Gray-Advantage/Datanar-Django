@@ -23,7 +23,7 @@
 {% block content %}
   <div id="drop_zone" class="flex-grow-1">
     <div class="d-flex mt-5">
-      <div class="ms-auto me-auto">
+      <div class="mx-auto">
         {% include "includes/logo.html" %}
         <p class="text-center">{% trans "short_description_under_logo" %}</p>
         {% if request.user.is_authenticated %}
@@ -34,7 +34,7 @@
     <form id="mainForm" class="mt-3" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {% for field in form %}
-        <div class="form-group col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 ms-auto me-auto">
+        <div class="form-group col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
           {% if forloop.first %}
             <label id="longLinklabelNormal" for="{{ field.id_for_label }}">{{ field.label }}</label>
             <label id="longLinklabelFile" class="d-none" for="{{ field.id_for_label }}">{% trans "label_link_file" %}</label>
@@ -45,7 +45,7 @@
               {% if request.user.is_authenticated %}
                 <button type="button" id="chooseFileButton" class="btn btn-outline-dark">{% trans "choose_file" %}</button>
               {% endif %}
-              <input type="submit" class="btn btn-outline-dark" value="{% trans 'shorten' %}">
+              <input type="submit" class="btn btn-outline-dark rounded-end-2" value="{% trans 'shorten' %}">
               {% if field.errors %}
                 <div class="invalid-feedback">
                   {{ field.errors|first }}
@@ -70,7 +70,7 @@
     </form>
 
     {% if messages %}
-      <div class="list-group gap-2 ms-auto me-auto d-flex mb-3">
+      <div class="list-group gap-2 mx-auto d-flex mb-3">
         {% for message in messages %}
           {% if message.level == SHORT_LINK %}
             {% include "includes/link_card.html" with link=message %}
@@ -83,7 +83,7 @@
       </div>
     {% endif %}
 
-    {% include "includes/QR_modal_preview.html" %}
-    {% include "includes/QR_modal_delete.html" %}
+    {% include "qr_codes/QR_modal_preview.html" %}
+    {% include "qr_codes/QR_modal_delete.html" %}
   </div>
 {% endblock %}

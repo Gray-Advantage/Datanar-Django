@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-17 22:21+0300\n"
+"POT-Creation-Date: 2024-06-20 22:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,19 @@ msgstr "Base forms"
 #: .\dashboard\apps.py:8 .\templates\includes\header.html:65
 msgid "dashboard"
 msgstr "Dashboard"
+
+#: .\dashboard\models.py:19 .\dashboard\models.py:25 .\dashboard\models.py:29
+msgid "domain_regex"
+msgstr "Domain regular"
+
+#: .\dashboard\models.py:20 .\templates\dashboard\black_list.html:17
+msgid "domain_regex_that_will_be_prohibited_from_shortening"
+msgstr ""
+"A regular expression for a domain that will not be allowed to be shortened"
+
+#: .\dashboard\models.py:26
+msgid "domains_regex"
+msgstr "Domain regulars"
 
 #: .\datanar\settings.py:206
 msgid "English"
@@ -78,31 +91,35 @@ msgstr "long link"
 msgid "redirects"
 msgstr "redirects"
 
-#: .\redirects\forms.py:30
+#: .\redirects\forms.py:31
 msgid "custom_url"
 msgstr "Custom url"
 
-#: .\redirects\forms.py:31
+#: .\redirects\forms.py:32
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "A custom url that you would like to have instead of the generated one."
 
-#: .\redirects\forms.py:70
+#: .\redirects\forms.py:72
 msgid "custom_url_should_not_have_slash"
 msgstr "The custom link should not have a '/'"
 
-#: .\redirects\forms.py:75
+#: .\redirects\forms.py:77
 msgid "custom_url_already_use"
 msgstr "This custom url is already in use. Please choose another one."
 
-#: .\redirects\forms.py:143
+#: .\redirects\forms.py:90
+msgid "this_url_is_blocked"
+msgstr "This URL is blocked"
+
+#: .\redirects\forms.py:151
 msgid "date_validity_invalid"
 msgstr "The expiration date cannot be less than the current date"
 
-#: .\redirects\forms.py:174 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Password"
 
-#: .\redirects\forms.py:175
+#: .\redirects\forms.py:183
 msgid "password_before_redirect"
 msgstr "Enter the password before redirecting"
 
@@ -198,27 +215,27 @@ msgstr "country"
 msgid "city"
 msgstr "city"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:91
 msgid "Unknown"
 msgstr "Unknown"
 
-#: .\statistic\views.py:99
+#: .\statistic\views.py:103
 msgid "Created"
 msgstr "Created"
 
-#: .\statistic\views.py:100 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:104 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "OS"
 
-#: .\statistic\views.py:101
+#: .\statistic\views.py:105
 msgid "Browser"
 msgstr "Browser"
 
-#: .\statistic\views.py:102
+#: .\statistic\views.py:106
 msgid "Country"
 msgstr "Country"
 
-#: .\statistic\views.py:103
+#: .\statistic\views.py:107
 msgid "City"
 msgstr "City"
 
@@ -378,6 +395,52 @@ msgstr "Admin panel"
 msgid "title__dashboard__black_list"
 msgstr "Blacklist of domains"
 
+#: .\templates\dashboard\black_list.html:13
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:17
+msgid "Add"
+msgstr "Add"
+
+#: .\templates\dashboard\black_list.html:18
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:18
+msgid "Change"
+msgstr "Change"
+
+#: .\templates\dashboard\black_list.html:19
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:19
+#: .\templates\includes\link_card.html:17
+#: .\templates\qr_codes\QR_modal_delete.html:19
+msgid "Delete"
+msgstr "Delete"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:8
+msgid "new_blocked_domain_regex"
+msgstr "Add a blocked domain"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:16
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:17
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:14
+#: .\templates\dashboard\log.html:33
+#: .\templates\qr_codes\QR_modal_delete.html:14
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "Cancel"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:8
+msgid "change_blocked_domain_regex"
+msgstr "Change a blocked domain"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:7
+#: .\templates\dashboard\log.html:26
+#: .\templates\qr_codes\QR_modal_delete.html:7
+msgid "are_you_sure"
+msgstr "Are you sure?"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:11
+#: .\templates\dashboard\log.html:30
+#: .\templates\qr_codes\QR_modal_delete.html:11
+msgid "this_action_cannot_be_undone"
+msgstr "This action cannot be undone"
+
 #: .\templates\dashboard\log.html:5
 msgid "title__dashboard__logs"
 msgstr "Server logs"
@@ -389,22 +452,6 @@ msgstr "Refresh"
 #: .\templates\dashboard\log.html:18 .\templates\dashboard\log.html:37
 msgid "clear_log"
 msgstr "Clear log"
-
-#: .\templates\dashboard\log.html:26
-#: .\templates\includes\QR_modal_delete.html:7
-msgid "are_you_sure"
-msgstr "Are you sure?"
-
-#: .\templates\dashboard\log.html:30
-#: .\templates\includes\QR_modal_delete.html:11
-msgid "this_action_cannot_be_undone"
-msgstr "This action cannot be undone"
-
-#: .\templates\dashboard\log.html:33
-#: .\templates\includes\QR_modal_delete.html:14
-#: .\templates\users\email_change.html:29
-msgid "Cancel"
-msgstr "Cancel"
 
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:8
 msgid "about"
@@ -565,11 +612,6 @@ msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
 "Thank you for choosing Datanar! We appreciate your trust and strive to "
 "provide you with a convenient and secure link shortening service."
-
-#: .\templates\includes\QR_modal_delete.html:19
-#: .\templates\includes\link_card.html:17
-msgid "Delete"
-msgstr "Delete"
 
 #: .\templates\includes\footer.html:9
 msgid "API"

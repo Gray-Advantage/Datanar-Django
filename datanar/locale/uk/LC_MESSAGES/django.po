@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-17 22:21+0300\n"
+"POT-Creation-Date: 2024-06-20 22:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,18 @@ msgstr "Базові форми"
 #: .\dashboard\apps.py:8 .\templates\includes\header.html:65
 msgid "dashboard"
 msgstr "Приладова панель"
+
+#: .\dashboard\models.py:19 .\dashboard\models.py:25 .\dashboard\models.py:29
+msgid "domain_regex"
+msgstr "Регулярка домену"
+
+#: .\dashboard\models.py:20 .\templates\dashboard\black_list.html:17
+msgid "domain_regex_that_will_be_prohibited_from_shortening"
+msgstr "Регулярний вираз для домену, якій буде заборонений до скорочення"
+
+#: .\dashboard\models.py:26
+msgid "domains_regex"
+msgstr "Регулярки доменів"
 
 #: .\datanar\settings.py:206
 msgid "English"
@@ -81,33 +93,37 @@ msgstr "довге посилання"
 msgid "redirects"
 msgstr "перенапрямки"
 
-#: .\redirects\forms.py:30
+#: .\redirects\forms.py:31
 msgid "custom_url"
 msgstr "Кастомна url-адреса"
 
-#: .\redirects\forms.py:31
+#: .\redirects\forms.py:32
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr ""
 "Користувальницька URL-адреса, яку ви хотіли б мати замість згенерованого."
 
-#: .\redirects\forms.py:70
+#: .\redirects\forms.py:72
 msgid "custom_url_should_not_have_slash"
 msgstr "Кастомне посилання не повинно мати '/'"
 
-#: .\redirects\forms.py:75
+#: .\redirects\forms.py:77
 msgid "custom_url_already_use"
 msgstr ""
 "Ця кастомна url-адреса вже використовується. Будь ласка, виберіть інший."
 
-#: .\redirects\forms.py:143
+#: .\redirects\forms.py:90
+msgid "this_url_is_blocked"
+msgstr "Ця URL-адреса заблокована"
+
+#: .\redirects\forms.py:151
 msgid "date_validity_invalid"
 msgstr "Термін придатності не може бути менше поточної дати"
 
-#: .\redirects\forms.py:174 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Пароль"
 
-#: .\redirects\forms.py:175
+#: .\redirects\forms.py:183
 msgid "password_before_redirect"
 msgstr "Введіть пароль перед перенаправленням"
 
@@ -205,27 +221,27 @@ msgstr "країна"
 msgid "city"
 msgstr "місто"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:91
 msgid "Unknown"
 msgstr "Невідомо"
 
-#: .\statistic\views.py:99
+#: .\statistic\views.py:103
 msgid "Created"
 msgstr "Створено"
 
-#: .\statistic\views.py:100 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:104 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "ОС"
 
-#: .\statistic\views.py:101
+#: .\statistic\views.py:105
 msgid "Browser"
 msgstr "Браузер"
 
-#: .\statistic\views.py:102
+#: .\statistic\views.py:106
 msgid "Country"
 msgstr "Країна"
 
-#: .\statistic\views.py:103
+#: .\statistic\views.py:107
 msgid "City"
 msgstr "Місто"
 
@@ -383,6 +399,52 @@ msgstr "Адмінка"
 msgid "title__dashboard__black_list"
 msgstr "Чорний список доменів"
 
+#: .\templates\dashboard\black_list.html:13
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:17
+msgid "Add"
+msgstr "Додати"
+
+#: .\templates\dashboard\black_list.html:18
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:18
+msgid "Change"
+msgstr "Змінити"
+
+#: .\templates\dashboard\black_list.html:19
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:19
+#: .\templates\includes\link_card.html:17
+#: .\templates\qr_codes\QR_modal_delete.html:19
+msgid "Delete"
+msgstr "Видалити"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:8
+msgid "new_blocked_domain_regex"
+msgstr "Додати заблокований домен"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:16
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:17
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:14
+#: .\templates\dashboard\log.html:33
+#: .\templates\qr_codes\QR_modal_delete.html:14
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "Відміна"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:8
+msgid "change_blocked_domain_regex"
+msgstr "Змінити заблокований домен"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:7
+#: .\templates\dashboard\log.html:26
+#: .\templates\qr_codes\QR_modal_delete.html:7
+msgid "are_you_sure"
+msgstr "Ви впевнені?"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:11
+#: .\templates\dashboard\log.html:30
+#: .\templates\qr_codes\QR_modal_delete.html:11
+msgid "this_action_cannot_be_undone"
+msgstr "Ця дія не може бути скасована"
+
 #: .\templates\dashboard\log.html:5
 msgid "title__dashboard__logs"
 msgstr "Журнали сервера"
@@ -394,22 +456,6 @@ msgstr "Оновити"
 #: .\templates\dashboard\log.html:18 .\templates\dashboard\log.html:37
 msgid "clear_log"
 msgstr "Очистити журнал"
-
-#: .\templates\dashboard\log.html:26
-#: .\templates\includes\QR_modal_delete.html:7
-msgid "are_you_sure"
-msgstr "Ви впевнені?"
-
-#: .\templates\dashboard\log.html:30
-#: .\templates\includes\QR_modal_delete.html:11
-msgid "this_action_cannot_be_undone"
-msgstr "Ця дія не може бути скасована"
-
-#: .\templates\dashboard\log.html:33
-#: .\templates\includes\QR_modal_delete.html:14
-#: .\templates\users\email_change.html:29
-msgid "Cancel"
-msgstr "Відміна"
 
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:8
 msgid "about"
@@ -574,11 +620,6 @@ msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
 "Дякую за вибір Datanar! Ми цінуємо вашу довіру і прагнемо надати вам зручний "
 "та безпечний сервіс скорочення посилань."
-
-#: .\templates\includes\QR_modal_delete.html:19
-#: .\templates\includes\link_card.html:17
-msgid "Delete"
-msgstr "Видалити"
 
 #: .\templates\includes\footer.html:9
 msgid "API"
