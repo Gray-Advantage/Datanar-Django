@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import TemplateView
 from rest_framework import mixins, status, viewsets
 from rest_framework.authtoken.models import Token
-from rest_framework.authtoken.views import APIView, ObtainAuthToken
+from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 
@@ -26,11 +26,6 @@ def authorization_required(view_func):
 
 class APIDocumentationView(TemplateView):
     template_name = "api/api_docs.html"
-
-
-class DefaultWrongView(APIView):
-    def dispatch(self, request, *args, **kwargs):
-        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
