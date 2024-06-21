@@ -81,7 +81,12 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         if form.is_valid():
             serializer = RedirectCreateSerializer(data=post_data)
             serializer.is_valid(raise_exception=True)
-            serializer.save(**{"short_link": form.cleaned_data["short_link"]})
+            serializer.save(
+                **{
+                    "short_link": form.cleaned_data["short_link"],
+                    "user": self._get_user(request),
+                },
+            )
 
             return Response(
                 serializer.data,
