@@ -10,16 +10,6 @@ permissions:
   contents: read
 
 jobs:
-  flake8-test:
-    runs-on: ubuntu-latest
-    container: python:3.10
-    steps:
-    - uses: actions/checkout@v3
-    - name: Install dependencies
-      run: pip install -r requirements/test.txt
-    - name: Check code formatting with flake8
-      run: flake8 ./datanar/ --config=.flake8
-
   black-test:
     runs-on: ubuntu-latest
     container: python:3.10
@@ -29,6 +19,16 @@ jobs:
         run: pip install black
       - name: Check code formatting with black
         run: black ./datanar/ --check --verbose --diff --line-length 79
+
+  flake8-test:
+    runs-on: ubuntu-latest
+    container: python:3.10
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: pip install -r requirements/test.txt
+    - name: Check code formatting with flake8
+      run: flake8 ./datanar/ --config=.flake8
 
   django-test:
     runs-on: ubuntu-latest
@@ -41,8 +41,37 @@ jobs:
         run: |
           cd ./datanar
           python manage.py test
-  
-  deploy:
+
+  test-deploy:
+    if: github.ref == 'refs/heads/dev'
+    needs: [black-test, flake8-test, django-test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        script: |
+          sudo supervisorctl stop test_gunicorn test_celery
+          cd ~/test_datanar
+          git reset --hard origin/dev
+          git pull origin dev
+          source venv/bin/activate
+          pip install -r requirements/dev.txt
+          cd ~/test_datanar/datanar
+          python manage.py migrate
+          python manage.py compilemessages
+          python manage.py collectstatic --no-input
+          deactivate
+          cd ~
+          sudo supervisorctl start test_gunicorn test_celery
+
+  prod-deploy:
     if: github.ref == 'refs/heads/main'
     needs: [black-test, flake8-test, django-test]
     runs-on: ubuntu-latest
@@ -57,7 +86,7 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SERVER_SSH_KEY }}
         script: |
-          sudo supervisorctl stop all
+          sudo supervisorctl stop gunicorn celery
           cd ~/datanar
           git reset --hard origin/main
           git pull origin main
@@ -69,4 +98,4 @@ jobs:
           python manage.py collectstatic --no-input
           deactivate
           cd ~
-          sudo supervisorctl start all
+          sudo supervisorctl start gunicorn celery

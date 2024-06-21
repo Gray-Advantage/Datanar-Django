@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+  {% with request.resolver_match.view_name as view_name %}
+    <div class="d-flex mb-2">
+      <ul class="nav nav-underline mx-auto">
+        <li class="nav-item">
+          <a class="nav-link text-light {% if view_name == 'dashboard:all_links' %}active{% endif %}" href="{% url 'dashboard:all_links' %}">
+            {% trans "all_links_list" %}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light {% if view_name == 'dashboard:black_list' %}active{% endif %}" href="{% url 'dashboard:black_list' %}">
+            {% trans "redirect_black_list" %}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light {% if view_name == 'dashboard:log' %}active{% endif %}" href="{% url 'dashboard:log' %}">
+            {% trans "server_logs" %}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="{% url 'admin:index' %}">
+            {% trans "admin_panel" %} <i class="bi bi-box-arrow-up-right"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  {% endwith %}
+  {% block dashboard_content %}
+
+  {% endblock %}
+{% endblock %}

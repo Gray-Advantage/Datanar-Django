@@ -3,7 +3,7 @@
 
 <header class="d-flex flex-wrap justify-content-center py-3 mb-2 border-bottom container">
   {% with request.resolver_match.view_name as view_name %}
-    <a {% if view_name != "homepage:home" %}href="{% url 'homepage:home' %}"{% endif %} class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+    <a {% if view_name != "homepage:home" %}href="{% url 'homepage:home' %}"{% endif %} class="d-flex align-items-center me-md-auto link-body-emphasis text-decoration-none">
       {% include 'svg/logo.svg' with class="ms-2 me-2" width=48 height=48 %}
       <span class="fs-4 me-2">Datanar</span>
     </a>
@@ -56,10 +56,14 @@
               <img src="{% if request.user.has_avatar %}{{ request.user.avatar.url }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="rounded-circle" width="48" height="48">
               <strong>{{ request.user.username|default:no_user }}</strong>
             </a>
-            <ul class="dropdown-menu text-small" style="">
-              <li><a class="dropdown-item" href="{% url 'users:profile' %}">{% trans "my_profile" %}</a></li>
-              <li><a href="{% url 'statistic:my_links' %}" class="dropdown-item" >{% trans "my_links" %}</a></li>
+            <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" {% if view_name != "users:profile" %}href="{% url 'users:profile' %}"{% endif %}>{% trans "my_profile" %}</a></li>
+              <li><a {% if view_name != "statistic:my_links" %}href="{% url 'statistic:my_links' %}"{% endif %} class="dropdown-item" >{% trans "my_links" %}</a></li>
               {% if request.user.is_staff %}
+                <li><hr class="dropdown-divider"></li>
+                  <li><a {% if view_name != "dashboard:all_links" %}href="{% url 'dashboard:all_links' %}"{% endif %} class="dropdown-item">
+                    {% trans "dashboard" %}
+                  </a></li>
                 <li><a href="{% url 'admin:index' %}" class="dropdown-item">
                   {% trans "admin_panel" %}
                 </a></li>

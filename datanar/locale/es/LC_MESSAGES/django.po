@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 13:59+0300\n"
+"POT-Creation-Date: 2024-06-20 22:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,35 +26,51 @@ msgstr "API"
 msgid "base_forms"
 msgstr "Formas básicas"
 
-#: .\datanar\settings.py:177
+#: .\dashboard\apps.py:8 .\templates\includes\header.html:65
+msgid "dashboard"
+msgstr "Panel de Control"
+
+#: .\dashboard\models.py:19 .\dashboard\models.py:25 .\dashboard\models.py:29
+msgid "domain_regex"
+msgstr "Dominio regular"
+
+#: .\dashboard\models.py:20 .\templates\dashboard\black_list.html:17
+msgid "domain_regex_that_will_be_prohibited_from_shortening"
+msgstr "Una expresión regular para un dominio que no se puede acortar"
+
+#: .\dashboard\models.py:26
+msgid "domains_regex"
+msgstr "Dominios regulares"
+
+#: .\datanar\settings.py:206
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:178
+#: .\datanar\settings.py:207
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:179
+#: .\datanar\settings.py:208
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\datanar\settings.py:180
+#: .\datanar\settings.py:209
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:181
+#: .\datanar\settings.py:210
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:182
+#: .\datanar\settings.py:211
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:183
+#: .\datanar\settings.py:212
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:184
+#: .\datanar\settings.py:213
 msgid "Japanese"
 msgstr "日本語"
 
@@ -74,31 +90,35 @@ msgstr "enlace largo"
 msgid "redirects"
 msgstr "Redirecciones"
 
-#: .\redirects\forms.py:27
+#: .\redirects\forms.py:31
 msgid "custom_url"
 msgstr "URL personalizada"
 
-#: .\redirects\forms.py:28
+#: .\redirects\forms.py:32
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "URL personalizada que te gustaría tener en lugar de la generada."
 
-#: .\redirects\forms.py:67
+#: .\redirects\forms.py:72
 msgid "custom_url_should_not_have_slash"
 msgstr "El enlace personalizado no debe tener ‘/’"
 
-#: .\redirects\forms.py:72
+#: .\redirects\forms.py:77
 msgid "custom_url_already_use"
 msgstr "Esta URL personalizada ya está en uso. Por favor, elige otra."
 
-#: .\redirects\forms.py:139
+#: .\redirects\forms.py:90
+msgid "this_url_is_blocked"
+msgstr "Esta URL está bloqueada"
+
+#: .\redirects\forms.py:151
 msgid "date_validity_invalid"
 msgstr "La fecha de caducidad no puede ser inferior a la fecha actual"
 
-#: .\redirects\forms.py:171 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Contraseña"
 
-#: .\redirects\forms.py:172
+#: .\redirects\forms.py:183
 msgid "password_before_redirect"
 msgstr "Introduce la contraseña antes de la redirección"
 
@@ -164,7 +184,7 @@ msgstr "redirección"
 msgid "invalid_password"
 msgstr "La contraseña no es correcta"
 
-#: .\statistic\apps.py:9 .\templates\includes\link_card.html:16
+#: .\statistic\apps.py:9 .\templates\includes\link_card.html:13
 msgid "statistic"
 msgstr "Estadísticas"
 
@@ -196,44 +216,48 @@ msgstr "país"
 msgid "city"
 msgstr "ciudad"
 
-#: .\statistic\views.py:75
+#: .\statistic\views.py:91
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:103
 msgid "Created"
 msgstr "Creado"
 
-#: .\statistic\views.py:88 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:104 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "SO"
 
-#: .\statistic\views.py:89
+#: .\statistic\views.py:105
 msgid "Browser"
 msgstr "Navegador"
 
-#: .\statistic\views.py:90
+#: .\statistic\views.py:106
 msgid "Country"
 msgstr "País"
 
-#: .\statistic\views.py:91
+#: .\statistic\views.py:107
 msgid "City"
 msgstr "Ciudad"
 
-#: .\templates\404.html:5 .\templates\500.html:5
+#: .\templates\403.html:5 .\templates\404.html:5 .\templates\500.html:5
 msgid "oops"
 msgstr "¡Ups!"
 
-#: .\templates\404.html:11
-msgid "page_not_found"
-msgstr "Página no encontrada"
+#: .\templates\403.html:11
+msgid "access_denied"
+msgstr "Acceso denegado"
 
-#: .\templates\404.html:13 .\templates\500.html:13
+#: .\templates\403.html:13 .\templates\404.html:13 .\templates\500.html:13
 #: .\templates\users\password_change_done.html:12
 #: .\templates\users\password_reset_complete.html:12
 #: .\templates\users\password_reset_done.html:12
 msgid "to_main"
 msgstr "A la página principal"
+
+#: .\templates\404.html:11
+msgid "page_not_found"
+msgstr "Página no encontrada"
 
 #: .\templates\500.html:11
 msgid "server_error"
@@ -347,7 +371,89 @@ msgstr ""
 "\n"
 "Si fuiste tú, puedes registrarte en el sitio utilizando el enlace de abajo."
 
-#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
+#: .\templates\dashboard\all_links.html:5
+msgid "title__dashboard__all_links"
+msgstr "Todos los enlaces"
+
+#: .\templates\dashboard\base.html:12
+msgid "all_links_list"
+msgstr "Todos los enlaces"
+
+#: .\templates\dashboard\base.html:17
+msgid "redirect_black_list"
+msgstr "Lista negra de dominios"
+
+#: .\templates\dashboard\base.html:22
+msgid "server_logs"
+msgstr "Registros del servidor"
+
+#: .\templates\dashboard\base.html:27 .\templates\includes\header.html:68
+msgid "admin_panel"
+msgstr "Panel de admin"
+
+#: .\templates\dashboard\black_list.html:5
+msgid "title__dashboard__black_list"
+msgstr "Lista negra de dominios"
+
+#: .\templates\dashboard\black_list.html:13
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:17
+msgid "Add"
+msgstr "Añadir"
+
+#: .\templates\dashboard\black_list.html:18
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:18
+msgid "Change"
+msgstr "Modificar"
+
+#: .\templates\dashboard\black_list.html:19
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:19
+#: .\templates\includes\link_card.html:17
+#: .\templates\qr_codes\QR_modal_delete.html:19
+msgid "Delete"
+msgstr "Eliminar"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:8
+msgid "new_blocked_domain_regex"
+msgstr "Añadir un dominio bloqueado"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:16
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:17
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:14
+#: .\templates\dashboard\log.html:33
+#: .\templates\qr_codes\QR_modal_delete.html:14
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:8
+msgid "change_blocked_domain_regex"
+msgstr "Cambiar dominio bloqueado"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:7
+#: .\templates\dashboard\log.html:26
+#: .\templates\qr_codes\QR_modal_delete.html:7
+msgid "are_you_sure"
+msgstr "¿Está seguro?"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:11
+#: .\templates\dashboard\log.html:30
+#: .\templates\qr_codes\QR_modal_delete.html:11
+msgid "this_action_cannot_be_undone"
+msgstr "Esta acción no se puede deshacer"
+
+#: .\templates\dashboard\log.html:5
+msgid "title__dashboard__logs"
+msgstr "Registros del servidor"
+
+#: .\templates\dashboard\log.html:17
+msgid "refresh"
+msgstr "Renovar"
+
+#: .\templates\dashboard\log.html:18 .\templates\dashboard\log.html:37
+msgid "clear_log"
+msgstr "Borra el registro"
+
+#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:8
 msgid "about"
 msgstr "Sobre el proyecto"
 
@@ -426,42 +532,42 @@ msgstr "Proyecto en Github"
 msgid "title__homepage"
 msgstr "Datanar - Acortamiento de enlaces"
 
-#: .\templates\homepage\main.html:27
+#: .\templates\homepage\main.html:28
 msgid "short_description_under_logo"
 msgstr "Acorta tu enlace para que tus clientes no tengan que ver largas URL."
 
-#: .\templates\homepage\main.html:29
+#: .\templates\homepage\main.html:30
 msgid "short_description_about_supported_files"
 msgstr ""
 "Puedes seleccionar o arrastrar un archivo con extensión .txt/.xlsx. En txt "
 "cada línea se considera como un enlace, y en xlsx cada línea de la primera "
 "columna"
 
-#: .\templates\homepage\main.html:39
+#: .\templates\homepage\main.html:40
 msgid "label_link_file"
 msgstr "Archivo seleccionado con enlaces"
 
-#: .\templates\homepage\main.html:43
+#: .\templates\homepage\main.html:44
 msgid "delete_file"
 msgstr "Eliminar archivo"
 
-#: .\templates\homepage\main.html:45
+#: .\templates\homepage\main.html:46
 msgid "choose_file"
 msgstr "Seleccionar archivo"
 
-#: .\templates\homepage\main.html:47
+#: .\templates\homepage\main.html:48
 msgid "shorten"
 msgstr "Acortar"
 
-#: .\templates\homepage\main.html:67
+#: .\templates\homepage\main.html:68
 msgid "message_error_count"
 msgstr "Por favor, arrastra solo un archivo."
 
-#: .\templates\homepage\main.html:68
+#: .\templates\homepage\main.html:69
 msgid "message_error_type"
 msgstr "Por favor, arrastra un archivo con extensión .xlsx o .txt."
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:5
+#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "Reglas del servicio"
 
@@ -510,7 +616,7 @@ msgstr ""
 "¡Gracias por elegir Datanar! Apreciamos tu confianza y nos esforzamos por "
 "ofrecerte un servicio de acortamiento de enlaces cómodo y seguro."
 
-#: .\templates\includes\footer.html:7
+#: .\templates\includes\footer.html:9
 msgid "API"
 msgstr "API"
 
@@ -543,23 +649,19 @@ msgstr "Mi perfil"
 msgid "my_links"
 msgstr "Mis enlaces"
 
-#: .\templates\includes\header.html:64
-msgid "admin_panel"
-msgstr "Admin"
-
-#: .\templates\includes\header.html:68
+#: .\templates\includes\header.html:72
 msgid "exit"
 msgstr "Cerrar sesión"
 
-#: .\templates\includes\header.html:73 .\templates\users\login.html:13
+#: .\templates\includes\header.html:77 .\templates\users\login.html:13
 msgid "sign_in"
 msgstr "Entrar"
 
-#: .\templates\includes\header.html:76 .\templates\users\signup.html:5
+#: .\templates\includes\header.html:80 .\templates\users\signup.html:5
 msgid "registration"
 msgstr "Registro"
 
-#: .\templates\includes\link_card.html:13
+#: .\templates\includes\link_card.html:10
 msgid "copy"
 msgstr "Copiar"
 
@@ -720,10 +822,6 @@ msgstr "Dirección de correo electrónico"
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
 msgstr "Reenvío de confirmación"
-
-#: .\templates\users\email_change.html:29
-msgid "Cancel"
-msgstr "Cancelar"
 
 #: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
 msgid "change_email"

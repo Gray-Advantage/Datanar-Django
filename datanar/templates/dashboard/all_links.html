@@ -1,0 +1,27 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "title__dashboard__all_links" %}{% endblock %}
+
+{% block css %}
+  <link href="{% static 'css/homepage/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/card-style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/qr_codes/copyText.js' %}"></script>
+  <script src="{% static 'js/qr_codes/displayQRModalPreview.js' %}"></script>
+  <script src="{% static 'js/qr_codes/deleteQRModal.js' %}"></script>
+{% endblock %}
+
+{% block dashboard_content %}
+  {% include "includes/paginator.html" %}
+  <div class="list-group gap-2 mx-auto mb-3">
+    {% for link in links %}
+      {% include "includes/link_card.html" with link=link %}
+    {% endfor %}
+  </div>
+  {% include "qr_codes/QR_modal_preview.html" %}
+  {% include "qr_codes/QR_modal_delete.html" %}
+{% endblock %}

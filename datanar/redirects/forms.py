@@ -8,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 from sqids import Sqids
 
 from core.forms import BootstrapFormMixin
+from dashboard.models import BlockedDomain
 from redirects.models import Redirect
 
 
@@ -61,6 +62,10 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
         ]
 
     def clean(self):
+        if self.errors:
+            return super().clean()
+
+        long_link = self.cleaned_data.get(Redirect.long_link.field.name)
         custom_url = self.cleaned_data.get("custom_url")
 
         if custom_url:
@@ -78,9 +83,15 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
             if not self.errors:
                 self.cleaned_data[Redirect.short_link.field.name] = custom_url
                 del self.cleaned_data["custom_url"]
-
                 return self.cleaned_data
 
+            return None
+
+        if BlockedDomain.objects.is_blocked(long_link):
+            self.add_error(
+                Redirect.long_link.field.name,
+                ValidationError(_("this_url_is_blocked")),
+            )
             return None
 
         counter = 0
@@ -130,6 +141,9 @@ class RedirectFormExtended(RedirectForm):
         self.fields["date_validity_field"].widget.update_min_date()
 
     def clean(self):
+        if self.errors:
+            return super().clean()
+
         if self.cleaned_data["date_validity_field"] is None:
             self.cleaned_data[Redirect.validity_days.field.name] = None
             del self.cleaned_data["date_validity_field"]

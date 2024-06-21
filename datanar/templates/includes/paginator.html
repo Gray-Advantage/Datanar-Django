@@ -1,0 +1,19 @@
+{% if page_obj.has_previous or page_obj.has_next %}
+  <div class="mx-auto mb-2">
+    {% if page_obj.has_previous %}
+      <div class="btn-group" role="group">
+        <a class="btn btn-sm btn-outline-light" href="?page=1"><i class="bi bi-box-arrow-in-left"></i></a>
+        <a class="btn btn-sm btn-outline-light" href="?page={{ page_obj.previous_page_number }}"><i class="bi bi-arrow-left-short"></i></a>
+      </div>
+    {% endif %}
+    <span class="current mx-2">
+      {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}
+    </span>
+    {% if page_obj.has_next %}
+      <div class="btn-group" role="group">
+        <a class="btn btn-sm btn-outline-light" href="?page={{ page_obj.next_page_number }}"><i class="bi bi-arrow-right-short"></i></a>
+        <a class="btn btn-sm btn-outline-light" href="?page={{ page_obj.paginator.num_pages }}"><i class="bi bi-box-arrow-in-right"></i></a>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
