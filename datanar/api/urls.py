@@ -1,4 +1,4 @@
-from django.urls import path, re_path
+from django.urls import path
 from rest_framework.authtoken import views as rest_views
 from rest_framework.routers import DefaultRouter
 
@@ -8,7 +8,7 @@ from api import views
 class OptionalSlashRouter(DefaultRouter):
     def __init__(self):
         super().__init__()
-        self.trailing_slash = '/?'
+        self.trailing_slash = "/?"
 
 
 app_name = "api"
