@@ -3,17 +3,19 @@ from urllib.parse import urlparse
 from django.contrib import messages
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 from django.views.generic.base import TemplateView
 
+from core.mixins import FormMethodExtender
 from datanar.message_levels import LOADING_LINKS, SHORT_LINK
 from redirects.forms import RedirectForm, RedirectFormExtended
 from redirects.models import Redirect
 from redirects.tasks import create_redirects
 
 
-class HomeView(FormView):
+class HomeView(FormMethodExtender, FormView):
     template_name = "homepage/main.html"
     success_url = reverse_lazy("homepage:home")
 
@@ -76,6 +78,12 @@ class HomeView(FormView):
         context["LOADING_LINKS"] = LOADING_LINKS
         return context
 
+    def delete(self, request):
+        Redirect.objects.filter(
+            short_link=request.POST.get("short_link"),
+        ).delete()
+        return HttpResponseRedirect(request.get_full_path())
+
 
 class ServiceRulesView(TemplateView):
     template_name = "homepage/service_rules.html"
@@ -85,4 +93,4 @@ class AboutView(TemplateView):
     template_name = "homepage/about.html"
 
 
-__all__ = [HomeView]
+__all__ = [HomeView, ServiceRulesView, AboutView]

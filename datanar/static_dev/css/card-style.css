@@ -1,3 +1,24 @@
-.link-card {
-    max-width: 290px;
+.flex-grow-1 {
+  min-width: 0;
+}
+
+.qr-code {
+  transition: transform .1s;;
+}
+
+.qr-code:hover {
+  transform: scale(1.06);
+  cursor: pointer;
+}
+
+@media (max-width: 490px) {
+    .sm-screen-hide {
+        display: none !important;
+    }
+}
+
+@media (min-width: 491px) {
+    .sm-screen-show {
+        display: none !important;
+    }
 }

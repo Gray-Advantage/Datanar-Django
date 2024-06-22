@@ -6,6 +6,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator
 import openpyxl
 
+from dashboard.models import BlockedDomain
 from datanar.celery import app
 from redirects.forms import RedirectFormExtended
 from redirects.models import Redirect
@@ -73,6 +74,9 @@ def create_redirects(data, user_id, host):
     second = True
 
     for long_link in links:
+        if BlockedDomain.objects.is_blocked(long_link):
+            continue
+
         data[Redirect.long_link.field.name] = long_link
 
         if first:
@@ -87,9 +91,10 @@ def create_redirects(data, user_id, host):
 
         url_long_link = urlparse(long_link)
 
+        user_creator = User.objects.get(id=user_id)
         if url_long_link.netloc != host:
             redirect = Redirect.objects.create(**form.cleaned_data)
-            redirect.user = User.objects.get(id=user_id)
+            redirect.user = user_creator
             redirect.save()
             short_link = redirect.short_link
         else:

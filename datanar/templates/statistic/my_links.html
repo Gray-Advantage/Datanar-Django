@@ -10,15 +10,18 @@
 {% endblock %}
 
 {% block js %}
-  {{ block.super }}
-  <script src="{% static 'js/copyText.js' %}"></script>
+  <script src="{% static 'js/qr_codes/copyText.js' %}"></script>
+  <script src="{% static 'js/qr_codes/displayQRModalPreview.js' %}"></script>
+  <script src="{% static 'js/qr_codes/deleteQRModal.js' %}"></script>
 {% endblock %}
 
-
 {% block content %}
-  <div class="list-group gap-2 ms-auto me-auto mb-3">
+  {% include "includes/paginator.html" %}
+  <div class="list-group gap-2 mx-auto">
     {% for link in links %}
       {% include "includes/link_card.html" with link=link %}
     {% endfor %}
   </div>
+  {% include "qr_codes/QR_modal_preview.html" %}
+  {% include "qr_codes/QR_modal_delete.html" %}
 {% endblock %}

@@ -9,6 +9,7 @@ urlpatterns = [
     path("api/v1/", include("api.urls")),
     path("auth/", include("users.urls")),
     path("auth/", include("allauth.urls")),
+    path("dashboard/", include("dashboard.urls")),
     path("i18n/", include("django.conf.urls.i18n")),
     path("qr_code/", include("qr_codes.urls")),
     path("statistics/", include("statistic.urls")),

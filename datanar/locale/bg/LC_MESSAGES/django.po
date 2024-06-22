@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 13:59+0300\n"
+"POT-Creation-Date: 2024-06-20 22:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,35 +26,51 @@ msgstr "API"
 msgid "base_forms"
 msgstr "Основни форми"
 
-#: .\datanar\settings.py:177
+#: .\dashboard\apps.py:8 .\templates\includes\header.html:65
+msgid "dashboard"
+msgstr "Контролен панел"
+
+#: .\dashboard\models.py:19 .\dashboard\models.py:25 .\dashboard\models.py:29
+msgid "domain_regex"
+msgstr "Редовен домейн"
+
+#: .\dashboard\models.py:20 .\templates\dashboard\black_list.html:17
+msgid "domain_regex_that_will_be_prohibited_from_shortening"
+msgstr "Регулярен израз за домейн, който ще бъде забранен за намаляване"
+
+#: .\dashboard\models.py:26
+msgid "domains_regex"
+msgstr "Редовни домейни"
+
+#: .\datanar\settings.py:206
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:178
+#: .\datanar\settings.py:207
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:179
+#: .\datanar\settings.py:208
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\datanar\settings.py:180
+#: .\datanar\settings.py:209
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:181
+#: .\datanar\settings.py:210
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:182
+#: .\datanar\settings.py:211
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:183
+#: .\datanar\settings.py:212
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:184
+#: .\datanar\settings.py:213
 msgid "Japanese"
 msgstr "日本語"
 
@@ -74,32 +90,36 @@ msgstr "дълга връзка"
 msgid "redirects"
 msgstr "пренасочване"
 
-#: .\redirects\forms.py:27
+#: .\redirects\forms.py:31
 msgid "custom_url"
 msgstr "Персонализиран URL адрес"
 
-#: .\redirects\forms.py:28
+#: .\redirects\forms.py:32
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr ""
 "Персонализиран URL адрес, който бихте искали да имате вместо генерирания."
 
-#: .\redirects\forms.py:67
+#: .\redirects\forms.py:72
 msgid "custom_url_should_not_have_slash"
 msgstr "Персонализираната връзка не трябва да има ‘/’"
 
-#: .\redirects\forms.py:72
+#: .\redirects\forms.py:77
 msgid "custom_url_already_use"
 msgstr "Този персонализиран URL адрес вече се използва. Моля, изберете друг."
 
-#: .\redirects\forms.py:139
+#: .\redirects\forms.py:90
+msgid "this_url_is_blocked"
+msgstr "Този URL е блокиран"
+
+#: .\redirects\forms.py:151
 msgid "date_validity_invalid"
 msgstr "Срок на годност не може да бъде по-малък от текущата дата"
 
-#: .\redirects\forms.py:171 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Парола"
 
-#: .\redirects\forms.py:172
+#: .\redirects\forms.py:183
 msgid "password_before_redirect"
 msgstr "Въведете парола преди пренасочване"
 
@@ -163,9 +183,9 @@ msgstr "пренасочване"
 
 #: .\redirects\views.py:48
 msgid "invalid_password"
-msgstr "Паролата не е верна"
+msgstr "Невалидна парола"
 
-#: .\statistic\apps.py:9 .\templates\includes\link_card.html:16
+#: .\statistic\apps.py:9 .\templates\includes\link_card.html:13
 msgid "statistic"
 msgstr "Статистика"
 
@@ -197,44 +217,48 @@ msgstr "държава"
 msgid "city"
 msgstr "град"
 
-#: .\statistic\views.py:75
+#: .\statistic\views.py:91
 msgid "Unknown"
 msgstr "Неизвестен"
 
-#: .\statistic\views.py:87
+#: .\statistic\views.py:103
 msgid "Created"
 msgstr "Създаден"
 
-#: .\statistic\views.py:88 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:104 .\templates\statistic\link_detail.html:61
 msgid "OS"
 msgstr "ОС"
 
-#: .\statistic\views.py:89
+#: .\statistic\views.py:105
 msgid "Browser"
 msgstr "Браузер"
 
-#: .\statistic\views.py:90
+#: .\statistic\views.py:106
 msgid "Country"
 msgstr "Държава"
 
-#: .\statistic\views.py:91
+#: .\statistic\views.py:107
 msgid "City"
 msgstr "Град"
 
-#: .\templates\404.html:5 .\templates\500.html:5
+#: .\templates\403.html:5 .\templates\404.html:5 .\templates\500.html:5
 msgid "oops"
 msgstr "Опа!"
 
-#: .\templates\404.html:11
-msgid "page_not_found"
-msgstr "Страницата не е намерена"
+#: .\templates\403.html:11
+msgid "access_denied"
+msgstr "Достъпът е отказан"
 
-#: .\templates\404.html:13 .\templates\500.html:13
+#: .\templates\403.html:13 .\templates\404.html:13 .\templates\500.html:13
 #: .\templates\users\password_change_done.html:12
 #: .\templates\users\password_reset_complete.html:12
 #: .\templates\users\password_reset_done.html:12
 msgid "to_main"
 msgstr "Към началната страница"
+
+#: .\templates\404.html:11
+msgid "page_not_found"
+msgstr "Страницата не е намерена"
 
 #: .\templates\500.html:11
 msgid "server_error"
@@ -348,7 +372,89 @@ msgstr ""
 "Ако това сте вие, можете да се регистрирате на сайта, използвайки връзката "
 "по-долу."
 
-#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:6
+#: .\templates\dashboard\all_links.html:5
+msgid "title__dashboard__all_links"
+msgstr "Всички връзки"
+
+#: .\templates\dashboard\base.html:12
+msgid "all_links_list"
+msgstr "Всички връзки"
+
+#: .\templates\dashboard\base.html:17
+msgid "redirect_black_list"
+msgstr "Черен списък на домейни"
+
+#: .\templates\dashboard\base.html:22
+msgid "server_logs"
+msgstr "Сървърни дневници"
+
+#: .\templates\dashboard\base.html:27 .\templates\includes\header.html:68
+msgid "admin_panel"
+msgstr "Админ панел"
+
+#: .\templates\dashboard\black_list.html:5
+msgid "title__dashboard__black_list"
+msgstr "Черен списък на домейни"
+
+#: .\templates\dashboard\black_list.html:13
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:17
+msgid "Add"
+msgstr "Добави"
+
+#: .\templates\dashboard\black_list.html:18
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:18
+msgid "Change"
+msgstr "Промени"
+
+#: .\templates\dashboard\black_list.html:19
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:19
+#: .\templates\includes\link_card.html:17
+#: .\templates\qr_codes\QR_modal_delete.html:19
+msgid "Delete"
+msgstr "Изтрий"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:8
+msgid "new_blocked_domain_regex"
+msgstr "Добавете блокиран домейн"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_add.html:16
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:17
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:14
+#: .\templates\dashboard\log.html:33
+#: .\templates\qr_codes\QR_modal_delete.html:14
+#: .\templates\users\email_change.html:29
+msgid "Cancel"
+msgstr "Отказ"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_change.html:8
+msgid "change_blocked_domain_regex"
+msgstr "Променете блокирания домейн"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:7
+#: .\templates\dashboard\log.html:26
+#: .\templates\qr_codes\QR_modal_delete.html:7
+msgid "are_you_sure"
+msgstr "Сигурен ли сте?"
+
+#: .\templates\dashboard\includes\blocked_domain_modal_delete.html:11
+#: .\templates\dashboard\log.html:30
+#: .\templates\qr_codes\QR_modal_delete.html:11
+msgid "this_action_cannot_be_undone"
+msgstr "Това действие няма да бъде отменено"
+
+#: .\templates\dashboard\log.html:5
+msgid "title__dashboard__logs"
+msgstr "Сървърни дневници"
+
+#: .\templates\dashboard\log.html:17
+msgid "refresh"
+msgstr "Актуализирам"
+
+#: .\templates\dashboard\log.html:18 .\templates\dashboard\log.html:37
+msgid "clear_log"
+msgstr "Изчистване на дневника"
+
+#: .\templates\homepage\about.html:5 .\templates\includes\footer.html:8
 msgid "about"
 msgstr "За проекта"
 
@@ -426,43 +532,43 @@ msgstr "Проектът в Github"
 msgid "title__homepage"
 msgstr "Datanar - Съкращаване на връзки"
 
-#: .\templates\homepage\main.html:27
+#: .\templates\homepage\main.html:28
 msgid "short_description_under_logo"
 msgstr ""
 "Съкратете вашата връзка, така че вашите клиенти да не трябва да виждат дълги "
 "URL адреси."
 
-#: .\templates\homepage\main.html:29
+#: .\templates\homepage\main.html:30
 msgid "short_description_about_supported_files"
 msgstr ""
 "Можете да изберете или да плъзнете файл с разширение .txt/.xlsx. В txt всяка "
 "линия се разглежда като връзка, а в xlsx всяка линия на първата колона"
 
-#: .\templates\homepage\main.html:39
+#: .\templates\homepage\main.html:40
 msgid "label_link_file"
 msgstr "Избран файл с връзки"
 
-#: .\templates\homepage\main.html:43
+#: .\templates\homepage\main.html:44
 msgid "delete_file"
 msgstr "Изтрий файл"
 
-#: .\templates\homepage\main.html:45
+#: .\templates\homepage\main.html:46
 msgid "choose_file"
 msgstr "Изберете файл"
 
-#: .\templates\homepage\main.html:47
+#: .\templates\homepage\main.html:48
 msgid "shorten"
 msgstr "Съкрати"
 
-#: .\templates\homepage\main.html:67
+#: .\templates\homepage\main.html:68
 msgid "message_error_count"
 msgstr "Моля, плъзнете само един файл."
 
-#: .\templates\homepage\main.html:68
+#: .\templates\homepage\main.html:69
 msgid "message_error_type"
 msgstr "Моля, плъзнете файл с разширение .xlsx или .txt."
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:5
+#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "Правила на услугата"
 
@@ -511,7 +617,7 @@ msgstr ""
 "Благодарим ви, че избрахте Datanar! Ние ценим вашето доверие и се стремим да "
 "ви предоставим удобна и безопасна услуга за съкращаване на връзки."
 
-#: .\templates\includes\footer.html:7
+#: .\templates\includes\footer.html:9
 msgid "API"
 msgstr "API"
 
@@ -544,23 +650,19 @@ msgstr "Моят профил"
 msgid "my_links"
 msgstr "Моите връзки"
 
-#: .\templates\includes\header.html:64
-msgid "admin_panel"
-msgstr "Админ панел"
-
-#: .\templates\includes\header.html:68
+#: .\templates\includes\header.html:72
 msgid "exit"
 msgstr "Изход"
 
-#: .\templates\includes\header.html:73 .\templates\users\login.html:13
+#: .\templates\includes\header.html:77 .\templates\users\login.html:13
 msgid "sign_in"
 msgstr "Вход"
 
-#: .\templates\includes\header.html:76 .\templates\users\signup.html:5
+#: .\templates\includes\header.html:80 .\templates\users\signup.html:5
 msgid "registration"
 msgstr "Регистрация"
 
-#: .\templates\includes\link_card.html:13
+#: .\templates\includes\link_card.html:10
 msgid "copy"
 msgstr "Копирай"
 
@@ -719,10 +821,6 @@ msgstr "Имейл адрес"
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
 msgstr "Повторно изпращане на потвърждение"
-
-#: .\templates\users\email_change.html:29
-msgid "Cancel"
-msgstr "Отказ"
 
 #: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
 msgid "change_email"

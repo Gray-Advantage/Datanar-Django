@@ -1,0 +1,20 @@
+<div class="modal fade" id="QRPreview" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        {% include 'svg/link.svg' %} <h5 id="qrRedirect" class="modal-title text-truncate"></h5>
+        <button type="button" class="btn-close ms-2" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body d-flex">
+        <img id="qrBigPreview" class="rounded-3 border m-auto mw-100" src="">
+      </div>
+      <div class="modal-footer d-flex">
+        <div class="mx-auto">
+          <a id="svgDownloadLink" class="btn btn-outline-dark">SVG</a>
+          <a id="jpgDownloadLink" class="btn btn-outline-dark ms-2">JPG</a>
+          <a id="pngDownloadLink" class="btn btn-outline-dark ms-2">PNG</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

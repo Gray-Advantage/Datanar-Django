@@ -54,7 +54,7 @@ class ActivationTest(TestCase):
     @patch.object(timezone, "now")
     def test_activation_wrong(self, mock_now):
         future_time = timezone.make_aware(datetime.now() + timedelta(hours=13))
-        mock_now.return_value = datetime.now()
+        mock_now.return_value = timezone.make_aware(datetime.now())
 
         self.client.post(reverse("users:signup"), self.data)
         user = User.objects.get(username=self.data["username"])

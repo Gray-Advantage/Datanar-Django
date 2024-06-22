@@ -1,5 +1,12 @@
 [
 {
+    "model": "dashboard.blockeddomain",
+    "pk": 1,
+    "fields": {
+        "domain_regex": ".*example\\..*"
+    }
+},
+{
     "model": "redirects.redirect",
     "pk": 1,
     "fields": {

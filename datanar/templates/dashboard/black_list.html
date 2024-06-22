@@ -1,0 +1,26 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "title__dashboard__black_list" %}{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/dashboard/changeBlockedDomainModal.js' %}"></script>
+  <script src="{% static 'js/dashboard/deleteBlockedDomainModal.js' %}"></script>
+{% endblock %}
+
+{% block dashboard_content %}
+  <button class="btn btn-outline-success mx-auto mt-2" data-bs-toggle="modal" data-bs-target="#blockedDomainAdd">{% trans "Add" %}</button>
+  <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-2">
+    {% for domain in domains %}
+      <div class="input-group mt-2">
+        <input type="text" class="form-control" placeholder="{% trans 'domain_regex_that_will_be_prohibited_from_shortening' %}" value="{{ domain.domain_regex }}" readonly disabled>
+        <button class="btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#blockedDomainChange" data-bs-domain-id="{{ domain.id }}" data-bs-domain-regex="{{ domain.domain_regex }}">{% trans "Change" %}</button>
+        <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#blockedDomainDelete" data-bs-domain-id="{{ domain.id }}">{% trans "Delete" %}</button>
+      </div>
+    {% endfor %}
+  </div>
+  {% include "dashboard/includes/blocked_domain_modal_change.html" %}
+  {% include "dashboard/includes/blocked_domain_modal_delete.html" %}
+  {% include "dashboard/includes/blocked_domain_modal_add.html" %}
+{% endblock %}
