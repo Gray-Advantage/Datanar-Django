@@ -183,7 +183,7 @@ msgstr "пренасочване"
 
 #: .\redirects\views.py:48
 msgid "invalid_password"
-msgstr "Паролата не е верна"
+msgstr "Невалидна парола"
 
 #: .\statistic\apps.py:9 .\templates\includes\link_card.html:13
 msgid "statistic"

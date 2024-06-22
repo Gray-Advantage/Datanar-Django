@@ -182,7 +182,7 @@ msgstr "redirection"
 
 #: .\redirects\views.py:48
 msgid "invalid_password"
-msgstr "Le mot de passe est incorrect"
+msgstr "Mot de passe incorrect"
 
 #: .\statistic\apps.py:9 .\templates\includes\link_card.html:13
 msgid "statistic"

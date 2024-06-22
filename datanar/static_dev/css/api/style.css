@@ -84,13 +84,11 @@ pre.example {
 }
 
 .param {
-    width: 500px;
     padding: 10px 0 0 20px;
     font-weight: bold;
 }
 
 .param-desc {
-    width: 700px;
     padding: 0 0 0 20px;
     color: #777;
 }
