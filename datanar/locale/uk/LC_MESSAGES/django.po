@@ -187,7 +187,7 @@ msgstr "перенапрямок"
 
 #: .\redirects\views.py:48
 msgid "invalid_password"
-msgstr "Пароль не вірний"
+msgstr "Невірний пароль"
 
 #: .\statistic\apps.py:9 .\templates\includes\link_card.html:13
 msgid "statistic"

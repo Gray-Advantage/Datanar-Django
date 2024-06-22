@@ -190,7 +190,7 @@ msgstr "Weiterleitung"
 
 #: .\redirects\views.py:48
 msgid "invalid_password"
-msgstr "Passwort ist nicht korrekt"
+msgstr "Falsches Passwort"
 
 #: .\statistic\apps.py:9 .\templates\includes\link_card.html:13
 msgid "statistic"
