@@ -10,7 +10,7 @@
 {% block content %}
 <h1>Datanar API Docs</h1>
 <div class="app-desc">Contact Info: <a href="mailto:sergeyindra@yandex.ru">sergeyindra@yandex.ru</a></div>
-<div class="app-desc">Version: 1.0.0</div>
+<div class="app-desc">Version: 1.1.0</div>
 <div class="app-desc">BasePath: /api/v1/</div>
 <h2>Access</h2>
 
@@ -223,14 +223,15 @@
 
   <h3 class="field-label">Responses</h3>
   <h4 class="field-label">201</h4>
-  Successful operation
-  <a href="#Redirect">Redirect</a>
+  Successful operation <a href="#Redirect">Redirect</a>
   <h4 class="field-label">400</h4>
   Bad request
-  <a href="#"></a>
   <h4 class="field-label">401</h4>
   Invalid token supplied
-  <a href="#"></a>
+  <h4 class="field-label">409</h4>
+  Redirect with this short_link already exist
+  <h4 class="field-label">423</h4>
+  Redirect with this long_link was blocked
 </div> <!-- method -->
 <hr/>
 <div class="method"><a id="deleteRedirectId"></a>
