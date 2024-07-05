@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: pip install black
       - name: Check code formatting with black
-        run: black ./datanar/ --check --verbose --diff --line-length 79
+        run: black ./datanar/ --check --verbose --diff
 
   flake8-test:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements/test.txt
     - name: Check code formatting with flake8
-      run: flake8 ./datanar/ --config=.flake8
+      run: flake8 ./datanar/
 
   django-test:
     runs-on: ubuntu-latest
