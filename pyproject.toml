@@ -1,0 +1,24 @@
+[tool.flake8]
+max-line-length = 79
+inline-quotes="double"
+import-order-style="google"
+per-file-ignores = [
+    "*/migrations/*:E501",
+    "LN001",
+    "C812",
+    "DALL000",
+]
+application-import-names = [
+    "api",
+    "dashboard",
+    "core",
+    "datanar",
+    "homepage",
+    "qr_codes",
+    "redirects",
+    "statistic",
+    "users",
+]
+
+[tool.black]
+line-length = 79
