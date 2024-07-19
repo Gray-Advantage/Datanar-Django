@@ -10,16 +10,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 VERSION = "1.7.3"
 
 SECRET_KEY = config(
-    "DJANGO_SECRET_KEY",
+    "DATANAR_SECRET_KEY",
     default="this_is_test_key_-_some_very_dummy_secret_key",
     cast=str,
 )
 
-DEBUG = bool(strtobool(config("DJANGO_DEBUG", "False")))
+DEBUG = bool(strtobool(config("DATANAR_DJANGO_DEBUG", "False")))
 
 NOT_TESTING = "test" not in sys.argv
 
-LOG_FILE_PATH = config("DJANGO_LOG_FILE_PATH", default="", cast=str)
+LOG_FILE_PATH = config("DATANAR_LOG_FILE_PATH", default="", cast=str)
 
 if LOG_FILE_PATH:
     LOGGING = {
@@ -46,7 +46,7 @@ if LOG_FILE_PATH:
     }
 
 ALLOWED_HOSTS = config(
-    "DJANGO_ALLOWED_HOSTS",
+    "DATANAR_ALLOWED_HOSTS",
     default="*",
     cast=lambda line: line.split(","),
 )
@@ -93,7 +93,6 @@ if settings.DEBUG and NOT_TESTING:
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
     INTERNAL_IPS = ["127.0.0.1"]
 
-
 ROOT_URLCONF = "datanar.urls"
 
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -119,27 +118,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "datanar.wsgi.application"
 
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": BASE_DIR / f"{config('DATANAR_DATABASE_NAME')}.sqlite3",
     },
 }
 
-
-if not strtobool(config("DJANGO_USE_SIMPLE_DATABASE", "True")):
+if not strtobool(config("DATANAR_USE_FILE_DATABASE", "True")):
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": config("DJANGO_DATABASE_NAME", cast=str),
-            "USER": config("DJANGO_DATABASE_USER", cast=str),
-            "PASSWORD": config("DJANGO_DATABASE_PASSWORD", cast=str),
-            "HOST": "localhost",
-            "PORT": "",
+            "NAME": config("DATANAR_DATABASE_NAME"),
+            "USER": config("DATANAR_DATABASE_USER"),
+            "PASSWORD": config("DATANAR_DATABASE_PASSWORD"),
+            "HOST": config("DATANAR_DATABASE_HOST"),
+            "PORT": config("DATANAR_DATABASE_PORT"),
         },
     }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -173,7 +169,7 @@ AUTHENTICATION_BACKENDS = [
 AUTH_USER_MODEL = "users.User"
 
 DEFAULT_USER_IS_ACTIVE = bool(
-    strtobool(config("DJANGO_DEFAULT_USER_IS_ACTIVE", "False")),
+    strtobool(config("DATANAR_DEFAULT_USER_IS_ACTIVE", "False")),
 )
 
 LOGIN_URL = "/auth/login/"
@@ -189,14 +185,14 @@ ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "<[DATANAR]> "
 SITE_ID = 1
 
-EMAIL_HOST = config("DJANGO_MAIL_HOST", default="smtp.mail.ru")
-EMAIL_PORT = config("DJANGO_MAIL_PORT", default=2525, cast=int)
+EMAIL_HOST = config("DATANAR_MAIL_HOST", default="smtp.mail.ru")
+EMAIL_PORT = config("DATANAR_MAIL_PORT", default=2525, cast=int)
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-DEFAULT_FROM_EMAIL = config("DJANGO_MAIL_USER", default="webmaster@localhost")
-EMAIL_HOST_USER = config("DJANGO_MAIL_USER", default="webmaster@localhost")
+DEFAULT_FROM_EMAIL = config("DATANAR_MAIL_USER", default="webmaster@localhost")
+EMAIL_HOST_USER = config("DATANAR_MAIL_USER", default="webmaster@localhost")
 EMAIL_HOST_PASSWORD = config(
-    "DJANGO_MAIL_PASSWORD",
+    "DATANAR_MAIL_PASSWORD",
     default="this_very_secret_password_for_smtp_mail",
 )
 
@@ -235,8 +231,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 GEOIP_PATH = "geo_ip"
 
-CELERY_BROKER_URL = "redis://localhost:6379/0"
-CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+CELERY_BROKER_URL = (
+    f"redis://{config('DATANAR_REDIS_HOST', cast=str)}"
+    f":{config('DATANAR_REDIS_PORT', cast=str)}"
+    f"/{config('DATANAR_REDIS_DB', cast=str)}"
+)
+CELERY_RESULT_BACKEND = (
+    f"redis://{config('DATANAR_REDIS_HOST', cast=str)}:"
+    f"{config('DATANAR_REDIS_PORT', cast=str)}/"
+    f"{config('DATANAR_REDIS_DB', cast=str)}"
+)
 
 SETTINGS_EXPORT = [
     "VERSION",

@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 *.so
-*.sqlite3
+db.sqlite3
 .Python
 build/
 develop-eggs/
