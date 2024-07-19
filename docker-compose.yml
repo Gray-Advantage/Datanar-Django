@@ -30,13 +30,14 @@ services:
     environment:
       DEBUG: ${DATANAR_CERTBOT_DEBUG}
       CERTBOT_EMAIL: ${DATANAR_CERTBOT_EMAIL}
-      STAGING: ${DATANAR_CERTBOT_DEBUG}
+      STAGING: ${DATANAR_CERTBOT_STAGING}
     restart: always
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./nginx-confs/datanar_prod.conf:/etc/nginx/user_conf.d/gray-advantage.conf
+      - ./nginx-confs/robots.txt:/datanar/static/robots.txt
       - django_media_volume:/datanar/media
       - django_static_volume:/datanar/static
       - nginx_certificates_volume:/etc/letsencrypt
