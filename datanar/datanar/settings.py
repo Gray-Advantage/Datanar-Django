@@ -121,7 +121,10 @@ WSGI_APPLICATION = "datanar.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / f"{config('DATANAR_DATABASE_NAME')}.sqlite3",
+        "NAME": (
+            BASE_DIR
+            / f"{config('DATANAR_DATABASE_NAME', default='db')}.sqlite3"
+        ),
     },
 }
 

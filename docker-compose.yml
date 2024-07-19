@@ -1,4 +1,3 @@
-version: "3.9"
 name: "datanar"
 
 services:
@@ -37,7 +36,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx-confs/datanar_prod.conf:/etc/nginx/user_conf.d/datanar.conf
+      - ./nginx-confs/datanar_prod.conf:/etc/nginx/user_conf.d/gray-advantage.conf
       - django_media_volume:/datanar/media
       - django_static_volume:/datanar/static
       - nginx_certificates_volume:/etc/letsencrypt
