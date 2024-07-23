@@ -106,7 +106,7 @@
 ---
 
 ## Развёртывание
-Данная документация имеет два основных способа запуска (развёртывания)
+Данная документация предлагает два основных способа запуска (развёртывания)
 приложения:
 ### [Нативная установка](docs/native-install.md)
 - подразумевает загрузку всего необходимого ПО непосредственно на локальную
@@ -122,11 +122,17 @@
 ---
 
 ## Авторы - эти прекрасные люди:
-<img src="datanar/static_dev/img/authors/sergey.jpg" width="30" height="30" alt="sergey">
-Андреев Сергей (<a href="https://github.com/Gray-Advantage">Github</a> | <a href="https://t.me/Gray_Advantage">Telegram</a>)
+<div style="display: flex; align-items: center;">
+  <img src="datanar/static_dev/img/authors/sergey.jpg" width="30" height="30" alt="sergey">
+  <span style="margin-left: 10px;">Андреев Сергей (<a href="https://github.com/Gray-Advantage">Github</a> | <a href="https://t.me/Gray_Advantage">Telegram</a>)</span>
+</div>
 <br>
-<img src="datanar/static_dev/img/authors/vladimir.jpg" width="30" height="30" alt="vladimir">
-Клименко Владимир (<a href="https://github.com/brandonzorn">Github</a> | <a href="https://t.me/brandonzorn">Telegram</a>)
+<div style="display: flex; align-items: center;">
+  <img src="datanar/static_dev/img/authors/vladimir.jpg" width="30" height="30" alt="vladimir">
+  <span style="margin-left: 10px;">Клименко Владимир (<a href="https://github.com/brandonzorn">Github</a> | <a href="https://t.me/brandonzorn">Telegram</a>)</span>
+</div>
 <br>
-<img src="datanar/static_dev/img/authors/artem.jpg" width="30" height="30" alt="artem">
-Третьяков Артем (<a href="https://github.com/Artem037">Github</a> | <a href="https://t.me/piper273">Telegram</a>)
+<div style="display: flex; align-items: center;">
+  <img src="datanar/static_dev/img/authors/artem.jpg" width="30" height="30" alt="artem">
+  <span style="margin-left: 10px;">Третьяков Артем (<a href="https://github.com/Artem037">Github</a> | <a href="https://t.me/piper273">Telegram</a>)</span>
+</div>
