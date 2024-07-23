@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "1.7.3"
+VERSION = "2.0.0"
 
 SECRET_KEY = config(
     "DATANAR_SECRET_KEY",
@@ -128,7 +128,7 @@ DATABASES = {
     },
 }
 
-if not strtobool(config("DATANAR_USE_FILE_DATABASE", "True")):
+if not strtobool(config("DATANAR_USE_FILE_DATABASE", default="True")):
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -172,7 +172,7 @@ AUTHENTICATION_BACKENDS = [
 AUTH_USER_MODEL = "users.User"
 
 DEFAULT_USER_IS_ACTIVE = bool(
-    strtobool(config("DATANAR_DEFAULT_USER_IS_ACTIVE", "False")),
+    strtobool(config("DATANAR_DEFAULT_USER_IS_ACTIVE", default="False")),
 )
 
 LOGIN_URL = "/auth/login/"
@@ -235,14 +235,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 GEOIP_PATH = "geo_ip"
 
 CELERY_BROKER_URL = (
-    f"redis://{config('DATANAR_REDIS_HOST', cast=str)}"
-    f":{config('DATANAR_REDIS_PORT', cast=str)}"
-    f"/{config('DATANAR_REDIS_DB', cast=str)}"
+    f"redis://{config('DATANAR_REDIS_HOST', default='localhost', cast=str)}:"
+    f":{config('DATANAR_REDIS_PORT', default='6379', cast=str)}"
+    f"/{config('DATANAR_REDIS_DB', default='0', cast=str)}"
 )
 CELERY_RESULT_BACKEND = (
-    f"redis://{config('DATANAR_REDIS_HOST', cast=str)}:"
-    f"{config('DATANAR_REDIS_PORT', cast=str)}/"
-    f"{config('DATANAR_REDIS_DB', cast=str)}"
+    f"redis://{config('DATANAR_REDIS_HOST', default='localhost', cast=str)}:"
+    f"{config('DATANAR_REDIS_PORT', default='6379', cast=str)}/"
+    f"{config('DATANAR_REDIS_DB', default='0', cast=str)}"
 )
 
 SETTINGS_EXPORT = [

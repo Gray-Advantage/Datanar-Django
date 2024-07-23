@@ -25,5 +25,13 @@ class Command(BaseCommand):
                 verified=True,
             )
 
+            self.stdout.write(
+                self.style.SUCCESS("Superuser created successfully!"),
+            )
+        else:
+            self.stdout.write(
+                self.style.SUCCESS("Superuser already exist!"),
+            )
+
 
 __all__ = []

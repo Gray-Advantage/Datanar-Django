@@ -3,6 +3,13 @@ __pycache__/
 *.pyc
 *$py.class
 
+for_docker/nginx_certificates
+for_docker/postgres_data
+for_docker/logs
+static/
+media/
+logs/
+
 *.so
 *.sqlite3
 .Python
@@ -13,7 +20,6 @@ eggs/
 .eggs/
 lib/
 lib64/
-media/
 parts/
 sdist/
 var/
