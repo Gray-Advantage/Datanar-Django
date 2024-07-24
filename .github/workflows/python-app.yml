@@ -42,37 +42,9 @@ jobs:
           cd ./datanar
           python manage.py test
 
-  test-deploy:
-    if: github.ref == 'refs/heads/dev'
-    needs: [black-test, flake8-test, django-test]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Deploy to server
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        script: |
-          sudo supervisorctl stop test_gunicorn test_celery
-          cd ~/test_datanar
-          git reset --hard origin/dev
-          git pull origin dev
-          source venv/bin/activate
-          pip install -r requirements/dev.txt
-          cd ~/test_datanar/datanar
-          python manage.py migrate
-          python manage.py compilemessages
-          python manage.py collectstatic --no-input
-          deactivate
-          cd ~
-          sudo supervisorctl start test_gunicorn test_celery
 
   prod-deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/sergey'  # чисто проверить установку
     needs: [black-test, flake8-test, django-test]
     runs-on: ubuntu-latest
     steps:
@@ -86,16 +58,8 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SERVER_SSH_KEY }}
         script: |
-          sudo supervisorctl stop gunicorn celery
           cd ~/datanar
           git reset --hard origin/main
           git pull origin main
-          source venv/bin/activate
-          pip install -r requirements/dev.txt
-          cd ~/datanar/datanar
-          python manage.py migrate
-          python manage.py compilemessages
-          python manage.py collectstatic --no-input
-          deactivate
-          cd ~
-          sudo supervisorctl start gunicorn celery
+          docker compose down -v
+          docker compose up --build -d
