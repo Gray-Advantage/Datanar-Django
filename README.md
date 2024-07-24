@@ -1,30 +1,22 @@
 # [Datanar](https://datanar.ru) - сайт по сокращению ссылок
 
+---
+
 ## Содержание
 - [Введение](#введение)
+  - [Полезность](#для-чего-может-быть-полезно-сокращать-ссылки)
+  - [Существующие решения](#существующие-решения)
+  - [Возможности datanar](#с-datanar-вы-можете)
 - [Структура проекта](#структура-проекта)
-   - [База данных](#база-данных)
-- [Локальное развёртывание](#локальное-развёртывание)
-   - [Установка Python](#установка-python)
-   - [Установка Git](#установка-git)
-     - [Windows](#windows)
-     - [MacOS](#macos)
-     - [Linux](#linux-debian--ubuntu)
-   - [Установка Redis](#установка-redis)
-     - [Windows](#windows-1)
-     - [MacOS](#macos-1)
-     - [Linux](#linux-debian--ubuntu-1)
-   - [Установка gettext](#установка-gettext)
-     - [Windows](#windows-2)
-     - [MacOS](#macos-2)
-     - [Linux](#linux-debian--ubuntu-2)
-   - [Клонирование репозитория](#клонирование-репозитория)
-   - [Установка виртуального окружения](#установка-виртуального-окружения)
-   - [Установка зависимостей](#установка-зависимостей)
-   - [Настройка сервера](#настройка-сервера)
-   - [Запуск сервера Django](#запуск-сервера-django)
-- [Авторы](#авторы)
+  - [Стек технологий](#используемые-фреймворки--библиотеки)
+  - [База данных](#база-данных)
+  - [Контейнеры docker](#контейнеры-docker)
+- [Развёртывание](#развёртывание)
+  - [Нативная установка](#нативная-установка)
+  - [Контейнеризация docker](#контейнеризация-docker)
+- [Авторы](#авторы---эти-прекрасные-люди)
 
+---
 
 ## Введение
 [Datanar](https://datanar.ru) представляет собой сервис для сокращения ссылок,
@@ -33,10 +25,11 @@
 
 ### Для чего может быть полезно сокращать ссылки:
 - Для визуальной привлекательности
-- Для удобства передачи не по сети
+- Для удобства передачи ссылки не по сети (в разговоре или в выводе на экран)
 - Для отслеживания статистики переходов
 - Для защиты конечного ресурса с помощью пароля
 
+### Существующие решения
 Это не новая идея и уже существуют множество сервисов с похожим функционалом,
 вот их небольшой срез: 
 
@@ -66,353 +59,80 @@
 - Указывать сколько переходов можно совершить по ссылке
 - Связать свой сервис с нашим по API
 
+---
+
+## Структура проекта
 ### Используемые фреймворки / библиотеки
 - [Bootstrap](https://getbootstrap.com/) - популярная (html / css / js) 
-библиотека для фронтенда
+  библиотека для фронтенда
 - [Celery](https://docs.celeryq.dev/en/stable/) - очередь задач 
-(в качестве брокера выступает [Redis](https://redis.io/))
+  (в качестве брокера сообщений выступает [Redis](https://redis.io/))
 - [Chart.js](https://www.chartjs.org/) - отрисовка диаграмм в статистике
 - [DB-IP](https://db-ip.com) - определение страны и города переходящего по IP
 - [Django](https://www.djangoproject.com/) - основной фреймворк web сервиса
+- [Docker](https://www.docker.com/) - развёртывание сайта на удалённом сервере
 - [Segno](https://github.com/heuer/segno/) - генерация QR-кодов
 - [Sqids](https://sqids.org/) - для помощи в генерации сокращённых ссылок
 
-## Структура проекта
-
 ### База данных
-
 Функциональная структура базы данных следующая:
-![scheme](datanar/static_dev/img/for_readme/scheme.png)
+![scheme](docs/for_readme/scheme.png)
 
-Основных моделей две - Redirect и Click
-- Redirect - хранит в себе связь между длинной и короткой ссылкой
-- Click - хранит информацию о переходе по redirect 
-(Для статистики и для ограничения по переходам)
+Основных моделей три - `Redirect`, `Click` и `BlockedDomain`
+- `Redirect` - хранит в себе связь между длинной и короткой ссылкой
+- `Click` - хранит информацию о переходе по `Redirect`
+(Для статистики и для ограничения по количеству переходов)
+- `BlockedDomain` - регулярное выражение, описывающие url-адреса, которые
+запрещены для сокращения 
 
-## Локальное развёртывание
+### Контейнеры docker
+Проект развёрнут с помощью технологии контейнеризации docker compose и имеет 
+следующие [контейнеры](docker-compose.yml):
 
-### Установка Python
-Для запуска этого проекта вам потребуется Python. 
-  
-Если у вас его еще нет, вы можете скачать его с официального 
-[сайта](https://www.python.org/downloads/), рекомендуется установить версию в 
-диапазоне 3.9 - 3.12
+- [Postgres](https://hub.docker.com/_/postgres) - мощная и современная СУБД,
+  используется как основная БД проекта
+- [Django](Dockerfile) - собственный контейнер на базе 
+  [python 3.12](https://hub.docker.com/_/python) c исходным кодом проекта
+- [Nginx-prod](https://hub.docker.com/r/jonasal/nginx-certbot) - 
+  модифицированная версия классического nginx контейнера, добавлен certbot для
+  автоматического создания и продления SSL сертификатов для https соединения
+- [Nginx-dev](https://hub.docker.com/_/nginx) - обратный прокси-сервер, нужен 
+  для обслуживания статических запросов, применяется только во время разработки
+- [Redis](https://hub.docker.com/_/redis) - быстрый сервер баз данных типа 
+  ключ-значение. Требуется для celery
+- [Celery](Dockerfile) - контейнер, созданный на базе `Django`, но с 
+  изменённой командой запуска
 
-### Установка Git
+---
 
-#### Windows
+## Развёртывание
+Данная документация предлагает два основных способа запуска (развёртывания)
+приложения:
+### [Нативная установка](docs/native-install.md)
+- подразумевает загрузку всего необходимого ПО непосредственно на локальную
+  машину, с последующей ручной установкой и настройкой каждого компонента.
+  Долгий и трудный путь, зато вы имеете полный контроль над всем происходящим
 
-1. Скачайте установщик Git с официального 
-[сайта](https://git-scm.com/download/win)
-2. Запустите установщик и следуйте инструкциям на экране.
+### [Контейнеризация docker](docs/docker-install.md)
+- подразумевает загрузку одной единственной программы и её настройку, а дальше
+  запуск всего приложения в полной комплектации с помощью одной команды.
+  Быстрый и простой путь, большая часть вопросов уже решена, остальное дело
+  техники
 
-#### MacOS
+---
 
-1. Откройте терминал.
-2. Установите [Homebrew](https://brew.sh/), если у вас его еще нет, с помощью 
-   следующей команды:
-    ```bash
-    /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    ```
-3. Установите Git с помощью команды:
-    ```bash
-    brew install git
-    ```
-    
-#### Linux (Debian / Ubuntu)
-    
-1. Откройте терминал.
-2. Обновите список пакетов:
-    ```bash
-    sudo apt update
-    ```
-3. Установите Git с помощью следующих команд:
-    ```bash
-    sudo apt install git
-    ```
-  
-После установки Git вы можете проверить его версию и убедиться, что он 
-установлен правильно, с помощью команды `git --version`. 
-Эта команда должна вывести версию Git на экран.
-
-### Установка Redis
-
-Для celery (очередь задач, для обработки файлов со ссылками) требуется 
-установить redis
-
-#### Windows
-
-Redis официально не поддерживает Windows, поэтому ниже описанный способ может 
-не сработать (лично у нас получилось запустить, но без виртуального окружения)
-
-1. Скачать неофициальный [порт](https://github.com/tporadowski/redis/releases)
-и запустить установщик msi (от имени администратора)
-2. В диспетчере задач в службах должна появится служба Redis
-
-#### MacOS
-
-1. Откройте терминал.
-2. Установите [Homebrew](https://brew.sh/), если у вас его еще нет, с помощью 
-   следующей команды:
-    ```bash
-    /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    ```
-3. Установите Redis с помощью команды:
-    ```bash
-    brew install redis
-    ```
-4. Запустите Redis:
-    ```bash
-   brew services start redis
-    ```
-
-#### Linux (Debian / Ubuntu)
-
-1. Откройте терминал.
-2. Обновите список пакетов:
-    ```bash
-    sudo apt update
-    ```
-3. Установите Redis с помощью следующих команд:
-    ```bash
-    sudo apt install redis
-    ```
-
-### Установка gettext
-
-#### Windows
-
-Скачать и запустить [установщик](https://mlocati.github.io/articles/gettext-iconv-windows.html)
-gettext для windows 
-
-#### MacOS
-
-1. Откройте терминал.
-2. Установите [Homebrew](https://brew.sh/), если у вас его еще нет, с помощью 
-   следующей команды:
-    ```bash
-    /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    ```
-3. Установите gettext с помощью команды:
-    ```bash
-    brew install gettext
-    ```
-
-#### Linux (Debian / Ubuntu)
-
-1. Откройте терминал.
-2. Обновите список пакетов:
-    ```bash
-    sudo apt update
-    ```
-3. Установите gettext с помощью следующих команд:
-    ```bash
-    sudo apt install gettext
-    ```
-
-### Клонирование репозитория
-
-1. Откройте терминал (cmd для Windows, Terminal для Mac).
-2. Перейдите в директорию, где вы хотите сохранить проект, используя команду 
-`cd`. Например: `cd C:\Users\YourUsername\Documents\myProjects\sites` или 
-`cd ~/myProject/sites`
-3. Клонируйте репозиторий, используя следующую команду:
-    ```bash
-    git clone https://github.com/Gray-Advantage/Datanar-Django.git
-    ```
-
-### Установка виртуального окружения
-
-Напомним, что лично у нас на windows не получилось запустить redis в 
-виртуальном окружении, поэтому попробуйте пропустить шаг 2 и 3
-
-1. В терминале перейдите в директорию проекта:
-   ```bash
-   cd datanar
-   ```
-
-2. Создайте виртуальное окружение:
-   - На Windows:
-       ```bash
-       python -m venv venv
-       ```
-   - На Mac или Linux:
-       ```bash
-       python3 -m venv venv
-       ```
-   Стоит отметить, что не всегда на linux будет работать python3, а на windows 
-   python, попробуйте оба варианта.
-
-3. Активируйте виртуальное окружение:
-   - На Windows:
-   ```bash
-   venv\Scripts\activate
-   ```
-   - На Mac или Linux:
-   ```bash
-   source venv/bin/activate
-   ```
-
-### Установка зависимостей
-
-Установите все необходимые пакеты, используя следующую команду: 
-```bash
-pip install -r requirements/prod.txt
-```
-Опять, стоит отметить, что возможны два варианта - `pip` или `pip3`, зависит
-от вашей ОС.
-
-Также добавьте файл `.env` в текущую директорию со следующим содержанием:
-```
-DJANGO_DEBUG=False
-DJANGO_SECRET_KEY=this_is_test_key_-_some_very_dummy_secret_key
-DJANGO_ALLOWED_HOSTS=*
-DJANGO_MAIL_HOST=smtp.mail.ru
-DJANGO_MAIL_PORT=2525
-DJANGO_MAIL_USER=webmaster@localhost
-DJANGO_MAIL_PASSWORD=this_very_secret_password_for_smtp_mail
-DEFAULT_USER_IS_ACTIVE=False
-DJANGO_USE_SIMPLE_DATABASE=True
-DJANGO_LOG_FILE_PATH=/path/to/log/file
-```
-`DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS` замените на свои значения.
-
-`DJANGO_MAIL_HOST`, `DJANGO_MAIL_PORT`, `DJANGO_MAIL_USER`,
-`DJANGO_MAIL_PASSWORD` - настройки почтового сервиса, используйте свои.
-
-`DJANGO_LOG_FILE_PATH` - путь, по которому приложение будет записывать все логи
-(уровень логирования WARNING и выше)
-
-`DJANGO_USE_SIMPLE_DATABASE` - Если `True`, то приложение будет использовать в 
-качестве базы данных простой файл.
-Если установлено значение `False`, то необходимо указать настройки для сложной
-СУБД ([postgresql](https://www.postgresql.org/)):
-`DJANGO_DATABASE_NAME` - название вашей БД, `DJANGO_DATABASE_USER` - имя 
-пользователя БД, `DJANGO_DATABASE_PASSWORD` - пароль пользователя БД. 
-Предполагается, что БД находиться там же, где и приложения и работает на порту
-5432
-
-Настройка `DEFAULT_USER_IS_ACTIVE=False` - означает, что перед использованием 
-сервиса обязательно требуется подтверждённая почта, установите `True`, если
-этого не нужно
-
-Также структура `.env` продублирована `.env.example` для удобства.
-
-С помощью следующей команды, вы можете, сразу создать и скопировать данные из 
-`.env.example` в `.env`
-- На Windows:
-    ```bash
-    copy .env.example .env
-    ```
-- На Mac или Linux:
-    ```bash
-    cp .env.example .env
-    ```
-  
-Если не добавить `.env` или просто продублировать информацию из `.env.example` 
-в `.env`, приложение будет запущено с дефолтными настройками, что 
-не рекомендуется по соображениям безопасности.
-
-### Настройка сервера
-
-Скомпилируйте файлы локализации данного проекта: 
-```bash
-django-admin compilemessages
-```
-
-Если возникает ошибка, по перейдите в директорию `datanar`:
-```bash
-cd datanar
-```
-
-И повторите немного изменённую команду:
-```bash
-python3 manage.py compilemessages
-```
-
-Перейдите в директорию `datanar`, если вы этого ещё не сделали:
-```bash
-cd datanar
-```
-
-Создайте базу данных:
-```bash
-python3 manage.py migrate
-```
-
-Также сделайте сбор статики, если будет предупреждение про перезапись файлов 
-введите "yes":
-```bash
-python3 manage.py collectstatic
-```
-
-Ещё нужно будет создать суперпользователя (админа) сайта:
-```bash
-python3 manage.py createsuperuser
-```
-Введите логин, почту и пароль суперпользователя.
-
-В зависимости от настроек, перед попаданием в админ панель вам может 
-потребоваться подтвердить свою почту.
-
-Теперь можете зарегистрироваться с этими данными на сайте и в правом верхнем 
-углу, нажав на свою аватарку, в списке вы увидите пункт "Админка", 
-которая и приведёт вас в админ панель.
-
-### Запуск сервера Django
-
-Запустите рабочий процесс celery в новой консоле:
-```bash
-celery -A datanar worker -l INFO
-```
-
-Запустите сервер Django с помощью следующей команды: 
-```bash
-python3 manage.py runserver
-```
-
-Помните, что Django в прод режиме (т.е. сейчас) не отдаёт статику 
-(например картинки) по соображениям оптимизации, для этого нужно настроить 
-отдельный web-сервер. Или же запустить Django в режиме разработки.
-
-Если вы хотите запустить Django в режиме разработки, то не забудьте установить 
-дополнительные зависимости: 
-```bash
-cd ..
-```
-```bash
-pip install -r requirements/test.txt
-```
-```bash
-cd datanar
-```
-А в файле `.env` перевести переменную `DJANGO_DEBUG` в `True`:
-```
-DJANGO_DEBUG=True
-...
-```
-
-Установив зависимости `test.txt`, вы также получите возможность запустить тесты
-для локальной проверки целостности проекта:
-```bash
-python3 manage.py test
-```
-
-Ожидаемый результат после выполнения команды: `OK`
-
-***
-
-После запуска вы должны иметь возможность открыть проект в браузере по адресу 
-http://127.0.0.1:8000/.
-
-Вы потрясающие! ©
-
-## Авторы
-![sergey](datanar/static_dev/img/for_readme/sergey.jpg)
-Андреев Сергей [@Gray_Advantage](https://t.me/Gray_Advantage)
-
-![vladimir](datanar/static_dev/img/for_readme/vladimir.jpg)
-Клименко Владимир [@brandonzorn](https://t.me/brandonzorn)
-
-![artem](datanar/static_dev/img/for_readme/artem.jpg)
-Третьяков Артем [@piper273](https://t.me/piper273)
+## Авторы - эти прекрасные люди:
+<div style="display: flex; align-items: center;">
+  <img src="datanar/static_dev/img/authors/sergey.jpg" width="30" height="30" alt="sergey">
+  <span style="margin-left: 10px;">Андреев Сергей (<a href="https://github.com/Gray-Advantage">Github</a> | <a href="https://t.me/Gray_Advantage">Telegram</a>)</span>
+</div>
+<br>
+<div style="display: flex; align-items: center;">
+  <img src="datanar/static_dev/img/authors/vladimir.jpg" width="30" height="30" alt="vladimir">
+  <span style="margin-left: 10px;">Клименко Владимир (<a href="https://github.com/brandonzorn">Github</a> | <a href="https://t.me/brandonzorn">Telegram</a>)</span>
+</div>
+<br>
+<div style="display: flex; align-items: center;">
+  <img src="datanar/static_dev/img/authors/artem.jpg" width="30" height="30" alt="artem">
+  <span style="margin-left: 10px;">Третьяков Артем (<a href="https://github.com/Artem037">Github</a> | <a href="https://t.me/piper273">Telegram</a>)</span>
+</div>
