@@ -236,8 +236,8 @@ GEOIP_PATH = "geo_ip"
 
 CELERY_BROKER_URL = (
     f"redis://{config('DATANAR_REDIS_HOST', default='localhost', cast=str)}:"
-    f":{config('DATANAR_REDIS_PORT', default='6379', cast=str)}"
-    f"/{config('DATANAR_REDIS_DB', default='0', cast=str)}"
+    f"{config('DATANAR_REDIS_PORT', default='6379', cast=str)}/"
+    f"{config('DATANAR_REDIS_DB', default='0', cast=str)}"
 )
 CELERY_RESULT_BACKEND = (
     f"redis://{config('DATANAR_REDIS_HOST', default='localhost', cast=str)}:"
