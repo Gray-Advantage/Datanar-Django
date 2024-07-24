@@ -51,6 +51,8 @@ ALLOWED_HOSTS = config(
     cast=lambda line: line.split(","),
 )
 
+CSRF_TRUSTED_ORIGINS = list(map(lambda x: f"https://{x}", ALLOWED_HOSTS))
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
