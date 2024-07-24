@@ -1,0 +1,96 @@
+name: "datanar"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    environment:
+      POSTGRES_DB: ${DATANAR_DATABASE_NAME}
+      POSTGRES_USER: ${DATANAR_DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATANAR_DATABASE_PASSWORD}
+    restart: always
+    volumes:
+      - ./for_docker/postgres_data:/var/lib/postgresql/data
+    profiles:
+      - prod
+      - dev
+
+  django:
+    build: .
+    container_name: django
+    env_file:
+      - ./.env
+    restart: always
+    volumes:
+      - ./for_docker/static:/datanar/static
+      - ./for_docker/media:/datanar/media
+      - ./for_docker/logs:/datanar/logs
+    depends_on:
+      - postgres
+    profiles:
+      - prod
+      - dev
+
+  nginx-prod:
+    image: jonasal/nginx-certbot:latest
+    container_name: nginx-prod
+    environment:
+      DEBUG: ${DATANAR_CERTBOT_DEBUG}
+      STAGING: ${DATANAR_CERTBOT_STAGING}
+      CERTBOT_EMAIL: ${DATANAR_CERTBOT_EMAIL}
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./for_docker/nginx-confs/datanar_prod.conf:/etc/nginx/user_conf.d/datanar.conf
+      - ./for_docker/nginx-confs/robots.txt:/datanar/static/robots.txt
+      - ./for_docker/nginx_certificates:/etc/letsencrypt
+      - ./for_docker/static:/datanar/static
+      - ./for_docker/media:/datanar/media
+    depends_on:
+      - django
+    profiles:
+      - prod
+
+  nginx-dev:
+    image: nginx:latest
+    container_name: nginx-dev
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./for_docker/nginx-confs/datanar_local.conf:/etc/nginx/conf.d/default.conf
+      - ./for_docker/nginx-confs/robots.txt:/datanar/static/robots.txt
+      - ./for_docker/static:/datanar/static
+      - ./for_docker/media:/datanar/media
+    depends_on:
+      - django
+    profiles:
+      - dev
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    command: bash -c "redis-server --save '' --appendonly no"
+    profiles:
+      - prod
+      - dev
+
+  celery:
+    build: .
+    container_name: celery
+    env_file:
+      - ./.env
+    restart: always
+    command: bash -c "celery -A datanar worker"
+    volumes:
+      - ./for_docker/media:/datanar/media
+      - ./for_docker/logs:/datanar/logs
+    depends_on:
+      - postgres
+      - redis
+    profiles:
+      - prod
+      - dev

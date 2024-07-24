@@ -1,5 +1,5 @@
 celery==5.0.0
-Django==4.2.13
+Django==4.2.14
 django-allauth==0.63.3
 django-cleanup==8.1.0
 django-settings-export==1.2.1
