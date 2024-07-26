@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 22:32+0300\n"
+"POT-Creation-Date: 2024-07-26 22:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,22 @@ msgstr ""
 #: .\api\apps.py:8
 msgid "api"
 msgstr "API"
+
+#: .\api\views.py:136
+msgid "This field is required."
+msgstr "This field is required"
+
+#: .\api\views.py:140
+msgid "Enter a valid URL."
+msgstr "Enter a valid URL"
+
+#: .\api\views.py:144 .\redirects\forms.py:93
+msgid "this_url_is_blocked"
+msgstr "This URL is blocked"
+
+#: .\api\views.py:148 .\redirects\forms.py:80
+msgid "custom_url_already_use"
+msgstr "This custom url is already in use. Please choose another one."
 
 #: .\core\apps.py:8
 msgid "base_forms"
@@ -43,35 +59,35 @@ msgstr ""
 msgid "domains_regex"
 msgstr "Domain regulars"
 
-#: .\datanar\settings.py:206
+#: .\datanar\settings.py:207
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:207
+#: .\datanar\settings.py:208
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:208
+#: .\datanar\settings.py:209
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\datanar\settings.py:209
+#: .\datanar\settings.py:210
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:210
+#: .\datanar\settings.py:211
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:211
+#: .\datanar\settings.py:212
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:212
+#: .\datanar\settings.py:213
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:213
+#: .\datanar\settings.py:214
 msgid "Japanese"
 msgstr "日本語"
 
@@ -99,27 +115,19 @@ msgstr "Custom url"
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "A custom url that you would like to have instead of the generated one."
 
-#: .\redirects\forms.py:72
+#: .\redirects\forms.py:75
 msgid "custom_url_should_not_have_slash"
 msgstr "The custom link should not have a '/'"
 
-#: .\redirects\forms.py:77
-msgid "custom_url_already_use"
-msgstr "This custom url is already in use. Please choose another one."
-
-#: .\redirects\forms.py:90
-msgid "this_url_is_blocked"
-msgstr "This URL is blocked"
-
-#: .\redirects\forms.py:151
+#: .\redirects\forms.py:157
 msgid "date_validity_invalid"
 msgstr "The expiration date cannot be less than the current date"
 
-#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:188 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Password"
 
-#: .\redirects\forms.py:183
+#: .\redirects\forms.py:189
 msgid "password_before_redirect"
 msgstr "Enter the password before redirecting"
 
@@ -370,6 +378,27 @@ msgstr ""
 "This mail can be safely ignored if you did not request a password reset.\n"
 "\n"
 "If it was you, you can sign up for an account using the link below."
+
+#: .\templates\api\base.html:11
+msgid "datanar_api_docs"
+msgstr "Datanar API documentation"
+
+#: .\templates\api\base.html:18
+msgid "preamble"
+msgstr "Preamble"
+
+#: .\templates\api\base.html:27 .\templates\api\base.html:38
+msgid "creating"
+msgstr "Creating"
+
+#: .\templates\api\base.html:28 .\templates\api\base.html:39
+#: .\templates\api\base.html:50
+msgid "receiving"
+msgstr "Receiving"
+
+#: .\templates\api\base.html:40
+msgid "deleting"
+msgstr "Deleting"
 
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"

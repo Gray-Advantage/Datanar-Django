@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 22:32+0300\n"
+"POT-Creation-Date: 2024-07-26 22:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,24 @@ msgstr ""
 #: .\api\apps.py:8
 msgid "api"
 msgstr "API"
+
+#: .\api\views.py:136
+msgid "This field is required."
+msgstr "Dieses Feld ist erforderlich"
+
+#: .\api\views.py:140
+msgid "Enter a valid URL."
+msgstr "Geben Sie eine gültige URL ein"
+
+#: .\api\views.py:144 .\redirects\forms.py:93
+msgid "this_url_is_blocked"
+msgstr "Diese URL ist gesperrt"
+
+#: .\api\views.py:148 .\redirects\forms.py:80
+msgid "custom_url_already_use"
+msgstr ""
+"Diese benutzerdefinierte URL wird bereits verwendet. Bitte wählen Sie eine "
+"andere"
 
 #: .\core\apps.py:8
 msgid "base_forms"
@@ -43,35 +61,35 @@ msgstr ""
 msgid "domains_regex"
 msgstr "Reguläre Domains"
 
-#: .\datanar\settings.py:206
+#: .\datanar\settings.py:207
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:207
+#: .\datanar\settings.py:208
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:208
+#: .\datanar\settings.py:209
 msgid "Ukrainian"
 msgstr "Український"
 
-#: .\datanar\settings.py:209
+#: .\datanar\settings.py:210
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:210
+#: .\datanar\settings.py:211
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:211
+#: .\datanar\settings.py:212
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:212
+#: .\datanar\settings.py:213
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:213
+#: .\datanar\settings.py:214
 msgid "Japanese"
 msgstr "日本語"
 
@@ -100,29 +118,19 @@ msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr ""
 "Benutzerdefinierte URL, die Sie anstelle der generierten haben möchten."
 
-#: .\redirects\forms.py:72
+#: .\redirects\forms.py:75
 msgid "custom_url_should_not_have_slash"
 msgstr "Benutzerdefinierte Verknüpfung darf kein ‘/’ enthalten"
 
-#: .\redirects\forms.py:77
-msgid "custom_url_already_use"
-msgstr ""
-"Diese benutzerdefinierte URL wird bereits verwendet. Bitte wählen Sie eine "
-"andere"
-
-#: .\redirects\forms.py:90
-msgid "this_url_is_blocked"
-msgstr "Diese URL ist gesperrt"
-
-#: .\redirects\forms.py:151
+#: .\redirects\forms.py:157
 msgid "date_validity_invalid"
 msgstr "Das ablaufdatum darf nicht kleiner als das aktuelle datum sein"
 
-#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:188 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Passwort"
 
-#: .\redirects\forms.py:183
+#: .\redirects\forms.py:189
 msgid "password_before_redirect"
 msgstr "Geben Sie das Passwort ein, bevor Sie weiterleiten"
 
@@ -381,6 +389,27 @@ msgstr ""
 "\n"
 "Wenn Sie es waren, können Sie sich auf der Website registrieren, indem Sie "
 "den untenstehenden Link verwenden."
+
+#: .\templates\api\base.html:11
+msgid "datanar_api_docs"
+msgstr "Datanar API Dokumentation"
+
+#: .\templates\api\base.html:18
+msgid "preamble"
+msgstr "Präambel"
+
+#: .\templates\api\base.html:27 .\templates\api\base.html:38
+msgid "creating"
+msgstr "Wodurch"
+
+#: .\templates\api\base.html:28 .\templates\api\base.html:39
+#: .\templates\api\base.html:50
+msgid "receiving"
+msgstr "Empfangenden"
+
+#: .\templates\api\base.html:40
+msgid "deleting"
+msgstr "Löschen"
 
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"

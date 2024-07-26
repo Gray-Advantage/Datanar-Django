@@ -24,13 +24,13 @@ class ApiCorrectTest(TestCase):
         client = Client()
 
         response1 = client.post(
-            reverse("api:create_new_token"),
+            reverse("api:docs_create_new_token"),
             data={"username": self.username, "password": self.password},
         )
         self.assertEqual(response1.status_code, status.HTTP_200_OK)
 
         response2 = client.post(
-            reverse("api:create_new_token"),
+            reverse("api:docs_create_new_token"),
             data={"username": self.username, "password": self.password},
         )
         self.assertEqual(response2.status_code, status.HTTP_200_OK)

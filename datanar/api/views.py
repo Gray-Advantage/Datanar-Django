@@ -24,8 +24,45 @@ def authorization_required(view_func):
     return _wrapped_view
 
 
-class APIDocumentationView(TemplateView):
-    template_name = "api/api_docs.html"
+class APIDocsPreambleView(TemplateView):
+    template_name = "api/docs/preamble.html"
+
+
+class APIDocsQRCodeGetView(TemplateView):
+    template_name = "api/docs/qr_code__get.html"
+
+
+class APIDocsRedirectGetView(TemplateView):
+    template_name = "api/docs/redirect__get.html"
+
+
+class APIDocsRedirectCreateView(TemplateView):
+    template_name = "api/docs/redirect__create.html"
+
+
+class APIDocsRedirectDeleteView(TemplateView):
+    template_name = "api/docs/redirect__delete.html"
+
+
+class APIDocsTokenGetView(TemplateView):
+    template_name = "api/docs/token__get.html"
+
+
+class APIDocsTokenCreateView(TemplateView):
+    template_name = "api/docs/token__create.html"
+
+
+class CreateNewTokenView(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        user = serializer.validated_data["user"]
+
+        Token.objects.filter(user=user).delete()
+        token = Token.objects.create(user=user)
+
+        return Response({"token": token.key})
 
 
 class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
@@ -117,17 +154,14 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-class CreateNewTokenView(ObtainAuthToken):
-    def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-
-        user = serializer.validated_data["user"]
-
-        Token.objects.filter(user=user).delete()
-        token = Token.objects.create(user=user)
-
-        return Response({"token": token.key})
-
-
-__all__ = [RedirectViewSet, CreateNewTokenView]
+__all__ = [
+    APIDocsPreambleView,
+    APIDocsQRCodeGetView,
+    APIDocsRedirectGetView,
+    APIDocsRedirectCreateView,
+    APIDocsRedirectDeleteView,
+    APIDocsTokenGetView,
+    APIDocsTokenCreateView,
+    CreateNewTokenView,
+    RedirectViewSet,
+]

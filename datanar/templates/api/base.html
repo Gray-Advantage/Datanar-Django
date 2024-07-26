@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Datanar API Docs{% endblock %}
+{% block css %}
+  <link href="{% static 'css/api/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <h1 class="text-center mt-3">{% trans "datanar_api_docs" %}</h1>
+  <div class="d-flex flex-md-row flex-column flex-grow-1 mt-2">
+    {% with request.resolver_match.view_name as view_name %}
+      <div class="bold-text col-md-3 col-12 p-3">
+        <ul class="nav nav-pills flex-column list-unstyled btn-toggle-nav">
+          <li class="mb-1">
+            <a class="nav-link {% if view_name == 'api:docs_preamble' %}active{% endif %}" {% if view_name != "api:docs_preamble" %}href="{% url 'api:docs_preamble' %}"{% endif %}>
+              {% trans "preamble" %}
+            </a>
+          </li>
+          <li class="mb-1 d-flex flex-column">
+            <button class="nav-link btn-toggle d-inline-flex align-items-center border-0 mb-1" data-bs-toggle="collapse" data-bs-target="#token-collapse" {% if view_name == 'api:docs_token_create' or view_name == 'api:docs_token_get' %}aria-expanded="true"{% endif %}>
+              Token
+            </button>
+            <div class="collapse {% if view_name == 'api:docs_token_create' or view_name == 'api:docs_token_get' %}show{% endif %}" id="token-collapse">
+              <ul class="list-unstyled">
+                <li class="nav-item ms-4 mb-1"><a href="{% url 'api:docs_token_create' %}" class="nav-link {% if view_name == 'api:docs_token_create' %}active{% endif %}">Token - {% trans "creating" %}</a></li>
+                <li class="nav-item ms-4"><a href="{% url 'api:docs_token_get' %}" class="nav-link {% if view_name == 'api:docs_token_get' %}active{% endif %}">Token - {% trans "receiving" %}</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1 d-flex flex-column">
+            <button class="nav-link btn-toggle d-inline-flex align-items-center border-0 mb-1" data-bs-toggle="collapse" data-bs-target="#redirect-collapse" {% if view_name == 'api:docs_redirect_create' or view_name == 'api:docs_redirect_get' or view_name == 'api:docs_redirect_delete' %}aria-expanded="true"{% endif %}>
+              Redirect
+            </button>
+            <div class="collapse {% if view_name == 'api:docs_redirect_create' or view_name == 'api:docs_redirect_get' or view_name == 'api:docs_redirect_delete' %}show{% endif %}" id="redirect-collapse">
+              <ul class="list-unstyled">
+                <li class="nav-item ms-4 mb-1"><a href="{% url 'api:docs_redirect_create' %}" class="nav-link {% if view_name == 'api:docs_redirect_create' %}active{% endif %}">Redirect - {% trans "creating" %}</a></li>
+                <li class="nav-item ms-4 mb-1"><a href="{% url 'api:docs_redirect_get' %}" class="nav-link {% if view_name == 'api:docs_redirect_get' %}active{% endif %}">Redirect - {% trans "receiving" %}</a></li>
+                <li class="nav-item ms-4"><a href="{% url 'api:docs_redirect_delete' %}" class="nav-link {% if view_name == 'api:docs_redirect_delete' %}active{% endif %}">Redirect - {% trans "deleting" %}</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="d-flex flex-column">
+            <button class="nav-link btn-toggle d-inline-flex align-items-center border-0 mb-1" data-bs-toggle="collapse" data-bs-target="#qr_code-collapse" {% if view_name == 'api:docs_qr_code_get' %}aria-expanded="true"{% endif %}>
+              QR-code
+            </button>
+            <div class="collapse {% if view_name == 'api:docs_qr_code_get' %}show{% endif %}" id="qr_code-collapse">
+              <ul class="list-unstyled">
+                <li class="nav-item ms-4"><a href="{% url 'api:docs_qr_code_get' %}" class="nav-link {% if view_name == 'api:docs_qr_code_get' %}active{% endif %}">QR-code - {% trans "receiving" %}</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    {% endwith %}
+    <div class="vr d-md-block d-none min-1"></div>
+    <hr class="m-0 d-md-none d-block">
+    <div class="col-md-9 col-12 p-3">
+      <h2 class="text-center"><strong>{% block api_title %}{% endblock %}</strong></h2>
+      {% block api_content %}
+
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

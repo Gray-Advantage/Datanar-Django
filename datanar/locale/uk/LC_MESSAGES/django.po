@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 22:32+0300\n"
+"POT-Creation-Date: 2024-07-26 22:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,23 @@ msgstr ""
 #: .\api\apps.py:8
 msgid "api"
 msgstr "API"
+
+#: .\api\views.py:136
+msgid "This field is required."
+msgstr "Це поле є обов'язковим"
+
+#: .\api\views.py:140
+msgid "Enter a valid URL."
+msgstr "Введіть дійсну URL-адресу"
+
+#: .\api\views.py:144 .\redirects\forms.py:93
+msgid "this_url_is_blocked"
+msgstr "Ця URL-адреса заблокована"
+
+#: .\api\views.py:148 .\redirects\forms.py:80
+msgid "custom_url_already_use"
+msgstr ""
+"Ця кастомна url-адреса вже використовується. Будь ласка, виберіть інший."
 
 #: .\core\apps.py:8
 msgid "base_forms"
@@ -45,35 +62,35 @@ msgstr "Регулярний вираз для домену, якій буде �
 msgid "domains_regex"
 msgstr "Регулярки доменів"
 
-#: .\datanar\settings.py:206
+#: .\datanar\settings.py:207
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:207
+#: .\datanar\settings.py:208
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:208
+#: .\datanar\settings.py:209
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\datanar\settings.py:209
+#: .\datanar\settings.py:210
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:210
+#: .\datanar\settings.py:211
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:211
+#: .\datanar\settings.py:212
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:212
+#: .\datanar\settings.py:213
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:213
+#: .\datanar\settings.py:214
 msgid "Japanese"
 msgstr "日本語"
 
@@ -102,28 +119,19 @@ msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr ""
 "Користувальницька URL-адреса, яку ви хотіли б мати замість згенерованого."
 
-#: .\redirects\forms.py:72
+#: .\redirects\forms.py:75
 msgid "custom_url_should_not_have_slash"
 msgstr "Кастомне посилання не повинно мати '/'"
 
-#: .\redirects\forms.py:77
-msgid "custom_url_already_use"
-msgstr ""
-"Ця кастомна url-адреса вже використовується. Будь ласка, виберіть інший."
-
-#: .\redirects\forms.py:90
-msgid "this_url_is_blocked"
-msgstr "Ця URL-адреса заблокована"
-
-#: .\redirects\forms.py:151
+#: .\redirects\forms.py:157
 msgid "date_validity_invalid"
 msgstr "Термін придатності не може бути менше поточної дати"
 
-#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:188 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Пароль"
 
-#: .\redirects\forms.py:183
+#: .\redirects\forms.py:189
 msgid "password_before_redirect"
 msgstr "Введіть пароль перед перенаправленням"
 
@@ -374,6 +382,27 @@ msgstr ""
 "\n"
 "Якщо це були ви, ви можете зареєструватися на сайті, використовуючи "
 "посилання нижче."
+
+#: .\templates\api\base.html:11
+msgid "datanar_api_docs"
+msgstr "Datanar API Документація"
+
+#: .\templates\api\base.html:18
+msgid "preamble"
+msgstr "Преамбула"
+
+#: .\templates\api\base.html:27 .\templates\api\base.html:38
+msgid "creating"
+msgstr "Створення"
+
+#: .\templates\api\base.html:28 .\templates\api\base.html:39
+#: .\templates\api\base.html:50
+msgid "receiving"
+msgstr "Отримання"
+
+#: .\templates\api\base.html:40
+msgid "deleting"
+msgstr "Видалення"
 
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"

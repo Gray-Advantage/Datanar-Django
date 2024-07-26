@@ -28,13 +28,13 @@ class ApiWrongTest(TestCase):
         client = Client()
 
         response_1 = client.post(
-            reverse("api:create_new_token"),
+            reverse("api:docs_create_new_token"),
             data={"username": self.username + "_w", "password": self.password},
         )
         self.assertEqual(response_1.status_code, status.HTTP_400_BAD_REQUEST)
 
         response_2 = client.post(
-            reverse("api:create_new_token"),
+            reverse("api:docs_create_new_token"),
             data={"username": self.username, "password": self.password + "_w"},
         )
         self.assertEqual(response_2.status_code, status.HTTP_400_BAD_REQUEST)

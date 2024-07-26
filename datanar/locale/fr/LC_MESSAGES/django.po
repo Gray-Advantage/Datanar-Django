@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 22:32+0300\n"
+"POT-Creation-Date: 2024-07-26 22:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,22 @@ msgstr ""
 #: .\api\apps.py:8
 msgid "api"
 msgstr "API"
+
+#: .\api\views.py:136
+msgid "This field is required."
+msgstr "Ce champ est obligatoire"
+
+#: .\api\views.py:140
+msgid "Enter a valid URL."
+msgstr "Entrez une URL valide"
+
+#: .\api\views.py:144 .\redirects\forms.py:93
+msgid "this_url_is_blocked"
+msgstr "Cette URL est bloquée"
+
+#: .\api\views.py:148 .\redirects\forms.py:80
+msgid "custom_url_already_use"
+msgstr "Cet URL personnalisé est déjà utilisé. Veuillez en choisir un autre."
 
 #: .\core\apps.py:8
 msgid "base_forms"
@@ -42,35 +58,35 @@ msgstr "Expression régulière pour le domaine à ne pas réduire"
 msgid "domains_regex"
 msgstr "Régularité des domaines"
 
-#: .\datanar\settings.py:206
+#: .\datanar\settings.py:207
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:207
+#: .\datanar\settings.py:208
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:208
+#: .\datanar\settings.py:209
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\datanar\settings.py:209
+#: .\datanar\settings.py:210
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:210
+#: .\datanar\settings.py:211
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:211
+#: .\datanar\settings.py:212
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:212
+#: .\datanar\settings.py:213
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:213
+#: .\datanar\settings.py:214
 msgid "Japanese"
 msgstr "日本語"
 
@@ -98,27 +114,19 @@ msgstr "URL personnalisé"
 msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr "URL personnalisé que vous aimeriez avoir à la place de celui généré."
 
-#: .\redirects\forms.py:72
+#: .\redirects\forms.py:75
 msgid "custom_url_should_not_have_slash"
 msgstr "Le lien personnalisé ne doit pas contenir ‘/’"
 
-#: .\redirects\forms.py:77
-msgid "custom_url_already_use"
-msgstr "Cet URL personnalisé est déjà utilisé. Veuillez en choisir un autre."
-
-#: .\redirects\forms.py:90
-msgid "this_url_is_blocked"
-msgstr "Cette URL est bloquée"
-
-#: .\redirects\forms.py:151
+#: .\redirects\forms.py:157
 msgid "date_validity_invalid"
 msgstr "La durée de validité ne peut pas être inférieure à la date actuelle"
 
-#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:188 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Mot de passe"
 
-#: .\redirects\forms.py:183
+#: .\redirects\forms.py:189
 msgid "password_before_redirect"
 msgstr "Entrez le mot de passe avant la redirection"
 
@@ -374,6 +382,29 @@ msgstr ""
 "Si c’était vous, vous pouvez vous inscrire sur le site en utilisant le lien "
 "ci-dessous."
 
+#: .\templates\api\base.html:11
+#, fuzzy
+#| msgid "datanar_rules"
+msgid "datanar_api_docs"
+msgstr "Règles du Service Datanar"
+
+#: .\templates\api\base.html:18
+msgid "preamble"
+msgstr "Préambule"
+
+#: .\templates\api\base.html:27 .\templates\api\base.html:38
+msgid "creating"
+msgstr "Création"
+
+#: .\templates\api\base.html:28 .\templates\api\base.html:39
+#: .\templates\api\base.html:50
+msgid "receiving"
+msgstr "Réception"
+
+#: .\templates\api\base.html:40
+msgid "deleting"
+msgstr "Suppression"
+
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"
 msgstr "Tous les liens"
@@ -619,7 +650,7 @@ msgstr ""
 #: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
-"Merci d’avoir choisi Datanar ! Nous apprécions votre confiance et nous nous "
+"Merci d’avoir choisi Datanar! Nous apprécions votre confiance et nous nous "
 "efforçons de vous fournir un service de raccourcissement de liens pratique "
 "et sûr."
 
@@ -678,7 +709,7 @@ msgstr "Pas encore de compte ?"
 
 #: .\templates\includes\user_form.html:50
 msgid "create_it"
-msgstr "Créez-le !"
+msgstr "Créez-le!"
 
 #: .\templates\includes\user_form.html:51
 msgid "forgot_password"
@@ -839,7 +870,7 @@ msgstr "Authentification"
 
 #: .\templates\users\login.html:12
 msgid "log_in_to_datanar"
-msgstr "Connectez-vous à Datanar !"
+msgstr "Connectez-vous à Datanar!"
 
 #: .\templates\users\logout.html:4
 msgid "logout"
@@ -860,7 +891,7 @@ msgstr "Mot de passe modifié"
 
 #: .\templates\users\password_change_done.html:11
 msgid "your_password_be_success_changed"
-msgstr "Votre mot de passe a été modifié avec succès !"
+msgstr "Votre mot de passe a été modifié avec succès!"
 
 #: .\templates\users\password_reset.html:5
 #: .\templates\users\password_reset.html:12
@@ -897,7 +928,7 @@ msgstr "Sauvegarder"
 
 #: .\templates\users\signup.html:12
 msgid "greeting"
-msgstr "Bienvenue sur Datanar !"
+msgstr "Bienvenue sur Datanar!"
 
 #: .\templates\users\signup.html:13
 msgid "register"
