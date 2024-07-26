@@ -45,14 +45,14 @@ urlpatterns = [
         name="docs_redirect_delete",
     ),
     path(
-      "docs/token_get",
-      views.APIDocsTokenGetView.as_view(),
-      name="docs_token_get",
+        "docs/token_get",
+        views.APIDocsTokenGetView.as_view(),
+        name="docs_token_get",
     ),
     path(
-      "docs/token_create",
-      views.APIDocsTokenCreateView.as_view(),
-      name="docs_token_create",
+        "docs/token_create",
+        views.APIDocsTokenCreateView.as_view(),
+        name="docs_token_create",
     ),
     *router.urls,
 ]
