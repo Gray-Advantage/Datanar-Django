@@ -2,6 +2,8 @@ from django.test import Client, TestCase
 from django.urls import reverse
 from rest_framework import status
 
+from redirects.models import Redirect
+
 
 class ApiCorrectTest(TestCase):
     fixtures = ["fixtures/for_test_data.json"]
@@ -76,12 +78,26 @@ class ApiCorrectTest(TestCase):
             )
 
     def test_create_redirect(self):
+        redirect_count = Redirect.objects.count()
+
         response = self.client.post(
             reverse("api:redirect-list"),
             data={"long_link": "https://python.org/"},
         )
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.json()["long_link"], "https://python.org/")
+
+        self.assertEqual(
+            Redirect.objects.count(),
+            redirect_count + 1,
+            "Redirect не создан",
+        )
+
+        self.assertEqual(
+            Redirect.objects.last().create_method,
+            Redirect.CreateMethod.API,
+            "Метод создания для `redirect` неправильный"
+        )
 
         response = self.client.get(
             reverse(
@@ -105,8 +121,16 @@ class ApiCorrectTest(TestCase):
         self.assertEqual(response.json()["short_link"], "test_short")
 
     def test_delete_redirect(self):
+        redirect_count = Redirect.objects.count()
+
         response = self.client.delete(reverse("api:redirect-detail", args=[1]))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        self.assertEqual(
+            Redirect.objects.count(),
+            redirect_count - 1,
+            "Redirect не удалён",
+        )
 
 
 __all__ = []

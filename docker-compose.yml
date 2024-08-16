@@ -84,7 +84,7 @@ services:
     env_file:
       - ./.env
     restart: always
-    command: bash -c "celery -A datanar worker"
+    command: bash -c "celery -A datanar worker && celery -A datanar beat"
     volumes:
       - ./for_docker/media:/datanar/media
       - ./for_docker/logs:/datanar/logs

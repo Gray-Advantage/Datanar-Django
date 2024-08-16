@@ -122,6 +122,8 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
                 **{
                     "short_link": form.cleaned_data["short_link"],
                     "user": self._get_user(request),
+                    "create_method": Redirect.CreateMethod.API,
+                    "ip_address": self.request.META.get("HTTP_X_REAL_IP"),
                 },
             )
 

@@ -39,6 +39,7 @@ class HomeView(FormMethodExtender, FormView):
                 data,
                 self.request.user.id,
                 self.request.get_host(),
+                self.request.META.get("HTTP_X_REAL_IP"),
             )
 
             messages.add_message(
@@ -57,6 +58,8 @@ class HomeView(FormMethodExtender, FormView):
 
         if url_long_link.netloc != self.request.get_host():
             redirect = Redirect.objects.create(**form.cleaned_data)
+            redirect.create_method = Redirect.CreateMethod.WEB
+            redirect.ip_address = self.request.META.get("HTTP_X_REAL_IP")
             if self.request.user.is_authenticated:
                 redirect.user = self.request.user
             redirect.save()
