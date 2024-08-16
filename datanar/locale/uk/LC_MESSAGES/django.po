@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-16 04:47+0300\n"
+"POT-Creation-Date: 2024-08-16 09:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -143,7 +143,9 @@ msgstr "Кастомне посилання не повинно мати '/'"
 msgid "date_validity_invalid"
 msgstr "Термін придатності не може бути менше поточної дати"
 
-#: .\redirects\forms.py:196 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:196 .\templates\api\docs\token__create.html:36
+#: .\templates\api\docs\token__get.html:36
+#: .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Пароль"
 
@@ -494,9 +496,9 @@ msgstr "Ласкаво просимо в документацію API серві
 
 #: .\templates\api\docs\preamble.html:24
 msgid "who_is_the_API_intended_for"
-msgstr
-"API призначений для розробників і компаній, які хочуть інтегрувати функціонал"
-" скорочення посилань у свої додатки та сервіси"
+msgstr ""
+"API призначений для розробників і компаній, які хочуть інтегрувати "
+"функціонал скорочення посилань у свої додатки та сервіси"
 
 #: .\templates\api\docs\preamble.html:25
 msgid "API_description_in_preamble"
@@ -505,6 +507,135 @@ msgstr ""
 "реєстрації та використання токена, розширені можливості ж доступні "
 "зареєстрованим користувачам і тільки з використанням токена, який можна "
 "отримати після реєстрації"
+
+#: .\templates\api\docs\token__create.html:9
+#: .\templates\api\docs\token__get.html:9
+msgid "to_start_interacting_with_extended_API_you_need_token"
+msgstr ""
+"Щоб почати взаємодіяти з розширеним API сервісу, потрібно отримати Token."
+
+#: .\templates\api\docs\token__create.html:9
+msgid "each_new_POST_request_recreates_token"
+msgstr ""
+"Кожен новий POST-запит на цей маршрут перестворює Token користувача на той "
+"випадок, якщо, наприклад, минулий був розкритий"
+
+#: .\templates\api\docs\token__create.html:11
+#: .\templates\api\docs\token__get.html:11
+msgid "request_parameters:"
+msgstr "Параметри запиту:"
+
+#: .\templates\api\docs\token__create.html:16
+#: .\templates\api\docs\token__create.html:47
+#: .\templates\api\docs\token__get.html:16
+#: .\templates\api\docs\token__get.html:47
+msgid "attribute_name"
+msgstr "Ім'я атрибута"
+
+#: .\templates\api\docs\token__create.html:17
+#: .\templates\api\docs\token__create.html:48
+#: .\templates\api\docs\token__get.html:17
+#: .\templates\api\docs\token__get.html:48
+msgid "location"
+msgstr "Розташування"
+
+#: .\templates\api\docs\token__create.html:18
+#: .\templates\api\docs\token__create.html:49
+#: .\templates\api\docs\token__get.html:18
+#: .\templates\api\docs\token__get.html:49
+msgid "type"
+msgstr "Тип"
+
+#: .\templates\api\docs\token__create.html:19
+#: .\templates\api\docs\token__create.html:50
+#: .\templates\api\docs\token__get.html:19
+#: .\templates\api\docs\token__get.html:50
+msgid "commitment"
+msgstr "Обов'язковість"
+
+#: .\templates\api\docs\token__create.html:20
+#: .\templates\api\docs\token__create.html:51
+#: .\templates\api\docs\token__create.html:72
+#: .\templates\api\docs\token__get.html:20
+#: .\templates\api\docs\token__get.html:51
+#: .\templates\api\docs\token__get.html:72
+msgid "description"
+msgstr "Описание"
+
+#: .\templates\api\docs\token__create.html:28
+#: .\templates\api\docs\token__create.html:35
+#: .\templates\api\docs\token__create.html:59
+#: .\templates\api\docs\token__get.html:28
+#: .\templates\api\docs\token__get.html:35
+#: .\templates\api\docs\token__get.html:59
+msgid "yes"
+msgstr "Так"
+
+#: .\templates\api\docs\token__create.html:29
+#: .\templates\api\docs\token__get.html:29
+msgid "Username or email"
+msgstr "Ім'я користувача або e-mail"
+
+#: .\templates\api\docs\token__create.html:42
+#: .\templates\api\docs\token__get.html:42
+msgid "response_parameters:"
+msgstr "Параметри відповіді:"
+
+#: .\templates\api\docs\token__create.html:60
+#: .\templates\api\docs\token__get.html:60
+msgid "token_for_interaction_with_extended_API"
+msgstr "Токен для взаємодії з розширеним API"
+
+#: .\templates\api\docs\token__create.html:66
+#: .\templates\api\docs\token__get.html:66
+msgid "response_codes:"
+msgstr "Коди відповіді:"
+
+#: .\templates\api\docs\token__create.html:71
+#: .\templates\api\docs\token__get.html:71
+msgid "code"
+msgstr "Код"
+
+#: .\templates\api\docs\token__create.html:78
+#: .\templates\api\docs\token__get.html:78
+msgid "success_obtained_token"
+msgstr "Успішно отриманий токен"
+
+#: .\templates\api\docs\token__create.html:82
+#: .\templates\api\docs\token__get.html:82
+msgid "missing_required_field"
+msgstr "відсутнє обов'язкове поле"
+
+#: .\templates\api\docs\token__create.html:86
+#: .\templates\api\docs\token__get.html:86
+msgid "request_other_than_POST"
+msgstr "запит відмінний від POST"
+
+#: .\templates\api\docs\token__create.html:92
+#: .\templates\api\docs\token__get.html:92
+msgid "example_of_request_sent:"
+msgstr "Приклад надісланого запиту:"
+
+#: .\templates\api\docs\token__create.html:98
+#: .\templates\api\docs\token__get.html:98
+msgid "example_of_response_receive:"
+msgstr "Приклад отриманої відповіді:"
+
+#: .\templates\api\docs\token__create.html:103
+#: .\templates\api\docs\token__get.html:103
+msgid "python_code_example"
+msgstr "Приклад коду на Python:"
+
+#: .\templates\api\docs\token__create.html:106
+#: .\templates\api\docs\token__get.html:106
+msgid "reminder_that_passwords_better_kept_in_separate_file"
+msgstr "Просто нагадуємо, що паролі краще зберігати в окремому файлі"
+
+#: .\templates\api\docs\token__get.html:9
+msgid "on_this_route_you_can_create_token_or_reacquire_existing_one"
+msgstr ""
+"На цьому маршруті ви можете створити Token, якщо його у вас ще не було, або "
+"повторно отримати наявний у разі втрати"
 
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-16 04:47+0300\n"
+"POT-Creation-Date: 2024-08-16 09:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,7 +138,9 @@ msgstr "Le lien personnalisé ne doit pas contenir ‘/’"
 msgid "date_validity_invalid"
 msgstr "La durée de validité ne peut pas être inférieure à la date actuelle"
 
-#: .\redirects\forms.py:196 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:196 .\templates\api\docs\token__create.html:36
+#: .\templates\api\docs\token__get.html:36
+#: .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -503,10 +505,143 @@ msgstr ""
 #: .\templates\api\docs\preamble.html:25
 msgid "API_description_in_preamble"
 msgstr ""
-"Le service offre des fonctionnalités de base à tous les utilisateurs sans qu'il soit nécessaire de s'enregistrer et "
-"d'utiliser un jeton, tandis que les fonctionnalités avancées sont accessibles"
-" aux utilisateurs enregistrés et uniquement à l'aide d'un jeton qui peut être"
-" obtenu après l'enregistrement."
+"Le service offre des fonctionnalités de base à tous les utilisateurs sans "
+"qu'il soit nécessaire de s'enregistrer et d'utiliser un jeton, tandis que "
+"les fonctionnalités avancées sont accessibles aux utilisateurs enregistrés "
+"et uniquement à l'aide d'un jeton qui peut être obtenu après "
+"l'enregistrement."
+
+#: .\templates\api\docs\token__create.html:9
+#: .\templates\api\docs\token__get.html:9
+msgid "to_start_interacting_with_extended_API_you_need_token"
+msgstr ""
+"Pour commencer à interagir avec l'API étendue du service, vous devez obtenir "
+"un Token"
+
+#: .\templates\api\docs\token__create.html:9
+msgid "each_new_POST_request_recreates_token"
+msgstr ""
+"Chaque nouvelle requête POST vers cette route recrée le Token de "
+"l'utilisateur au cas où, par exemple, le précédent aurait été divulgué"
+
+#: .\templates\api\docs\token__create.html:11
+#: .\templates\api\docs\token__get.html:11
+msgid "request_parameters:"
+msgstr "Paramètres de la demande:"
+
+#: .\templates\api\docs\token__create.html:16
+#: .\templates\api\docs\token__create.html:47
+#: .\templates\api\docs\token__get.html:16
+#: .\templates\api\docs\token__get.html:47
+msgid "attribute_name"
+msgstr "Nom de l'attribut"
+
+#: .\templates\api\docs\token__create.html:17
+#: .\templates\api\docs\token__create.html:48
+#: .\templates\api\docs\token__get.html:17
+#: .\templates\api\docs\token__get.html:48
+msgid "location"
+msgstr "Localisation"
+
+#: .\templates\api\docs\token__create.html:18
+#: .\templates\api\docs\token__create.html:49
+#: .\templates\api\docs\token__get.html:18
+#: .\templates\api\docs\token__get.html:49
+msgid "type"
+msgstr "Type"
+
+#: .\templates\api\docs\token__create.html:19
+#: .\templates\api\docs\token__create.html:50
+#: .\templates\api\docs\token__get.html:19
+#: .\templates\api\docs\token__get.html:50
+msgid "commitment"
+msgstr "Engagement"
+
+#: .\templates\api\docs\token__create.html:20
+#: .\templates\api\docs\token__create.html:51
+#: .\templates\api\docs\token__create.html:72
+#: .\templates\api\docs\token__get.html:20
+#: .\templates\api\docs\token__get.html:51
+#: .\templates\api\docs\token__get.html:72
+msgid "description"
+msgstr "Description"
+
+#: .\templates\api\docs\token__create.html:28
+#: .\templates\api\docs\token__create.html:35
+#: .\templates\api\docs\token__create.html:59
+#: .\templates\api\docs\token__get.html:28
+#: .\templates\api\docs\token__get.html:35
+#: .\templates\api\docs\token__get.html:59
+msgid "yes"
+msgstr "Oui"
+
+#: .\templates\api\docs\token__create.html:29
+#: .\templates\api\docs\token__get.html:29
+msgid "Username or email"
+msgstr "Nom d'utilisateur ou e-mail"
+
+#: .\templates\api\docs\token__create.html:42
+#: .\templates\api\docs\token__get.html:42
+msgid "response_parameters:"
+msgstr "Paramètres de réponse:"
+
+#: .\templates\api\docs\token__create.html:60
+#: .\templates\api\docs\token__get.html:60
+msgid "token_for_interaction_with_extended_API"
+msgstr "Token pour l'interaction avec l'API étendue"
+
+#: .\templates\api\docs\token__create.html:66
+#: .\templates\api\docs\token__get.html:66
+msgid "response_codes:"
+msgstr "Codes de réponse:"
+
+#: .\templates\api\docs\token__create.html:71
+#: .\templates\api\docs\token__get.html:71
+msgid "code"
+msgstr "Code"
+
+#: .\templates\api\docs\token__create.html:78
+#: .\templates\api\docs\token__get.html:78
+msgid "success_obtained_token"
+msgstr "Obtention du token avec succès"
+
+#: .\templates\api\docs\token__create.html:82
+#: .\templates\api\docs\token__get.html:82
+msgid "missing_required_field"
+msgstr "champ obligatoire manquant"
+
+#: .\templates\api\docs\token__create.html:86
+#: .\templates\api\docs\token__get.html:86
+msgid "request_other_than_POST"
+msgstr "autre que POST"
+
+#: .\templates\api\docs\token__create.html:92
+#: .\templates\api\docs\token__get.html:92
+msgid "example_of_request_sent:"
+msgstr "Exemple de demande envoyée:"
+
+#: .\templates\api\docs\token__create.html:98
+#: .\templates\api\docs\token__get.html:98
+msgid "example_of_response_receive:"
+msgstr "Exemple de réponse reçue:"
+
+#: .\templates\api\docs\token__create.html:103
+#: .\templates\api\docs\token__get.html:103
+msgid "python_code_example"
+msgstr "Exemple de code Python:"
+
+#: .\templates\api\docs\token__create.html:106
+#: .\templates\api\docs\token__get.html:106
+msgid "reminder_that_passwords_better_kept_in_separate_file"
+msgstr ""
+"Nous vous rappelons qu'il est préférable de conserver les mots de passe dans "
+"un dossier séparé."
+
+#: .\templates\api\docs\token__get.html:9
+msgid "on_this_route_you_can_create_token_or_reacquire_existing_one"
+msgstr ""
+"Sur cet itinéraire, vous pouvez créer un Token si vous n'en aviez pas déjà "
+"un, ou réacquérir un Token existant si vous le perdez"
 
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"
