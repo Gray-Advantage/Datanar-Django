@@ -10,7 +10,8 @@ RUN rm -rf requirements
 COPY ./datanar /datanar/
 WORKDIR /datanar
 
-CMD python manage.py migrate \
+CMD python manage.py makemigrations \
+ && python manage.py migrate \
  && python manage.py init_superuser \
  && python manage.py compilemessages \
  && python manage.py collectstatic --no-input \
