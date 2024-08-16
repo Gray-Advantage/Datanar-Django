@@ -4,5 +4,23 @@
 {% block api_title %}{% trans "preamble" %}{% endblock %}
 
 {% block api_content %}
-  
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th scope="row">{% trans "contact email:" %}</th>
+        <td><a href="mailto:sergeyindra@yandex.ru">sergeyindra@yandex.ru</a></td>
+      </tr>
+      <tr>
+        <th scope="row">{% trans "basic_API_path:" %}</th>
+        <td><a href="{{ server_url }}/api/v1/">{{ server_url }}/api/v1/</a></td>
+      </tr>
+      <tr>
+        <th scope="row">{% trans "API_documentation_version" %}</th>
+        <td>{{ settings.API_VERSION }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>{% trans "welcome_to_datanar_API_service_docs" %}</p>
+  <p>{% trans "who_is_the_API_intended_for" %}</p>
+  <p>{% trans "API_description_in_preamble" %}</p>
 {% endblock %}

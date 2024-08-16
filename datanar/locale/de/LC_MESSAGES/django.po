@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-26 22:13+0300\n"
+"POT-Creation-Date: 2024-08-16 04:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,19 +22,19 @@ msgstr ""
 msgid "api"
 msgstr "API"
 
-#: .\api\views.py:136
+#: .\api\views.py:138
 msgid "This field is required."
 msgstr "Dieses Feld ist erforderlich"
 
-#: .\api\views.py:140
+#: .\api\views.py:142
 msgid "Enter a valid URL."
 msgstr "Geben Sie eine gültige URL ein"
 
-#: .\api\views.py:144 .\redirects\forms.py:93
+#: .\api\views.py:146 .\redirects\forms.py:97
 msgid "this_url_is_blocked"
 msgstr "Diese URL ist gesperrt"
 
-#: .\api\views.py:148 .\redirects\forms.py:80
+#: .\api\views.py:150 .\redirects\forms.py:84
 msgid "custom_url_already_use"
 msgstr ""
 "Diese benutzerdefinierte URL wird bereits verwendet. Bitte wählen Sie eine "
@@ -44,7 +44,7 @@ msgstr ""
 msgid "base_forms"
 msgstr "Hauptformulare"
 
-#: .\dashboard\apps.py:8 .\templates\includes\header.html:65
+#: .\dashboard\apps.py:8 .\templates\includes\header.html:66
 msgid "dashboard"
 msgstr "Dashboard"
 
@@ -61,35 +61,35 @@ msgstr ""
 msgid "domains_regex"
 msgstr "Reguläre Domains"
 
-#: .\datanar\settings.py:207
+#: .\datanar\settings.py:211
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:208
+#: .\datanar\settings.py:212
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:209
+#: .\datanar\settings.py:213
 msgid "Ukrainian"
 msgstr "Український"
 
-#: .\datanar\settings.py:210
+#: .\datanar\settings.py:214
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:211
+#: .\datanar\settings.py:215
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:212
+#: .\datanar\settings.py:216
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:213
+#: .\datanar\settings.py:217
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:214
+#: .\datanar\settings.py:218
 msgid "Japanese"
 msgstr "日本語"
 
@@ -101,11 +101,27 @@ msgstr "Startseite"
 msgid "qr-codes"
 msgstr "QR-Codes"
 
-#: .\redirects\admin.py:30 .\redirects\models.py:55
+#: .\redirects\admin.py:33 .\redirects\models.py:72
 msgid "long_link"
 msgstr "Lange Verknüpfung"
 
-#: .\redirects\apps.py:8 .\redirects\models.py:88
+#: .\redirects\admin.py:39
+msgid "deactivate_selected_redirects"
+msgstr "Ausgewählte Weiterleitungen deaktivieren"
+
+#: .\redirects\admin.py:45
+msgid "success_deactivate_selected_redirect"
+msgstr "Ausgewählte Weiterleitungen wurden erfolgreich deaktiviert"
+
+#: .\redirects\admin.py:47
+msgid "activate_selected_redirects"
+msgstr "Ausgewählte Weiterleitungen aktivieren"
+
+#: .\redirects\admin.py:54
+msgid "success_activate_selected_redirect"
+msgstr "Ausgewählte Weiterleitungen wurden erfolgreich aktiviert"
+
+#: .\redirects\apps.py:8 .\redirects\models.py:138
 msgid "redirects"
 msgstr "Weiterleitungen"
 
@@ -118,85 +134,129 @@ msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr ""
 "Benutzerdefinierte URL, die Sie anstelle der generierten haben möchten."
 
-#: .\redirects\forms.py:75
+#: .\redirects\forms.py:79
 msgid "custom_url_should_not_have_slash"
 msgstr "Benutzerdefinierte Verknüpfung darf kein ‘/’ enthalten"
 
-#: .\redirects\forms.py:157
+#: .\redirects\forms.py:161
 msgid "date_validity_invalid"
 msgstr "Das ablaufdatum darf nicht kleiner als das aktuelle datum sein"
 
-#: .\redirects\forms.py:188 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:196 .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Passwort"
 
-#: .\redirects\forms.py:189
+#: .\redirects\forms.py:197
 msgid "password_before_redirect"
 msgstr "Geben Sie das Passwort ein, bevor Sie weiterleiten"
 
-#: .\redirects\models.py:44
+#: .\redirects\models.py:61
 msgid "user"
 msgstr "Benutzer"
 
-#: .\redirects\models.py:45
+#: .\redirects\models.py:62
 msgid "user_who_create_bond"
 msgstr ""
 "Benutzer, der die Verbindung zwischen kurzer und langer Verknüpfung erstellt "
 "hat."
 
-#: .\redirects\models.py:49
+#: .\redirects\models.py:66
 msgid "short_link"
 msgstr "Kurze Verknüpfung"
 
-#: .\redirects\models.py:50
+#: .\redirects\models.py:67
 msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
 "Verkürzte Verknüpfung, über die die Weiterleitung zum Endressource erfolgt."
 
-#: .\redirects\models.py:56
+#: .\redirects\models.py:73
 msgid "resource_to_which_short_link_lead"
 msgstr "Endressource, zu der die kurze Verknüpfung führt."
 
-#: .\redirects\models.py:60
+#: .\redirects\models.py:77
 msgid "creation_time"
 msgstr "Erstellungszeit"
 
-#: .\redirects\models.py:61
+#: .\redirects\models.py:78
 msgid "when_bond_was_create"
 msgstr ""
 "Wann wurde die Verbindung zwischen kurzer und langer Verknüpfung erstellt."
 
-#: .\redirects\models.py:65
+#: .\redirects\models.py:82
 msgid "password"
 msgstr "passwort"
 
-#: .\redirects\models.py:66
+#: .\redirects\models.py:83
 msgid "password_that_will_requested_to_redirect"
 msgstr "Passwort, das vor der Weiterleitung abgefragt wird."
 
-#: .\redirects\models.py:72
+#: .\redirects\models.py:89
 msgid "valid_day_number"
 msgstr "Ablaufdatum"
 
-#: .\redirects\models.py:73
+#: .\redirects\models.py:90
 msgid "how_many_day_link_will_be_valid"
 msgstr "Wie viele Tage ist der Link gültig, bevor er gelöscht wird"
 
-#: .\redirects\models.py:79
+#: .\redirects\models.py:96
 msgid "valid_click_number"
 msgstr "Gültige Anzahl von Übergängen"
 
-#: .\redirects\models.py:80
+#: .\redirects\models.py:97
 msgid "how_many_click_on_link_will_be_valid"
 msgstr ""
 "Wie viele Übergänge können über den Link gemacht werden, bevor er gelöscht "
 "wird."
 
-#: .\redirects\models.py:87 .\redirects\models.py:91
+#: .\redirects\models.py:103
+msgid "active"
+msgstr "aktiv"
+
+#: .\redirects\models.py:104
+msgid "is_active"
+msgstr "Ist die Weiterleitung jetzt aktiv"
+
+#: .\redirects\models.py:108
+msgid "deactivation_time"
+msgstr "abschaltzeit"
+
+#: .\redirects\models.py:109
+msgid "when_bond_was_deactivated"
+msgstr "Wenn die Weiterleitung deaktiviert wurde"
+
+#: .\redirects\models.py:114
+msgid "ip_address"
+msgstr "IP Adresse"
+
+#: .\redirects\models.py:115
+msgid "client_ip_address_who_created_redirect"
+msgstr "Die IP Adresse, von der aus die Umleitung erstellt wurde"
+
+#: .\redirects\models.py:122 .\templates\includes\footer.html:9
+msgid "API"
+msgstr "API"
+
+#: .\redirects\models.py:123
+msgid "Web"
+msgstr "Web"
+
+#: .\redirects\models.py:124
+msgid "Web_by_file"
+msgstr "Datei"
+
+#: .\redirects\models.py:127
+msgid "create_method"
+msgstr "erstellungsmethode"
+
+#: .\redirects\models.py:128
+msgid "method_which_redirect_was_created"
+msgstr "Die Methode, mit der die Umleitung erstellt wurde"
+
+#: .\redirects\models.py:137 .\redirects\models.py:141
 msgid "redirect"
 msgstr "Weiterleitung"
 
-#: .\redirects\views.py:48
+#: .\redirects\views.py:46
 msgid "invalid_password"
 msgstr "Falsches Passwort"
 
@@ -390,26 +450,68 @@ msgstr ""
 "Wenn Sie es waren, können Sie sich auf der Website registrieren, indem Sie "
 "den untenstehenden Link verwenden."
 
-#: .\templates\api\base.html:11
+#: .\templates\api\base.html:17
 msgid "datanar_api_docs"
 msgstr "Datanar API Dokumentation"
 
-#: .\templates\api\base.html:18
+#: .\templates\api\base.html:24 .\templates\api\docs\preamble.html:4
 msgid "preamble"
 msgstr "Präambel"
 
-#: .\templates\api\base.html:27 .\templates\api\base.html:38
+#: .\templates\api\base.html:33 .\templates\api\base.html:44
+#: .\templates\api\docs\redirect__create.html:4
+#: .\templates\api\docs\token__create.html:4
 msgid "creating"
 msgstr "Wodurch"
 
-#: .\templates\api\base.html:28 .\templates\api\base.html:39
-#: .\templates\api\base.html:50
+#: .\templates\api\base.html:34 .\templates\api\base.html:45
+#: .\templates\api\base.html:56 .\templates\api\docs\qr_code__get.html:4
+#: .\templates\api\docs\redirect__get.html:4
+#: .\templates\api\docs\token__get.html:4
 msgid "receiving"
 msgstr "Empfangenden"
 
-#: .\templates\api\base.html:40
+#: .\templates\api\base.html:46 .\templates\api\docs\redirect__delete.html:4
 msgid "deleting"
 msgstr "Löschen"
+
+#: .\templates\api\base.html:65 .\templates\includes\link_card.html:10
+msgid "copy"
+msgstr "Kopieren"
+
+#: .\templates\api\base.html:65
+msgid "coped"
+msgstr "Gemeistert"
+
+#: .\templates\api\docs\preamble.html:10
+msgid "contact email:"
+msgstr "E-Mail-Kontakt:"
+
+#: .\templates\api\docs\preamble.html:14
+msgid "basic_API_path:"
+msgstr "Grundlegender API-Pfad:"
+
+#: .\templates\api\docs\preamble.html:18
+msgid "API_documentation_version"
+msgstr "API-Dokumentation Version:"
+
+#: .\templates\api\docs\preamble.html:23
+msgid "welcome_to_datanar_API_service_docs"
+msgstr "Willkommen bei der Dokumentation des Datanar API-Dienstes!"
+
+#: .\templates\api\docs\preamble.html:24
+msgid "who_is_the_API_intended_for"
+msgstr
+"Die API ist für Entwickler und Unternehmen gedacht, die "
+"Linkverkürzungsfunktionen in ihre Anwendungen und Dienste integrieren möchten"
+
+#: .\templates\api\docs\preamble.html:25
+msgid "API_description_in_preamble"
+msgstr
+"Der Dienst bietet allen Nutzern grundlegende Funktionen, ohne dass sie sich "
+"registrieren und ein Token verwenden müssen, während erweiterte Funktionen "
+"nur registrierten Nutzern und nur mit einem Token zur Verfügung stehen, das "
+"sie nach der Registrierung erhalten können"
 
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"
@@ -427,7 +529,7 @@ msgstr "Domain-schwarze Liste"
 msgid "server_logs"
 msgstr "Serverprotokolle"
 
-#: .\templates\dashboard\base.html:27 .\templates\includes\header.html:68
+#: .\templates\dashboard\base.html:27 .\templates\includes\header.html:69
 msgid "admin_panel"
 msgstr "Admin"
 
@@ -548,23 +650,23 @@ msgstr "Ihren Dienst über unsere API mit unserem Dienst verbinden"
 msgid "about_using"
 msgstr "Die Website wurde mit folgenden Technologien erstellt:"
 
-#: .\templates\homepage\about.html:48
+#: .\templates\homepage\about.html:50
 msgid "developers"
 msgstr "Entwickler - diese wunderbaren Menschen:"
 
-#: .\templates\homepage\about.html:54
+#: .\templates\homepage\about.html:56
 msgid "sergey"
 msgstr "Andreev Sergey"
 
-#: .\templates\homepage\about.html:60
+#: .\templates\homepage\about.html:62
 msgid "vladimir"
 msgstr "Klimenko Vladimir"
 
-#: .\templates\homepage\about.html:66
+#: .\templates\homepage\about.html:68
 msgid "artem"
 msgstr "Tretjakov Artem"
 
-#: .\templates\homepage\about.html:72
+#: .\templates\homepage\about.html:74
 msgid "github_project"
 msgstr "Projekt auf Github"
 
@@ -657,54 +759,46 @@ msgstr ""
 "bemühen uns, Ihnen einen bequemen und sicheren Linkverkürzungsdienst zu "
 "bieten."
 
-#: .\templates\includes\footer.html:9
-msgid "API"
-msgstr "API"
-
-#: .\templates\includes\header.html:14
+#: .\templates\includes\header.html:15
 msgid "theme"
 msgstr "Thema"
 
-#: .\templates\includes\header.html:20
+#: .\templates\includes\header.html:21
 msgid "light"
 msgstr "Hell"
 
-#: .\templates\includes\header.html:26
+#: .\templates\includes\header.html:27
 msgid "dark"
 msgstr "Dunkel"
 
-#: .\templates\includes\header.html:32
+#: .\templates\includes\header.html:33
 msgid "auto"
 msgstr "Auto"
 
-#: .\templates\includes\header.html:53
+#: .\templates\includes\header.html:54
 msgid "no_user"
 msgstr "Kein Benutzername"
 
-#: .\templates\includes\header.html:60 .\templates\users\profile.html:4
-#: .\templates\users\profile.html:7
+#: .\templates\includes\header.html:61 .\templates\users\profile.html:5
+#: .\templates\users\profile.html:12
 msgid "my_profile"
 msgstr "Mein Profil"
 
-#: .\templates\includes\header.html:61
+#: .\templates\includes\header.html:62
 msgid "my_links"
 msgstr "Meine Links"
 
-#: .\templates\includes\header.html:72
+#: .\templates\includes\header.html:73
 msgid "exit"
 msgstr "Ausloggen"
 
-#: .\templates\includes\header.html:77 .\templates\users\login.html:13
+#: .\templates\includes\header.html:78 .\templates\users\login.html:13
 msgid "sign_in"
 msgstr "Einloggen"
 
-#: .\templates\includes\header.html:80 .\templates\users\signup.html:5
+#: .\templates\includes\header.html:81 .\templates\users\signup.html:5
 msgid "registration"
 msgstr "Registrieren"
-
-#: .\templates\includes\link_card.html:10
-msgid "copy"
-msgstr "Kopieren"
 
 #: .\templates\includes\user_form.html:50
 msgid "dont_have_account_yet"
@@ -863,7 +957,7 @@ msgstr "E-Mail-Adresse"
 msgid "Re-send Verification"
 msgstr "E-Mail-Adresse"
 
-#: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
+#: .\templates\users\email_change.html:31 .\templates\users\profile.html:44
 msgid "change_email"
 msgstr "E-Mail ändern"
 
@@ -884,7 +978,7 @@ msgstr "Ausloggen"
 msgid "password_change"
 msgstr "Passwort ändern"
 
-#: .\templates\users\password_change.html:13 .\templates\users\profile.html:24
+#: .\templates\users\password_change.html:13 .\templates\users\profile.html:45
 msgid "change_password"
 msgstr "Passwort ändern"
 
@@ -925,7 +1019,11 @@ msgid "email_instructions_for_password_recove_sent"
 msgstr ""
 "Eine E-Mail mit Anweisungen zur Passwort-Wiederherstellung wurde gesendet"
 
-#: .\templates\users\profile.html:21
+#: .\templates\users\profile.html:37
+msgid "delete_avatar"
+msgstr "Avatar löschen"
+
+#: .\templates\users\profile.html:42
 msgid "save"
 msgstr "Speichern"
 
@@ -941,7 +1039,7 @@ msgstr "Registrieren"
 msgid "users"
 msgstr "Benutzers"
 
-#: .\users\models.py:8
+#: .\users\models.py:9
 msgid "avatar"
 msgstr "Avatar"
 
