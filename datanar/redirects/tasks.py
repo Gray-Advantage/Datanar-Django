@@ -5,7 +5,7 @@ from celery.schedules import schedule
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator
-from django.db.models import F, DurationField, IntegerField, ExpressionWrapper
+from django.db.models import DurationField, ExpressionWrapper, F, IntegerField
 from django.utils import timezone
 import openpyxl
 

@@ -44,7 +44,7 @@ class TestShortLinks(TestCase):
         self.assertEqual(
             Redirect.objects.first().create_method,
             Redirect.CreateMethod.WEB,
-            "Метод создания для `redirect` неправильный"
+            "Метод создания для `redirect` неправильный",
         )
 
     def test_redirect_short_link(self):

@@ -96,7 +96,7 @@ class ApiCorrectTest(TestCase):
         self.assertEqual(
             Redirect.objects.last().create_method,
             Redirect.CreateMethod.API,
-            "Метод создания для `redirect` неправильный"
+            "Метод создания для `redirect` неправильный",
         )
 
         response = self.client.get(

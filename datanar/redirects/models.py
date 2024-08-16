@@ -3,16 +3,19 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from statistic.models import Click
-
 
 class RedirectManager(models.Manager):
     def get_by_short_link(self, short_link):
-        redirect = self.get_queryset().filter(
-            short_link=short_link,
-        ).annotate(
-            clicks_count=models.Count("click"),
-        ).first()
+        redirect = (
+            self.get_queryset()
+            .filter(
+                short_link=short_link,
+            )
+            .annotate(
+                clicks_count=models.Count("click"),
+            )
+            .first()
+        )
 
         if redirect is None:
             return None

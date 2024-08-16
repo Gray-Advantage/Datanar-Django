@@ -251,7 +251,4 @@ CELERY_RESULT_BACKEND = (
     f"{config('DATANAR_REDIS_DB', default='0', cast=str)}"
 )
 
-SETTINGS_EXPORT = [
-    "VERSION",
-    "API_VERSION"
-]
+SETTINGS_EXPORT = ["VERSION", "API_VERSION"]
