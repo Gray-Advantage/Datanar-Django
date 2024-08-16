@@ -6,6 +6,11 @@
 
 {% block css %}
   <link href="{% static 'css/api/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/api/prism.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/api/prism.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -57,8 +62,9 @@
     {% endwith %}
     <div class="vr d-md-block d-none min-1"></div>
     <hr class="m-0 d-md-none d-block">
-    <div class="col-md-9 col-12 p-3">
-      <h2 class="text-center"><strong>{% block api_title %}{% endblock %}</strong></h2>
+    <div class="col-md-9 col-12 p-3" data-prismjs-copy="{% trans 'copy' %}" data-prismjs-copy-success="{% trans 'coped' %}" data-prismjs-copy-timeout=700>
+      <h2 class="text-center mb-3"><strong>{% block api_title %}{% endblock %}</strong></h2>
+      <hr>
       {% block api_content %}
 
       {% endblock %}

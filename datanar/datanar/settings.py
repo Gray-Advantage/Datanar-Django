@@ -8,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 VERSION = "2.0.0"
+API_VERSION = "1.2.0"
 
 SECRET_KEY = config(
     "DATANAR_SECRET_KEY",
@@ -115,6 +116,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "django_settings_export.settings_export",
+                "core.context_processor.server_url",
             ],
         },
     },
@@ -251,4 +253,5 @@ CELERY_RESULT_BACKEND = (
 
 SETTINGS_EXPORT = [
     "VERSION",
+    "API_VERSION"
 ]
