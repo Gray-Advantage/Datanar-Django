@@ -15,7 +15,7 @@
     {% for domain in domains %}
       <div class="input-group mt-2">
         <input type="text" class="form-control" placeholder="{% trans 'domain_regex_that_will_be_prohibited_from_shortening' %}" value="{{ domain.domain_regex }}" readonly disabled>
-        <button class="btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#blockedDomainChange" data-bs-domain-id="{{ domain.id }}" data-bs-domain-regex="{{ domain.domain_regex }}">{% trans "Change" %}</button>
+        <button class="btn btn-outline" type="button" data-bs-toggle="modal" data-bs-target="#blockedDomainChange" data-bs-domain-id="{{ domain.id }}" data-bs-domain-regex="{{ domain.domain_regex }}">{% trans "Change" %}</button>
         <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#blockedDomainDelete" data-bs-domain-id="{{ domain.id }}">{% trans "Delete" %}</button>
       </div>
     {% endfor %}

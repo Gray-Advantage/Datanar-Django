@@ -1,11 +1,25 @@
+[data-bs-theme=light] {
+  --api-side-button: #F8F9FA;
+  --api-bg-side-button: #212529;
+}
+
+[data-bs-theme=dark] {
+  --api-side-button: #212529;
+  --api-bg-side-button: #F8F9FA;
+
+  .btn-toggle::before {
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  }
+}
+
 .bold-text * {
   font-weight: 600;
-  color: var(--bs-emphasis-color);
+  color: var(--api-bg-side-button);
 }
 
 .nav-link.active {
-  color: var(--bs-dark-bg-subtle) !important;
-  background-color: var(--bs-emphasis-color) !important;
+  color: var(--api-side-button) !important;
+  background-color: var(--api-bg-side-button) !important;
 }
 
 .btn-toggle::before {
@@ -15,21 +29,45 @@
   transition: transform .35s ease;
   transform-origin: .5em 50%;
 }
-[data-bs-theme="dark"] .btn-toggle::before {
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-}
+
 .btn-toggle[aria-expanded="true"]::before {
   transform: rotate(90deg);
 }
 
-.btn-toggle:hover,
-.btn-toggle:focus,
-.btn-toggle-nav a:hover,
-.btn-toggle-nav a:focus {
+.btn-toggle:hover, .btn-toggle:focus, .btn-toggle-nav a:hover, .btn-toggle-nav a:focus {
   background-color: var(--bs-secondary-bg);
-  color: var(--bs-emphasis-color);
+  color: var(--api-bg-side-button);
 }
 
 .min-1 {
   min-width: 1px;
+}
+
+.api-table {
+    max-width: 1100px;
+}
+
+.api-table th:nth-child(1),
+.api-table td:nth-child(1) {
+    width: 150px;
+}
+
+.api-table th:nth-child(2),
+.api-table td:nth-child(2) {
+    width: 150px;
+}
+
+.api-table th:nth-child(3),
+.api-table td:nth-child(3) {
+    width: 100px;
+}
+
+.api-table th:nth-child(4),
+.api-table td:nth-child(4) {
+    width: 150px;
+}
+
+.api-table th:nth-child(5),
+.api-table td:nth-child(5) {
+    width: 360px;
 }
