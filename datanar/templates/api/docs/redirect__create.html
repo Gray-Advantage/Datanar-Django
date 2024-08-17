@@ -4,5 +4,237 @@
 {% block api_title %}Redirect - {% trans "creating" %}{% endblock %}
 
 {% block api_content %}
-  
+  <h4 class="mb-4"><strong>POST&#32;&gt;&gt;&#32;<a href="#">{{ server_url }}/api/v1/redirects/</a></strong></h4>
+
+  <p class="mb-4">{% trans "redirect__create_api_docs" %}</p>
+
+  <h4><strong>{% trans "request_parameters:" %}</strong></h4>
+    <div class="overflow-x-auto mb-3">
+    <table class="table api-table table-hover table-bordered mb-0">
+      <thead>
+        <tr>
+          <th>{% trans "attribute_name" %}</th>
+          <th>{% trans "location" %}</th>
+          <th>{% trans "type" %}</th>
+          <th>{% trans "commitment" %}</th>
+          <th>{% trans "description" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>token</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "no" %}</td>
+          <td>{% trans "token_for_interaction_with_extended_API" %}</td>
+        </tr>
+        <tr>
+          <td>long_link</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "resource_to_which_short_link_lead" %}</td>
+        </tr>
+        <tr>
+          <td>short_link</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "no" %}</td>
+          <td>{% trans "custom_url" %}</td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "no" %}<br>{% trans "available_only_with_token" %}</td>
+          <td>{% trans "password_that_will_requested_to_redirect" %}</td>
+        </tr>
+        <tr>
+          <td>validity_days</td>
+          <td>body</td>
+          <td>integer</td>
+          <td>{% trans "no" %}<br>{% trans "available_only_with_token" %}</td>
+          <td>{% trans "how_many_day_link_will_be_valid" %}</td>
+        </tr>
+        <tr>
+          <td>validity_clicks</td>
+          <td>body</td>
+          <td>integer</td>
+          <td>{% trans "no" %}<br>{% trans "available_only_with_token" %}</td>
+          <td>{% trans "how_many_click_on_link_will_be_valid" %}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><strong>{% trans "response_parameters:" %}</strong></h4>
+  <div class="overflow-x-auto mb-4">
+    <table class="table api-table table-hover table-bordered mb-0">
+      <thead>
+        <tr>
+          <th>{% trans "attribute_name" %}</th>
+          <th>{% trans "location" %}</th>
+          <th>{% trans "type" %}</th>
+          <th>{% trans "commitment" %}</th>
+          <th>{% trans "description" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>id</td>
+          <td>body</td>
+          <td>integer</td>
+          <td>{% trans "no" %}<br>{% trans "available_only_with_token" %}</td>
+          <td>{% trans "Redirect id" %}</td>
+        </tr>
+        <tr>
+          <td>long_link</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "long_link"|capfirst %}</td>
+        </tr>
+        <tr>
+          <td>short_link</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "short_link"|capfirst %}</td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "Password" %}</td>
+        </tr>
+        <tr>
+          <td>validity_days</td>
+          <td>body</td>
+          <td>integer</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "valid_day_number"|capfirst %}</td>
+        </tr>
+        <tr>
+          <td>validity_clicks</td>
+          <td>body</td>
+          <td>integer</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "valid_click_number"|capfirst %}</td>
+        </tr>
+        <tr>
+          <td>created_at</td>
+          <td>body</td>
+          <td>datetime</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "creation_time"|capfirst %}</td>
+        </tr>
+        <tr>
+          <td>create_method</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "no" %}<br>{% trans "available_only_with_token" %}</td>
+          <td>{% trans "method_which_redirect_was_created"|capfirst %}</td>
+        </tr>
+        <tr>
+          <td>is_active</td>
+          <td>body</td>
+          <td>bool</td>
+          <td>{% trans "no" %}<br>{% trans "available_only_with_token" %}</td>
+          <td>{% trans "is_active"|capfirst %}</td>
+        </tr>
+        <tr>
+          <td>deactivated_at</td>
+          <td>body</td>
+          <td>datetime</td>
+          <td>{% trans "no" %}<br>{% trans "available_only_with_token" %}</td>
+          <td>{% trans "deactivation_time"|capfirst %}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><strong>{% trans "response_codes:" %}</strong></h4>
+  <div class="overflow-x-auto mb-4">
+    <table class="table api-table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>{% trans "code" %}</th>
+          <th>{% trans "description" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>201</td>
+          <td>Created ({% trans "success_obtained_redirect" %})</td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>Bad Request ({% trans "missing_required_field" %})</td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>Unauthorized ({% trans "no_token_for_fields_that_require_it" %})</td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>Conflict ({% trans "custom_url_already_use"|lower %})</td>
+        </tr>
+        <tr>
+          <td>423</td>
+          <td>Locked ({% trans "this_url_is_blocked"|lower %})</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><strong>{% trans "example_of_request_sent:" %}</strong></h4>
+  <pre class="mb-3"><code class="language-json">{
+  "long_link": "https://github.com/Gray-Advantage/Datanar-Django",
+  "short_link": "datanar"
+}</code></pre>
+  <pre class="mb-3"><code class="language-json">{
+  "token": "a0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9u",
+  "long_link": "https://github.com/Gray-Advantage/Datanar-Django",
+  "password": "best_link_shorter",
+  "validity_days": 10,
+  "validity_clicks": 1000
+}</code></pre>
+
+  <h4><strong>{% trans "example_of_response_receive:" %}</strong></h4>
+  <pre class="mb-4"><code class="language-json">{
+  "id": 1337,
+  "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  "short_link": "joke",
+  "password": null,
+  "validity_days": 90,
+  "validity_clicks": null,
+  "created_at": "2024-01-15T06:19:57.336000Z",
+  "create_method": "API",
+  "is_active": true,
+  "deactivated_at": null
+}</code></pre>
+
+  <h4><strong>{% trans "python_code_example" %}</strong></h4>
+  <pre><code class="language-python">import requests
+from pprint import pprint
+
+# {% trans "reminder_that_passwords_better_kept_in_separate_file" %}
+auth = requests.post(
+    "{{ server_url }}/api/v1/api-token-auth/",
+    data={
+        "username": "user",
+        "password": "very1secret3password!",
+    }
+)
+
+create_request = requests.post(
+    "{{ server_url }}/api/v1/redirects/",
+    data={
+        "token": auth.json()["token"],
+        "long_link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    }
+)
+
+pprint(create_request.json())</code></pre>
 {% endblock %}

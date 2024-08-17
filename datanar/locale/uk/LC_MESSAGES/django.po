@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-16 09:26+0300\n"
+"POT-Creation-Date: 2024-08-17 12:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,22 +25,23 @@ msgstr ""
 msgid "api"
 msgstr "API"
 
-#: .\api\views.py:138
+#: .\api\views.py:143
 msgid "This field is required."
 msgstr "Це поле є обов'язковим"
 
-#: .\api\views.py:142
+#: .\api\views.py:147
 msgid "Enter a valid URL."
 msgstr "Введіть дійсну URL-адресу"
 
-#: .\api\views.py:146 .\redirects\forms.py:97
+#: .\api\views.py:151 .\redirects\forms.py:90 .\redirects\forms.py:103
+#: .\templates\api\docs\redirect__create.html:185
 msgid "this_url_is_blocked"
 msgstr "Ця URL-адреса заблокована"
 
-#: .\api\views.py:150 .\redirects\forms.py:84
+#: .\api\views.py:155 .\redirects\forms.py:84
+#: .\templates\api\docs\redirect__create.html:181
 msgid "custom_url_already_use"
-msgstr ""
-"Ця кастомна url-адреса вже використовується. Будь ласка, виберіть інший."
+msgstr "Ця кастомна url-адреса вже використовується."
 
 #: .\core\apps.py:8
 msgid "base_forms"
@@ -103,6 +104,7 @@ msgid "qr-codes"
 msgstr "QR-коди"
 
 #: .\redirects\admin.py:33 .\redirects\models.py:72
+#: .\templates\api\docs\redirect__create.html:95
 msgid "long_link"
 msgstr "довге посилання"
 
@@ -126,7 +128,7 @@ msgstr "Обрані перенаправлення успішно активо�
 msgid "redirects"
 msgstr "перенапрямки"
 
-#: .\redirects\forms.py:31
+#: .\redirects\forms.py:31 .\templates\api\docs\redirect__create.html:43
 msgid "custom_url"
 msgstr "Кастомна url-адреса"
 
@@ -139,17 +141,18 @@ msgstr ""
 msgid "custom_url_should_not_have_slash"
 msgstr "Кастомне посилання не повинно мати '/'"
 
-#: .\redirects\forms.py:161
+#: .\redirects\forms.py:167
 msgid "date_validity_invalid"
 msgstr "Термін придатності не може бути менше поточної дати"
 
-#: .\redirects\forms.py:196 .\templates\api\docs\token__create.html:36
+#: .\redirects\forms.py:202 .\templates\api\docs\redirect__create.html:109
+#: .\templates\api\docs\token__create.html:36
 #: .\templates\api\docs\token__get.html:36
 #: .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Пароль"
 
-#: .\redirects\forms.py:197
+#: .\redirects\forms.py:203
 msgid "password_before_redirect"
 msgstr "Введіть пароль перед перенаправленням"
 
@@ -159,63 +162,62 @@ msgstr "користувач"
 
 #: .\redirects\models.py:62
 msgid "user_who_create_bond"
-msgstr "Користувач, який створив зв'язок між коротким та довгим посиланням."
+msgstr "Користувач, який створив зв'язок між коротким та довгим посиланням"
 
-#: .\redirects\models.py:66
+#: .\redirects\models.py:66 .\templates\api\docs\redirect__create.html:102
 msgid "short_link"
 msgstr "коротке посилання"
 
 #: .\redirects\models.py:67
 msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
-"Скорочене посилання, за яким буде повністю перенаправлення на кінцевий "
-"ресурс."
+"Скорочене посилання, за яким буде повністю перенаправлення на кінцевий ресурс"
 
-#: .\redirects\models.py:73
+#: .\redirects\models.py:73 .\templates\api\docs\redirect__create.html:36
 msgid "resource_to_which_short_link_lead"
-msgstr "Кінцевий ресурс, до якого вестиме коротке посилання."
+msgstr "Кінцевий ресурс, до якого вестиме коротке посилання"
 
-#: .\redirects\models.py:77
+#: .\redirects\models.py:77 .\templates\api\docs\redirect__create.html:130
 msgid "creation_time"
 msgstr "час створення"
 
 #: .\redirects\models.py:78
 msgid "when_bond_was_create"
-msgstr "Коли було створено зв'язок між коротким і довгим посиланням."
+msgstr "Коли було створено зв'язок між коротким і довгим посиланням"
 
 #: .\redirects\models.py:82
 msgid "password"
 msgstr "пароль"
 
-#: .\redirects\models.py:83
+#: .\redirects\models.py:83 .\templates\api\docs\redirect__create.html:50
 msgid "password_that_will_requested_to_redirect"
-msgstr "Пароль, який вимагатиметься перед перенаправленням."
+msgstr "Пароль, який вимагатиметься перед перенаправленням"
 
-#: .\redirects\models.py:89
+#: .\redirects\models.py:89 .\templates\api\docs\redirect__create.html:116
 msgid "valid_day_number"
 msgstr "термін придатності"
 
-#: .\redirects\models.py:90
+#: .\redirects\models.py:90 .\templates\api\docs\redirect__create.html:57
 msgid "how_many_day_link_will_be_valid"
-msgstr "Скільки днів буде валідне посилання перед її видаленням"
+msgstr "Скільки днів буде валідне посилання перед її деактивацією"
 
-#: .\redirects\models.py:96
+#: .\redirects\models.py:96 .\templates\api\docs\redirect__create.html:123
 msgid "valid_click_number"
 msgstr "валідна кількість переходів"
 
-#: .\redirects\models.py:97
+#: .\redirects\models.py:97 .\templates\api\docs\redirect__create.html:64
 msgid "how_many_click_on_link_will_be_valid"
-msgstr "Скільки переходів можна зробити за посиланням перед видаленням."
+msgstr "Скільки переходів можна зробити за посиланням перед деактивацією"
 
 #: .\redirects\models.py:103
 msgid "active"
 msgstr "активно"
 
-#: .\redirects\models.py:104
+#: .\redirects\models.py:104 .\templates\api\docs\redirect__create.html:144
 msgid "is_active"
 msgstr "Чи активне зараз перенаправлення"
 
-#: .\redirects\models.py:108
+#: .\redirects\models.py:108 .\templates\api\docs\redirect__create.html:151
 msgid "deactivation_time"
 msgstr "час деактивації"
 
@@ -247,7 +249,7 @@ msgstr "Файл"
 msgid "create_method"
 msgstr "метод створення"
 
-#: .\redirects\models.py:128
+#: .\redirects\models.py:128 .\templates\api\docs\redirect__create.html:137
 msgid "method_which_redirect_was_created"
 msgstr "Метод, яким перенаправлення було створено"
 
@@ -508,6 +510,172 @@ msgstr ""
 "зареєстрованим користувачам і тільки з використанням токена, який можна "
 "отримати після реєстрації"
 
+#: .\templates\api\docs\redirect__create.html:9
+msgid "redirect__create_api_docs"
+msgstr ""
+"Основний маршрут API - створення перенаправлення. Якщо не використовувати "
+"токен, можна просто створити перенаправлення і кастомне посилання за бажання."
+" З токеном перенаправлення буде збережено в профілі користувача, а також "
+"можна встановлювати додаткові атрибути під час створення перенаправлення"
+
+#: .\templates\api\docs\redirect__create.html:11
+#: .\templates\api\docs\token__create.html:11
+#: .\templates\api\docs\token__get.html:11
+msgid "request_parameters:"
+msgstr "Параметри запиту:"
+
+#: .\templates\api\docs\redirect__create.html:16
+#: .\templates\api\docs\redirect__create.html:75
+#: .\templates\api\docs\token__create.html:16
+#: .\templates\api\docs\token__create.html:47
+#: .\templates\api\docs\token__get.html:16
+#: .\templates\api\docs\token__get.html:47
+msgid "attribute_name"
+msgstr "Ім'я атрибута"
+
+#: .\templates\api\docs\redirect__create.html:17
+#: .\templates\api\docs\redirect__create.html:76
+#: .\templates\api\docs\token__create.html:17
+#: .\templates\api\docs\token__create.html:48
+#: .\templates\api\docs\token__get.html:17
+#: .\templates\api\docs\token__get.html:48
+msgid "location"
+msgstr "Розташування"
+
+#: .\templates\api\docs\redirect__create.html:18
+#: .\templates\api\docs\redirect__create.html:77
+#: .\templates\api\docs\token__create.html:18
+#: .\templates\api\docs\token__create.html:49
+#: .\templates\api\docs\token__get.html:18
+#: .\templates\api\docs\token__get.html:49
+msgid "type"
+msgstr "Тип"
+
+#: .\templates\api\docs\redirect__create.html:19
+#: .\templates\api\docs\redirect__create.html:78
+#: .\templates\api\docs\token__create.html:19
+#: .\templates\api\docs\token__create.html:50
+#: .\templates\api\docs\token__get.html:19
+#: .\templates\api\docs\token__get.html:50
+msgid "commitment"
+msgstr "Обов'язковість"
+
+#: .\templates\api\docs\redirect__create.html:20
+#: .\templates\api\docs\redirect__create.html:79
+#: .\templates\api\docs\redirect__create.html:163
+#: .\templates\api\docs\token__create.html:20
+#: .\templates\api\docs\token__create.html:51
+#: .\templates\api\docs\token__create.html:72
+#: .\templates\api\docs\token__get.html:20
+#: .\templates\api\docs\token__get.html:51
+#: .\templates\api\docs\token__get.html:72
+msgid "description"
+msgstr "Описание"
+
+#: .\templates\api\docs\redirect__create.html:28
+#: .\templates\api\docs\redirect__create.html:42
+#: .\templates\api\docs\redirect__create.html:49
+#: .\templates\api\docs\redirect__create.html:56
+#: .\templates\api\docs\redirect__create.html:63
+#: .\templates\api\docs\redirect__create.html:87
+#: .\templates\api\docs\redirect__create.html:136
+#: .\templates\api\docs\redirect__create.html:143
+#: .\templates\api\docs\redirect__create.html:150
+msgid "no"
+msgstr "Ні"
+
+#: .\templates\api\docs\redirect__create.html:29
+#: .\templates\api\docs\token__create.html:60
+#: .\templates\api\docs\token__get.html:60
+msgid "token_for_interaction_with_extended_API"
+msgstr "Токен для взаємодії з розширеним API"
+
+#: .\templates\api\docs\redirect__create.html:35
+#: .\templates\api\docs\redirect__create.html:94
+#: .\templates\api\docs\redirect__create.html:101
+#: .\templates\api\docs\redirect__create.html:108
+#: .\templates\api\docs\redirect__create.html:115
+#: .\templates\api\docs\redirect__create.html:122
+#: .\templates\api\docs\redirect__create.html:129
+#: .\templates\api\docs\token__create.html:28
+#: .\templates\api\docs\token__create.html:35
+#: .\templates\api\docs\token__create.html:59
+#: .\templates\api\docs\token__get.html:28
+#: .\templates\api\docs\token__get.html:35
+#: .\templates\api\docs\token__get.html:59
+msgid "yes"
+msgstr "Так"
+
+#: .\templates\api\docs\redirect__create.html:49
+#: .\templates\api\docs\redirect__create.html:56
+#: .\templates\api\docs\redirect__create.html:63
+#: .\templates\api\docs\redirect__create.html:87
+#: .\templates\api\docs\redirect__create.html:136
+#: .\templates\api\docs\redirect__create.html:143
+#: .\templates\api\docs\redirect__create.html:150
+msgid "available_only_with_token"
+msgstr "Доступно з токеном"
+
+#: .\templates\api\docs\redirect__create.html:70
+#: .\templates\api\docs\token__create.html:42
+#: .\templates\api\docs\token__get.html:42
+msgid "response_parameters:"
+msgstr "Параметри відповіді:"
+
+#: .\templates\api\docs\redirect__create.html:88
+msgid "Redirect id"
+msgstr "ІД перенаправлення"
+
+#: .\templates\api\docs\redirect__create.html:157
+#: .\templates\api\docs\token__create.html:66
+#: .\templates\api\docs\token__get.html:66
+msgid "response_codes:"
+msgstr "Коди відповіді:"
+
+#: .\templates\api\docs\redirect__create.html:162
+#: .\templates\api\docs\token__create.html:71
+#: .\templates\api\docs\token__get.html:71
+msgid "code"
+msgstr "Код"
+
+#: .\templates\api\docs\redirect__create.html:169
+msgid "success_obtained_redirect"
+msgstr "успішно отримане перенаправлення"
+
+#: .\templates\api\docs\redirect__create.html:173
+#: .\templates\api\docs\token__create.html:82
+#: .\templates\api\docs\token__get.html:82
+msgid "missing_required_field"
+msgstr "відсутнє обов'язкове поле"
+
+#: .\templates\api\docs\redirect__create.html:177
+msgid "no_token_for_fields_that_require_it"
+msgstr "немає токена для атрибутів, які вимагають цього"
+
+#: .\templates\api\docs\redirect__create.html:191
+#: .\templates\api\docs\token__create.html:92
+#: .\templates\api\docs\token__get.html:92
+msgid "example_of_request_sent:"
+msgstr "Приклад надісланого запиту:"
+
+#: .\templates\api\docs\redirect__create.html:204
+#: .\templates\api\docs\token__create.html:98
+#: .\templates\api\docs\token__get.html:98
+msgid "example_of_response_receive:"
+msgstr "Приклад отриманої відповіді:"
+
+#: .\templates\api\docs\redirect__create.html:218
+#: .\templates\api\docs\token__create.html:103
+#: .\templates\api\docs\token__get.html:103
+msgid "python_code_example"
+msgstr "Приклад коду на Python:"
+
+#: .\templates\api\docs\redirect__create.html:222
+#: .\templates\api\docs\token__create.html:106
+#: .\templates\api\docs\token__get.html:106
+msgid "reminder_that_passwords_better_kept_in_separate_file"
+msgstr "Просто нагадуємо, що паролі краще зберігати в окремому файлі"
+
 #: .\templates\api\docs\token__create.html:9
 #: .\templates\api\docs\token__get.html:9
 msgid "to_start_interacting_with_extended_API_you_need_token"
@@ -520,116 +688,20 @@ msgstr ""
 "Кожен новий POST-запит на цей маршрут перестворює Token користувача на той "
 "випадок, якщо, наприклад, минулий був розкритий"
 
-#: .\templates\api\docs\token__create.html:11
-#: .\templates\api\docs\token__get.html:11
-msgid "request_parameters:"
-msgstr "Параметри запиту:"
-
-#: .\templates\api\docs\token__create.html:16
-#: .\templates\api\docs\token__create.html:47
-#: .\templates\api\docs\token__get.html:16
-#: .\templates\api\docs\token__get.html:47
-msgid "attribute_name"
-msgstr "Ім'я атрибута"
-
-#: .\templates\api\docs\token__create.html:17
-#: .\templates\api\docs\token__create.html:48
-#: .\templates\api\docs\token__get.html:17
-#: .\templates\api\docs\token__get.html:48
-msgid "location"
-msgstr "Розташування"
-
-#: .\templates\api\docs\token__create.html:18
-#: .\templates\api\docs\token__create.html:49
-#: .\templates\api\docs\token__get.html:18
-#: .\templates\api\docs\token__get.html:49
-msgid "type"
-msgstr "Тип"
-
-#: .\templates\api\docs\token__create.html:19
-#: .\templates\api\docs\token__create.html:50
-#: .\templates\api\docs\token__get.html:19
-#: .\templates\api\docs\token__get.html:50
-msgid "commitment"
-msgstr "Обов'язковість"
-
-#: .\templates\api\docs\token__create.html:20
-#: .\templates\api\docs\token__create.html:51
-#: .\templates\api\docs\token__create.html:72
-#: .\templates\api\docs\token__get.html:20
-#: .\templates\api\docs\token__get.html:51
-#: .\templates\api\docs\token__get.html:72
-msgid "description"
-msgstr "Описание"
-
-#: .\templates\api\docs\token__create.html:28
-#: .\templates\api\docs\token__create.html:35
-#: .\templates\api\docs\token__create.html:59
-#: .\templates\api\docs\token__get.html:28
-#: .\templates\api\docs\token__get.html:35
-#: .\templates\api\docs\token__get.html:59
-msgid "yes"
-msgstr "Так"
-
 #: .\templates\api\docs\token__create.html:29
 #: .\templates\api\docs\token__get.html:29
 msgid "Username or email"
 msgstr "Ім'я користувача або e-mail"
-
-#: .\templates\api\docs\token__create.html:42
-#: .\templates\api\docs\token__get.html:42
-msgid "response_parameters:"
-msgstr "Параметри відповіді:"
-
-#: .\templates\api\docs\token__create.html:60
-#: .\templates\api\docs\token__get.html:60
-msgid "token_for_interaction_with_extended_API"
-msgstr "Токен для взаємодії з розширеним API"
-
-#: .\templates\api\docs\token__create.html:66
-#: .\templates\api\docs\token__get.html:66
-msgid "response_codes:"
-msgstr "Коди відповіді:"
-
-#: .\templates\api\docs\token__create.html:71
-#: .\templates\api\docs\token__get.html:71
-msgid "code"
-msgstr "Код"
 
 #: .\templates\api\docs\token__create.html:78
 #: .\templates\api\docs\token__get.html:78
 msgid "success_obtained_token"
 msgstr "Успішно отриманий токен"
 
-#: .\templates\api\docs\token__create.html:82
-#: .\templates\api\docs\token__get.html:82
-msgid "missing_required_field"
-msgstr "відсутнє обов'язкове поле"
-
 #: .\templates\api\docs\token__create.html:86
 #: .\templates\api\docs\token__get.html:86
 msgid "request_other_than_POST"
 msgstr "запит відмінний від POST"
-
-#: .\templates\api\docs\token__create.html:92
-#: .\templates\api\docs\token__get.html:92
-msgid "example_of_request_sent:"
-msgstr "Приклад надісланого запиту:"
-
-#: .\templates\api\docs\token__create.html:98
-#: .\templates\api\docs\token__get.html:98
-msgid "example_of_response_receive:"
-msgstr "Приклад отриманої відповіді:"
-
-#: .\templates\api\docs\token__create.html:103
-#: .\templates\api\docs\token__get.html:103
-msgid "python_code_example"
-msgstr "Приклад коду на Python:"
-
-#: .\templates\api\docs\token__create.html:106
-#: .\templates\api\docs\token__get.html:106
-msgid "reminder_that_passwords_better_kept_in_separate_file"
-msgstr "Просто нагадуємо, що паролі краще зберігати в окремому файлі"
 
 #: .\templates\api\docs\token__get.html:9
 msgid "on_this_route_you_can_create_token_or_reacquire_existing_one"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-16 09:26+0300\n"
+"POT-Creation-Date: 2024-08-17 12:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,22 +22,23 @@ msgstr ""
 msgid "api"
 msgstr "API"
 
-#: .\api\views.py:138
+#: .\api\views.py:143
 msgid "This field is required."
 msgstr "このフィールドは必須です"
 
-#: .\api\views.py:142
+#: .\api\views.py:147
 msgid "Enter a valid URL."
 msgstr "有効なURLを入力します"
 
-#: .\api\views.py:146 .\redirects\forms.py:97
+#: .\api\views.py:151 .\redirects\forms.py:90 .\redirects\forms.py:103
+#: .\templates\api\docs\redirect__create.html:185
 msgid "this_url_is_blocked"
 msgstr "このURLはブロックされています"
 
-#: .\api\views.py:150 .\redirects\forms.py:84
+#: .\api\views.py:155 .\redirects\forms.py:84
+#: .\templates\api\docs\redirect__create.html:181
 msgid "custom_url_already_use"
-msgstr ""
-"このカスタムURLアドレスはすでに使用されています。別のものを選んでください。"
+msgstr "このカスタムURLアドレスはすでに使用されています。"
 
 #: .\core\apps.py:8
 msgid "base_forms"
@@ -100,6 +101,7 @@ msgid "qr-codes"
 msgstr "QRコード"
 
 #: .\redirects\admin.py:33 .\redirects\models.py:72
+#: .\templates\api\docs\redirect__create.html:95
 msgid "long_link"
 msgstr "長いリンク"
 
@@ -123,7 +125,7 @@ msgstr "選択されたリダイレクトは正常に有効化されました。
 msgid "redirects"
 msgstr "リダイレクト"
 
-#: .\redirects\forms.py:31
+#: .\redirects\forms.py:31 .\templates\api\docs\redirect__create.html:43
 msgid "custom_url"
 msgstr "カスタムURLアドレス"
 
@@ -135,17 +137,18 @@ msgstr "生成されたものの代わりに持ちたいユーザー定義のURL
 msgid "custom_url_should_not_have_slash"
 msgstr "カスタムリンクには’/'を含めてはならない"
 
-#: .\redirects\forms.py:161
+#: .\redirects\forms.py:167
 msgid "date_validity_invalid"
 msgstr "有効期限は現在の日付より小さくすることはできません"
 
-#: .\redirects\forms.py:196 .\templates\api\docs\token__create.html:36
+#: .\redirects\forms.py:202 .\templates\api\docs\redirect__create.html:109
+#: .\templates\api\docs\token__create.html:36
 #: .\templates\api\docs\token__get.html:36
 #: .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "パスワード"
 
-#: .\redirects\forms.py:197
+#: .\redirects\forms.py:203
 msgid "password_before_redirect"
 msgstr "リダイレクトする前にパスワードを入力してください"
 
@@ -155,61 +158,61 @@ msgstr "ユーザー"
 
 #: .\redirects\models.py:62
 msgid "user_who_create_bond"
-msgstr "短いリンクと長いリンクの間の関連を作成したユーザー。"
+msgstr "短いリンクと長いリンクの間の関連を作成したユーザー"
 
-#: .\redirects\models.py:66
+#: .\redirects\models.py:66 .\templates\api\docs\redirect__create.html:102
 msgid "short_link"
 msgstr "短いリンク"
 
 #: .\redirects\models.py:67
 msgid "shorten_link_to_redirect_to_resource"
-msgstr "最終リソースにリダイレクトされる短縮リンク。"
+msgstr "最終リソースにリダイレクトされる短縮リンク"
 
-#: .\redirects\models.py:73
+#: .\redirects\models.py:73 .\templates\api\docs\redirect__create.html:36
 msgid "resource_to_which_short_link_lead"
-msgstr "短いリンクが指す最終リソース。"
+msgstr "短いリンクが指す最終リソース"
 
-#: .\redirects\models.py:77
+#: .\redirects\models.py:77 .\templates\api\docs\redirect__create.html:130
 msgid "creation_time"
 msgstr "作成時間"
 
 #: .\redirects\models.py:78
 msgid "when_bond_was_create"
-msgstr "短いリンクと長いリンクの間の関連が作成されたとき。"
+msgstr "短いリンクと長いリンクの間の関連が作成されたとき"
 
 #: .\redirects\models.py:82
 msgid "password"
 msgstr "パスワード"
 
-#: .\redirects\models.py:83
+#: .\redirects\models.py:83 .\templates\api\docs\redirect__create.html:50
 msgid "password_that_will_requested_to_redirect"
-msgstr "リダイレクトする前に要求されるパスワード。"
+msgstr "リダイレクトする前に要求されるパスワード"
 
-#: .\redirects\models.py:89
+#: .\redirects\models.py:89 .\templates\api\docs\redirect__create.html:116
 msgid "valid_day_number"
 msgstr "有効期限"
 
-#: .\redirects\models.py:90
+#: .\redirects\models.py:90 .\templates\api\docs\redirect__create.html:57
 msgid "how_many_day_link_will_be_valid"
-msgstr "リンクが削除される前に有効な日数。"
+msgstr "リンクが無効化される前に有効な日数"
 
-#: .\redirects\models.py:96
+#: .\redirects\models.py:96 .\templates\api\docs\redirect__create.html:123
 msgid "valid_click_number"
 msgstr "有効なリダイレクト数"
 
-#: .\redirects\models.py:97
+#: .\redirects\models.py:97 .\templates\api\docs\redirect__create.html:64
 msgid "how_many_click_on_link_will_be_valid"
-msgstr "リンクが削除される前に何回リダイレクトできるか。"
+msgstr "リンクが無効化される前に何回リダイレクトできるか"
 
 #: .\redirects\models.py:103
 msgid "active"
 msgstr "積極的に"
 
-#: .\redirects\models.py:104
+#: .\redirects\models.py:104 .\templates\api\docs\redirect__create.html:144
 msgid "is_active"
 msgstr "今、紹介は有効か"
 
-#: .\redirects\models.py:108
+#: .\redirects\models.py:108 .\templates\api\docs\redirect__create.html:151
 msgid "deactivation_time"
 msgstr "休止時間"
 
@@ -241,7 +244,7 @@ msgstr "ファイル"
 msgid "create_method"
 msgstr "作成方法"
 
-#: .\redirects\models.py:128
+#: .\redirects\models.py:128 .\templates\api\docs\redirect__create.html:137
 msgid "method_which_redirect_was_created"
 msgstr "リダイレクトの作成方法"
 
@@ -503,22 +506,21 @@ msgstr ""
 "一方、高度な機能は、登録されたユーザーだけが利用でき、登録後に取得できるトー"
 "クンを使用する必要があります。"
 
-#: .\templates\api\docs\token__create.html:9
-#: .\templates\api\docs\token__get.html:9
-msgid "to_start_interacting_with_extended_API_you_need_token"
-msgstr "サービスの拡張APIとのやり取りを開始するには、Tokenを取得する必要がある。"
-
-#: .\templates\api\docs\token__create.html:9
-msgid "each_new_POST_request_recreates_token"
+#: .\templates\api\docs\redirect__create.html:9
+msgid "redirect__create_api_docs"
 msgstr ""
-"このルートへのそれぞれの新しいPOSTリクエストは、例えば、前のTokenが開示された場合に備え"
-"て、ユーザのTokenを再作成する。"
+"APIの主なルートは、リダイレクトを作成することです。トークンを使わない場合は、リダイレク"
+"トとカスタムリンクを作成するだけです。トークンを使えば、リダイレクトはユーザのプロファイ"
+"ルに保存され、リダイレクトを作成する際に追加の属性を設定することができます。"
 
+#: .\templates\api\docs\redirect__create.html:11
 #: .\templates\api\docs\token__create.html:11
 #: .\templates\api\docs\token__get.html:11
 msgid "request_parameters:"
 msgstr "クエリーパラメーター："
 
+#: .\templates\api\docs\redirect__create.html:16
+#: .\templates\api\docs\redirect__create.html:75
 #: .\templates\api\docs\token__create.html:16
 #: .\templates\api\docs\token__create.html:47
 #: .\templates\api\docs\token__get.html:16
@@ -526,6 +528,8 @@ msgstr "クエリーパラメーター："
 msgid "attribute_name"
 msgstr "属性名"
 
+#: .\templates\api\docs\redirect__create.html:17
+#: .\templates\api\docs\redirect__create.html:76
 #: .\templates\api\docs\token__create.html:17
 #: .\templates\api\docs\token__create.html:48
 #: .\templates\api\docs\token__get.html:17
@@ -533,6 +537,8 @@ msgstr "属性名"
 msgid "location"
 msgstr "所在地"
 
+#: .\templates\api\docs\redirect__create.html:18
+#: .\templates\api\docs\redirect__create.html:77
 #: .\templates\api\docs\token__create.html:18
 #: .\templates\api\docs\token__create.html:49
 #: .\templates\api\docs\token__get.html:18
@@ -540,6 +546,8 @@ msgstr "所在地"
 msgid "type"
 msgstr "タイプ"
 
+#: .\templates\api\docs\redirect__create.html:19
+#: .\templates\api\docs\redirect__create.html:78
 #: .\templates\api\docs\token__create.html:19
 #: .\templates\api\docs\token__create.html:50
 #: .\templates\api\docs\token__get.html:19
@@ -547,6 +555,9 @@ msgstr "タイプ"
 msgid "commitment"
 msgstr "コミットメント"
 
+#: .\templates\api\docs\redirect__create.html:20
+#: .\templates\api\docs\redirect__create.html:79
+#: .\templates\api\docs\redirect__create.html:163
 #: .\templates\api\docs\token__create.html:20
 #: .\templates\api\docs\token__create.html:51
 #: .\templates\api\docs\token__create.html:72
@@ -556,6 +567,31 @@ msgstr "コミットメント"
 msgid "description"
 msgstr "説明"
 
+#: .\templates\api\docs\redirect__create.html:28
+#: .\templates\api\docs\redirect__create.html:42
+#: .\templates\api\docs\redirect__create.html:49
+#: .\templates\api\docs\redirect__create.html:56
+#: .\templates\api\docs\redirect__create.html:63
+#: .\templates\api\docs\redirect__create.html:87
+#: .\templates\api\docs\redirect__create.html:136
+#: .\templates\api\docs\redirect__create.html:143
+#: .\templates\api\docs\redirect__create.html:150
+msgid "no"
+msgstr "いいえ"
+
+#: .\templates\api\docs\redirect__create.html:29
+#: .\templates\api\docs\token__create.html:60
+#: .\templates\api\docs\token__get.html:60
+msgid "token_for_interaction_with_extended_API"
+msgstr "拡張APIとの対話用トークン"
+
+#: .\templates\api\docs\redirect__create.html:35
+#: .\templates\api\docs\redirect__create.html:94
+#: .\templates\api\docs\redirect__create.html:101
+#: .\templates\api\docs\redirect__create.html:108
+#: .\templates\api\docs\redirect__create.html:115
+#: .\templates\api\docs\redirect__create.html:122
+#: .\templates\api\docs\redirect__create.html:129
 #: .\templates\api\docs\token__create.html:28
 #: .\templates\api\docs\token__create.html:35
 #: .\templates\api\docs\token__create.html:59
@@ -565,71 +601,109 @@ msgstr "説明"
 msgid "yes"
 msgstr "はい"
 
-#: .\templates\api\docs\token__create.html:29
-#: .\templates\api\docs\token__get.html:29
-msgid "Username or email"
-msgstr "ユーザー名またはEメール"
+#: .\templates\api\docs\redirect__create.html:49
+#: .\templates\api\docs\redirect__create.html:56
+#: .\templates\api\docs\redirect__create.html:63
+#: .\templates\api\docs\redirect__create.html:87
+#: .\templates\api\docs\redirect__create.html:136
+#: .\templates\api\docs\redirect__create.html:143
+#: .\templates\api\docs\redirect__create.html:150
+msgid "available_only_with_token"
+msgstr "トークンで利用可能"
 
+#: .\templates\api\docs\redirect__create.html:70
 #: .\templates\api\docs\token__create.html:42
 #: .\templates\api\docs\token__get.html:42
 msgid "response_parameters:"
 msgstr "応答パラメータ："
 
-#: .\templates\api\docs\token__create.html:60
-#: .\templates\api\docs\token__get.html:60
-msgid "token_for_interaction_with_extended_API"
-msgstr "拡張APIとの対話用トークン"
+#: .\templates\api\docs\redirect__create.html:88
+msgid "Redirect id"
+msgstr "リダイレクションID"
 
+#: .\templates\api\docs\redirect__create.html:157
 #: .\templates\api\docs\token__create.html:66
 #: .\templates\api\docs\token__get.html:66
 msgid "response_codes:"
 msgstr "レスポンスコード："
 
+#: .\templates\api\docs\redirect__create.html:162
 #: .\templates\api\docs\token__create.html:71
 #: .\templates\api\docs\token__get.html:71
 msgid "code"
 msgstr "コード"
+
+#: .\templates\api\docs\redirect__create.html:169
+msgid "success_obtained_redirect"
+msgstr "正常に受信されたリダイレクト"
+
+#: .\templates\api\docs\redirect__create.html:173
+#: .\templates\api\docs\token__create.html:82
+#: .\templates\api\docs\token__get.html:82
+msgid "missing_required_field"
+msgstr "必須フィールドの欠落"
+
+#: .\templates\api\docs\redirect__create.html:177
+msgid "no_token_for_fields_that_require_it"
+msgstr "これを必要とする属性のトークンはありません。"
+
+#: .\templates\api\docs\redirect__create.html:191
+#: .\templates\api\docs\token__create.html:92
+#: .\templates\api\docs\token__get.html:92
+msgid "example_of_request_sent:"
+msgstr "リクエストの例："
+
+#: .\templates\api\docs\redirect__create.html:204
+#: .\templates\api\docs\token__create.html:98
+#: .\templates\api\docs\token__get.html:98
+msgid "example_of_response_receive:"
+msgstr "回答例："
+
+#: .\templates\api\docs\redirect__create.html:218
+#: .\templates\api\docs\token__create.html:103
+#: .\templates\api\docs\token__get.html:103
+msgid "python_code_example"
+msgstr "Pythonコード例："
+
+#: .\templates\api\docs\redirect__create.html:222
+#: .\templates\api\docs\token__create.html:106
+#: .\templates\api\docs\token__get.html:106
+msgid "reminder_that_passwords_better_kept_in_separate_file"
+msgstr ""
+"パスワードは別のファイルに保管するのがベストであることを忘れないでください。"
+
+#: .\templates\api\docs\token__create.html:9
+#: .\templates\api\docs\token__get.html:9
+msgid "to_start_interacting_with_extended_API_you_need_token"
+msgstr ""
+"サービスの拡張APIとのやり取りを開始するには、Tokenを取得する必要がある。"
+
+#: .\templates\api\docs\token__create.html:9
+msgid "each_new_POST_request_recreates_token"
+msgstr ""
+"このルートへのそれぞれの新しいPOSTリクエストは、例えば、前のTokenが開示された"
+"場合に備えて、ユーザのTokenを再作成する。"
+
+#: .\templates\api\docs\token__create.html:29
+#: .\templates\api\docs\token__get.html:29
+msgid "Username or email"
+msgstr "ユーザー名またはEメール"
 
 #: .\templates\api\docs\token__create.html:78
 #: .\templates\api\docs\token__get.html:78
 msgid "success_obtained_token"
 msgstr "トークンの受信に成功"
 
-#: .\templates\api\docs\token__create.html:82
-#: .\templates\api\docs\token__get.html:82
-msgid "missing_required_field"
-msgstr "必須フィールドの欠落"
-
 #: .\templates\api\docs\token__create.html:86
 #: .\templates\api\docs\token__get.html:86
 msgid "request_other_than_POST"
 msgstr "POST以外のリクエスト"
 
-#: .\templates\api\docs\token__create.html:92
-#: .\templates\api\docs\token__get.html:92
-msgid "example_of_request_sent:"
-msgstr "リクエストの例："
-
-#: .\templates\api\docs\token__create.html:98
-#: .\templates\api\docs\token__get.html:98
-msgid "example_of_response_receive:"
-msgstr "回答例："
-
-#: .\templates\api\docs\token__create.html:103
-#: .\templates\api\docs\token__get.html:103
-msgid "python_code_example"
-msgstr "Pythonコード例："
-
-#: .\templates\api\docs\token__create.html:106
-#: .\templates\api\docs\token__get.html:106
-msgid "reminder_that_passwords_better_kept_in_separate_file"
-msgstr "パスワードは別のファイルに保管するのがベストであることを忘れないでください。"
-
 #: .\templates\api\docs\token__get.html:9
 msgid "on_this_route_you_can_create_token_or_reacquire_existing_one"
 msgstr ""
-"このルートでは、まだTokenを持っていない場合はTokenを作成し、紛失した場合は既存のToken"
-"を再取得することができる。"
+"このルートでは、まだTokenを持っていない場合はTokenを作成し、紛失した場合は既"
+"存のTokenを再取得することができる。"
 
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"

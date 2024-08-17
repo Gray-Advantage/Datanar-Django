@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-16 09:26+0300\n"
+"POT-Creation-Date: 2024-08-17 12:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,21 +22,23 @@ msgstr ""
 msgid "api"
 msgstr "API"
 
-#: .\api\views.py:138
+#: .\api\views.py:143
 msgid "This field is required."
 msgstr "This field is required"
 
-#: .\api\views.py:142
+#: .\api\views.py:147
 msgid "Enter a valid URL."
 msgstr "Enter a valid URL"
 
-#: .\api\views.py:146 .\redirects\forms.py:97
+#: .\api\views.py:151 .\redirects\forms.py:90 .\redirects\forms.py:103
+#: .\templates\api\docs\redirect__create.html:185
 msgid "this_url_is_blocked"
 msgstr "This URL is blocked"
 
-#: .\api\views.py:150 .\redirects\forms.py:84
+#: .\api\views.py:155 .\redirects\forms.py:84
+#: .\templates\api\docs\redirect__create.html:181
 msgid "custom_url_already_use"
-msgstr "This custom url is already in use. Please choose another one."
+msgstr "This custom url is already in use"
 
 #: .\core\apps.py:8
 msgid "base_forms"
@@ -100,6 +102,7 @@ msgid "qr-codes"
 msgstr "QR-codes"
 
 #: .\redirects\admin.py:33 .\redirects\models.py:72
+#: .\templates\api\docs\redirect__create.html:95
 msgid "long_link"
 msgstr "long link"
 
@@ -123,7 +126,7 @@ msgstr "Selected redirects have been successfully activated"
 msgid "redirects"
 msgstr "redirects"
 
-#: .\redirects\forms.py:31
+#: .\redirects\forms.py:31 .\templates\api\docs\redirect__create.html:43
 msgid "custom_url"
 msgstr "Custom url"
 
@@ -135,17 +138,18 @@ msgstr "A custom url that you would like to have instead of the generated one."
 msgid "custom_url_should_not_have_slash"
 msgstr "The custom link should not have a '/'"
 
-#: .\redirects\forms.py:161
+#: .\redirects\forms.py:167
 msgid "date_validity_invalid"
 msgstr "The expiration date cannot be less than the current date"
 
-#: .\redirects\forms.py:196 .\templates\api\docs\token__create.html:36
+#: .\redirects\forms.py:202 .\templates\api\docs\redirect__create.html:109
+#: .\templates\api\docs\token__create.html:36
 #: .\templates\api\docs\token__get.html:36
 #: .\templates\statistic\link_detail.html:23
 msgid "Password"
 msgstr "Password"
 
-#: .\redirects\forms.py:197
+#: .\redirects\forms.py:203
 msgid "password_before_redirect"
 msgstr "Enter the password before redirecting"
 
@@ -155,61 +159,61 @@ msgstr "user"
 
 #: .\redirects\models.py:62
 msgid "user_who_create_bond"
-msgstr "The user who created the bond between the short and long link."
+msgstr "The user who created the bond between the short and long link"
 
-#: .\redirects\models.py:66
+#: .\redirects\models.py:66 .\templates\api\docs\redirect__create.html:102
 msgid "short_link"
 msgstr "short link"
 
 #: .\redirects\models.py:67
 msgid "shorten_link_to_redirect_to_resource"
-msgstr "A shortened link that will be used to redirect to the final resource."
+msgstr "A shortened link that will be used to redirect to the final resource"
 
-#: .\redirects\models.py:73
+#: .\redirects\models.py:73 .\templates\api\docs\redirect__create.html:36
 msgid "resource_to_which_short_link_lead"
-msgstr "The final resource to which the short link will lead."
+msgstr "The final resource to which the short link will lead"
 
-#: .\redirects\models.py:77
+#: .\redirects\models.py:77 .\templates\api\docs\redirect__create.html:130
 msgid "creation_time"
 msgstr "creation time"
 
 #: .\redirects\models.py:78
 msgid "when_bond_was_create"
-msgstr "When a bond was created between a short and a long link."
+msgstr "When a bond was created between a short and a long link"
 
 #: .\redirects\models.py:82
 msgid "password"
 msgstr "password"
 
-#: .\redirects\models.py:83
+#: .\redirects\models.py:83 .\templates\api\docs\redirect__create.html:50
 msgid "password_that_will_requested_to_redirect"
-msgstr "The password that will be requested before redirection."
+msgstr "The password that will be requested before redirection"
 
-#: .\redirects\models.py:89
+#: .\redirects\models.py:89 .\templates\api\docs\redirect__create.html:116
 msgid "valid_day_number"
 msgstr "expiration date"
 
-#: .\redirects\models.py:90
+#: .\redirects\models.py:90 .\templates\api\docs\redirect__create.html:57
 msgid "how_many_day_link_will_be_valid"
-msgstr "How many days will the link be valid before deleting it."
+msgstr "How many days will the link be valid before deactivation"
 
-#: .\redirects\models.py:96
+#: .\redirects\models.py:96 .\templates\api\docs\redirect__create.html:123
 msgid "valid_click_number"
 msgstr "valid number of clicks"
 
-#: .\redirects\models.py:97
+#: .\redirects\models.py:97 .\templates\api\docs\redirect__create.html:64
 msgid "how_many_click_on_link_will_be_valid"
-msgstr "How many clicks can make on a link before deleting it."
+msgstr "How many clicks can make on a link before deactivation"
 
 #: .\redirects\models.py:103
 msgid "active"
 msgstr "active"
 
-#: .\redirects\models.py:104
+#: .\redirects\models.py:104 .\templates\api\docs\redirect__create.html:144
 msgid "is_active"
 msgstr "Is redirection active now"
 
-#: .\redirects\models.py:108
+#: .\redirects\models.py:108 .\templates\api\docs\redirect__create.html:151
 msgid "deactivation_time"
 msgstr "deactivation time"
 
@@ -241,7 +245,7 @@ msgstr "File"
 msgid "create_method"
 msgstr "method of creation"
 
-#: .\redirects\models.py:128
+#: .\redirects\models.py:128 .\templates\api\docs\redirect__create.html:137
 msgid "method_which_redirect_was_created"
 msgstr "The method by which the redirect was created"
 
@@ -504,6 +508,172 @@ msgstr ""
 "registered users and only using a token that can be obtained after "
 "registration"
 
+#: .\templates\api\docs\redirect__create.html:9
+msgid "redirect__create_api_docs"
+msgstr ""
+"The main route of the API is to create a redirect. If you don't use a token, "
+"you can just create a redirect and a custom link if you want. With a token, "
+"the redirect will be saved in the user's profile, and additional attributes "
+"can be set when creating the redirect"
+
+#: .\templates\api\docs\redirect__create.html:11
+#: .\templates\api\docs\token__create.html:11
+#: .\templates\api\docs\token__get.html:11
+msgid "request_parameters:"
+msgstr "Request Parameters:"
+
+#: .\templates\api\docs\redirect__create.html:16
+#: .\templates\api\docs\redirect__create.html:75
+#: .\templates\api\docs\token__create.html:16
+#: .\templates\api\docs\token__create.html:47
+#: .\templates\api\docs\token__get.html:16
+#: .\templates\api\docs\token__get.html:47
+msgid "attribute_name"
+msgstr "Attribute Name"
+
+#: .\templates\api\docs\redirect__create.html:17
+#: .\templates\api\docs\redirect__create.html:76
+#: .\templates\api\docs\token__create.html:17
+#: .\templates\api\docs\token__create.html:48
+#: .\templates\api\docs\token__get.html:17
+#: .\templates\api\docs\token__get.html:48
+msgid "location"
+msgstr "Location"
+
+#: .\templates\api\docs\redirect__create.html:18
+#: .\templates\api\docs\redirect__create.html:77
+#: .\templates\api\docs\token__create.html:18
+#: .\templates\api\docs\token__create.html:49
+#: .\templates\api\docs\token__get.html:18
+#: .\templates\api\docs\token__get.html:49
+msgid "type"
+msgstr "Type"
+
+#: .\templates\api\docs\redirect__create.html:19
+#: .\templates\api\docs\redirect__create.html:78
+#: .\templates\api\docs\token__create.html:19
+#: .\templates\api\docs\token__create.html:50
+#: .\templates\api\docs\token__get.html:19
+#: .\templates\api\docs\token__get.html:50
+msgid "commitment"
+msgstr "Commitment"
+
+#: .\templates\api\docs\redirect__create.html:20
+#: .\templates\api\docs\redirect__create.html:79
+#: .\templates\api\docs\redirect__create.html:163
+#: .\templates\api\docs\token__create.html:20
+#: .\templates\api\docs\token__create.html:51
+#: .\templates\api\docs\token__create.html:72
+#: .\templates\api\docs\token__get.html:20
+#: .\templates\api\docs\token__get.html:51
+#: .\templates\api\docs\token__get.html:72
+msgid "description"
+msgstr "Description"
+
+#: .\templates\api\docs\redirect__create.html:28
+#: .\templates\api\docs\redirect__create.html:42
+#: .\templates\api\docs\redirect__create.html:49
+#: .\templates\api\docs\redirect__create.html:56
+#: .\templates\api\docs\redirect__create.html:63
+#: .\templates\api\docs\redirect__create.html:87
+#: .\templates\api\docs\redirect__create.html:136
+#: .\templates\api\docs\redirect__create.html:143
+#: .\templates\api\docs\redirect__create.html:150
+msgid "no"
+msgstr "No"
+
+#: .\templates\api\docs\redirect__create.html:29
+#: .\templates\api\docs\token__create.html:60
+#: .\templates\api\docs\token__get.html:60
+msgid "token_for_interaction_with_extended_API"
+msgstr "Token for interaction with the extended API"
+
+#: .\templates\api\docs\redirect__create.html:35
+#: .\templates\api\docs\redirect__create.html:94
+#: .\templates\api\docs\redirect__create.html:101
+#: .\templates\api\docs\redirect__create.html:108
+#: .\templates\api\docs\redirect__create.html:115
+#: .\templates\api\docs\redirect__create.html:122
+#: .\templates\api\docs\redirect__create.html:129
+#: .\templates\api\docs\token__create.html:28
+#: .\templates\api\docs\token__create.html:35
+#: .\templates\api\docs\token__create.html:59
+#: .\templates\api\docs\token__get.html:28
+#: .\templates\api\docs\token__get.html:35
+#: .\templates\api\docs\token__get.html:59
+msgid "yes"
+msgstr "Yes"
+
+#: .\templates\api\docs\redirect__create.html:49
+#: .\templates\api\docs\redirect__create.html:56
+#: .\templates\api\docs\redirect__create.html:63
+#: .\templates\api\docs\redirect__create.html:87
+#: .\templates\api\docs\redirect__create.html:136
+#: .\templates\api\docs\redirect__create.html:143
+#: .\templates\api\docs\redirect__create.html:150
+msgid "available_only_with_token"
+msgstr "Available with token"
+
+#: .\templates\api\docs\redirect__create.html:70
+#: .\templates\api\docs\token__create.html:42
+#: .\templates\api\docs\token__get.html:42
+msgid "response_parameters:"
+msgstr "Response Parameters:"
+
+#: .\templates\api\docs\redirect__create.html:88
+msgid "Redirect id"
+msgstr "Redirection ID"
+
+#: .\templates\api\docs\redirect__create.html:157
+#: .\templates\api\docs\token__create.html:66
+#: .\templates\api\docs\token__get.html:66
+msgid "response_codes:"
+msgstr "Response Codes:"
+
+#: .\templates\api\docs\redirect__create.html:162
+#: .\templates\api\docs\token__create.html:71
+#: .\templates\api\docs\token__get.html:71
+msgid "code"
+msgstr "Code"
+
+#: .\templates\api\docs\redirect__create.html:169
+msgid "success_obtained_redirect"
+msgstr "Successfully obtained redirect"
+
+#: .\templates\api\docs\redirect__create.html:173
+#: .\templates\api\docs\token__create.html:82
+#: .\templates\api\docs\token__get.html:82
+msgid "missing_required_field"
+msgstr "missing required field"
+
+#: .\templates\api\docs\redirect__create.html:177
+msgid "no_token_for_fields_that_require_it"
+msgstr "no token for attributes that require this"
+
+#: .\templates\api\docs\redirect__create.html:191
+#: .\templates\api\docs\token__create.html:92
+#: .\templates\api\docs\token__get.html:92
+msgid "example_of_request_sent:"
+msgstr "Example of a request sent:"
+
+#: .\templates\api\docs\redirect__create.html:204
+#: .\templates\api\docs\token__create.html:98
+#: .\templates\api\docs\token__get.html:98
+msgid "example_of_response_receive:"
+msgstr "Example of a response receive:"
+
+#: .\templates\api\docs\redirect__create.html:218
+#: .\templates\api\docs\token__create.html:103
+#: .\templates\api\docs\token__get.html:103
+msgid "python_code_example"
+msgstr "Python code example:"
+
+#: .\templates\api\docs\redirect__create.html:222
+#: .\templates\api\docs\token__create.html:106
+#: .\templates\api\docs\token__get.html:106
+msgid "reminder_that_passwords_better_kept_in_separate_file"
+msgstr "Just a reminder that passwords are best kept in a separate file"
+
 #: .\templates\api\docs\token__create.html:9
 #: .\templates\api\docs\token__get.html:9
 msgid "to_start_interacting_with_extended_API_you_need_token"
@@ -517,116 +687,20 @@ msgstr ""
 "Each new POST request to this route recreates the user's Token in case, for "
 "example, the previous one was disclosed"
 
-#: .\templates\api\docs\token__create.html:11
-#: .\templates\api\docs\token__get.html:11
-msgid "request_parameters:"
-msgstr "Request Parameters:"
-
-#: .\templates\api\docs\token__create.html:16
-#: .\templates\api\docs\token__create.html:47
-#: .\templates\api\docs\token__get.html:16
-#: .\templates\api\docs\token__get.html:47
-msgid "attribute_name"
-msgstr "Attribute Name"
-
-#: .\templates\api\docs\token__create.html:17
-#: .\templates\api\docs\token__create.html:48
-#: .\templates\api\docs\token__get.html:17
-#: .\templates\api\docs\token__get.html:48
-msgid "location"
-msgstr "Location"
-
-#: .\templates\api\docs\token__create.html:18
-#: .\templates\api\docs\token__create.html:49
-#: .\templates\api\docs\token__get.html:18
-#: .\templates\api\docs\token__get.html:49
-msgid "type"
-msgstr "Type"
-
-#: .\templates\api\docs\token__create.html:19
-#: .\templates\api\docs\token__create.html:50
-#: .\templates\api\docs\token__get.html:19
-#: .\templates\api\docs\token__get.html:50
-msgid "commitment"
-msgstr "Commitment"
-
-#: .\templates\api\docs\token__create.html:20
-#: .\templates\api\docs\token__create.html:51
-#: .\templates\api\docs\token__create.html:72
-#: .\templates\api\docs\token__get.html:20
-#: .\templates\api\docs\token__get.html:51
-#: .\templates\api\docs\token__get.html:72
-msgid "description"
-msgstr "Description"
-
-#: .\templates\api\docs\token__create.html:28
-#: .\templates\api\docs\token__create.html:35
-#: .\templates\api\docs\token__create.html:59
-#: .\templates\api\docs\token__get.html:28
-#: .\templates\api\docs\token__get.html:35
-#: .\templates\api\docs\token__get.html:59
-msgid "yes"
-msgstr "Yes"
-
 #: .\templates\api\docs\token__create.html:29
 #: .\templates\api\docs\token__get.html:29
 msgid "Username or email"
 msgstr "Username or email"
-
-#: .\templates\api\docs\token__create.html:42
-#: .\templates\api\docs\token__get.html:42
-msgid "response_parameters:"
-msgstr "Response Parameters:"
-
-#: .\templates\api\docs\token__create.html:60
-#: .\templates\api\docs\token__get.html:60
-msgid "token_for_interaction_with_extended_API"
-msgstr "Token for interaction with the extended API"
-
-#: .\templates\api\docs\token__create.html:66
-#: .\templates\api\docs\token__get.html:66
-msgid "response_codes:"
-msgstr "Response Codes:"
-
-#: .\templates\api\docs\token__create.html:71
-#: .\templates\api\docs\token__get.html:71
-msgid "code"
-msgstr "Code"
 
 #: .\templates\api\docs\token__create.html:78
 #: .\templates\api\docs\token__get.html:78
 msgid "success_obtained_token"
 msgstr "Successfully obtained token"
 
-#: .\templates\api\docs\token__create.html:82
-#: .\templates\api\docs\token__get.html:82
-msgid "missing_required_field"
-msgstr "missing required field"
-
 #: .\templates\api\docs\token__create.html:86
 #: .\templates\api\docs\token__get.html:86
 msgid "request_other_than_POST"
 msgstr "request other than POST"
-
-#: .\templates\api\docs\token__create.html:92
-#: .\templates\api\docs\token__get.html:92
-msgid "example_of_request_sent:"
-msgstr "Example of a request sent:"
-
-#: .\templates\api\docs\token__create.html:98
-#: .\templates\api\docs\token__get.html:98
-msgid "example_of_response_receive:"
-msgstr "Example of a response receive:"
-
-#: .\templates\api\docs\token__create.html:103
-#: .\templates\api\docs\token__get.html:103
-msgid "python_code_example"
-msgstr "Python code example:"
-
-#: .\templates\api\docs\token__create.html:106
-#: .\templates\api\docs\token__get.html:106
-msgid "reminder_that_passwords_better_kept_in_separate_file"
-msgstr "Just a reminder that passwords are best kept in a separate file"
 
 #: .\templates\api\docs\token__get.html:9
 msgid "on_this_route_you_can_create_token_or_reacquire_existing_one"
