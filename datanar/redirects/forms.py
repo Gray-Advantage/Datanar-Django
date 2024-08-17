@@ -84,6 +84,12 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
                     ValidationError(_("custom_url_already_use")),
                 )
 
+            if BlockedDomain.objects.is_blocked(long_link):
+                self.add_error(
+                    Redirect.long_link.field.name,
+                    ValidationError(_("this_url_is_blocked")),
+                )
+
             if not self.errors:
                 self.cleaned_data[Redirect.short_link.field.name] = custom_url
                 del self.cleaned_data["custom_url"]
