@@ -1,30 +1,37 @@
 from rest_framework import serializers
 
-from redirects import models
+from redirects.models import Redirect
 
 
 class RedirectSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Redirect
+        model = Redirect
         fields = (
-            models.Redirect.id.field.name,
-            models.Redirect.long_link.field.name,
-            models.Redirect.short_link.field.name,
-            models.Redirect.created_at.field.name,
-            models.Redirect.password.field.name,
-            models.Redirect.validity_clicks.field.name,
+            Redirect.id.field.name,
+            Redirect.long_link.field.name,
+            Redirect.short_link.field.name,
+            Redirect.password.field.name,
+            Redirect.validity_days.field.name,
+            Redirect.validity_clicks.field.name,
+            Redirect.created_at.field.name,
+            Redirect.create_method.field.name,
+            Redirect.is_active.field.name,
+            Redirect.deactivated_at.field.name,
         )
 
 
 class RedirectCreateSerializer(serializers.Serializer):
-    short_link = serializers.CharField(max_length=50, required=False)
-    long_link = serializers.URLField(max_length=2000, required=True)
-    password = serializers.CharField(max_length=128, required=False)
-    validity_days = serializers.IntegerField(default=90, required=False)
-    validity_clicks = serializers.IntegerField(default=None, required=False)
+    long_link = serializers.URLField(
+        required=True,
+        max_length=Redirect.long_link.field.max_length,
+    )
+    short_link = serializers.CharField(required=False, max_length=Redirect.short_link.field.max_length)
+    password = serializers.CharField(required=False, max_length=Redirect.password.field.max_length)
+    validity_days = serializers.IntegerField(required=False, default=Redirect.validity_days.field.default)
+    validity_clicks = serializers.IntegerField(required=False, default=None, allow_null=True)
 
     def create(self, validated_data):
-        return models.Redirect.objects.create(**validated_data)
+        return Redirect.objects.create(**validated_data)
 
 
 __all__ = [RedirectSerializer, RedirectCreateSerializer]
