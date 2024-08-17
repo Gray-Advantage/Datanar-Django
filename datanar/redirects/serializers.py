@@ -25,10 +25,22 @@ class RedirectCreateSerializer(serializers.Serializer):
         required=True,
         max_length=Redirect.long_link.field.max_length,
     )
-    short_link = serializers.CharField(required=False, max_length=Redirect.short_link.field.max_length)
-    password = serializers.CharField(required=False, max_length=Redirect.password.field.max_length)
-    validity_days = serializers.IntegerField(required=False, default=Redirect.validity_days.field.default)
-    validity_clicks = serializers.IntegerField(required=False, default=None, allow_null=True)
+    short_link = serializers.CharField(
+        required=False,
+        max_length=Redirect.short_link.field.max_length,
+    )
+    password = serializers.CharField(
+        required=False,
+        max_length=Redirect.password.field.max_length,
+    )
+    validity_days = serializers.IntegerField(
+        required=False,
+        default=Redirect.validity_days.field.default,
+    )
+    validity_clicks = serializers.IntegerField(
+        required=False,
+        default=None,
+    )
 
     def create(self, validated_data):
         return Redirect.objects.create(**validated_data)
