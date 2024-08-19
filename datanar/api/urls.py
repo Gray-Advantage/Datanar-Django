@@ -22,7 +22,7 @@ urlpatterns = [
     path(
         "api-token-auth-update/",
         views.CreateNewTokenView.as_view(),
-        name="docs_create_new_token",
+        name="create_new_token",
     ),
     path(
         "docs/qr_code_get",

@@ -22,9 +22,12 @@ class User(AbstractUser):
         return get_thumbnail(self.avatar, "200", crop="center").url
 
     def save(self, *args, **kwargs):
-        old = User.objects.get(pk=self.pk)
-        if old.has_avatar() and not self.has_avatar():
-            delete(old.avatar)
+        try:
+            old = User.objects.get(pk=self.pk)
+            if old.has_avatar() and not self.has_avatar():
+                delete(old.avatar)
+        except User.DoesNotExist:
+            pass
         super().save(*args, **kwargs)
 
 
