@@ -33,6 +33,7 @@ class BlackListView(StaffUserRequiredMixin, FormMethodExtender, ListView):
     template_name = "dashboard/black_list.html"
     context_object_name = "domains"
     model = BlockedDomain
+    paginate_by = 15
 
     def delete(self, request):
         BlockedDomain.objects.filter(id=request.POST.get("id")).delete()

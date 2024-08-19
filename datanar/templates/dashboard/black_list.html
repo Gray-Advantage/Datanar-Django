@@ -10,8 +10,9 @@
 {% endblock %}
 
 {% block dashboard_content %}
-  <button class="btn btn-outline-success mx-auto mt-2" data-bs-toggle="modal" data-bs-target="#blockedDomainAdd">{% trans "Add" %}</button>
-  <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-2">
+  <button class="btn btn-outline-success mx-auto my-2" data-bs-toggle="modal" data-bs-target="#blockedDomainAdd">{% trans "Add" %}</button>
+  {% include "includes/paginator.html" %}
+  <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
     {% for domain in domains %}
       <div class="input-group mt-2">
         <input type="text" class="form-control" placeholder="{% trans 'domain_regex_that_will_be_prohibited_from_shortening' %}" value="{{ domain.domain_regex }}" readonly disabled>
