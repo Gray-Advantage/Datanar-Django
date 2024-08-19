@@ -9,7 +9,7 @@
   <p class="mb-4">{% trans "redirect__create_api_docs" %}</p>
 
   <h4><strong>{% trans "request_parameters:" %}</strong></h4>
-    <div class="overflow-x-auto mb-3">
+  <div class="overflow-x-auto mb-3">
     <table class="table api-table table-hover table-bordered mb-0">
       <thead>
         <tr>
@@ -132,7 +132,7 @@
         <tr>
           <td>create_method</td>
           <td>body</td>
-          <td>string</td>
+          <td>string<br>{WEB, API, WEB+FILE}</td>
           <td>{% trans "no" %}<br>{% trans "available_only_with_token" %}</td>
           <td>{% trans "method_which_redirect_was_created"|capfirst %}</td>
         </tr>
@@ -166,7 +166,7 @@
       <tbody>
         <tr>
           <td>201</td>
-          <td>Created ({% trans "success_obtained_redirect" %})</td>
+          <td>Created ({% trans "success_created_redirect" %})</td>
         </tr>
         <tr>
           <td>400</td>

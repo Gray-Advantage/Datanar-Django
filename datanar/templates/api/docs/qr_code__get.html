@@ -4,5 +4,124 @@
 {% block api_title %}QR code - {% trans "receiving" %}{% endblock %}
 
 {% block api_content %}
+  <h4 class="mb-4"><strong>GET&#32;&gt;&gt;&#32;<a href="#">{{ server_url }}/qr_code/download/{type}/{short_link}/</a></strong></h4>
+
+  <p class="mb-4">{% trans "get_qr_code_by_redirect" %}</p>
+
+  <h4><strong>{% trans "request_parameters:" %}</strong></h4>
+  <div class="overflow-x-auto mb-3">
+    <table class="table api-table table-hover table-bordered mb-0">
+      <thead>
+        <tr>
+          <th>{% trans "attribute_name" %}</th>
+          <th>{% trans "location" %}</th>
+          <th>{% trans "type" %}</th>
+          <th>{% trans "commitment" %}</th>
+          <th>{% trans "description" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>type</td>
+          <td>path</td>
+          <td>string<br>{png, jpg, svg}</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "extension_of_qr_code_file" %}</td>
+        </tr>
+        <tr>
+          <td>short_link</td>
+          <td>path</td>
+          <td>string</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "short_link"|capfirst %}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><strong>{% trans "response_parameters:" %}</strong></h4>
+  <div class="overflow-x-auto mb-4">
+    <table class="table api-table table-hover table-bordered mb-0">
+      <thead>
+        <tr>
+          <th>{% trans "attribute_name" %}</th>
+          <th>{% trans "location" %}</th>
+          <th>{% trans "type" %}</th>
+          <th>{% trans "commitment" %}</th>
+          <th>{% trans "description" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td>body</td>
+          <td>bytes</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "byte_stream_content_of_qr_code_file" %}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><strong>{% trans "response_codes:" %}</strong></h4>
+  <div class="overflow-x-auto mb-4">
+    <table class="table api-table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>{% trans "code" %}</th>
+          <th>{% trans "description" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>200</td>
+          <td>OK ({% trans "success_obtained_qr_code" %})</td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>Not Found ({% trans "missing_required_field" %})</td>
+        </tr>
+        <tr>
+          <td>415</td>
+          <td>Unsupported Media Type ({% trans "wrong_type_file" %})</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><strong>{% trans "example_of_request_sent:" %}</strong></h4>
+  <pre class="mb-3"><code class="language-json">GET >> "<...>/qr_code/download/png/i34k0/"</code></pre>
+
+  <h4><strong>{% trans "example_of_response_receive:" %}</strong></h4>
+  <pre class="mb-4"><code class="language-json"><< 200 b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00 <...> \x00\x00IEND\xaeB`\x82"</code></pre>
   
+  <h4><strong>{% trans "python_code_example" %}</strong></h4>
+  <pre><code class="language-python">import requests
+
+# {% trans "reminder_that_passwords_better_kept_in_separate_file" %}
+auth = requests.post(
+    "{{ server_url }}/api/v1/api-token-auth/",
+    data={
+        "username": "user",
+        "password": "very1secret3password!",
+    }
+)
+
+# {% trans "get_all_redirects_for_user" %}
+my_redirects = requests.get(
+    "{{ server_url }}/api/v1/redirects/",
+    data={
+        "token": auth.json()["token"]
+    }
+)
+
+last_short_link = my_redirects.json()[-1]["short_link"]
+type_ = "png"  # png, jpg, svg
+
+qr_code = requests.get(
+    f"{{ server_url }}/qr_code/download/{type_}/{last_short_link}/",
+)
+
+with open(f"qr_code.{type_}", "wb") as file:
+    file.write(qr_code.content)</code></pre>
 {% endblock %}

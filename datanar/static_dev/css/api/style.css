@@ -43,31 +43,43 @@
   min-width: 1px;
 }
 
-.api-table {
+.api-table, .api-table-list {
     max-width: 1100px;
 }
 
+.api-table-list tr:nth-child(n+2) td:nth-child(1) {
+    width: 0;
+}
+.api-table-list tr:nth-child(n+2) td:nth-child(2) {
+    width: 154px;
+}
+
 .api-table th:nth-child(1),
-.api-table td:nth-child(1) {
+.api-table td:nth-child(1),
+.api-table-list tr:nth-child(1) td:nth-child(1) {
     width: 170px;
 }
 
 .api-table th:nth-child(2),
-.api-table td:nth-child(2) {
+.api-table td:nth-child(2),
+.api-table-list tr:nth-child(1) td:nth-child(2) {
     width: 150px;
 }
 
 .api-table th:nth-child(3),
-.api-table td:nth-child(3) {
+.api-table td:nth-child(3),
+.api-table-list tr:nth-child(1) td:nth-child(3) {
     width: 100px;
 }
 
 .api-table th:nth-child(4),
-.api-table td:nth-child(4) {
+.api-table td:nth-child(4),
+.api-table-list tr:nth-child(1) td:nth-child(4) {
     width: 170px;
 }
 
 .api-table th:nth-child(5),
-.api-table td:nth-child(5) {
+.api-table td:nth-child(5),
+.api-table-list tr:nth-child(1) td:nth-child(5) {
     width: 320px;
 }

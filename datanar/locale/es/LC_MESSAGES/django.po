@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-17 12:44+0300\n"
+"POT-Creation-Date: 2024-08-19 07:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,20 +22,20 @@ msgstr ""
 msgid "api"
 msgstr "API"
 
-#: .\api\views.py:143
+#: .\api\views.py:147
 msgid "This field is required."
 msgstr "Este campo es obligatorio"
 
-#: .\api\views.py:147
+#: .\api\views.py:151
 msgid "Enter a valid URL."
 msgstr "Introduzca una URL válida"
 
-#: .\api\views.py:151 .\redirects\forms.py:90 .\redirects\forms.py:103
+#: .\api\views.py:155 .\redirects\forms.py:90 .\redirects\forms.py:103
 #: .\templates\api\docs\redirect__create.html:185
 msgid "this_url_is_blocked"
 msgstr "Esta URL está bloqueada"
 
-#: .\api\views.py:155 .\redirects\forms.py:84
+#: .\api\views.py:159 .\redirects\forms.py:84
 #: .\templates\api\docs\redirect__create.html:181
 msgid "custom_url_already_use"
 msgstr "Esta URL personalizada ya está en uso"
@@ -102,6 +102,8 @@ msgstr "Códigos QR"
 
 #: .\redirects\admin.py:33 .\redirects\models.py:72
 #: .\templates\api\docs\redirect__create.html:95
+#: .\templates\api\docs\redirect__get.html:69
+#: .\templates\api\docs\redirect__get.html:258
 msgid "long_link"
 msgstr "enlace largo"
 
@@ -142,6 +144,8 @@ msgid "date_validity_invalid"
 msgstr "La fecha de caducidad no puede ser inferior a la fecha actual"
 
 #: .\redirects\forms.py:202 .\templates\api\docs\redirect__create.html:109
+#: .\templates\api\docs\redirect__get.html:85
+#: .\templates\api\docs\redirect__get.html:272
 #: .\templates\api\docs\token__create.html:36
 #: .\templates\api\docs\token__get.html:36
 #: .\templates\statistic\link_detail.html:23
@@ -160,7 +164,10 @@ msgstr "usuario"
 msgid "user_who_create_bond"
 msgstr "Usuario que creó el enlace entre el enlace corto y largo"
 
-#: .\redirects\models.py:66 .\templates\api\docs\redirect__create.html:102
+#: .\redirects\models.py:66 .\templates\api\docs\qr_code__get.html:36
+#: .\templates\api\docs\redirect__create.html:102
+#: .\templates\api\docs\redirect__get.html:77
+#: .\templates\api\docs\redirect__get.html:265
 msgid "short_link"
 msgstr "enlace corto"
 
@@ -174,6 +181,8 @@ msgid "resource_to_which_short_link_lead"
 msgstr "Recurso final al que llevará el enlace corto"
 
 #: .\redirects\models.py:77 .\templates\api\docs\redirect__create.html:130
+#: .\templates\api\docs\redirect__get.html:109
+#: .\templates\api\docs\redirect__get.html:293
 msgid "creation_time"
 msgstr "tiempo de creación"
 
@@ -190,6 +199,8 @@ msgid "password_that_will_requested_to_redirect"
 msgstr "Contraseña que se solicitará antes de la redirección"
 
 #: .\redirects\models.py:89 .\templates\api\docs\redirect__create.html:116
+#: .\templates\api\docs\redirect__get.html:93
+#: .\templates\api\docs\redirect__get.html:279
 msgid "valid_day_number"
 msgstr "fecha de caducidad"
 
@@ -198,6 +209,8 @@ msgid "how_many_day_link_will_be_valid"
 msgstr "Cuántos días será válida el enlace antes de su desactivación"
 
 #: .\redirects\models.py:96 .\templates\api\docs\redirect__create.html:123
+#: .\templates\api\docs\redirect__get.html:101
+#: .\templates\api\docs\redirect__get.html:286
 msgid "valid_click_number"
 msgstr "cantidad válida de redirecciones"
 
@@ -211,10 +224,14 @@ msgid "active"
 msgstr "activo"
 
 #: .\redirects\models.py:104 .\templates\api\docs\redirect__create.html:144
+#: .\templates\api\docs\redirect__get.html:125
+#: .\templates\api\docs\redirect__get.html:307
 msgid "is_active"
 msgstr "La redirección está activa ahora"
 
 #: .\redirects\models.py:108 .\templates\api\docs\redirect__create.html:151
+#: .\templates\api\docs\redirect__get.html:133
+#: .\templates\api\docs\redirect__get.html:314
 msgid "deactivation_time"
 msgstr "tiempo de desactivación"
 
@@ -247,6 +264,8 @@ msgid "create_method"
 msgstr "método de creación"
 
 #: .\redirects\models.py:128 .\templates\api\docs\redirect__create.html:137
+#: .\templates\api\docs\redirect__get.html:117
+#: .\templates\api\docs\redirect__get.html:300
 msgid "method_which_redirect_was_created"
 msgstr "Método de creación de la redirección"
 
@@ -508,22 +527,31 @@ msgstr ""
 "están disponibles para los usuarios registrados y sólo mediante un token que "
 "puede obtenerse tras el registro."
 
-#: .\templates\api\docs\redirect__create.html:9
-msgid "redirect__create_api_docs"
+#: .\templates\api\docs\qr_code__get.html:9
+msgid "get_qr_code_by_redirect"
 msgstr ""
-"La ruta principal de la API es crear una redirección. Si no utiliza un token,"
-" puede crear simplemente una redirección y un enlace personalizado si lo "
-"desea. Con un token, la redirección se guardará en el perfil del usuario, y "
-"puedes establecer atributos adicionales al crear una redirección"
+"Obtenga el enlace para descargar el código QR utilizando el breve enlace de "
+"redirección"
 
+#: .\templates\api\docs\qr_code__get.html:11
 #: .\templates\api\docs\redirect__create.html:11
+#: .\templates\api\docs\redirect__delete.html:11
+#: .\templates\api\docs\redirect__get.html:11
+#: .\templates\api\docs\redirect__get.html:202
 #: .\templates\api\docs\token__create.html:11
 #: .\templates\api\docs\token__get.html:11
 msgid "request_parameters:"
 msgstr "Parámetros de solicitud:"
 
+#: .\templates\api\docs\qr_code__get.html:16
+#: .\templates\api\docs\qr_code__get.html:47
 #: .\templates\api\docs\redirect__create.html:16
 #: .\templates\api\docs\redirect__create.html:75
+#: .\templates\api\docs\redirect__delete.html:16
+#: .\templates\api\docs\redirect__get.html:16
+#: .\templates\api\docs\redirect__get.html:40
+#: .\templates\api\docs\redirect__get.html:207
+#: .\templates\api\docs\redirect__get.html:238
 #: .\templates\api\docs\token__create.html:16
 #: .\templates\api\docs\token__create.html:47
 #: .\templates\api\docs\token__get.html:16
@@ -531,8 +559,15 @@ msgstr "Parámetros de solicitud:"
 msgid "attribute_name"
 msgstr "Nombre del atributo"
 
+#: .\templates\api\docs\qr_code__get.html:17
+#: .\templates\api\docs\qr_code__get.html:48
 #: .\templates\api\docs\redirect__create.html:17
 #: .\templates\api\docs\redirect__create.html:76
+#: .\templates\api\docs\redirect__delete.html:17
+#: .\templates\api\docs\redirect__get.html:17
+#: .\templates\api\docs\redirect__get.html:41
+#: .\templates\api\docs\redirect__get.html:208
+#: .\templates\api\docs\redirect__get.html:239
 #: .\templates\api\docs\token__create.html:17
 #: .\templates\api\docs\token__create.html:48
 #: .\templates\api\docs\token__get.html:17
@@ -540,8 +575,15 @@ msgstr "Nombre del atributo"
 msgid "location"
 msgstr "Ubicación"
 
+#: .\templates\api\docs\qr_code__get.html:18
+#: .\templates\api\docs\qr_code__get.html:49
 #: .\templates\api\docs\redirect__create.html:18
 #: .\templates\api\docs\redirect__create.html:77
+#: .\templates\api\docs\redirect__delete.html:18
+#: .\templates\api\docs\redirect__get.html:18
+#: .\templates\api\docs\redirect__get.html:42
+#: .\templates\api\docs\redirect__get.html:209
+#: .\templates\api\docs\redirect__get.html:240
 #: .\templates\api\docs\token__create.html:18
 #: .\templates\api\docs\token__create.html:49
 #: .\templates\api\docs\token__get.html:18
@@ -549,8 +591,15 @@ msgstr "Ubicación"
 msgid "type"
 msgstr "Tipo"
 
+#: .\templates\api\docs\qr_code__get.html:19
+#: .\templates\api\docs\qr_code__get.html:50
 #: .\templates\api\docs\redirect__create.html:19
 #: .\templates\api\docs\redirect__create.html:78
+#: .\templates\api\docs\redirect__delete.html:19
+#: .\templates\api\docs\redirect__get.html:19
+#: .\templates\api\docs\redirect__get.html:43
+#: .\templates\api\docs\redirect__get.html:210
+#: .\templates\api\docs\redirect__get.html:241
 #: .\templates\api\docs\token__create.html:19
 #: .\templates\api\docs\token__create.html:50
 #: .\templates\api\docs\token__get.html:19
@@ -558,9 +607,20 @@ msgstr "Tipo"
 msgid "commitment"
 msgstr "Compromiso"
 
+#: .\templates\api\docs\qr_code__get.html:20
+#: .\templates\api\docs\qr_code__get.html:51
+#: .\templates\api\docs\qr_code__get.html:72
 #: .\templates\api\docs\redirect__create.html:20
 #: .\templates\api\docs\redirect__create.html:79
 #: .\templates\api\docs\redirect__create.html:163
+#: .\templates\api\docs\redirect__delete.html:20
+#: .\templates\api\docs\redirect__delete.html:48
+#: .\templates\api\docs\redirect__get.html:20
+#: .\templates\api\docs\redirect__get.html:44
+#: .\templates\api\docs\redirect__get.html:145
+#: .\templates\api\docs\redirect__get.html:211
+#: .\templates\api\docs\redirect__get.html:242
+#: .\templates\api\docs\redirect__get.html:326
 #: .\templates\api\docs\token__create.html:20
 #: .\templates\api\docs\token__create.html:51
 #: .\templates\api\docs\token__create.html:72
@@ -569,6 +629,159 @@ msgstr "Compromiso"
 #: .\templates\api\docs\token__get.html:72
 msgid "description"
 msgstr "Descripción"
+
+#: .\templates\api\docs\qr_code__get.html:28
+#: .\templates\api\docs\qr_code__get.html:35
+#: .\templates\api\docs\qr_code__get.html:59
+#: .\templates\api\docs\redirect__create.html:35
+#: .\templates\api\docs\redirect__create.html:94
+#: .\templates\api\docs\redirect__create.html:101
+#: .\templates\api\docs\redirect__create.html:108
+#: .\templates\api\docs\redirect__create.html:115
+#: .\templates\api\docs\redirect__create.html:122
+#: .\templates\api\docs\redirect__create.html:129
+#: .\templates\api\docs\redirect__delete.html:28
+#: .\templates\api\docs\redirect__delete.html:35
+#: .\templates\api\docs\redirect__get.html:28
+#: .\templates\api\docs\redirect__get.html:52
+#: .\templates\api\docs\redirect__get.html:60
+#: .\templates\api\docs\redirect__get.html:68
+#: .\templates\api\docs\redirect__get.html:76
+#: .\templates\api\docs\redirect__get.html:84
+#: .\templates\api\docs\redirect__get.html:92
+#: .\templates\api\docs\redirect__get.html:100
+#: .\templates\api\docs\redirect__get.html:108
+#: .\templates\api\docs\redirect__get.html:116
+#: .\templates\api\docs\redirect__get.html:124
+#: .\templates\api\docs\redirect__get.html:132
+#: .\templates\api\docs\redirect__get.html:219
+#: .\templates\api\docs\redirect__get.html:226
+#: .\templates\api\docs\redirect__get.html:250
+#: .\templates\api\docs\redirect__get.html:257
+#: .\templates\api\docs\redirect__get.html:264
+#: .\templates\api\docs\redirect__get.html:271
+#: .\templates\api\docs\redirect__get.html:278
+#: .\templates\api\docs\redirect__get.html:285
+#: .\templates\api\docs\redirect__get.html:292
+#: .\templates\api\docs\redirect__get.html:299
+#: .\templates\api\docs\redirect__get.html:306
+#: .\templates\api\docs\redirect__get.html:313
+#: .\templates\api\docs\token__create.html:28
+#: .\templates\api\docs\token__create.html:35
+#: .\templates\api\docs\token__create.html:59
+#: .\templates\api\docs\token__get.html:28
+#: .\templates\api\docs\token__get.html:35
+#: .\templates\api\docs\token__get.html:59
+msgid "yes"
+msgstr "Sí"
+
+#: .\templates\api\docs\qr_code__get.html:29
+msgid "extension_of_qr_code_file"
+msgstr "Extensiones de archivo de código QR"
+
+#: .\templates\api\docs\qr_code__get.html:42
+#: .\templates\api\docs\redirect__create.html:70
+#: .\templates\api\docs\redirect__get.html:35
+#: .\templates\api\docs\redirect__get.html:233
+#: .\templates\api\docs\token__create.html:42
+#: .\templates\api\docs\token__get.html:42
+msgid "response_parameters:"
+msgstr "Parámetros de respuesta:"
+
+#: .\templates\api\docs\qr_code__get.html:60
+msgid "byte_stream_content_of_qr_code_file"
+msgstr "El flujo de bytes del contenido del archivo de código QR"
+
+#: .\templates\api\docs\qr_code__get.html:66
+#: .\templates\api\docs\redirect__create.html:157
+#: .\templates\api\docs\redirect__delete.html:42
+#: .\templates\api\docs\redirect__get.html:139
+#: .\templates\api\docs\redirect__get.html:320
+#: .\templates\api\docs\token__create.html:66
+#: .\templates\api\docs\token__get.html:66
+msgid "response_codes:"
+msgstr "Códigos de respuesta:"
+
+#: .\templates\api\docs\qr_code__get.html:71
+#: .\templates\api\docs\redirect__create.html:162
+#: .\templates\api\docs\redirect__delete.html:47
+#: .\templates\api\docs\redirect__get.html:144
+#: .\templates\api\docs\redirect__get.html:325
+#: .\templates\api\docs\token__create.html:71
+#: .\templates\api\docs\token__get.html:71
+msgid "code"
+msgstr "Código"
+
+#: .\templates\api\docs\qr_code__get.html:78
+msgid "success_obtained_qr_code"
+msgstr "código QR recibido correctamente"
+
+#: .\templates\api\docs\qr_code__get.html:82
+#: .\templates\api\docs\redirect__create.html:173
+#: .\templates\api\docs\redirect__delete.html:58
+#: .\templates\api\docs\redirect__get.html:155
+#: .\templates\api\docs\redirect__get.html:336
+#: .\templates\api\docs\token__create.html:82
+#: .\templates\api\docs\token__get.html:82
+msgid "missing_required_field"
+msgstr "falta un campo obligatorio"
+
+#: .\templates\api\docs\qr_code__get.html:86
+msgid "wrong_type_file"
+msgstr "tipo de archivo incorrecto"
+
+#: .\templates\api\docs\qr_code__get.html:92
+#: .\templates\api\docs\redirect__create.html:191
+#: .\templates\api\docs\redirect__delete.html:72
+#: .\templates\api\docs\redirect__get.html:165
+#: .\templates\api\docs\redirect__get.html:350
+#: .\templates\api\docs\token__create.html:92
+#: .\templates\api\docs\token__get.html:92
+msgid "example_of_request_sent:"
+msgstr "Ejemplo de solicitud enviada:"
+
+#: .\templates\api\docs\qr_code__get.html:95
+#: .\templates\api\docs\redirect__create.html:204
+#: .\templates\api\docs\redirect__delete.html:78
+#: .\templates\api\docs\redirect__get.html:170
+#: .\templates\api\docs\redirect__get.html:356
+#: .\templates\api\docs\token__create.html:98
+#: .\templates\api\docs\token__get.html:98
+msgid "example_of_response_receive:"
+msgstr "Ejemplo de respuesta recibida:"
+
+#: .\templates\api\docs\qr_code__get.html:98
+#: .\templates\api\docs\redirect__create.html:218
+#: .\templates\api\docs\redirect__delete.html:81
+#: .\templates\api\docs\redirect__get.html:370
+#: .\templates\api\docs\token__create.html:103
+#: .\templates\api\docs\token__get.html:103
+msgid "python_code_example"
+msgstr "Ejemplo de código Python:"
+
+#: .\templates\api\docs\qr_code__get.html:101
+#: .\templates\api\docs\redirect__create.html:222
+#: .\templates\api\docs\redirect__delete.html:84
+#: .\templates\api\docs\redirect__get.html:374
+#: .\templates\api\docs\token__create.html:106
+#: .\templates\api\docs\token__get.html:106
+msgid "reminder_that_passwords_better_kept_in_separate_file"
+msgstr "Recuerde que es mejor guardar las contraseñas en un archivo aparte."
+
+#: .\templates\api\docs\qr_code__get.html:110
+#: .\templates\api\docs\redirect__delete.html:93
+#: .\templates\api\docs\redirect__get.html:9
+#: .\templates\api\docs\redirect__get.html:383
+msgid "get_all_redirects_for_user"
+msgstr "Obtener todas las redirecciones"
+
+#: .\templates\api\docs\redirect__create.html:9
+msgid "redirect__create_api_docs"
+msgstr ""
+"La ruta principal de la API es crear una redirección. Si no utiliza un "
+"token, puede crear simplemente una redirección y un enlace personalizado si "
+"lo desea. Con un token, la redirección se guardará en el perfil del usuario, "
+"y puedes establecer atributos adicionales al crear una redirección"
 
 #: .\templates\api\docs\redirect__create.html:28
 #: .\templates\api\docs\redirect__create.html:42
@@ -583,26 +796,13 @@ msgid "no"
 msgstr "no"
 
 #: .\templates\api\docs\redirect__create.html:29
+#: .\templates\api\docs\redirect__delete.html:29
+#: .\templates\api\docs\redirect__get.html:29
+#: .\templates\api\docs\redirect__get.html:220
 #: .\templates\api\docs\token__create.html:60
 #: .\templates\api\docs\token__get.html:60
 msgid "token_for_interaction_with_extended_API"
 msgstr "Token para interactuar con la API ampliada"
-
-#: .\templates\api\docs\redirect__create.html:35
-#: .\templates\api\docs\redirect__create.html:94
-#: .\templates\api\docs\redirect__create.html:101
-#: .\templates\api\docs\redirect__create.html:108
-#: .\templates\api\docs\redirect__create.html:115
-#: .\templates\api\docs\redirect__create.html:122
-#: .\templates\api\docs\redirect__create.html:129
-#: .\templates\api\docs\token__create.html:28
-#: .\templates\api\docs\token__create.html:35
-#: .\templates\api\docs\token__create.html:59
-#: .\templates\api\docs\token__get.html:28
-#: .\templates\api\docs\token__get.html:35
-#: .\templates\api\docs\token__get.html:59
-msgid "yes"
-msgstr "Sí"
 
 #: .\templates\api\docs\redirect__create.html:49
 #: .\templates\api\docs\redirect__create.html:56
@@ -614,65 +814,55 @@ msgstr "Sí"
 msgid "available_only_with_token"
 msgstr "Disponible con ficha"
 
-#: .\templates\api\docs\redirect__create.html:70
-#: .\templates\api\docs\token__create.html:42
-#: .\templates\api\docs\token__get.html:42
-msgid "response_parameters:"
-msgstr "Parámetros de respuesta:"
-
 #: .\templates\api\docs\redirect__create.html:88
+#: .\templates\api\docs\redirect__delete.html:36
+#: .\templates\api\docs\redirect__get.html:61
+#: .\templates\api\docs\redirect__get.html:227
+#: .\templates\api\docs\redirect__get.html:251
 msgid "Redirect id"
 msgstr "ID de redirección"
 
-#: .\templates\api\docs\redirect__create.html:157
-#: .\templates\api\docs\token__create.html:66
-#: .\templates\api\docs\token__get.html:66
-msgid "response_codes:"
-msgstr "Códigos de respuesta:"
-
-#: .\templates\api\docs\redirect__create.html:162
-#: .\templates\api\docs\token__create.html:71
-#: .\templates\api\docs\token__get.html:71
-msgid "code"
-msgstr "Código"
-
 #: .\templates\api\docs\redirect__create.html:169
-msgid "success_obtained_redirect"
-msgstr "redirección recibida correctamente"
-
-#: .\templates\api\docs\redirect__create.html:173
-#: .\templates\api\docs\token__create.html:82
-#: .\templates\api\docs\token__get.html:82
-msgid "missing_required_field"
-msgstr "falta un campo obligatorio"
+msgid "success_created_redirect"
+msgstr "redirección creada con éxito"
 
 #: .\templates\api\docs\redirect__create.html:177
+#: .\templates\api\docs\redirect__delete.html:62
+#: .\templates\api\docs\redirect__get.html:159
+#: .\templates\api\docs\redirect__get.html:340
 msgid "no_token_for_fields_that_require_it"
 msgstr "no hay token para los atributos que lo requieren"
 
-#: .\templates\api\docs\redirect__create.html:191
-#: .\templates\api\docs\token__create.html:92
-#: .\templates\api\docs\token__get.html:92
-msgid "example_of_request_sent:"
-msgstr "Ejemplo de solicitud enviada:"
+#: .\templates\api\docs\redirect__delete.html:9
+#: .\templates\api\docs\redirect__delete.html:101
+msgid "delete_redirect_by_id"
+msgstr "Borrar redirección por id"
 
-#: .\templates\api\docs\redirect__create.html:204
-#: .\templates\api\docs\token__create.html:98
-#: .\templates\api\docs\token__get.html:98
-msgid "example_of_response_receive:"
-msgstr "Ejemplo de respuesta recibida:"
+#: .\templates\api\docs\redirect__delete.html:54
+msgid "success_deleted_redirect"
+msgstr "redirección eliminada con éxito"
 
-#: .\templates\api\docs\redirect__create.html:218
-#: .\templates\api\docs\token__create.html:103
-#: .\templates\api\docs\token__get.html:103
-msgid "python_code_example"
-msgstr "Ejemplo de código Python:"
+#: .\templates\api\docs\redirect__delete.html:66
+#: .\templates\api\docs\redirect__get.html:344
+msgid "id_of_redirect_incorrect"
+msgstr "el id de redirección es incorrecto"
 
-#: .\templates\api\docs\redirect__create.html:222
-#: .\templates\api\docs\token__create.html:106
-#: .\templates\api\docs\token__get.html:106
-msgid "reminder_that_passwords_better_kept_in_separate_file"
-msgstr "Recuerde que es mejor guardar las contraseñas en un archivo aparte."
+#: .\templates\api\docs\redirect__get.html:53
+msgid "list_of_redirects"
+msgstr "Lista de redireccionamientos"
+
+#: .\templates\api\docs\redirect__get.html:151
+msgid "success_obtained_list_redirects"
+msgstr "lista de redireccionamientos recibidos correctamente"
+
+#: .\templates\api\docs\redirect__get.html:200
+#: .\templates\api\docs\redirect__get.html:392
+msgid "get_redirects_for_user_by_id"
+msgstr "Obtener redirección por id"
+
+#: .\templates\api\docs\redirect__get.html:332
+msgid "success_obtained_redirect"
+msgstr "redirección recibida correctamente"
 
 #: .\templates\api\docs\token__create.html:9
 #: .\templates\api\docs\token__get.html:9
