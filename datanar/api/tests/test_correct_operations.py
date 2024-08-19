@@ -163,10 +163,14 @@ class ApiCorrectTest(TestCase):
             "Присутствуют лишние поля для не авторизированного пользователя",
         )
 
-        token = Client().post(
-            reverse("api:get_token"),
-            data={"username": self.username, "password": self.password},
-        ).json()["token"]
+        token = (
+            Client()
+            .post(
+                reverse("api:get_token"),
+                data={"username": self.username, "password": self.password},
+            )
+            .json()["token"]
+        )
         response = self.client.post(
             reverse("api:redirect-list"),
             data={"token": token, "long_link": "https://python.org/"},

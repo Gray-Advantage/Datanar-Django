@@ -6,8 +6,8 @@ from django.views.generic import ListView, TemplateView
 
 from core.mixins import (
     FormMethodExtender,
-    StaffUserRequiredMixin,
     RedirectToLastPageMixin,
+    StaffUserRequiredMixin,
 )
 from dashboard.models import BlockedDomain
 from redirects.models import Redirect

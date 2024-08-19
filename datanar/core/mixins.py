@@ -36,7 +36,7 @@ class RedirectToLastPageMixin:
             return HttpResponseRedirect(
                 f"{request.path}?{query_params.urlencode()}"
                 f"{'&' if query_params.urlencode() else ''}"
-                f"{self.page_kwarg}={last_page}"
+                f"{self.page_kwarg}={last_page}",
             )
 
 
