@@ -44,7 +44,7 @@ class ItemAdmin(admin.ModelAdmin):
         regex_urls = set()
 
         for url in queryset.values_list("long_link", flat=True):
-            main_domain = urlparse(url).netloc.split('.')[-2]
+            main_domain = urlparse(url).netloc.split(".")[-2]
             if main_domain:
                 regex_urls.add(f"||{main_domain}^")
 
