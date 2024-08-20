@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-20 18:06+0300\n"
+"POT-Creation-Date: 2024-08-21 00:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,35 +60,35 @@ msgstr "Регулярен израз за домейн, който ще бъд�
 msgid "domains_regex"
 msgstr "Редовни домейни"
 
-#: .\datanar\settings.py:211
+#: .\datanar\settings.py:215
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:212
+#: .\datanar\settings.py:216
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:213
+#: .\datanar\settings.py:217
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\datanar\settings.py:214
+#: .\datanar\settings.py:218
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:215
+#: .\datanar\settings.py:219
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:216
+#: .\datanar\settings.py:220
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:217
+#: .\datanar\settings.py:221
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:218
+#: .\datanar\settings.py:222
 msgid "Japanese"
 msgstr "日本語"
 
@@ -100,26 +100,34 @@ msgstr "Начална страница"
 msgid "qr-codes"
 msgstr "QR-кодове"
 
-#: .\redirects\admin.py:33 .\redirects\models.py:71
+#: .\redirects\admin.py:34 .\redirects\models.py:71
 #: .\templates\api\docs\redirect__create.html:95
 #: .\templates\api\docs\redirect__get.html:69
 #: .\templates\api\docs\redirect__get.html:258
 msgid "long_link"
 msgstr "дълга връзка"
 
-#: .\redirects\admin.py:39
+#: .\redirects\admin.py:40
+msgid "block_selected_redirects"
+msgstr "Блокиране на избраните пренасочвания"
+
+#: .\redirects\admin.py:53
+msgid "success_block_selected_redirect"
+msgstr "Избраните пренасочвания са успешно блокирани и изтрити"
+
+#: .\redirects\admin.py:55
 msgid "deactivate_selected_redirects"
 msgstr "Деактивирайте избраните пренасочвания"
 
-#: .\redirects\admin.py:45
+#: .\redirects\admin.py:61
 msgid "success_deactivate_selected_redirect"
 msgstr "Избраните пренасочвания са деактивирани успешно"
 
-#: .\redirects\admin.py:47
+#: .\redirects\admin.py:63
 msgid "activate_selected_redirects"
 msgstr "Активирайте избраните пренасочвания"
 
-#: .\redirects\admin.py:54
+#: .\redirects\admin.py:70
 msgid "success_activate_selected_redirect"
 msgstr "Избраните пренасочвания са активирани успешно"
 
