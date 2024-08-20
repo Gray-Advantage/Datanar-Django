@@ -1,3 +1,6 @@
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))  // включить подсказки
+
 const browserCanvas = document.getElementById("browserChart").getContext("2d");
 const browserData = document.querySelectorAll('#browserChart input[type="hidden"]');
 

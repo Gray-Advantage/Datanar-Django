@@ -4,8 +4,11 @@
 
 {% block title %}{% trans "title__link_detail" %}{% endblock %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/users/link-detail.css' %}">
+{% endblock %}
+
 {% block js %}
-  {{ block.super }}
   <script src="{% static 'js/chart.min.js' %}"></script>
   <script src="{% static 'js/statistic/chartStatistic.js' %}"></script>
 {% endblock %}
@@ -13,8 +16,9 @@
 {% block content %}
   <div class="d-flex flex-column">
     <h3 class="text-center mt-5">{% trans "link" %}: <a href="{% url 'redirects:redirect' link %}" target="_blank"><strong>{{ request.get_host }}/{{ link }}</strong></a></h3>
-    <p class="text-center">({% trans "original" %}: <a href="{{ redirect.long_link }}" target="_blank"><strong>{{ redirect.long_link }}</strong></a>)</p>
-    <table class="table mt-3">
+    <p class="text-center mb-1">({% trans "original" %}: <a href="{{ redirect.long_link }}" target="_blank"><strong>{{ redirect.long_link }}</strong></a>)</p>
+    <p class="mx-auto mb-0">{% trans "is_active" %}: {% if redirect.is_active %}{% trans "yes" %}{% else %}{% trans "no" %} <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{% trans 'after_10_days_deactivate_redirect_will_be_delete' %}"></i>{% endif %}</p>
+    <table class="table mt-3 d-none d-sm-inline-table">
       <thead>
         <tr>
           <th scope="col" class="w-25 text-center">{% trans "сreated" %}</th>
@@ -23,11 +27,31 @@
           <th scope="col" class="w-25 text-center">{% trans "Password" %}</th>
         </tr>
       </thead>
-      <tbody class="table-group-divider">
+      <tbody>
         <tr>
-          <th scope="row" class="w-25 text-center">{{ redirect.created_at }}</th>
+          <td scope="row" class="w-25 text-center">{{ redirect.created_at }}</td>
           <td class="w-25 text-center">{% if redirect.validity_clicks %}{{ redirect.validity_clicks }}{% else %}<i>{% trans "unlimited" %}</i>{% endif %}</td>
           <td class="w-25 text-center">{% if redirect.validity_days %}{{ redirect.validity_days }}{% else %}<i>{% trans "unlimited" %}</i>{% endif %}</td>
+          <td class="w-25 text-center">{% if redirect.password %}{{ redirect.password }}{% else %}<i>{% trans "absent" %}</i>{% endif %}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table mt-3 d-md-none d-block">
+      <tbody>
+        <tr>
+          <th class="w-25 text-center">{% trans "сreated" %}</th>
+          <td class="w-25 text-center">{{ redirect.created_at }}</td>
+        </tr>
+        <tr>
+          <th class="w-25 text-center">{% trans "transitions_are_available" %}</th>
+          <td class="w-25 text-center">{% if redirect.validity_clicks %}{{ redirect.validity_clicks }}{% else %}<i>{% trans "unlimited" %}</i>{% endif %}</td>
+        </tr>
+        <tr>
+          <th class="w-25 text-center">{% trans "valid_for_days" %}</th>
+          <td class="w-25 text-center">{% if redirect.validity_days %}{{ redirect.validity_days }}{% else %}<i>{% trans "unlimited" %}</i>{% endif %}</td>
+        </tr>
+        <tr>
+          <th class="w-25 text-center">{% trans "Password" %}</th>
           <td class="w-25 text-center">{% if redirect.password %}{{ redirect.password }}{% else %}<i>{% trans "absent" %}</i>{% endif %}</td>
         </tr>
       </tbody>
