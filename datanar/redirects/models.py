@@ -8,12 +8,8 @@ class RedirectManager(models.Manager):
     def get_by_short_link(self, short_link):
         redirect = (
             self.get_queryset()
-            .filter(
-                short_link=short_link,
-            )
-            .annotate(
-                clicks_count=models.Count("click"),
-            )
+            .filter(short_link=short_link)
+            .annotate(clicks_count=models.Count("click"))
             .first()
         )
 
@@ -37,6 +33,9 @@ class RedirectManager(models.Manager):
             < timezone.now()
         ):
             redirect.delete()
+            return None
+
+        if not redirect.is_active:
             return None
 
         if redirect.validity_clicks:
