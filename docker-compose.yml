@@ -78,13 +78,30 @@ services:
       - prod
       - dev
 
-  celery:
+  celery-worker:
     build: .
-    container_name: celery
+    container_name: celery-worker
     env_file:
       - ./.env
     restart: always
-    command: bash -c "celery -A datanar worker && celery -A datanar beat"
+    command: bash -c "celery -A datanar worker"
+    volumes:
+      - ./for_docker/media:/datanar/media
+      - ./for_docker/logs:/datanar/logs
+    depends_on:
+      - postgres
+      - redis
+    profiles:
+      - prod
+      - dev
+
+  celery-beat:
+    build: .
+    container_name: celery-beat
+    env_file:
+      - ./.env
+    restart: always
+    command: bash -c "celery -A datanar beat"
     volumes:
       - ./for_docker/media:/datanar/media
       - ./for_docker/logs:/datanar/logs

@@ -113,20 +113,34 @@ def create_redirects(data, user_id, host, ip_address):
 @app.task()
 def clear_redirects():
     # Деактивация редиректов, чей срок годности истёк
-    Redirect.objects.filter(
+    redirect = Redirect.objects.filter(
         is_active=True,
         validity_days__isnull=False,
-    ).alias(
-        time_since_creation=ExpressionWrapper(
-            timezone.now() - F("created_at"),
-            output_field=DurationField(),
-        ),
-    ).filter(
-        time_since_creation__gt=ExpressionWrapper(
-            F("validity_days") * 86400000000,  # перевод дней в микросекунды
-            output_field=IntegerField(),
-        ),
-    ).update(
+    )
+    if settings.USE_FILE_DATABASE:  # SQLITE3
+        redirect = redirect.alias(
+            time_since_creation=ExpressionWrapper(
+                timezone.now() - F(Redirect.created_at.field.name),
+                output_field=DurationField(),
+            ),
+        ).filter(
+            time_since_creation__gt=ExpressionWrapper(
+                F(Redirect.validity_days.field.name)
+                * 86400000000,  # перевод дней в микросекунды
+                output_field=IntegerField(),
+            ),
+        )
+    else:  # POSTGRES
+        redirect = redirect.filter(
+            created_at__lt=ExpressionWrapper(
+                timezone.now()
+                - F(Redirect.validity_days.field.name)
+                * timezone.timedelta(days=1),
+                output_field=DurationField(),
+            ),
+        )
+
+    redirect.update(
         is_active=False,
         deactivated_at=timezone.now(),
     )
@@ -141,7 +155,7 @@ def clear_redirects():
 @app.on_after_finalize.connect
 def setup_periodic_tasks(sender, **kwargs):
     sender.add_periodic_task(
-        schedule(run_every=40),
+        schedule(run_every=10),
         clear_redirects,
     )
 

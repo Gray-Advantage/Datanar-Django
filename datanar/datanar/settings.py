@@ -124,6 +124,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "datanar.wsgi.application"
 
+USE_FILE_DATABASE = strtobool(
+    config("DATANAR_USE_FILE_DATABASE", default="True"),
+)
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -134,7 +138,7 @@ DATABASES = {
     },
 }
 
-if not strtobool(config("DATANAR_USE_FILE_DATABASE", default="True")):
+if not USE_FILE_DATABASE:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
