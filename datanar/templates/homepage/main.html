@@ -43,9 +43,9 @@
               <input id="fileNameField" type="text" class="form-control input-field d-none" readonly="">
               <button type="button" id="deleteFileButton" class="btn btn-outline-danger d-none">{% trans "delete_file" %}</button>
               {% if request.user.is_authenticated %}
-                <button type="button" id="chooseFileButton" class="btn btn-outline-dark">{% trans "choose_file" %}</button>
+                <button type="button" id="chooseFileButton" class="btn btn-outline">{% trans "choose_file" %}</button>
               {% endif %}
-              <input type="submit" class="btn btn-outline-dark rounded-end-2" value="{% trans 'shorten' %}">
+              <input type="submit" class="btn btn-outline rounded-end-2" value="{% trans 'shorten' %}">
               {% if field.errors %}
                 <div class="invalid-feedback">
                   {{ field.errors|first }}
@@ -75,7 +75,7 @@
           {% if message.level == SHORT_LINK %}
             {% include "includes/link_card.html" with link=message %}
           {% elif message.level == LOADING_LINKS %}
-            <div id="fileLinksLoader" class="spinner-border text-dark ms-auto me-auto mt-5" role="status">
+            <div id="fileLinksLoader" class="spinner-border mx-auto mt-5" role="status">
               <span class="visually-hidden">{{ message }}</span>
             </div>
           {% endif %}

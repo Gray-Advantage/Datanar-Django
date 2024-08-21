@@ -44,7 +44,7 @@
       {% endif %}
     </div>
     <div class="d-flex flex-column">
-      <button class="btn btn-outline-dark mt-3 py-2 ms-auto me-auto" type="submit">{{ submit_text }}</button>
+      <button class="btn btn-outline mt-3 py-2 ms-auto me-auto" type="submit">{{ submit_text }}</button>
       {% if view_name == "users:login" %}
         <div class="ms-auto me-auto mt-3">
           <p class="text-center">{% trans "dont_have_account_yet" %} <a href="{% url 'users:signup' %}" class="text-center">{% trans "create_it" %}</a></p>

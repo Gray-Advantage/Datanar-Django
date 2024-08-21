@@ -1,9 +1,12 @@
 from pathlib import Path
 from urllib.parse import urlparse
 
+from celery.schedules import schedule
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator
+from django.db.models import DurationField, ExpressionWrapper, F, IntegerField
+from django.utils import timezone
 import openpyxl
 
 from dashboard.models import BlockedDomain
@@ -60,7 +63,7 @@ def get_links(file_path):
 
 
 @app.task()
-def create_redirects(data, user_id, host):
+def create_redirects(data, user_id, host, ip_address):
     links = get_links(data["links_file"])
     del data["links_file"]
 
@@ -94,6 +97,8 @@ def create_redirects(data, user_id, host):
         user_creator = User.objects.get(id=user_id)
         if url_long_link.netloc != host:
             redirect = Redirect.objects.create(**form.cleaned_data)
+            redirect.create_method = Redirect.CreateMethod.WEB_FILE
+            redirect.ip_address = ip_address
             redirect.user = user_creator
             redirect.save()
             short_link = redirect.short_link
@@ -105,4 +110,54 @@ def create_redirects(data, user_id, host):
     return answer
 
 
-__all__ = [create_redirects]
+@app.task()
+def clear_redirects():
+    # Деактивация редиректов, чей срок годности истёк
+    redirect = Redirect.objects.filter(
+        is_active=True,
+        validity_days__isnull=False,
+    )
+    if settings.USE_FILE_DATABASE:  # SQLITE3
+        redirect = redirect.alias(
+            time_since_creation=ExpressionWrapper(
+                timezone.now() - F(Redirect.created_at.field.name),
+                output_field=DurationField(),
+            ),
+        ).filter(
+            time_since_creation__gt=ExpressionWrapper(
+                F(Redirect.validity_days.field.name)
+                * 86400000000,  # перевод дней в микросекунды
+                output_field=IntegerField(),
+            ),
+        )
+    else:  # POSTGRES
+        redirect = redirect.filter(
+            created_at__lt=ExpressionWrapper(
+                timezone.now()
+                - F(Redirect.validity_days.field.name)
+                * timezone.timedelta(days=1),
+                output_field=DurationField(),
+            ),
+        )
+
+    redirect.update(
+        is_active=False,
+        deactivated_at=timezone.now(),
+    )
+
+    # Удаление деактивированных редиректов, чей срок больше 10 дней
+    Redirect.objects.filter(
+        is_active=False,
+        deactivated_at__lt=timezone.now() - timezone.timedelta(days=10),
+    ).delete()
+
+
+@app.on_after_finalize.connect
+def setup_periodic_tasks(sender, **kwargs):
+    sender.add_periodic_task(
+        schedule(run_every=10),
+        clear_redirects,
+    )
+
+
+__all__ = [create_redirects, clear_redirects]

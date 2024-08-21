@@ -43,6 +43,18 @@ class ApiWrongTest(TestCase):
         response = Client().get(reverse("api:redirect-detail", args=[1]))
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
+    def test_redirect_with_wrong_token(self):
+        token = self.client.post(
+            reverse("api:get_token"),
+            data={"username": self.username, "password": self.password},
+        ).json()["token"]
+
+        response = Client().get(
+            reverse("api:redirect-detail", args=[1]),
+            data={"token": token + "_w"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
     def test_redirect_with_wrong_id(self):
         response = self.client.get(reverse("api:redirect-detail", args=[42]))
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)

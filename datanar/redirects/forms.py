@@ -59,6 +59,10 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
             Redirect.password.field.name,
             Redirect.validity_days.field.name,
             Redirect.validity_clicks.field.name,
+            Redirect.is_active.field.name,
+            Redirect.deactivated_at.field.name,
+            Redirect.ip_address.field.name,
+            Redirect.create_method.field.name,
         ]
 
     def clean(self):
@@ -78,6 +82,12 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
                 self.add_error(
                     "custom_url",
                     ValidationError(_("custom_url_already_use")),
+                )
+
+            if BlockedDomain.objects.is_blocked(long_link):
+                self.add_error(
+                    Redirect.long_link.field.name,
+                    ValidationError(_("this_url_is_blocked")),
                 )
 
             if not self.errors:
@@ -174,6 +184,10 @@ class RedirectFormExtended(RedirectForm):
             Redirect.user.field.name,
             Redirect.short_link.field.name,
             Redirect.created_at.field.name,
+            Redirect.is_active.field.name,
+            Redirect.deactivated_at.field.name,
+            Redirect.ip_address.field.name,
+            Redirect.create_method.field.name,
         ]
 
 

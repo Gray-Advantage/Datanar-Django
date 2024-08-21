@@ -60,5 +60,5 @@ jobs:
           cd ~/datanar
           git reset --hard origin/main  
           git pull origin main
-          docker compose down -v
+          docker compose down
           docker compose up --build -d

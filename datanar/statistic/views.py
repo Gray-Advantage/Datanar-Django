@@ -9,7 +9,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 import openpyxl
 
-from core.mixins import FormMethodExtender
+from core.mixins import FormMethodExtender, RedirectToLastPageMixin
 from redirects.models import Redirect
 from statistic.models import Click
 
@@ -23,7 +23,12 @@ def get_clicks_by_mode(short_link, mode):
     return Click.objects.for_short_link_by_all_time(short_link)
 
 
-class MyLinksView(LoginRequiredMixin, FormMethodExtender, ListView):
+class MyLinksView(
+    LoginRequiredMixin,
+    FormMethodExtender,
+    RedirectToLastPageMixin,
+    ListView,
+):
     template_name = "statistic/my_links.html"
     context_object_name = "links"
     paginate_by = 7

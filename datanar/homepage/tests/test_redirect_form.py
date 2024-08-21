@@ -60,7 +60,7 @@ class RedirectFormTest(TestCase):
                 "user": None,
                 "password": None,
                 "validity_clicks": None,
-                "validity_days": 90,
+                "validity_days": Redirect.validity_days.field.default,
             },
         )
 

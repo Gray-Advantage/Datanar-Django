@@ -4,10 +4,6 @@
   margin-inline: 1.5rem;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .overlay{
   display:none;
   position: absolute;

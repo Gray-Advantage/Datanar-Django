@@ -3,8 +3,6 @@
 > Это инструкция, которая по шагам распишет нативное развёртывание сайта на 
 > локальной машине, приятного чтения!
 
----
-
 ## Содержание
 - [Установка Python](#установка-python)
 - [Установка Git](#установка-git)
@@ -29,99 +27,90 @@
 - [Настройка сервера](#настройка-сервера)
 - [Запуск сервера Django](#запуск-сервера-django)
 
----
-
 ## Установка Python
-Для запуска этого проекта вам потребуется Python. 
+Для запуска этого проекта вам потребуется Python
   
 Если у вас его еще нет, вы можете скачать его с официального 
 [сайта](https://www.python.org/downloads/), рекомендуется установить версию в 
 диапазоне 3.9 - 3.12 (но лучше всё же 3.12)
 
----
-
 ## Установка Git
 ### Windows
 1. Скачайте установщик Git с официального
-[сайта](https://git-scm.com/download/win)
+   [сайта](https://git-scm.com/download/win)
 2. Запустите установщик и следуйте инструкциям на экране
 
 ### MacOS
 1. Откройте терминал
 2. Установите Git с помощью [Homebrew](https://brew.sh/ru/):
-    ```bash
-    brew install git
-    ```
+   ```bash
+   brew install git
+   ```
     
 ### Linux (Debian / Ubuntu)
 1. Откройте терминал
 2. Обновите список пакетов:
-    ```bash
-    sudo apt update
-    ```
+   ```bash
+   sudo apt update
+   ```
 3. Установите Git с помощью следующей команды:
-    ```bash
-    sudo apt install git
-    ```
+   ```bash
+   sudo apt install git
+   ```
 
 После установки Git с помощью команды `git --version` вы можете проверить его 
 версию и убедиться, что он установлен правильно
 
----
-
 ## Установка gettext
 ### Windows
-Скачать и запустить
-[установщик](https://mlocati.github.io/articles/gettext-iconv-windows.html)
-gettext для windows 
+1. Скачать
+   [установщик](https://mlocati.github.io/articles/gettext-iconv-windows.html)
+   gettext для windows
+2. Запустите установщик и следуйте инструкциям на экране
 
 ### MacOS
 1. Откройте терминал
 2. Установите gettext с помощью [Homebrew](https://brew.sh/ru/):
-    ```bash
-    brew install gettext
-    ```
+   ```bash
+   brew install gettext
+   ```
 
 ### Linux (Debian / Ubuntu)
 1. Откройте терминал
 2. Установите gettext с помощью следующей команды:
-    ```bash
-    sudo apt install gettext
-    ```
-
----
+   ```bash
+   sudo apt install gettext
+   ```
 
 ## Установка Redis
 > Для celery (очередь задач, для обработки файлов со ссылками) требуется 
 > установить redis. Этот шаг можно пропустить, если этот функционал не нужен.
 
 ### Windows
-Redis официально не поддерживает Windows, поэтому ниже описанный способ может 
-не сработать (лично у нас получилось запустить, но без виртуального окружения)
+> Redis официально не поддерживает Windows, поэтому ниже описанный способ может
+> не сработать (лично у нас получилось, но только без виртуального окружения)
 
 1. Скачать неофициальный [порт](https://github.com/tporadowski/redis/releases)
-и запустить установщик msi (от имени администратора)
-2. В диспетчере задач в службах должна появится служба Redis
+   и запустить установщик msi (от имени администратора). В диспетчере задач в
+   службах должна появится служба `Redis`
 
 ### MacOS
 1. Откройте терминал
 2. Установите Redis с помощью [Homebrew](https://brew.sh/ru/):
-    ```bash
-    brew install redis
-    ```
+   ```bash
+   brew install redis
+   ```
 3. Запустите Redis:
-    ```bash
+   ```bash
    brew services start redis
-    ```
+   ```
 
 ### Linux (Debian / Ubuntu)
 1. Откройте терминал
 2. Установите Redis с помощью следующей команды:
-    ```bash
-    sudo apt install redis
-    ```
-
----
+   ```bash
+   sudo apt install redis
+   ```
 
 ## Установка Postgresql
 > Postgresql - мощная и современная система управления базой данных. Хорошо 
@@ -138,7 +127,7 @@ Redis официально не поддерживает Windows, поэтому
 4. Перейдите в директорию установки используя команду `cd`, скорее всего 
    команда полностью выглядит так:
    ```bash
-    cd C:\Program Files\PostgreSQL\16\bin
+   cd C:\Program Files\PostgreSQL\16\bin
    ```
 5. Запустите postgres клиент (введя пароль, который вы вводили при установке):
    ```bash
@@ -152,9 +141,9 @@ Redis официально не поддерживает Windows, поэтому
    brew install postgresql
    ```
 3. Запустите Postgresql:
-    ```bash
+   ```bash
    brew services start postgresql
-    ```
+   ```
 4. Запустите postgres клиент:
    ```bash
    psql -U postgres
@@ -163,16 +152,16 @@ Redis официально не поддерживает Windows, поэтому
 ### Linux (Debian / Ubuntu)
 1. Откройте терминал
 2. Установите Postgresql с помощью следующей команды:
-    ```bash
-    sudo apt install postgresql
-    ```
+   ```bash
+   sudo apt install postgresql
+   ```
 3. Запустите postgres клиент:
    ```bash
    sudo -u postgres psql
    ```
 
 Теперь когда вы запустили postgres клиент, создайте БД для проекта, а также
-пользователя, которой будет работать с ней:
+пользователя, которой будет с ней работать:
 ```sql
 CREATE USER webmaster WITH PASSWORD 'this_very_secret_password_for_database';
 CREATE DATABASE database;
@@ -186,18 +175,14 @@ ALTER ROLE "webmaster" SET client_encoding TO 'utf8';
 exit;
 ```
 
----
-
 ## Клонирование репозитория
 1. Откройте терминал
 2. Перейдите в директорию, где вы хотите сохранить проект, используя `cd`.
    Например: `cd %USERPROFILE%\Documents\myProjects` или `cd ~/myProject`
 3. Клонируйте репозиторий, используя следующую команду:
-    ```bash
-    git clone https://github.com/Gray-Advantage/Datanar-Django.git
-    ```
-
----
+   ```bash
+   git clone https://github.com/Gray-Advantage/Datanar-Django.git
+   ```
 
 ## Установка виртуального окружения
 ### Windows
@@ -237,8 +222,6 @@ exit;
    source venv/bin/activate
    ```
 
----
-
 ## Установка зависимостей
 > [!NOTE]
 > Как и с python/python3 возможны два варианта команд - c `pip` или c `pip3`
@@ -256,20 +239,18 @@ pip install -r requirements/test.txt
 pip install -r requirements/dev.txt
 ```
 
----
-
 ## Настройка сервера
 1. Создайте в корне проекта файл `.env` скопировав содержимое из `.env.example`
    - На Windows:
-      ```bash
-      copy .env.example .env
-      ```
+     ```bash
+     copy .env.example .env
+     ```
    - На Mac или Linux:
-      ```bash
-      cp .env.example .env
-      ```
+     ```bash
+     cp .env.example .env
+     ```
 
-   И измените все настройки в соответствии с [этой](env-file.md) инструкцией.
+   И измените все настройки в соответствии с [этой инструкцией](env-file.md).
    Если не добавить `.env` или просто продублировать информацию из
    `.env.example` в `.env`, приложение будет запущено с дефолтными настройками,
    что не рекомендуется по соображениям безопасности, а также часть функций 
@@ -282,56 +263,52 @@ pip install -r requirements/dev.txt
    ```bash
    cd datanar
    ```
-   
    И повторите немного изменённую команду:
    - Windows
-      ```bash
-      python manage.py compilemessages
-      ```
+     ```bash
+     python manage.py compilemessages
+     ```
    - macOS или linux (Debian / Ubuntu)
-      ```bash
-      python3 manage.py compilemessages
-      ```
-
-   Перейдите в директорию `datanar`, если вы этого не сделали:
+     ```bash
+     python3 manage.py compilemessages
+     ```
+   Перейдите в директорию `datanar`, если вы этого ещё не сделали:
    ```bash
    cd datanar
    ```
 3. Создайте первую миграцию базы данных:
    - Windows
-      ```bash
-      python manage.py migrate
-      ```
+     ```bash
+     python manage.py migrate
+     ```
    - macOS или linux (Debian / Ubuntu)
-      ```bash
-      python3 manage.py migrate
-      ```
+     ```bash
+     python3 manage.py migrate
+     ```
 4. Также сделайте сбор статики, если будет предупреждение про перезапись файлов 
    введите "yes":
    - Windows
-      ```bash
-      python manage.py collectstatic
-      ```
+     ```bash
+     python manage.py collectstatic
+     ```
    - macOS или linux (Debian / Ubuntu)
-      ```bash
-      python3 manage.py collectstatic
-      ```
+     ```bash
+     python3 manage.py collectstatic
+     ```
 5. И последние - создать суперпользователя (админа) сайта:
    - Windows
-      ```bash
-      python manage.py init_superuser
-      ```
+     ```bash
+     python manage.py init_superuser
+     ```
    - macOS или linux (Debian / Ubuntu)
-      ```bash
-      python3 manage.py init_superuser
-      ```
+     ```bash
+     python3 manage.py init_superuser
+     ```
 
    Будет создан суперпользователь с логином, почтой и паролем из 
-   [`.env`](env-file.md) файла. Теперь при авторизации с этими данными на сайте
-   в правом верхнем углу, нажав на свою аватарку, вы увидите в списке пункты
-   "Панель управления" и "Админка"
-
----
+   [`.env`](env-file.md/#пользователи-и-суперпользователь) файла. Теперь при
+   авторизации с этими данными на сайте в правом верхнем углу, нажав на свою 
+   аватарку, вы увидите в списке пункты "Панель управления" и "Админка"
 
 ## Запуск сервера Django
 Запустите рабочий процесс celery в новой консоли
@@ -343,25 +320,25 @@ celery -A datanar worker -l INFO
 [Установив зависимости `test.txt`](#установка-зависимостей), вы также получите
 возможность запустить тесты для локальной проверки целостности проекта:
 - Windows
-   ```bash
-   python manage.py test
-   ```
+  ```bash
+  python manage.py test
+  ```
 - macOS или linux (Debian / Ubuntu)
-   ```bash
-   python3 manage.py test
-   ```
+  ```bash
+  python3 manage.py test
+  ```
 
 Ожидаемый результат после выполнения команды: `OK`
 
 Ну и наконец, запустите сервер Django:
 - Windows
-   ```bash
-   python manage.py runserver 0.0.0.0:8000
-   ```
+  ```bash
+  python manage.py runserver 0.0.0.0:8000
+  ```
 - MacOS или Linux (Debian / Ubuntu)
-   ```bash
-   python3 manage.py runserver 0.0.0.0:8000
-   ```
+  ```bash
+  python3 manage.py runserver 0.0.0.0:8000
+  ```
 
 После запуска вы должны иметь возможность открыть проект в браузере по адресу 
 http://127.0.0.1:8000/ или http://localhost:8000/.
@@ -370,6 +347,7 @@ http://127.0.0.1:8000/ или http://localhost:8000/.
 
 > [!IMPORTANT]
 > Помните, что Django при `DATANAR_DJANGO_DEBUG=False` не отдаёт статику 
-> (например картинки), для этого нужно настроить отдельный обычно настраивают
-> отдельный web-сервер ([Nginx](https://nginx.org/ru/), например) или же просто
-> запускают Django в режиме разработки (`DATANAR_DJANGO_DEBUG=True`)
+> (например картинки), для этого обычно настраивают отдельный web-сервер
+> ([Nginx](https://nginx.org/ru/), например) или же просто запускают Django
+> в режиме разработки (`DATANAR_DJANGO_DEBUG=True`). См. подробней о 
+> [`DATANAR_DJANGO_DEBUG`](env-file.md/#datanar_django_debug)

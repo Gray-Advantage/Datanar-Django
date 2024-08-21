@@ -1,3 +1,4 @@
+{% load thumbnail %}
 {% load static %}
 {% load i18n %}
 
@@ -53,7 +54,7 @@
           {% trans "no_user" as no_user %}
           <div class="dropdown ms-2">
             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{% if request.user.has_avatar %}{{ request.user.avatar.url }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="rounded-circle" width="48" height="48">
+              <img src="{% if request.user.has_avatar %}{{ request.user.get_small_avatar }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="rounded-circle" width="48" height="48">
               <strong>{{ request.user.username|default:no_user }}</strong>
             </a>
             <ul class="dropdown-menu text-small">
@@ -73,10 +74,10 @@
             </ul>
           </div>
         {% else %}
-          <a href="{% url 'users:login' %}" class="btn btn-outline-primary my-auto me-2">
+          <a href="{% url 'users:login' %}" class="btn btn-outline my-auto me-2">
             {% trans "sign_in" %}
           </a>
-          <a href="{% url 'users:signup' %}" class="btn btn-outline-primary my-auto">
+          <a href="{% url 'users:signup' %}" class="btn btn-outline my-auto">
             {% trans "registration" %}
           </a>
         {% endif %}
