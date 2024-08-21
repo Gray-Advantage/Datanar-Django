@@ -24,8 +24,45 @@ def authorization_required(view_func):
     return _wrapped_view
 
 
-class APIDocumentationView(TemplateView):
-    template_name = "api/api_docs.html"
+class APIDocsPreambleView(TemplateView):
+    template_name = "api/docs/preamble.html"
+
+
+class APIDocsQRCodeGetView(TemplateView):
+    template_name = "api/docs/qr_code__get.html"
+
+
+class APIDocsRedirectGetView(TemplateView):
+    template_name = "api/docs/redirect__get.html"
+
+
+class APIDocsRedirectCreateView(TemplateView):
+    template_name = "api/docs/redirect__create.html"
+
+
+class APIDocsRedirectDeleteView(TemplateView):
+    template_name = "api/docs/redirect__delete.html"
+
+
+class APIDocsTokenGetView(TemplateView):
+    template_name = "api/docs/token__get.html"
+
+
+class APIDocsTokenCreateView(TemplateView):
+    template_name = "api/docs/token__create.html"
+
+
+class CreateNewTokenView(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        user = serializer.validated_data["user"]
+
+        Token.objects.filter(user=user).delete()
+        token = Token.objects.create(user=user)
+
+        return Response({"token": token.key})
 
 
 class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
@@ -81,15 +118,26 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         if form.is_valid():
             serializer = RedirectCreateSerializer(data=post_data)
             serializer.is_valid(raise_exception=True)
-            serializer.save(
+            redirect_instance = serializer.save(
                 **{
                     "short_link": form.cleaned_data["short_link"],
                     "user": self._get_user(request),
+                    "create_method": Redirect.CreateMethod.API,
+                    "ip_address": self.request.META.get("HTTP_X_REAL_IP"),
                 },
             )
 
+            if self._get_user(request):
+                response_data = RedirectSerializer(redirect_instance).data
+            else:
+                response_data = RedirectSerializer(redirect_instance).data
+                response_data.pop("create_method", None)
+                response_data.pop("deactivated_at", None)
+                response_data.pop("is_active", None)
+                response_data.pop("id", None)
+
             return Response(
-                serializer.data,
+                response_data,
                 status=status.HTTP_201_CREATED,
                 headers=self.get_success_headers(serializer.data),
             )
@@ -117,17 +165,14 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-class CreateNewTokenView(ObtainAuthToken):
-    def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-
-        user = serializer.validated_data["user"]
-
-        Token.objects.filter(user=user).delete()
-        token = Token.objects.create(user=user)
-
-        return Response({"token": token.key})
-
-
-__all__ = [RedirectViewSet, CreateNewTokenView]
+__all__ = [
+    APIDocsPreambleView,
+    APIDocsQRCodeGetView,
+    APIDocsRedirectGetView,
+    APIDocsRedirectCreateView,
+    APIDocsRedirectDeleteView,
+    APIDocsTokenGetView,
+    APIDocsTokenCreateView,
+    CreateNewTokenView,
+    RedirectViewSet,
+]

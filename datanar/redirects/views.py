@@ -39,11 +39,9 @@ class RedirectView(View):
         )
         form = PasswordForm(request.POST)
 
-        if (
-            form.is_valid()
-            and form.cleaned_data["password"] == redirect.password
-        ):
-            return self.perform_redirect(redirect)
+        if form.is_valid():
+            if form.cleaned_data["password"] == redirect.password:
+                return self.perform_redirect(redirect)
 
         form.add_error("password", _("invalid_password"))
         return render(request, "redirect/redirect.html", {"form": form})

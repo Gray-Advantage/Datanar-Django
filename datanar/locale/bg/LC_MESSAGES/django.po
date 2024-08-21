@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 22:32+0300\n"
+"POT-Creation-Date: 2024-08-21 00:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,55 +22,73 @@ msgstr ""
 msgid "api"
 msgstr "API"
 
+#: .\api\views.py:147
+msgid "This field is required."
+msgstr "Това поле е задължително"
+
+#: .\api\views.py:151
+msgid "Enter a valid URL."
+msgstr "Въведете валиден URL"
+
+#: .\api\views.py:155 .\redirects\forms.py:90 .\redirects\forms.py:103
+#: .\templates\api\docs\redirect__create.html:185
+msgid "this_url_is_blocked"
+msgstr "Този URL е блокиран"
+
+#: .\api\views.py:159 .\redirects\forms.py:84
+#: .\templates\api\docs\redirect__create.html:181
+msgid "custom_url_already_use"
+msgstr "Този персонализиран URL адрес вече се използва. Моля, изберете друг."
+
 #: .\core\apps.py:8
 msgid "base_forms"
 msgstr "Основни форми"
 
-#: .\dashboard\apps.py:8 .\templates\includes\header.html:65
+#: .\dashboard\apps.py:8 .\templates\includes\header.html:66
 msgid "dashboard"
 msgstr "Контролен панел"
 
-#: .\dashboard\models.py:19 .\dashboard\models.py:25 .\dashboard\models.py:29
+#: .\dashboard\models.py:42 .\dashboard\models.py:48 .\dashboard\models.py:52
 msgid "domain_regex"
 msgstr "Редовен домейн"
 
-#: .\dashboard\models.py:20 .\templates\dashboard\black_list.html:17
+#: .\dashboard\models.py:43 .\templates\dashboard\black_list.html:18
 msgid "domain_regex_that_will_be_prohibited_from_shortening"
 msgstr "Регулярен израз за домейн, който ще бъде забранен за намаляване"
 
-#: .\dashboard\models.py:26
+#: .\dashboard\models.py:49
 msgid "domains_regex"
 msgstr "Редовни домейни"
 
-#: .\datanar\settings.py:206
+#: .\datanar\settings.py:215
 msgid "English"
 msgstr "English"
 
-#: .\datanar\settings.py:207
+#: .\datanar\settings.py:216
 msgid "Russian"
 msgstr "Русский"
 
-#: .\datanar\settings.py:208
+#: .\datanar\settings.py:217
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: .\datanar\settings.py:209
+#: .\datanar\settings.py:218
 msgid "Bulgarian"
 msgstr "Български"
 
-#: .\datanar\settings.py:210
+#: .\datanar\settings.py:219
 msgid "German"
 msgstr "Deutsch"
 
-#: .\datanar\settings.py:211
+#: .\datanar\settings.py:220
 msgid "Spanish"
 msgstr "Español"
 
-#: .\datanar\settings.py:212
+#: .\datanar\settings.py:221
 msgid "French"
 msgstr "Français"
 
-#: .\datanar\settings.py:213
+#: .\datanar\settings.py:222
 msgid "Japanese"
 msgstr "日本語"
 
@@ -82,15 +100,42 @@ msgstr "Начална страница"
 msgid "qr-codes"
 msgstr "QR-кодове"
 
-#: .\redirects\admin.py:30 .\redirects\models.py:55
+#: .\redirects\admin.py:34 .\redirects\models.py:71
+#: .\templates\api\docs\redirect__create.html:95
+#: .\templates\api\docs\redirect__get.html:69
+#: .\templates\api\docs\redirect__get.html:258
 msgid "long_link"
 msgstr "дълга връзка"
 
-#: .\redirects\apps.py:8 .\redirects\models.py:88
+#: .\redirects\admin.py:40
+msgid "block_selected_redirects"
+msgstr "Блокиране на избраните пренасочвания"
+
+#: .\redirects\admin.py:53
+msgid "success_block_selected_redirect"
+msgstr "Избраните пренасочвания са успешно блокирани и изтрити"
+
+#: .\redirects\admin.py:55
+msgid "deactivate_selected_redirects"
+msgstr "Деактивирайте избраните пренасочвания"
+
+#: .\redirects\admin.py:61
+msgid "success_deactivate_selected_redirect"
+msgstr "Избраните пренасочвания са деактивирани успешно"
+
+#: .\redirects\admin.py:63
+msgid "activate_selected_redirects"
+msgstr "Активирайте избраните пренасочвания"
+
+#: .\redirects\admin.py:70
+msgid "success_activate_selected_redirect"
+msgstr "Избраните пренасочвания са активирани успешно"
+
+#: .\redirects\apps.py:8 .\redirects\models.py:137
 msgid "redirects"
 msgstr "пренасочване"
 
-#: .\redirects\forms.py:31
+#: .\redirects\forms.py:31 .\templates\api\docs\redirect__create.html:43
 msgid "custom_url"
 msgstr "Персонализиран URL адрес"
 
@@ -99,89 +144,147 @@ msgid "custom_url_that_would_like_have_instead_generated_one"
 msgstr ""
 "Персонализиран URL адрес, който бихте искали да имате вместо генерирания."
 
-#: .\redirects\forms.py:72
+#: .\redirects\forms.py:79
 msgid "custom_url_should_not_have_slash"
 msgstr "Персонализираната връзка не трябва да има ‘/’"
 
-#: .\redirects\forms.py:77
-msgid "custom_url_already_use"
-msgstr "Този персонализиран URL адрес вече се използва. Моля, изберете друг."
-
-#: .\redirects\forms.py:90
-msgid "this_url_is_blocked"
-msgstr "Този URL е блокиран"
-
-#: .\redirects\forms.py:151
+#: .\redirects\forms.py:167
 msgid "date_validity_invalid"
 msgstr "Срок на годност не може да бъде по-малък от текущата дата"
 
-#: .\redirects\forms.py:182 .\templates\statistic\link_detail.html:23
+#: .\redirects\forms.py:202 .\templates\api\docs\redirect__create.html:109
+#: .\templates\api\docs\redirect__get.html:85
+#: .\templates\api\docs\redirect__get.html:272
+#: .\templates\api\docs\token__create.html:36
+#: .\templates\api\docs\token__get.html:36
+#: .\templates\statistic\link_detail.html:27
+#: .\templates\statistic\link_detail.html:54
 msgid "Password"
 msgstr "Парола"
 
-#: .\redirects\forms.py:183
+#: .\redirects\forms.py:203
 msgid "password_before_redirect"
 msgstr "Въведете парола преди пренасочване"
 
-#: .\redirects\models.py:44
+#: .\redirects\models.py:60
 msgid "user"
 msgstr "потребител"
 
-#: .\redirects\models.py:45
+#: .\redirects\models.py:61
 msgid "user_who_create_bond"
 msgstr "Потребителят, който създаде връзка между кратка и дълга връзка."
 
-#: .\redirects\models.py:49
+#: .\redirects\models.py:65 .\templates\api\docs\qr_code__get.html:36
+#: .\templates\api\docs\redirect__create.html:102
+#: .\templates\api\docs\redirect__get.html:77
+#: .\templates\api\docs\redirect__get.html:265
 msgid "short_link"
 msgstr "кратка връзка"
 
-#: .\redirects\models.py:50
+#: .\redirects\models.py:66
 msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
 "Съкратена връзка, по която ще бъде извършено пренасочване към крайния ресурс."
 
-#: .\redirects\models.py:56
+#: .\redirects\models.py:72 .\templates\api\docs\redirect__create.html:36
 msgid "resource_to_which_short_link_lead"
 msgstr "Крайният ресурс, до който ще води кратката връзка."
 
-#: .\redirects\models.py:60
+#: .\redirects\models.py:76 .\templates\api\docs\redirect__create.html:130
+#: .\templates\api\docs\redirect__get.html:109
+#: .\templates\api\docs\redirect__get.html:293
 msgid "creation_time"
 msgstr "време на създаване"
 
-#: .\redirects\models.py:61
+#: .\redirects\models.py:77
 msgid "when_bond_was_create"
 msgstr "Кога е създадена връзката между кратката и дългата връзка."
 
-#: .\redirects\models.py:65
+#: .\redirects\models.py:81
 msgid "password"
 msgstr "парола"
 
-#: .\redirects\models.py:66
+#: .\redirects\models.py:82 .\templates\api\docs\redirect__create.html:50
 msgid "password_that_will_requested_to_redirect"
 msgstr "Паролата, която ще бъде поискана преди пренасочване."
 
-#: .\redirects\models.py:72
+#: .\redirects\models.py:88 .\templates\api\docs\redirect__create.html:116
+#: .\templates\api\docs\redirect__get.html:93
+#: .\templates\api\docs\redirect__get.html:279
 msgid "valid_day_number"
 msgstr "срок на годност"
 
-#: .\redirects\models.py:73
+#: .\redirects\models.py:89 .\templates\api\docs\redirect__create.html:57
 msgid "how_many_day_link_will_be_valid"
 msgstr "Колко дни връзката ще бъде валидна преди нейното изтриване"
 
-#: .\redirects\models.py:79
+#: .\redirects\models.py:95 .\templates\api\docs\redirect__create.html:123
+#: .\templates\api\docs\redirect__get.html:101
+#: .\templates\api\docs\redirect__get.html:286
 msgid "valid_click_number"
 msgstr "валиден брой преходи"
 
-#: .\redirects\models.py:80
+#: .\redirects\models.py:96 .\templates\api\docs\redirect__create.html:64
 msgid "how_many_click_on_link_will_be_valid"
 msgstr ""
 "Колко прехода могат да бъдат извършени по връзката преди нейното изтриване."
 
-#: .\redirects\models.py:87 .\redirects\models.py:91
+#: .\redirects\models.py:102
+msgid "active"
+msgstr "активно"
+
+#: .\redirects\models.py:103 .\templates\api\docs\redirect__create.html:144
+#: .\templates\api\docs\redirect__get.html:125
+#: .\templates\api\docs\redirect__get.html:307
+#: .\templates\statistic\link_detail.html:20
+msgid "is_active"
+msgstr "Активно ли е пренасочването сега"
+
+#: .\redirects\models.py:107 .\templates\api\docs\redirect__create.html:151
+#: .\templates\api\docs\redirect__get.html:133
+#: .\templates\api\docs\redirect__get.html:314
+msgid "deactivation_time"
+msgstr "време за деактивиране"
+
+#: .\redirects\models.py:108
+msgid "when_bond_was_deactivated"
+msgstr "Когато пренасочването е деактивирано"
+
+#: .\redirects\models.py:113
+msgid "ip_address"
+msgstr "IP адрес"
+
+#: .\redirects\models.py:114
+msgid "client_ip_address_who_created_redirect"
+msgstr "IP адрес, от който е създадено пренасочването"
+
+#: .\redirects\models.py:121 .\templates\includes\footer.html:9
+msgid "API"
+msgstr "API"
+
+#: .\redirects\models.py:122
+msgid "Web"
+msgstr "Уеб"
+
+#: .\redirects\models.py:123
+msgid "Web_by_file"
+msgstr "Файл"
+
+#: .\redirects\models.py:126
+msgid "create_method"
+msgstr "метод на създаване"
+
+#: .\redirects\models.py:127 .\templates\api\docs\redirect__create.html:137
+#: .\templates\api\docs\redirect__get.html:117
+#: .\templates\api\docs\redirect__get.html:300
+msgid "method_which_redirect_was_created"
+msgstr "Методът, по който е създадено пренасочването"
+
+#: .\redirects\models.py:136 .\redirects\models.py:140
 msgid "redirect"
 msgstr "пренасочване"
 
-#: .\redirects\views.py:48
+#: .\redirects\views.py:46
 msgid "invalid_password"
 msgstr "Невалидна парола"
 
@@ -217,27 +320,27 @@ msgstr "държава"
 msgid "city"
 msgstr "град"
 
-#: .\statistic\views.py:91
+#: .\statistic\views.py:96
 msgid "Unknown"
 msgstr "Неизвестен"
 
-#: .\statistic\views.py:103
+#: .\statistic\views.py:108
 msgid "Created"
 msgstr "Създаден"
 
-#: .\statistic\views.py:104 .\templates\statistic\link_detail.html:61
+#: .\statistic\views.py:109 .\templates\statistic\link_detail.html:85
 msgid "OS"
 msgstr "ОС"
 
-#: .\statistic\views.py:105
+#: .\statistic\views.py:110
 msgid "Browser"
 msgstr "Браузер"
 
-#: .\statistic\views.py:106
+#: .\statistic\views.py:111
 msgid "Country"
 msgstr "Държава"
 
-#: .\statistic\views.py:107
+#: .\statistic\views.py:112
 msgid "City"
 msgstr "Град"
 
@@ -372,6 +475,442 @@ msgstr ""
 "Ако това сте вие, можете да се регистрирате на сайта, използвайки връзката "
 "по-долу."
 
+#: .\templates\api\base.html:17
+msgid "datanar_api_docs"
+msgstr "Datanar API документация"
+
+#: .\templates\api\base.html:24 .\templates\api\docs\preamble.html:4
+msgid "preamble"
+msgstr "Преамбюл"
+
+#: .\templates\api\base.html:33 .\templates\api\base.html:44
+#: .\templates\api\docs\redirect__create.html:4
+#: .\templates\api\docs\token__create.html:4
+msgid "creating"
+msgstr "Създаване"
+
+#: .\templates\api\base.html:34 .\templates\api\base.html:45
+#: .\templates\api\base.html:56 .\templates\api\docs\qr_code__get.html:4
+#: .\templates\api\docs\redirect__get.html:4
+#: .\templates\api\docs\token__get.html:4
+msgid "receiving"
+msgstr "Получаване"
+
+#: .\templates\api\base.html:46 .\templates\api\docs\redirect__delete.html:4
+msgid "deleting"
+msgstr "Изтриване"
+
+#: .\templates\api\base.html:65 .\templates\includes\link_card.html:10
+msgid "copy"
+msgstr "Копирай"
+
+#: .\templates\api\base.html:65
+msgid "coped"
+msgstr "Копирам"
+
+#: .\templates\api\docs\preamble.html:10
+msgid "contact email:"
+msgstr "Контактна поща:"
+
+#: .\templates\api\docs\preamble.html:14
+msgid "basic_API_path:"
+msgstr "Основен път API:"
+
+#: .\templates\api\docs\preamble.html:18
+msgid "API_documentation_version"
+msgstr "Версия документацията на API:"
+
+#: .\templates\api\docs\preamble.html:23
+msgid "welcome_to_datanar_API_service_docs"
+msgstr "Добре дошли в документацията за API на услугите на Datanar!"
+
+#: .\templates\api\docs\preamble.html:24
+msgid "who_is_the_API_intended_for"
+msgstr ""
+"API е предназначен за разработчици и компании, които искат да интегрират "
+"функцията за съкращаване на връзки в своите приложения и услуги"
+
+#: .\templates\api\docs\preamble.html:25
+msgid "API_description_in_preamble"
+msgstr ""
+"Услугата предлага основни функции за всички потребители, без да е необходимо "
+"да се регистрират и да използват токен, докато разширените функции са "
+"достъпни за регистрирани потребители и само с използването на токен, който "
+"може да бъде получен след регистрация."
+
+#: .\templates\api\docs\qr_code__get.html:9
+msgid "get_qr_code_by_redirect"
+msgstr ""
+"Получете връзката за изтегляне на QR кода чрез кратка връзка за пренасочване"
+
+#: .\templates\api\docs\qr_code__get.html:11
+#: .\templates\api\docs\redirect__create.html:11
+#: .\templates\api\docs\redirect__delete.html:11
+#: .\templates\api\docs\redirect__get.html:11
+#: .\templates\api\docs\redirect__get.html:202
+#: .\templates\api\docs\token__create.html:11
+#: .\templates\api\docs\token__get.html:11
+msgid "request_parameters:"
+msgstr "Параметри на заявката:"
+
+#: .\templates\api\docs\qr_code__get.html:16
+#: .\templates\api\docs\qr_code__get.html:47
+#: .\templates\api\docs\redirect__create.html:16
+#: .\templates\api\docs\redirect__create.html:75
+#: .\templates\api\docs\redirect__delete.html:16
+#: .\templates\api\docs\redirect__get.html:16
+#: .\templates\api\docs\redirect__get.html:40
+#: .\templates\api\docs\redirect__get.html:207
+#: .\templates\api\docs\redirect__get.html:238
+#: .\templates\api\docs\token__create.html:16
+#: .\templates\api\docs\token__create.html:47
+#: .\templates\api\docs\token__get.html:16
+#: .\templates\api\docs\token__get.html:47
+msgid "attribute_name"
+msgstr "Име на атрибута"
+
+#: .\templates\api\docs\qr_code__get.html:17
+#: .\templates\api\docs\qr_code__get.html:48
+#: .\templates\api\docs\redirect__create.html:17
+#: .\templates\api\docs\redirect__create.html:76
+#: .\templates\api\docs\redirect__delete.html:17
+#: .\templates\api\docs\redirect__get.html:17
+#: .\templates\api\docs\redirect__get.html:41
+#: .\templates\api\docs\redirect__get.html:208
+#: .\templates\api\docs\redirect__get.html:239
+#: .\templates\api\docs\token__create.html:17
+#: .\templates\api\docs\token__create.html:48
+#: .\templates\api\docs\token__get.html:17
+#: .\templates\api\docs\token__get.html:48
+msgid "location"
+msgstr "Местоположение"
+
+#: .\templates\api\docs\qr_code__get.html:18
+#: .\templates\api\docs\qr_code__get.html:49
+#: .\templates\api\docs\redirect__create.html:18
+#: .\templates\api\docs\redirect__create.html:77
+#: .\templates\api\docs\redirect__delete.html:18
+#: .\templates\api\docs\redirect__get.html:18
+#: .\templates\api\docs\redirect__get.html:42
+#: .\templates\api\docs\redirect__get.html:209
+#: .\templates\api\docs\redirect__get.html:240
+#: .\templates\api\docs\token__create.html:18
+#: .\templates\api\docs\token__create.html:49
+#: .\templates\api\docs\token__get.html:18
+#: .\templates\api\docs\token__get.html:49
+msgid "type"
+msgstr "Тип"
+
+#: .\templates\api\docs\qr_code__get.html:19
+#: .\templates\api\docs\qr_code__get.html:50
+#: .\templates\api\docs\redirect__create.html:19
+#: .\templates\api\docs\redirect__create.html:78
+#: .\templates\api\docs\redirect__delete.html:19
+#: .\templates\api\docs\redirect__get.html:19
+#: .\templates\api\docs\redirect__get.html:43
+#: .\templates\api\docs\redirect__get.html:210
+#: .\templates\api\docs\redirect__get.html:241
+#: .\templates\api\docs\token__create.html:19
+#: .\templates\api\docs\token__create.html:50
+#: .\templates\api\docs\token__get.html:19
+#: .\templates\api\docs\token__get.html:50
+msgid "commitment"
+msgstr "Ангажимент"
+
+#: .\templates\api\docs\qr_code__get.html:20
+#: .\templates\api\docs\qr_code__get.html:51
+#: .\templates\api\docs\qr_code__get.html:72
+#: .\templates\api\docs\redirect__create.html:20
+#: .\templates\api\docs\redirect__create.html:79
+#: .\templates\api\docs\redirect__create.html:163
+#: .\templates\api\docs\redirect__delete.html:20
+#: .\templates\api\docs\redirect__delete.html:48
+#: .\templates\api\docs\redirect__get.html:20
+#: .\templates\api\docs\redirect__get.html:44
+#: .\templates\api\docs\redirect__get.html:145
+#: .\templates\api\docs\redirect__get.html:211
+#: .\templates\api\docs\redirect__get.html:242
+#: .\templates\api\docs\redirect__get.html:326
+#: .\templates\api\docs\token__create.html:20
+#: .\templates\api\docs\token__create.html:51
+#: .\templates\api\docs\token__create.html:72
+#: .\templates\api\docs\token__get.html:20
+#: .\templates\api\docs\token__get.html:51
+#: .\templates\api\docs\token__get.html:72
+msgid "description"
+msgstr "Описание"
+
+#: .\templates\api\docs\qr_code__get.html:28
+#: .\templates\api\docs\qr_code__get.html:35
+#: .\templates\api\docs\qr_code__get.html:59
+#: .\templates\api\docs\redirect__create.html:35
+#: .\templates\api\docs\redirect__create.html:94
+#: .\templates\api\docs\redirect__create.html:101
+#: .\templates\api\docs\redirect__create.html:108
+#: .\templates\api\docs\redirect__create.html:115
+#: .\templates\api\docs\redirect__create.html:122
+#: .\templates\api\docs\redirect__create.html:129
+#: .\templates\api\docs\redirect__delete.html:28
+#: .\templates\api\docs\redirect__delete.html:35
+#: .\templates\api\docs\redirect__get.html:28
+#: .\templates\api\docs\redirect__get.html:52
+#: .\templates\api\docs\redirect__get.html:60
+#: .\templates\api\docs\redirect__get.html:68
+#: .\templates\api\docs\redirect__get.html:76
+#: .\templates\api\docs\redirect__get.html:84
+#: .\templates\api\docs\redirect__get.html:92
+#: .\templates\api\docs\redirect__get.html:100
+#: .\templates\api\docs\redirect__get.html:108
+#: .\templates\api\docs\redirect__get.html:116
+#: .\templates\api\docs\redirect__get.html:124
+#: .\templates\api\docs\redirect__get.html:132
+#: .\templates\api\docs\redirect__get.html:219
+#: .\templates\api\docs\redirect__get.html:226
+#: .\templates\api\docs\redirect__get.html:250
+#: .\templates\api\docs\redirect__get.html:257
+#: .\templates\api\docs\redirect__get.html:264
+#: .\templates\api\docs\redirect__get.html:271
+#: .\templates\api\docs\redirect__get.html:278
+#: .\templates\api\docs\redirect__get.html:285
+#: .\templates\api\docs\redirect__get.html:292
+#: .\templates\api\docs\redirect__get.html:299
+#: .\templates\api\docs\redirect__get.html:306
+#: .\templates\api\docs\redirect__get.html:313
+#: .\templates\api\docs\token__create.html:28
+#: .\templates\api\docs\token__create.html:35
+#: .\templates\api\docs\token__create.html:59
+#: .\templates\api\docs\token__get.html:28
+#: .\templates\api\docs\token__get.html:35
+#: .\templates\api\docs\token__get.html:59
+#: .\templates\statistic\link_detail.html:20
+msgid "yes"
+msgstr "Да"
+
+#: .\templates\api\docs\qr_code__get.html:29
+msgid "extension_of_qr_code_file"
+msgstr "QR код файлови разширения"
+
+#: .\templates\api\docs\qr_code__get.html:42
+#: .\templates\api\docs\redirect__create.html:70
+#: .\templates\api\docs\redirect__get.html:35
+#: .\templates\api\docs\redirect__get.html:233
+#: .\templates\api\docs\token__create.html:42
+#: .\templates\api\docs\token__get.html:42
+msgid "response_parameters:"
+msgstr "Параметри на отговора:"
+
+#: .\templates\api\docs\qr_code__get.html:60
+msgid "byte_stream_content_of_qr_code_file"
+msgstr "Поток от байтове на съдържанието на файла с QR код"
+
+#: .\templates\api\docs\qr_code__get.html:66
+#: .\templates\api\docs\redirect__create.html:157
+#: .\templates\api\docs\redirect__delete.html:42
+#: .\templates\api\docs\redirect__get.html:139
+#: .\templates\api\docs\redirect__get.html:320
+#: .\templates\api\docs\token__create.html:66
+#: .\templates\api\docs\token__get.html:66
+msgid "response_codes:"
+msgstr "Кодове за отговор:"
+
+#: .\templates\api\docs\qr_code__get.html:71
+#: .\templates\api\docs\redirect__create.html:162
+#: .\templates\api\docs\redirect__delete.html:47
+#: .\templates\api\docs\redirect__get.html:144
+#: .\templates\api\docs\redirect__get.html:325
+#: .\templates\api\docs\token__create.html:71
+#: .\templates\api\docs\token__get.html:71
+msgid "code"
+msgstr "Код"
+
+#: .\templates\api\docs\qr_code__get.html:78
+msgid "success_obtained_qr_code"
+msgstr "успешно получен QR код"
+
+#: .\templates\api\docs\qr_code__get.html:82
+#: .\templates\api\docs\redirect__create.html:173
+#: .\templates\api\docs\redirect__delete.html:58
+#: .\templates\api\docs\redirect__get.html:155
+#: .\templates\api\docs\redirect__get.html:336
+#: .\templates\api\docs\token__create.html:82
+#: .\templates\api\docs\token__get.html:82
+msgid "missing_required_field"
+msgstr "липсващо задължително поле"
+
+#: .\templates\api\docs\qr_code__get.html:86
+msgid "wrong_type_file"
+msgstr "неправилен тип на файла"
+
+#: .\templates\api\docs\qr_code__get.html:92
+#: .\templates\api\docs\redirect__create.html:191
+#: .\templates\api\docs\redirect__delete.html:72
+#: .\templates\api\docs\redirect__get.html:165
+#: .\templates\api\docs\redirect__get.html:350
+#: .\templates\api\docs\token__create.html:92
+#: .\templates\api\docs\token__get.html:92
+msgid "example_of_request_sent:"
+msgstr "Пример за изпратена заявка:"
+
+#: .\templates\api\docs\qr_code__get.html:95
+#: .\templates\api\docs\redirect__create.html:204
+#: .\templates\api\docs\redirect__delete.html:78
+#: .\templates\api\docs\redirect__get.html:170
+#: .\templates\api\docs\redirect__get.html:356
+#: .\templates\api\docs\token__create.html:98
+#: .\templates\api\docs\token__get.html:98
+msgid "example_of_response_receive:"
+msgstr "Пример за получен отговор:"
+
+#: .\templates\api\docs\qr_code__get.html:98
+#: .\templates\api\docs\redirect__create.html:218
+#: .\templates\api\docs\redirect__delete.html:81
+#: .\templates\api\docs\redirect__get.html:370
+#: .\templates\api\docs\token__create.html:103
+#: .\templates\api\docs\token__get.html:103
+msgid "python_code_example"
+msgstr "Пример за код на Python:"
+
+#: .\templates\api\docs\qr_code__get.html:101
+#: .\templates\api\docs\redirect__create.html:222
+#: .\templates\api\docs\redirect__delete.html:84
+#: .\templates\api\docs\redirect__get.html:374
+#: .\templates\api\docs\token__create.html:106
+#: .\templates\api\docs\token__get.html:106
+msgid "reminder_that_passwords_better_kept_in_separate_file"
+msgstr "Напомняме ви, че е най-добре паролите да се съхраняват в отделен файл."
+
+#: .\templates\api\docs\qr_code__get.html:110
+#: .\templates\api\docs\redirect__delete.html:93
+#: .\templates\api\docs\redirect__get.html:9
+#: .\templates\api\docs\redirect__get.html:383
+msgid "get_all_redirects_for_user"
+msgstr "Получаване на всички пренасочвания"
+
+#: .\templates\api\docs\redirect__create.html:9
+msgid "redirect__create_api_docs"
+msgstr ""
+"Основният маршрут на API е да се създаде пренасочване. Ако не използвате "
+"токен, можете просто да създадете пренасочване и потребителска връзка, ако "
+"искате. При използване на токен пренасочването ще бъде запазено в профила на "
+"потребителя и можете да зададете допълнителни атрибути при създаване на "
+"пренасочване"
+
+#: .\templates\api\docs\redirect__create.html:28
+#: .\templates\api\docs\redirect__create.html:42
+#: .\templates\api\docs\redirect__create.html:49
+#: .\templates\api\docs\redirect__create.html:56
+#: .\templates\api\docs\redirect__create.html:63
+#: .\templates\api\docs\redirect__create.html:87
+#: .\templates\api\docs\redirect__create.html:136
+#: .\templates\api\docs\redirect__create.html:143
+#: .\templates\api\docs\redirect__create.html:150
+#: .\templates\statistic\link_detail.html:20
+msgid "no"
+msgstr "Не"
+
+#: .\templates\api\docs\redirect__create.html:29
+#: .\templates\api\docs\redirect__delete.html:29
+#: .\templates\api\docs\redirect__get.html:29
+#: .\templates\api\docs\redirect__get.html:220
+#: .\templates\api\docs\token__create.html:60
+#: .\templates\api\docs\token__get.html:60
+msgid "token_for_interaction_with_extended_API"
+msgstr "Токен за взаимодействие с разширения API"
+
+#: .\templates\api\docs\redirect__create.html:49
+#: .\templates\api\docs\redirect__create.html:56
+#: .\templates\api\docs\redirect__create.html:63
+#: .\templates\api\docs\redirect__create.html:87
+#: .\templates\api\docs\redirect__create.html:136
+#: .\templates\api\docs\redirect__create.html:143
+#: .\templates\api\docs\redirect__create.html:150
+msgid "available_only_with_token"
+msgstr "Предлага се с токън"
+
+#: .\templates\api\docs\redirect__create.html:88
+#: .\templates\api\docs\redirect__delete.html:36
+#: .\templates\api\docs\redirect__get.html:61
+#: .\templates\api\docs\redirect__get.html:227
+#: .\templates\api\docs\redirect__get.html:251
+msgid "Redirect id"
+msgstr "ИД на пренасочване"
+
+#: .\templates\api\docs\redirect__create.html:169
+msgid "success_created_redirect"
+msgstr "успешно създадено пренасочване"
+
+#: .\templates\api\docs\redirect__create.html:177
+#: .\templates\api\docs\redirect__delete.html:62
+#: .\templates\api\docs\redirect__get.html:159
+#: .\templates\api\docs\redirect__get.html:340
+msgid "no_token_for_fields_that_require_it"
+msgstr "няма токен за атрибути, които изискват това"
+
+#: .\templates\api\docs\redirect__delete.html:9
+#: .\templates\api\docs\redirect__delete.html:101
+msgid "delete_redirect_by_id"
+msgstr "Изтриване на пренасочването по ID"
+
+#: .\templates\api\docs\redirect__delete.html:54
+msgid "success_deleted_redirect"
+msgstr "успешно отдалечено пренасочване"
+
+#: .\templates\api\docs\redirect__delete.html:66
+#: .\templates\api\docs\redirect__get.html:344
+msgid "id_of_redirect_incorrect"
+msgstr "ИД на пренасочване е неправилен"
+
+#: .\templates\api\docs\redirect__get.html:53
+msgid "list_of_redirects"
+msgstr "Списък с пренасочвания"
+
+#: .\templates\api\docs\redirect__get.html:151
+msgid "success_obtained_list_redirects"
+msgstr "списък с успешно получени пренасочвания"
+
+#: .\templates\api\docs\redirect__get.html:200
+#: .\templates\api\docs\redirect__get.html:392
+msgid "get_redirects_for_user_by_id"
+msgstr "Получаване на пренасочване по ИД"
+
+#: .\templates\api\docs\redirect__get.html:332
+msgid "success_obtained_redirect"
+msgstr "успешно получено пренасочване"
+
+#: .\templates\api\docs\token__create.html:9
+#: .\templates\api\docs\token__get.html:9
+msgid "to_start_interacting_with_extended_API_you_need_token"
+msgstr ""
+"За да започнете да взаимодействате с разширения API на услугата, трябва да "
+"получите токен."
+
+#: .\templates\api\docs\token__create.html:9
+msgid "each_new_POST_request_recreates_token"
+msgstr ""
+"Всяка нова POST заявка към този маршрут пресъздава токена на потребителя, в "
+"случай че например предишният е бил разкрит."
+
+#: .\templates\api\docs\token__create.html:29
+#: .\templates\api\docs\token__get.html:29
+msgid "Username or email"
+msgstr "Потребителско име или имейл"
+
+#: .\templates\api\docs\token__create.html:78
+#: .\templates\api\docs\token__get.html:78
+msgid "success_obtained_token"
+msgstr "Успешно получен токен"
+
+#: .\templates\api\docs\token__create.html:86
+#: .\templates\api\docs\token__get.html:86
+msgid "request_other_than_POST"
+msgstr "заявка, различна от POST"
+
+#: .\templates\api\docs\token__get.html:9
+msgid "on_this_route_you_can_create_token_or_reacquire_existing_one"
+msgstr ""
+"По този маршрут можете да създадете токен, ако все още нямате такъв, или да "
+"придобиете отново съществуващ, ако сте го загубили."
+
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"
 msgstr "Всички връзки"
@@ -388,7 +927,7 @@ msgstr "Черен списък на домейни"
 msgid "server_logs"
 msgstr "Сървърни дневници"
 
-#: .\templates\dashboard\base.html:27 .\templates\includes\header.html:68
+#: .\templates\dashboard\base.html:27 .\templates\includes\header.html:69
 msgid "admin_panel"
 msgstr "Админ панел"
 
@@ -401,12 +940,12 @@ msgstr "Черен списък на домейни"
 msgid "Add"
 msgstr "Добави"
 
-#: .\templates\dashboard\black_list.html:18
+#: .\templates\dashboard\black_list.html:19
 #: .\templates\dashboard\includes\blocked_domain_modal_change.html:18
 msgid "Change"
 msgstr "Промени"
 
-#: .\templates\dashboard\black_list.html:19
+#: .\templates\dashboard\black_list.html:20
 #: .\templates\dashboard\includes\blocked_domain_modal_delete.html:19
 #: .\templates\includes\link_card.html:17
 #: .\templates\qr_codes\QR_modal_delete.html:19
@@ -508,23 +1047,23 @@ msgstr "Свържете своята услуга с нашата чрез API"
 msgid "about_using"
 msgstr "Сайтът е направен с използването на:"
 
-#: .\templates\homepage\about.html:48
+#: .\templates\homepage\about.html:50
 msgid "developers"
 msgstr "Разработчиците - тези прекрасни хора:"
 
-#: .\templates\homepage\about.html:54
+#: .\templates\homepage\about.html:56
 msgid "sergey"
 msgstr "Андреев Сергей"
 
-#: .\templates\homepage\about.html:60
+#: .\templates\homepage\about.html:62
 msgid "vladimir"
 msgstr "Клименко Владимир"
 
-#: .\templates\homepage\about.html:66
+#: .\templates\homepage\about.html:68
 msgid "artem"
 msgstr "Третяков Артьом"
 
-#: .\templates\homepage\about.html:72
+#: .\templates\homepage\about.html:74
 msgid "github_project"
 msgstr "Проектът в Github"
 
@@ -617,54 +1156,46 @@ msgstr ""
 "Благодарим ви, че избрахте Datanar! Ние ценим вашето доверие и се стремим да "
 "ви предоставим удобна и безопасна услуга за съкращаване на връзки."
 
-#: .\templates\includes\footer.html:9
-msgid "API"
-msgstr "API"
-
-#: .\templates\includes\header.html:14
+#: .\templates\includes\header.html:15
 msgid "theme"
 msgstr "Тема"
 
-#: .\templates\includes\header.html:20
+#: .\templates\includes\header.html:21
 msgid "light"
 msgstr "Светла"
 
-#: .\templates\includes\header.html:26
+#: .\templates\includes\header.html:27
 msgid "dark"
 msgstr "Тъмна"
 
-#: .\templates\includes\header.html:32
+#: .\templates\includes\header.html:33
 msgid "auto"
 msgstr "Авто"
 
-#: .\templates\includes\header.html:53
+#: .\templates\includes\header.html:54
 msgid "no_user"
 msgstr "Няма потребителско име"
 
-#: .\templates\includes\header.html:60 .\templates\users\profile.html:4
-#: .\templates\users\profile.html:7
+#: .\templates\includes\header.html:61 .\templates\users\profile.html:5
+#: .\templates\users\profile.html:12
 msgid "my_profile"
 msgstr "Моят профил"
 
-#: .\templates\includes\header.html:61
+#: .\templates\includes\header.html:62
 msgid "my_links"
 msgstr "Моите връзки"
 
-#: .\templates\includes\header.html:72
+#: .\templates\includes\header.html:73
 msgid "exit"
 msgstr "Изход"
 
-#: .\templates\includes\header.html:77 .\templates\users\login.html:13
+#: .\templates\includes\header.html:78 .\templates\users\login.html:13
 msgid "sign_in"
 msgstr "Вход"
 
-#: .\templates\includes\header.html:80 .\templates\users\signup.html:5
+#: .\templates\includes\header.html:81 .\templates\users\signup.html:5
 msgid "registration"
 msgstr "Регистрация"
-
-#: .\templates\includes\link_card.html:10
-msgid "copy"
-msgstr "Копирай"
 
 #: .\templates\includes\user_form.html:50
 msgid "dont_have_account_yet"
@@ -686,76 +1217,86 @@ msgstr "Пренасочване"
 msgid "title__link_detail"
 msgstr "Връзка - статистика"
 
-#: .\templates\statistic\link_detail.html:15
+#: .\templates\statistic\link_detail.html:18
 msgid "link"
 msgstr "Връзка"
 
-#: .\templates\statistic\link_detail.html:16
+#: .\templates\statistic\link_detail.html:19
 msgid "original"
 msgstr "Оригинал"
 
 #: .\templates\statistic\link_detail.html:20
+msgid "after_10_days_deactivate_redirect_will_be_delete"
+msgstr "След 10 дни от деактивирането пренасочванията ще бъдат изтрити"
+
+#: .\templates\statistic\link_detail.html:24
+#: .\templates\statistic\link_detail.html:42
 msgid "сreated"
 msgstr "Създадена"
 
-#: .\templates\statistic\link_detail.html:21
+#: .\templates\statistic\link_detail.html:25
+#: .\templates\statistic\link_detail.html:46
 msgid "transitions_are_available"
 msgstr "Достъпни преходи"
 
-#: .\templates\statistic\link_detail.html:22
+#: .\templates\statistic\link_detail.html:26
+#: .\templates\statistic\link_detail.html:50
 msgid "valid_for_days"
 msgstr "Валидна дни"
 
-#: .\templates\statistic\link_detail.html:29
-#: .\templates\statistic\link_detail.html:30
+#: .\templates\statistic\link_detail.html:33
+#: .\templates\statistic\link_detail.html:34
+#: .\templates\statistic\link_detail.html:47
+#: .\templates\statistic\link_detail.html:51
 msgid "unlimited"
 msgstr "Неограничено"
 
-#: .\templates\statistic\link_detail.html:31
+#: .\templates\statistic\link_detail.html:35
+#: .\templates\statistic\link_detail.html:55
 msgid "absent"
 msgstr "Липсва"
 
-#: .\templates\statistic\link_detail.html:36
+#: .\templates\statistic\link_detail.html:60
 msgid "statistics_for"
 msgstr "Статистика за"
 
-#: .\templates\statistic\link_detail.html:37
+#: .\templates\statistic\link_detail.html:61
 msgid "day"
 msgstr "ден"
 
-#: .\templates\statistic\link_detail.html:38
+#: .\templates\statistic\link_detail.html:62
 msgid "month"
 msgstr "месец"
 
-#: .\templates\statistic\link_detail.html:39
+#: .\templates\statistic\link_detail.html:63
 msgid "year"
 msgstr "година"
 
-#: .\templates\statistic\link_detail.html:40
+#: .\templates\statistic\link_detail.html:64
 msgid "all_time"
 msgstr "цялото време"
 
-#: .\templates\statistic\link_detail.html:42
+#: .\templates\statistic\link_detail.html:66
 msgid "total_number_of_clicks_during_the_period"
 msgstr "Общ брой преходи за периода"
 
-#: .\templates\statistic\link_detail.html:47
+#: .\templates\statistic\link_detail.html:71
 msgid "Browsers"
 msgstr "Браузери"
 
-#: .\templates\statistic\link_detail.html:75
+#: .\templates\statistic\link_detail.html:99
 msgid "Countries"
 msgstr "Държави"
 
-#: .\templates\statistic\link_detail.html:89
+#: .\templates\statistic\link_detail.html:113
 msgid "Cities"
 msgstr "Държави"
 
-#: .\templates\statistic\link_detail.html:101
+#: .\templates\statistic\link_detail.html:125
 msgid "ip_geo_by_DB-IP"
 msgstr "IP геолокация от DB-IP"
 
-#: .\templates\statistic\link_detail.html:102
+#: .\templates\statistic\link_detail.html:126
 msgid "download_statistics_for_the_period"
 msgstr "Изтеглете статистиката за периода"
 
@@ -822,7 +1363,7 @@ msgstr "Имейл адрес"
 msgid "Re-send Verification"
 msgstr "Повторно изпращане на потвърждение"
 
-#: .\templates\users\email_change.html:31 .\templates\users\profile.html:23
+#: .\templates\users\email_change.html:31 .\templates\users\profile.html:44
 msgid "change_email"
 msgstr "Промени имейла"
 
@@ -843,7 +1384,7 @@ msgstr "Изход"
 msgid "password_change"
 msgstr "Промяна на паролата"
 
-#: .\templates\users\password_change.html:13 .\templates\users\profile.html:24
+#: .\templates\users\password_change.html:13 .\templates\users\profile.html:45
 msgid "change_password"
 msgstr "Промени паролата"
 
@@ -883,7 +1424,11 @@ msgstr "Смяна"
 msgid "email_instructions_for_password_recove_sent"
 msgstr "Изпратено е писмо с инструкции за възстановяване на паролата"
 
-#: .\templates\users\profile.html:21
+#: .\templates\users\profile.html:37
+msgid "delete_avatar"
+msgstr "Изтриване на аватар"
+
+#: .\templates\users\profile.html:42
 msgid "save"
 msgstr "Запази"
 
@@ -899,7 +1444,7 @@ msgstr "Регистрирайте се"
 msgid "users"
 msgstr "Потребители"
 
-#: .\users\models.py:8
+#: .\users\models.py:9
 msgid "avatar"
 msgstr "Аватар"
 

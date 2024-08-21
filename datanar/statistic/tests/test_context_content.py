@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from django.test import Client, TestCase
 from django.urls import reverse
 
@@ -12,7 +14,7 @@ class ContextContentTest(TestCase):
         url = reverse("statistic:my_links")
         response = client.get(url)
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
         self.assertQuerysetEqual(
             response.context["links"],

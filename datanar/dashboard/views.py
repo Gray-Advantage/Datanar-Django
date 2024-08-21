@@ -4,12 +4,21 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView, TemplateView
 
-from core.mixins import FormMethodExtender, StaffUserRequiredMixin
+from core.mixins import (
+    FormMethodExtender,
+    RedirectToLastPageMixin,
+    StaffUserRequiredMixin,
+)
 from dashboard.models import BlockedDomain
 from redirects.models import Redirect
 
 
-class AllLinksView(StaffUserRequiredMixin, FormMethodExtender, ListView):
+class AllLinksView(
+    StaffUserRequiredMixin,
+    FormMethodExtender,
+    RedirectToLastPageMixin,
+    ListView,
+):
     template_name = "dashboard/all_links.html"
     context_object_name = "links"
     paginate_by = 6
@@ -29,10 +38,16 @@ class AllLinksView(StaffUserRequiredMixin, FormMethodExtender, ListView):
         return HttpResponseRedirect(request.get_full_path())
 
 
-class BlackListView(StaffUserRequiredMixin, FormMethodExtender, ListView):
+class BlackListView(
+    StaffUserRequiredMixin,
+    FormMethodExtender,
+    RedirectToLastPageMixin,
+    ListView,
+):
     template_name = "dashboard/black_list.html"
     context_object_name = "domains"
     model = BlockedDomain
+    paginate_by = 15
 
     def delete(self, request):
         BlockedDomain.objects.filter(id=request.POST.get("id")).delete()

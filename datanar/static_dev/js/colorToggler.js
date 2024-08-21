@@ -10,41 +10,6 @@
   const getStoredTheme = () => localStorage.getItem("theme");
   const setStoredTheme = theme => localStorage.setItem("theme", theme);
 
-  function setColors(mode) {
-    let btnOutlineOriginal, btnOutlineNew, btnOriginal, btnNew, textOriginal, textNew;
-
-    if (mode === "light") {
-      btnOutlineOriginal = "btn-outline-light";
-      btnOutlineNew = "btn-outline-dark";
-      btnOriginal = "btn-light";
-      btnNew = "btn-dark";
-      textOriginal = "text-light";
-      textNew = "text-dark";
-    } else {
-      btnOutlineOriginal = "btn-outline-dark";
-      btnOutlineNew = "btn-outline-light";
-      btnOriginal = "btn-dark";
-      btnNew = "btn-light";
-      textOriginal = "text-dark";
-      textNew = "text-light";
-    }
-
-    document.querySelectorAll(`.${btnOutlineOriginal}`).forEach(element => {
-      element.classList.remove(btnOutlineOriginal);
-      element.classList.add(btnOutlineNew);
-    });
-
-    document.querySelectorAll(`.${btnOriginal}`).forEach(element => {
-      element.classList.remove(btnOriginal);
-      element.classList.add(btnNew);
-    });
-
-    document.querySelectorAll(`.${textOriginal}`).forEach(element => {
-      element.classList.remove(textOriginal);
-      element.classList.add(textNew);
-    });
-  }
-
   const getPreferredTheme = () => {
     const storedTheme = getStoredTheme();
     if (storedTheme) {
@@ -57,13 +22,10 @@
   const setTheme = theme => {
     if (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
       document.documentElement.setAttribute("data-bs-theme", "dark");
-      setColors("dark");
     } else if (theme === "auto") {
       document.documentElement.setAttribute("data-bs-theme", "light");
-      setColors("light");
     } else {
       document.documentElement.setAttribute("data-bs-theme", theme);
-      setColors(theme);
     }
   }
 
@@ -76,7 +38,7 @@
       return;
     }
 
-    const themeSwitcherText = document.querySelector('#bd-theme-text');
+    const themeSwitcherText = document.querySelector("#bd-theme-text");
     const activeThemeIcon = document.querySelector("#theme-icon-active");
     const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
     const svgOfActiveBtn = btnToActive.querySelector("i").getAttribute("class");

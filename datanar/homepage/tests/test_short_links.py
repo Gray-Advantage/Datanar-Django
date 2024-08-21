@@ -38,6 +38,13 @@ class TestShortLinks(TestCase):
         self.assertEqual(
             Redirect.objects.count(),
             redirect_count + 1,
+            "Redirect не создан",
+        )
+
+        self.assertEqual(
+            Redirect.objects.first().create_method,
+            Redirect.CreateMethod.WEB,
+            "Метод создания для `redirect` неправильный",
         )
 
     def test_redirect_short_link(self):
@@ -88,9 +95,10 @@ class TestShortLinks(TestCase):
 
         response = self.client.get(
             reverse("redirects:redirect", args=[messages[0].message]),
+            follow=True,
         )
 
-        self.assertEqual(response.status_code, HTTPStatus.FOUND)
+        self.assertRedirects(response, self.form_data["long_link"])
 
     def test_create_click(self):
         click_count = Click.objects.count()
@@ -106,6 +114,7 @@ class TestShortLinks(TestCase):
         self.assertEqual(
             Click.objects.count(),
             click_count + 1,
+            "Click не создан",
         )
 
 

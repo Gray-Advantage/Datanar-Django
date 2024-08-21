@@ -6,7 +6,7 @@
     <ul class="nav col-md-7 justify-content-start">
       <li class="nav-item"><a {% if view_name != "homepage:service_rules" %}href="{% url 'homepage:service_rules' %}"{% endif %} class="nav-link px-1 px-sm-2 text-body-secondary">{% trans "service_rules" %}</a></li>
       <li class="nav-item"><a {% if view_name != "homepage:about" %}href="{% url 'homepage:about' %}"{% endif %} class="nav-link px-1 px-sm-2 text-body-secondary">{% trans "about" %}</a></li>
-      <li class="nav-item"><a {% if view_name != "api:api_docs" %}href="{% url 'api:api_docs' %}"{% endif %} class="nav-link px-1 px-sm-2 text-body-secondary">{% trans "API" %}</a></li>
+      <li class="nav-item"><a {% if view_name != "api:docs_preamble" %}href="{% url 'api:docs_preamble' %}"{% endif %} class="nav-link px-1 px-sm-2 text-body-secondary">{% trans "API" %}</a></li>
     </ul>
   {% endwith %}
 

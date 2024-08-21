@@ -25,10 +25,10 @@
       {% slot actions %}
         <div class="d-flex flex-column">
           {% if new_emailaddress %}
-            <button class="btn btn-outline-dark ms-auto me-auto mt-3 py-2" type="submit" name="action_send">{% trans "Re-send Verification" %}</button>
+            <button class="btn btn-outline ms-auto me-auto mt-3 py-2" type="submit" name="action_send">{% trans "Re-send Verification" %}</button>
             <button class="btn btn-outline-danger ms-auto me-auto mt-3 py-2" type="submit" name="action_remove">{% trans "Cancel" %}</button>
           {% else %}
-            <button class="btn btn-outline-dark ms-auto me-auto mt-3 py-2" type="submit" name="action_add">{% trans 'change_email' %}</button>
+            <button class="btn btn-outline ms-auto me-auto mt-3 py-2" type="submit" name="action_add">{% trans 'change_email' %}</button>
           {% endif %}
         </div>
       {% endslot %}

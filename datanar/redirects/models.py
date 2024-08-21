@@ -3,36 +3,52 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from statistic.models import Click
-
 
 class RedirectManager(models.Manager):
     def get_by_short_link(self, short_link):
-        redirect = self.get_queryset().filter(short_link=short_link).first()
-        all_good = True
+        redirect = (
+            self.get_queryset()
+            .filter(short_link=short_link)
+            .annotate(clicks_count=models.Count("click"))
+            .first()
+        )
 
         if redirect is None:
             return None
+
+        all_good = True
+
         if (
             redirect.validity_days
+            and redirect.is_active
             and redirect.created_at
             + timezone.timedelta(days=redirect.validity_days)
             < timezone.now()
         ):
             all_good = False
+
         if (
-            redirect.validity_clicks
-            and Click.objects.count_for_short_link(redirect.short_link)
-            >= redirect.validity_clicks
+            not redirect.is_active
+            and redirect.deactivated_at + timezone.timedelta(days=10)
+            < timezone.now()
         ):
-            all_good = False
+            redirect.delete()
+            return None
 
-        if all_good:
-            return redirect
+        if not redirect.is_active:
+            return None
 
-        redirect.delete()
+        if redirect.validity_clicks:
+            if redirect.clicks_count >= redirect.validity_clicks:
+                all_good = False
 
-        return None
+        if not all_good:
+            redirect.is_active = False
+            redirect.deactivated_at = timezone.now()
+            redirect.save()
+            return None
+
+        return redirect
 
 
 class Redirect(models.Model):
@@ -81,6 +97,39 @@ class Redirect(models.Model):
         default=None,
         null=True,
         blank=True,
+    )
+    is_active = models.BooleanField(
+        _("active"),
+        help_text=_("is_active"),
+        default=True,
+    )
+    deactivated_at = models.DateTimeField(
+        _("deactivation_time"),
+        help_text=_("when_bond_was_deactivated"),
+        default=None,
+        null=True,
+    )
+    ip_address = models.GenericIPAddressField(
+        _("ip_address"),
+        help_text=_("client_ip_address_who_created_redirect"),
+        default=None,
+        null=True,
+        blank=True,
+    )
+
+    class CreateMethod(models.TextChoices):
+        API = "API", _("API")
+        WEB = "WEB", _("Web")
+        WEB_FILE = "WEB+FILE", _("Web_by_file")
+
+    create_method = models.CharField(
+        _("create_method"),
+        help_text=_("method_which_redirect_was_created"),
+        max_length=20,
+        null=True,
+        blank=True,
+        choices=CreateMethod.choices,
+        default=CreateMethod.WEB,
     )
 
     class Meta:

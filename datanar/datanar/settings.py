@@ -7,7 +7,8 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "2.0.0"
+VERSION = "2.5.0"
+API_VERSION = "1.2.0"
 
 SECRET_KEY = config(
     "DATANAR_SECRET_KEY",
@@ -60,6 +61,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_cleanup",
+    "sorl.thumbnail",
     "django_user_agents",
     "rest_framework",
     "rest_framework.authtoken",
@@ -113,12 +116,17 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "django_settings_export.settings_export",
+                "core.context_processor.server_url",
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = "datanar.wsgi.application"
+
+USE_FILE_DATABASE = strtobool(
+    config("DATANAR_USE_FILE_DATABASE", default="True"),
+)
 
 DATABASES = {
     "default": {
@@ -130,7 +138,7 @@ DATABASES = {
     },
 }
 
-if not strtobool(config("DATANAR_USE_FILE_DATABASE", default="True")):
+if not USE_FILE_DATABASE:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -247,6 +255,4 @@ CELERY_RESULT_BACKEND = (
     f"{config('DATANAR_REDIS_DB', default='0', cast=str)}"
 )
 
-SETTINGS_EXPORT = [
-    "VERSION",
-]
+SETTINGS_EXPORT = ["VERSION", "API_VERSION"]

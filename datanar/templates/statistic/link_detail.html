@@ -4,8 +4,11 @@
 
 {% block title %}{% trans "title__link_detail" %}{% endblock %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/users/link-detail.css' %}">
+{% endblock %}
+
 {% block js %}
-  {{ block.super }}
   <script src="{% static 'js/chart.min.js' %}"></script>
   <script src="{% static 'js/statistic/chartStatistic.js' %}"></script>
 {% endblock %}
@@ -13,8 +16,9 @@
 {% block content %}
   <div class="d-flex flex-column">
     <h3 class="text-center mt-5">{% trans "link" %}: <a href="{% url 'redirects:redirect' link %}" target="_blank"><strong>{{ request.get_host }}/{{ link }}</strong></a></h3>
-    <p class="text-center">({% trans "original" %}: <a href="{{ redirect.long_link }}" target="_blank"><strong>{{ redirect.long_link }}</strong></a>)</p>
-    <table class="table mt-3">
+    <p class="text-center mb-1">({% trans "original" %}: <a href="{{ redirect.long_link }}" target="_blank"><strong>{{ redirect.long_link }}</strong></a>)</p>
+    <p class="mx-auto mb-0">{% trans "is_active" %}: {% if redirect.is_active %}{% trans "yes" %}{% else %}{% trans "no" %} <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="{% trans 'after_10_days_deactivate_redirect_will_be_delete' %}"></i>{% endif %}</p>
+    <table class="table mt-3 d-none d-sm-inline-table">
       <thead>
         <tr>
           <th scope="col" class="w-25 text-center">{% trans "сreated" %}</th>
@@ -23,25 +27,45 @@
           <th scope="col" class="w-25 text-center">{% trans "Password" %}</th>
         </tr>
       </thead>
-      <tbody class="table-group-divider">
+      <tbody>
         <tr>
-          <th scope="row" class="w-25 text-center">{{ redirect.created_at }}</th>
+          <td scope="row" class="w-25 text-center">{{ redirect.created_at }}</td>
           <td class="w-25 text-center">{% if redirect.validity_clicks %}{{ redirect.validity_clicks }}{% else %}<i>{% trans "unlimited" %}</i>{% endif %}</td>
           <td class="w-25 text-center">{% if redirect.validity_days %}{{ redirect.validity_days }}{% else %}<i>{% trans "unlimited" %}</i>{% endif %}</td>
           <td class="w-25 text-center">{% if redirect.password %}{{ redirect.password }}{% else %}<i>{% trans "absent" %}</i>{% endif %}</td>
         </tr>
       </tbody>
     </table>
+    <table class="table mt-3 d-md-none d-block">
+      <tbody>
+        <tr>
+          <th class="w-25 text-center">{% trans "сreated" %}</th>
+          <td class="w-25 text-center">{{ redirect.created_at }}</td>
+        </tr>
+        <tr>
+          <th class="w-25 text-center">{% trans "transitions_are_available" %}</th>
+          <td class="w-25 text-center">{% if redirect.validity_clicks %}{{ redirect.validity_clicks }}{% else %}<i>{% trans "unlimited" %}</i>{% endif %}</td>
+        </tr>
+        <tr>
+          <th class="w-25 text-center">{% trans "valid_for_days" %}</th>
+          <td class="w-25 text-center">{% if redirect.validity_days %}{{ redirect.validity_days }}{% else %}<i>{% trans "unlimited" %}</i>{% endif %}</td>
+        </tr>
+        <tr>
+          <th class="w-25 text-center">{% trans "Password" %}</th>
+          <td class="w-25 text-center">{% if redirect.password %}{{ redirect.password }}{% else %}<i>{% trans "absent" %}</i>{% endif %}</td>
+        </tr>
+      </tbody>
+    </table>
     <div class="ms-auto me-auto mt-3">
       <p class="text-center mb-1">{% trans "statistics_for" %}:</p>
-      <a href="{% url 'statistic:link_detail' link "day" %}" class="btn {% if period == "day" %}btn-dark{% else %}btn-outline-dark{% endif %}">{% trans "day" %}</a>
-      <a href="{% url 'statistic:link_detail' link "month" %}" class="btn {% if period == "month" %}btn-dark{% else %}btn-outline-dark{% endif %}">{% trans "month" %}</a>
-      <a href="{% url 'statistic:link_detail' link "year" %}" class="btn {% if period == "year" %}btn-dark{% else %}btn-outline-dark{% endif %}">{% trans "year" %}</a>
-      <a href="{% url 'statistic:link_detail' link "all_time" %}" class="btn {% if period == "all_time" %}btn-dark{% else %}btn-outline-dark{% endif %}">{% trans "all_time" %}</a>
+      <a href="{% url 'statistic:link_detail' link "day" %}" class="btn {% if period == "day" %}btn-full{% else %}btn-outline{% endif %}">{% trans "day" %}</a>
+      <a href="{% url 'statistic:link_detail' link "month" %}" class="btn {% if period == "month" %}btn-full{% else %}btn-outline{% endif %}">{% trans "month" %}</a>
+      <a href="{% url 'statistic:link_detail' link "year" %}" class="btn {% if period == "year" %}btn-full{% else %}btn-outline{% endif %}">{% trans "year" %}</a>
+      <a href="{% url 'statistic:link_detail' link "all_time" %}" class="btn {% if period == "all_time" %}btn-full{% else %}btn-outline{% endif %}">{% trans "all_time" %}</a>
     </div>
     <p class="text-center mt-4">{% trans "total_number_of_clicks_during_the_period" %}: {{ clicks }}</p>
     <div class="row mt-2">
-      <div class="col-lg-3 col-md-6 col-12 ms-auto me-auto mt-2">
+      <div class="col-lg-3 col-md-6 col-12 mx-auto mt-2">
         <div class="card">
           <div class="card-body">
             <h6 class="text-center"><strong>{% trans "Browsers" %}</strong></h6>
@@ -55,7 +79,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-12 ms-auto me-auto mt-2">
+      <div class="col-lg-3 col-md-6 col-12 mx-auto mt-2">
         <div class="card">
           <div class="card-body">
             <h6 class="text-center"><strong>{% trans "OS" %}</strong></h6>
@@ -69,7 +93,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-12 ms-auto me-auto mt-2">
+      <div class="col-lg-3 col-md-6 col-12 mx-auto mt-2">
         <div class="card">
           <div class="card-body">
             <h6 class="text-center"><strong>{% trans "Countries" %}</strong></h6>
@@ -83,7 +107,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-12 ms-auto me-auto mt-2">
+      <div class="col-lg-3 col-md-6 col-12 mx-auto mt-2">
         <div class="card">
           <div class="card-body">
             <h6 class="text-center"><strong>{% trans "Cities" %}</strong></h6>
@@ -99,6 +123,6 @@
       </div>
     </div>
     <p class="text-center mb-0 mt-1">( <a href='https://db-ip.com'>{% trans "ip_geo_by_DB-IP" %}</a> )</p>
-    <a href="{% url "statistic:download" link period %}" class="btn btn-outline-dark ms-auto me-auto mt-3 mb-3">{% trans "download_statistics_for_the_period" %}</a>
+    <a href="{% url "statistic:download" link period %}" class="btn btn-outline mx-auto my-3">{% trans "download_statistics_for_the_period" %}</a>
   </div>
 {% endblock %}

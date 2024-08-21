@@ -11,7 +11,7 @@
         {% trans "this_action_cannot_be_undone" %}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">{% trans "Cancel" %}</button>
+        <button type="button" class="btn btn-outline" data-bs-dismiss="modal">{% trans "Cancel" %}</button>
         <form method="POST">
           {% csrf_token %}
           <input type="hidden" name="_method" value="delete" hidden="hidden">

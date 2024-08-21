@@ -1,0 +1,118 @@
+{% extends "api/base.html" %}
+{% load i18n %}
+
+{% block api_title %}Token - {% trans "receiving" %}{% endblock %}
+
+{% block api_content %}
+  <h4 class="mb-4"><strong>POST&#32;&gt;&gt;&#32;<a href="#">{{ server_url }}/api/v1/api-token-auth/</a></strong></h4>
+
+  <p class="mb-4">{% trans "to_start_interacting_with_extended_API_you_need_token" %} {% trans "on_this_route_you_can_create_token_or_reacquire_existing_one" %}</p>
+
+  <h4><strong>{% trans "request_parameters:" %}</strong></h4>
+  <div class="overflow-x-auto mb-3">
+    <table class="table api-table table-hover table-bordered mb-0">
+      <thead>
+        <tr>
+          <th>{% trans "attribute_name" %}</th>
+          <th>{% trans "location" %}</th>
+          <th>{% trans "type" %}</th>
+          <th>{% trans "commitment" %}</th>
+          <th>{% trans "description" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>username</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "Username or email" %}</td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "Password" %}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><strong>{% trans "response_parameters:" %}</strong></h4>
+  <div class="overflow-x-auto mb-4">
+    <table class="table api-table table-hover table-bordered mb-0">
+      <thead>
+        <tr>
+          <th>{% trans "attribute_name" %}</th>
+          <th>{% trans "location" %}</th>
+          <th>{% trans "type" %}</th>
+          <th>{% trans "commitment" %}</th>
+          <th>{% trans "description" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>token</td>
+          <td>body</td>
+          <td>string</td>
+          <td>{% trans "yes" %}</td>
+          <td>{% trans "token_for_interaction_with_extended_API" %}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><strong>{% trans "response_codes:" %}</strong></h4>
+  <div class="overflow-x-auto mb-4">
+    <table class="table api-table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>{% trans "code" %}</th>
+          <th>{% trans "description" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>200</td>
+          <td>OK ({% trans "success_obtained_token" %})</td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>Bad Request ({% trans "missing_required_field" %})</td>
+        </tr>
+        <tr>
+          <td>405</td>
+          <td>Method Not Allowed ({% trans "request_other_than_POST" %})</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><strong>{% trans "example_of_request_sent:" %}</strong></h4>
+  <pre class="mb-3"><code class="language-json">{
+  "username": "user",
+  "password": "very1secret3password!"
+}</code></pre>
+
+  <h4><strong>{% trans "example_of_response_receive:" %}</strong></h4>
+  <pre class="mb-4"><code class="language-json">{
+  "token": "a0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9u"
+}</code></pre>
+
+  <h4><strong>{% trans "python_code_example" %}</strong></h4>
+  <pre><code class="language-python">import requests
+
+# {% trans "reminder_that_passwords_better_kept_in_separate_file" %}
+auth = requests.post(
+    "{{ server_url }}/api/v1/api-token-auth/",
+    data={
+        "username": "user",
+        "password": "very1secret3password!",
+    }
+)
+
+print(auth.status_code)
+print(auth.json())
+print("Token:", auth.json()["token"])</code></pre>
+{% endblock %}

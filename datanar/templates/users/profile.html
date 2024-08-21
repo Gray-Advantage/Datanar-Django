@@ -1,27 +1,48 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block title %}{% trans "my_profile" %}{% endblock %}
 
+{% block js %}
+  <script src="{% static 'js/users/profile.js' %}"></script>
+{% endblock %}
+
 {% block content %}
   <h1 class="text-center">{% trans "my_profile" %}</h1>
-  <form class="d-flex flex-column mt-5" method="post" enctype="multipart/form-data">
+  <form class="d-flex flex-column col-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto mt-5 " method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {% for field in form %}
-      <div class="form-group col-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mb-2 ms-auto me-auto">
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field }}
-        {% if field.errors %}
-          <div class="invalid-feedback">
-            {{ field.errors|first }}
+    <div class="d-flex flex-column flex-sm-row">
+      <div class="d-flex cursor-pointer">
+        <img id="avatar" src="{% if request.user.has_avatar %}{{ request.user.get_large_avatar }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="mb-sm-0 mb-2 mx-auto mx-sm-auto rounded-circle" width="200" height="200">
+      </div>
+      <div class="d-flex w-100 ms-0 ms-sm-4 flex-sm-column flex-column-reverse">
+        <div>
+          {% for field in form %}
+            <div class="form-group w-auto mb-2 {% if forloop.last %}d-none{% endif %}">
+              {% if "d-none" not in field.field.widget.attrs.class or "clearablefile" not in field.widget_type %}
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+              {% endif %}
+              {{ field }}
+              {% if field.errors %}
+                <div class="invalid-feedback">
+                  {{ field.errors|first }}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+        {% if request.user.has_avatar %}
+          <div class="form-group w-auto d-flex">
+            <a id="delete_avatar" class="btn btn-outline-danger mx-auto">{% trans "delete_avatar" %}</a>
           </div>
         {% endif %}
       </div>
-    {% endfor %}
-    <button class="btn btn-outline-dark ms-auto me-auto mt-3">{% trans "save" %}</button>
-    <div class="d-flex ms-auto me-auto mt-3">
-      <a class="btn btn-outline-danger me-5" href="{% url 'users:email_change' %}">{% trans "change_email" %}</a>
-      <a class="btn btn-outline-danger" href="{% url 'users:password_change' %}">{% trans "change_password" %}</a>
+    </div>
+    <button id="submit_button" type="submit" class="d-none btn btn-outline mx-auto mt-3">{% trans "save" %}</button>
+    <div class="d-flex mx-auto mt-3">
+      <a class="btn btn-outline me-5" href="{% url 'users:email_change' %}">{% trans "change_email" %}</a>
+      <a class="btn btn-outline" href="{% url 'users:password_change' %}">{% trans "change_password" %}</a>
     </div>
   </form>
 {% endblock %}
