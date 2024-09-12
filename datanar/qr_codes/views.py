@@ -14,7 +14,7 @@ class QRCodePreview(View):
         qr = segno.make_qr(
             f'{server_url(request)["server_url"]}'
             f'{"" if "/" in short_link else "/"}'
-            f'{short_link}',
+            f"{short_link}",
         )
         response = HttpResponse(content_type="image/png")
         qr.save(response, kind="png", scale=10)
@@ -26,7 +26,7 @@ class QRCodeDownload(View):
         qr = segno.make_qr(
             f'{server_url(request)["server_url"]}'
             f'{"" if "/" in short_link else "/"}'
-            f'{short_link}',
+            f"{short_link}",
         )
         if img_format == "jpg":
             buffer = BytesIO()
