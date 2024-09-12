@@ -58,7 +58,7 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}
         script: |
           cd ~/datanar
+          docker compose down
           git reset --hard origin/main  
           git pull origin main
-          docker compose down
           docker compose up --build -d
