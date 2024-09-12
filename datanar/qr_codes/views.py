@@ -6,13 +6,15 @@ from django.views import View
 from PIL import Image
 import segno
 
+from core.context_processor import server_url
+
 
 class QRCodePreview(View):
     def get(self, request, short_link):
         qr = segno.make_qr(
-            request.build_absolute_uri(
-                short_link if "/" in short_link else f"/{short_link}",
-            ),
+            f'{server_url(request)["server_url"]}'
+            f'{"" if "/" in short_link else "/"}'
+            f'{short_link}',
         )
         response = HttpResponse(content_type="image/png")
         qr.save(response, kind="png", scale=10)
@@ -22,9 +24,9 @@ class QRCodePreview(View):
 class QRCodeDownload(View):
     def get(self, request, img_format, short_link):
         qr = segno.make_qr(
-            request.build_absolute_uri(
-                short_link if "/" in short_link else f"/{short_link}",
-            ),
+            f'{server_url(request)["server_url"]}'
+            f'{"" if "/" in short_link else "/"}'
+            f'{short_link}',
         )
         if img_format == "jpg":
             buffer = BytesIO()
