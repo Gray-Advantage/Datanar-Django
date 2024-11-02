@@ -35,20 +35,27 @@
           </li>
         </ul>
       </nav>
-      <form action="{% url 'set_language' %}" method="post" class="form-inline d-flex me-2">
-        {% csrf_token %}
-        <div class="form-group mt-auto mb-auto">
-          <select name="language" class="form-select" onchange="this.form.submit()" id="language">
-            {% get_current_language as LANGUAGE_CODE %}
-            {% get_available_languages as LANGUAGES %}
-            {% for lang_code, lang_name in LANGUAGES %}
-              <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+      <nav class="my-auto nav-item dropdown">
+        <button class="btn border-0 dropdown-toggle d-flex align-items-center" id="language-dropdown" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle language">
+          <i class="bi bi-globe me-2"></i>
+          <span class="d-none d-lg-block" id="language-text">{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE|upper }}</span>
+        </button>
+        <ul class="dropdown-menu dropend" aria-labelledby="language-text" data-bs-popper="static">
+        {% get_available_languages as LANGUAGES %}
+        {% for lang_code, lang_name in LANGUAGES %}
+          <li>
+            <form action="{% url 'set_language' %}" method="post" class="d-inline">
+              {% csrf_token %}
+              <input type="hidden" name="language" value="{{ lang_code }}">
+              <button type="submit" class="dropdown-item d-flex align-items-center {% if lang_code == LANGUAGE_CODE %}active{% endif %}" aria-pressed="{% if lang_code == LANGUAGE_CODE %}true{% else %}false{% endif %}">
+                <i class="bi bi-globe me-2"></i>
                 {{ lang_name }}
-              </option>
-            {% endfor %}
-          </select>
-        </div>
-      </form>
+              </button>
+            </form>
+          </li>
+        {% endfor %}
+        </ul>
+      </nav>
       {% if request.resolver_match.view_name == 'users:profile' or request.resolver_match.app_name != 'users' %}
         {% if request.user.is_authenticated %}
           {% trans "no_user" as no_user %}
