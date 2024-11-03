@@ -38,7 +38,7 @@
       <nav class="my-auto nav-item dropdown">
         <button class="btn border-0 dropdown-toggle d-flex align-items-center" id="language-dropdown" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle language">
           <i class="bi bi-globe me-2"></i>
-          <span class="d-none d-lg-block" id="language-text">{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE|upper }}</span>
+          <span class="d-none d-lg-block" id="language-text">{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE|language_name_translated }}</span>
         </button>
         <ul class="dropdown-menu dropend" aria-labelledby="language-text" data-bs-popper="static">
         {% get_available_languages as LANGUAGES %}
