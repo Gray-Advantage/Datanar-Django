@@ -1,5 +1,5 @@
-black==24.4.2
-django-debug-toolbar==4.4.2
+black==24.10.0
+django-debug-toolbar==4.4.6
 flake8-absolute-import==1.0.0.2
 flake8-commas==4.0.0
 flake8-comments==0.1.2
