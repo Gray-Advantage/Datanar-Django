@@ -1,16 +1,8 @@
-{% extends "base.html" %}
+{% extends "base_error.html" %}
 {% load i18n %}
 
-{% block title %}
-    {% trans "oops" %}
-{% endblock %}
-
 {% block content %}
-  <div class="position-absolute top-50 start-50 translate-middle">
-    <h1 class="text-center">500</h1>
-    <h1 class="text-center">{% trans "server_error" %}</h1>
-    <div class="d-flex">
-      <a href="{% url 'homepage:home' %}" class="btn btn-outline mx-auto mt-3">{% trans 'to_main' %}</a>
-    </div>
-  </div>
+  {% with error_code="500" error_message_key="server_error" %}
+    {{ block.super }}
+  {% endwith %}
 {% endblock %}
