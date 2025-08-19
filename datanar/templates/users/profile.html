@@ -23,7 +23,14 @@
               {% if "d-none" not in field.field.widget.attrs.class or "clearablefile" not in field.widget_type %}
                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
               {% endif %}
-              {{ field }}
+              <div class="input-group">
+                {{ field }}
+                {% if field.name == "email" %}
+                  <a class="btn btn-secondary" href="{% url 'users:email_change' %}">
+                    {% trans "change_email" %}
+                  </a>
+                {% endif %}
+              </div>
               {% if field.errors %}
                 <div class="invalid-feedback">
                   {{ field.errors|first }}
@@ -41,7 +48,6 @@
     </div>
     <button id="submit_button" type="submit" class="d-none btn btn-outline mx-auto mt-3">{% trans "save" %}</button>
     <div class="d-flex mx-auto mt-3">
-      <a class="btn btn-outline me-5" href="{% url 'users:email_change' %}">{% trans "change_email" %}</a>
       <a class="btn btn-outline" href="{% url 'users:password_change' %}">{% trans "change_password" %}</a>
     </div>
   </form>
