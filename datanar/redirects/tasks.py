@@ -160,4 +160,4 @@ def setup_periodic_tasks(sender, **kwargs):
     )
 
 
-__all__ = [create_redirects, clear_redirects]
+__all__ = ["create_redirects", "clear_redirects"]

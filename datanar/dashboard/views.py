@@ -85,4 +85,4 @@ class LogView(StaffUserRequiredMixin, FormMethodExtender, TemplateView):
         return HttpResponseRedirect(request.get_full_path())
 
 
-__all__ = [AllLinksView, BlackListView, LogView]
+__all__ = ["AllLinksView", "BlackListView", "LogView"]

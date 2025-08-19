@@ -28,4 +28,4 @@ class BootstrapFormMixin:
         self.update_errors_class()
 
 
-__all__ = [BootstrapFormMixin]
+__all__ = ["BootstrapFormMixin"]

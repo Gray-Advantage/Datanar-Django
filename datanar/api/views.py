@@ -166,13 +166,13 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
 
 
 __all__ = [
-    APIDocsPreambleView,
-    APIDocsQRCodeGetView,
-    APIDocsRedirectGetView,
-    APIDocsRedirectCreateView,
-    APIDocsRedirectDeleteView,
-    APIDocsTokenGetView,
-    APIDocsTokenCreateView,
-    CreateNewTokenView,
-    RedirectViewSet,
+    "APIDocsPreambleView",
+    "APIDocsQRCodeGetView",
+    "APIDocsRedirectGetView",
+    "APIDocsRedirectCreateView",
+    "APIDocsRedirectDeleteView",
+    "APIDocsTokenGetView",
+    "APIDocsTokenCreateView",
+    "CreateNewTokenView",
+    "RedirectViewSet",
 ]

@@ -83,4 +83,4 @@ class LinksFileStatus(View):
         return HttpResponseRedirect(reverse("homepage:home"))
 
 
-__all__ = [RedirectView]
+__all__ = ["RedirectView"]

@@ -31,4 +31,4 @@ class User(AbstractUser):
         super().save(*args, **kwargs)
 
 
-__all__ = [User]
+__all__ = ["User"]
