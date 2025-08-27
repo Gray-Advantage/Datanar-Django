@@ -135,16 +135,15 @@
     когда применяется [контейнеризация](docker-install.md). Если установлено
     это значение, то должны быть корректно настроены параметры ниже
 ### DATANAR_DATABASE_NAME
-- Имя базы данных. Учитывается, только если 
-  [`DATANAR_USE_FILE_DATABASE=True`](#datanar_use_file_database)
+- Имя базы данных.
 ### DATANAR_DATABASE_USER
 - Имя пользователя, который имеет все необходимые привилегии для 
   базы данных [`DATANAR_DATABASE_NAME`](#datanar_database_name). Учитывается,
-  только если [`DATANAR_USE_FILE_DATABASE=True`](#datanar_use_file_database)
+  только если [`DATANAR_USE_FILE_DATABASE=False`](#datanar_use_file_database)
 ### DATANAR_DATABASE_PASSWORD
 - Пароль для пользователя [`DATANAR_DATABASE_USER`](#datanar_database_user).
   Учитывается, только если 
-  [`DATANAR_USE_FILE_DATABASE=True`](#datanar_use_file_database)
+  [`DATANAR_USE_FILE_DATABASE=False`](#datanar_use_file_database)
 ### DATANAR_DATABASE_HOST
 - Хост базы данных или же где она располагается. Принимает в целом любое 
   значение, но, скорее всего, будет одно их этих двух:
@@ -154,11 +153,11 @@
     во внутренней сети контейнеров БД будет доступна именно по этому хосту
   
   Учитывается, только если 
-  [`DATANAR_USE_FILE_DATABASE=True`](#datanar_use_file_database)
+  [`DATANAR_USE_FILE_DATABASE=False`](#datanar_use_file_database)
 ### DATANAR_DATABASE_PORT
 - Порт по которому будет открыта БД на хосте, для `postgres` это обычно`5432` и
   менять его не нужно. Учитывается, только если 
-  [`DATANAR_USE_FILE_DATABASE=True`](#datanar_use_file_database)
+  [`DATANAR_USE_FILE_DATABASE=False`](#datanar_use_file_database)
 
 ## Redis
 ### DATANAR_REDIS_HOST
