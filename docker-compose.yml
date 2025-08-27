@@ -32,7 +32,7 @@ services:
       - dev
 
   nginx-prod:
-    image: jonasal/nginx-certbot:latest
+    image: jonasal/nginx-certbot:latest-alpine
     container_name: nginx-prod
     environment:
       DEBUG: ${DATANAR_CERTBOT_DEBUG}
@@ -54,7 +54,7 @@ services:
       - prod
 
   nginx-dev:
-    image: nginx:latest
+    image: nginx:alpine
     container_name: nginx-dev
     restart: always
     ports:
@@ -70,10 +70,10 @@ services:
       - dev
 
   redis:
-    image: redis:latest
+    image: redis:alpine
     container_name: redis
     restart: always
-    command: bash -c "redis-server --save '' --appendonly no"
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
     profiles:
       - prod
       - dev
@@ -84,7 +84,7 @@ services:
     env_file:
       - ./.env
     restart: always
-    command: bash -c "celery -A datanar worker"
+    command: ["celery", "-A", "datanar", "worker"]
     volumes:
       - ./for_docker/media:/datanar/media
       - ./for_docker/logs:/datanar/logs
@@ -101,7 +101,7 @@ services:
     env_file:
       - ./.env
     restart: always
-    command: bash -c "celery -A datanar beat"
+    command: ["celery", "-A", "datanar", "beat"]
     volumes:
       - ./for_docker/media:/datanar/media
       - ./for_docker/logs:/datanar/logs
