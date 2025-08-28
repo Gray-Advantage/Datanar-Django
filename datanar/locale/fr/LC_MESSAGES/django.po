@@ -1021,7 +1021,7 @@ msgstr "Raccourcir un lien"
 
 #: .\templates\homepage\about.html:21
 msgid "can_do_2"
-msgstr "Obtenir immédiatement un QR-code généré"
+msgstr "Obtenez un code QR immédiatement généré"
 
 #: .\templates\homepage\about.html:22
 msgid "can_do_3"
@@ -1073,7 +1073,7 @@ msgstr "Tretiakov Artem"
 
 #: .\templates\homepage\about.html:74
 msgid "github_project"
-msgstr "Projet sur Github"
+msgstr "Projet sur GitHub"
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"

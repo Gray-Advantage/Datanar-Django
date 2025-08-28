@@ -1063,7 +1063,7 @@ msgstr "トレチャコフ・アルテム"
 
 #: .\templates\homepage\about.html:74
 msgid "github_project"
-msgstr "Githubのプロジェクト"
+msgstr "GitHubのプロジェクト"
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"
