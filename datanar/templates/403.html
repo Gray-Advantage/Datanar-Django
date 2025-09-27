@@ -2,7 +2,8 @@
 {% load i18n %}
 
 {% block content %}
-  {% with error_code="403" error_message_key="access_denied" %}
+  {% trans "access_denied" as error_message %}
+  {% with error_code="403" error_message_key=error_message %}
     {{ block.super }}
   {% endwith %}
 {% endblock %}
