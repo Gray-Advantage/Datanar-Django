@@ -197,14 +197,16 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 ACCOUNT_EMAIL_VERIFICATION = "none" if DEFAULT_USER_IS_ACTIVE else "mandatory"
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
-SITE_ID = 1
+SITE_ID = config("DATANAR_SITE_ID", default=1, cast=int)
+SITE_NAME = config("DATANAR_SITE_NAME", default="Datanar", cast=str)
 
 EMAIL_HOST = config("DATANAR_MAIL_HOST", default="smtp.mail.ru")
 EMAIL_PORT = config("DATANAR_MAIL_PORT", default=2525, cast=int)
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = (
-    f"Datanar <{config('DATANAR_MAIL_USER', default='webmaster@localhost')}>"
+    f"{SITE_NAME} "
+    f"<{config('DATANAR_MAIL_USER', default='webmaster@localhost')}>"
 )
 EMAIL_HOST_USER = config("DATANAR_MAIL_USER", default="webmaster@localhost")
 EMAIL_HOST_PASSWORD = config(
