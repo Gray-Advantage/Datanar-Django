@@ -17,7 +17,7 @@
     }
 }
 
-@media (min-width: 491px) {
+@media (min-width: 490px) {
     .sm-screen-show {
         display: none !important;
     }
