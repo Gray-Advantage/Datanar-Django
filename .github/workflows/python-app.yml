@@ -30,9 +30,21 @@ jobs:
     - name: Check code formatting with flake8
       run: flake8 ./datanar/
 
-  django-test:
+  django-py312-test:
     runs-on: ubuntu-latest
     container: python:3.12-alpine
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pip install -r requirements/dev.txt
+      - name: Run Django tests
+        run: |
+          cd ./datanar
+          python manage.py test
+
+  django-py39-test:
+    runs-on: ubuntu-latest
+    container: python:3.9-alpine
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
