@@ -4,7 +4,7 @@ from django.views.generic import View
 
 
 class RedirectToLastPageMixin:
-    class SpecialEmptyPage(Exception):
+    class SpecialEmptyPageError(Exception):
         pass
 
     def paginate_queryset(self, queryset, page_size):
@@ -17,13 +17,13 @@ class RedirectToLastPageMixin:
                 or "1"
             )
             if page.isdigit():
-                raise self.SpecialEmptyPage
+                raise self.SpecialEmptyPageError
             raise err
 
     def get(self, request, *args, **kwargs):
         try:
             return super().get(request, *args, **kwargs)
-        except self.SpecialEmptyPage:
+        except self.SpecialEmptyPageError:
             query_params = request.GET.copy()
             query_params.pop(self.page_kwarg, None)
 

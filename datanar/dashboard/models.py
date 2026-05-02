@@ -36,13 +36,13 @@ class BlockedDomainManager(models.Manager):
 
 
 class BlockedDomain(models.Model):
-    objects = BlockedDomainManager()
-
     domain_regex = models.CharField(
         _("domain_regex"),
         help_text=_("domain_regex_that_will_be_prohibited_from_shortening"),
         max_length=255,
     )
+
+    objects = BlockedDomainManager()
 
     class Meta:
         verbose_name = _("domain_regex")

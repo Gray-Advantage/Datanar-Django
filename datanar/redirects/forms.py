@@ -3,7 +3,6 @@ import hashlib
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-from django.utils.functional import lazy
 from django.utils.translation import gettext_lazy as _
 from sqids import Sqids
 
@@ -11,11 +10,10 @@ from core.forms import BootstrapFormMixin
 from dashboard.models import BlockedDomain
 from redirects.models import Redirect
 
-
 sqids = Sqids()
 
 
-class CustomDateField(forms.DateInput):
+class CustomDateInput(forms.DateInput):
     input_type = "date"
 
     def __init__(self, *args, **kwargs):
@@ -50,19 +48,6 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
         fields = [
             Redirect.long_link.field.name,
             "custom_url",
-        ]
-
-        exclude = [
-            Redirect.user.field.name,
-            Redirect.short_link.field.name,
-            Redirect.created_at.field.name,
-            Redirect.password.field.name,
-            Redirect.validity_days.field.name,
-            Redirect.validity_clicks.field.name,
-            Redirect.is_active.field.name,
-            Redirect.deactivated_at.field.name,
-            Redirect.ip_address.field.name,
-            Redirect.create_method.field.name,
         ]
 
     def clean(self):
@@ -125,12 +110,9 @@ class RedirectFormExtended(RedirectForm):
     links_file = forms.FileField(required=False)
 
     date_validity_field = forms.DateField(
-        label=lazy(
-            lambda: Redirect.validity_days.field.verbose_name.capitalize(),
-            str,
-        ),
+        label=Redirect.validity_days.field.verbose_name.capitalize(),
         help_text=Redirect.validity_days.field.help_text,
-        widget=CustomDateField(format="%Y-%m-%d"),
+        widget=CustomDateInput(format="%Y-%m-%d"),
         required=False,
     )
 
@@ -178,16 +160,6 @@ class RedirectFormExtended(RedirectForm):
             Redirect.password.field.name,
             "date_validity_field",
             Redirect.validity_clicks.field.name,
-        ]
-
-        exclude = [
-            Redirect.user.field.name,
-            Redirect.short_link.field.name,
-            Redirect.created_at.field.name,
-            Redirect.is_active.field.name,
-            Redirect.deactivated_at.field.name,
-            Redirect.ip_address.field.name,
-            Redirect.create_method.field.name,
         ]
 
 

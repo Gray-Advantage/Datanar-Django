@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class RedirectManager(models.Manager):
-    def get_by_short_link(self, short_link):
+    def get_by_short_link(self, short_link: str):
         redirect = (
             self.get_queryset()
             .filter(short_link=short_link)

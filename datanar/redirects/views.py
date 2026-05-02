@@ -3,8 +3,7 @@ from http import HTTPStatus
 from celery.result import AsyncResult
 from django.contrib import messages
 from django.contrib.gis.geoip2 import GeoIP2
-from django.http import Http404, HttpResponseRedirect
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import View

@@ -1,9 +1,11 @@
-from allauth.account.forms import AddEmailForm
-from allauth.account.forms import ChangePasswordForm
-from allauth.account.forms import LoginForm
-from allauth.account.forms import ResetPasswordForm
-from allauth.account.forms import ResetPasswordKeyForm
-from allauth.account.forms import SignupForm
+from allauth.account.forms import (
+    AddEmailForm,
+    ChangePasswordForm,
+    LoginForm,
+    ResetPasswordForm,
+    ResetPasswordKeyForm,
+    SignupForm,
+)
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserChangeForm
 
@@ -15,7 +17,7 @@ class UserForm(BootstrapFormMixin, UserChangeForm):
     password = None
 
     def __init__(self, *args, **kwargs):
-        super(UserForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields[User.email.field.name].widget.attrs["readonly"] = True
         self.fields[User.email.field.name].widget.attrs["disabled"] = True
         self.fields[User.avatar.field.name].widget.attrs["class"] += " d-none"

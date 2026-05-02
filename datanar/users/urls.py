@@ -1,19 +1,19 @@
-from allauth.account.views import ConfirmEmailView
-from allauth.account.views import EmailVerificationSentView
-from allauth.account.views import EmailView
-from allauth.account.views import LoginView
-from allauth.account.views import LogoutView
-from allauth.account.views import PasswordChangeView
-from allauth.account.views import PasswordResetDoneView
-from allauth.account.views import PasswordResetFromKeyDoneView
-from allauth.account.views import PasswordResetFromKeyView
-from allauth.account.views import PasswordResetView
-from allauth.account.views import SignupView
+from allauth.account.views import (
+    ConfirmEmailView,
+    EmailVerificationSentView,
+    EmailView,
+    LoginView,
+    LogoutView,
+    PasswordChangeView,
+    PasswordResetDoneView,
+    PasswordResetFromKeyDoneView,
+    PasswordResetFromKeyView,
+    PasswordResetView,
+    SignupView,
+)
 from django.urls import path, re_path, reverse_lazy
 
-from users import forms
-from users import views
-
+from users import forms, views
 
 app_name = "users"
 
