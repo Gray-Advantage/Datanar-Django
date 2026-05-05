@@ -25,10 +25,11 @@ class CustomDateInput(forms.DateInput):
 
 
 class RedirectForm(BootstrapFormMixin, forms.ModelForm):
-    custom_url = forms.CharField(
+    custom_url = forms.SlugField(
         label=_("custom_url"),
         help_text=_("custom_url_that_would_like_have_instead_generated_one"),
         max_length=50,
+        allow_unicode=True,
         required=False,
     )
 
@@ -48,7 +49,6 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
 
         fields = [
             Redirect.long_link.field.name,
-            "custom_url",
         ]
 
     def clean(self):

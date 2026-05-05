@@ -4,6 +4,7 @@ from django.shortcuts import reverse
 from django.test import Client, TestCase
 import parameterized
 
+from redirects.forms import RedirectForm
 from redirects.models import Redirect
 from statistic.models import Click
 
@@ -87,17 +88,53 @@ class TestShortLinks(TestCase):
             data=self.form_data,
             follow=True,
         )
-
         self.assertRedirects(response, reverse("homepage:home"))
 
         messages = list(response.context["messages"])
-
         response = self.client.get(
             reverse("redirects:redirect", args=[messages[0].message]),
             follow=True,
         )
-
         self.assertRedirects(response, self.form_data["long_link"])
+
+    @parameterized.parameterized.expand(
+        [
+            "test?",
+            "test&",
+            "test=",
+            "test#",
+            "test%",
+            "test+",
+            "test:",
+            "test;",
+            "test@",
+            "test.test",
+            "test test",
+            "test,test",
+            "test*test",
+            "test(test)",
+            "test)test",
+            "test[test]",
+            "test]test",
+            "test{test}",
+            "test}test",
+            "test|test",
+            "test\\test",
+            ".",
+            "..",
+        ]
+    )
+    def test_redirects_with_incorrect_short_link(
+        self,
+        incorrect_short_link,
+    ):
+        response = self.client.post(
+            reverse("homepage:home"),
+            data=self.form_data | {"custom_url": incorrect_short_link},
+        )
+        self.assertIn("form", response.context)
+        form: RedirectForm = response.context["form"]
+        self.assertIn("custom_url", form.errors.keys())
 
     def test_create_click(self):
         click_count = Click.objects.count()

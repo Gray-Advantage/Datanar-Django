@@ -59,11 +59,12 @@ class Redirect(models.Model):
         help_text=_("user_who_create_bond"),
         null=True,
     )
-    short_link = models.URLField(
+    short_link = models.SlugField(
         _("short_link"),
         help_text=_("shorten_link_to_redirect_to_resource"),
         max_length=50,
         unique=True,
+        allow_unicode=True,
     )
     long_link = models.URLField(
         _("long_link"),
