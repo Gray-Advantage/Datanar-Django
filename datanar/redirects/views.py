@@ -26,7 +26,7 @@ class RedirectView(View):
         if redirect is None:
             raise Http404
 
-        if redirect.password is not None:
+        if redirect.password:
             form = PasswordForm()
             return render(request, "redirect/redirect.html", {"form": form})
 
@@ -51,12 +51,12 @@ class RedirectView(View):
         try:
             country = geo_ip.country_name(ip_address)
         except AddressNotFoundError:
-            country = None
+            country = ""
 
         try:
             city = geo_ip.city(ip_address)["city"]
         except AddressNotFoundError:
-            city = None
+            city = ""
 
         Click.objects.create(
             redirect=redirect,

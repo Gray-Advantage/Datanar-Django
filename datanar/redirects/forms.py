@@ -37,7 +37,8 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
 
         first = True
         for field in self.fields.values():
-            field.widget.attrs.update({"placeholder": field.help_text})
+            if field.help_text:
+                field.widget.attrs["placeholder"] = field.help_text
             if not first:
                 field.widget.attrs["class"] += " mb-2"
             first = False

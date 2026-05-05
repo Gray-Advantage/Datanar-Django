@@ -1,3 +1,5 @@
+from typing import Any
+
 from django.shortcuts import reverse
 from django.test import Client, override_settings, TestCase
 from django.utils import timezone
@@ -10,13 +12,13 @@ from users.models import User
 class RedirectFormTest(TestCase):
     def setUp(self):
         self.client = Client()
-        self.user_data = {
+        self.user_data: dict[str, Any] = {
             "username": "TestUser",
             "email": "test_user@email.com",
             "password1": "some_password_123!",
             "password2": "some_password_123!",
         }
-        self.form_data = {
+        self.form_data: dict[str, Any] = {
             "long_link": "https://lyceum.yandex.ru/",
             "password": "qwerty",
             "validity_days": 130,
@@ -58,7 +60,7 @@ class RedirectFormTest(TestCase):
         form_data.update(
             {
                 "user": None,
-                "password": None,
+                "password": "",
                 "validity_clicks": None,
                 "validity_days": Redirect.validity_days.field.default,
             },

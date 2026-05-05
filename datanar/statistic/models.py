@@ -37,8 +37,6 @@ class ClickManager(models.Manager):
 
 
 class Click(models.Model):
-    objects = ClickManager()
-
     clicked_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name=_("redirect_time"),
@@ -50,15 +48,32 @@ class Click(models.Model):
     os = models.TextField(
         verbose_name=_("os"),
         help_text=_("operating_system_from_which_redirect_was_made"),
-        null=True,
+        blank=True,
+        default="",
     )
     browser = models.TextField(
         verbose_name=_("browser"),
         help_text=_("browser_from_which_redirect_was_made"),
-        null=True,
+        blank=True,
+        default="",
     )
-    country = models.TextField(verbose_name=_("country"), null=True)
-    city = models.TextField(verbose_name=_("city"), null=True)
+    country = models.TextField(
+        verbose_name=_("country"),
+        help_text=_("country_from_which_redirect_was_made"),
+        blank=True,
+        default="",
+    )
+    city = models.TextField(
+        verbose_name=_("city"),
+        help_text=_("city_from_which_redirect_was_made"),
+        blank=True,
+        default="",
+    )
+
+    objects = ClickManager()
+
+    def __str__(self):
+        return str(self.clicked_at)
 
 
 __all__ = ["Click"]

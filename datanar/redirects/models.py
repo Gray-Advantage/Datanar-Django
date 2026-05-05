@@ -52,8 +52,6 @@ class RedirectManager(models.Manager):
 
 
 class Redirect(models.Model):
-    objects = RedirectManager()
-
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -81,8 +79,8 @@ class Redirect(models.Model):
         _("password"),
         help_text=_("password_that_will_requested_to_redirect"),
         max_length=128,
-        null=True,
         blank=True,
+        default="",
     )
     validity_days = models.PositiveIntegerField(
         _("valid_day_number"),
@@ -126,11 +124,12 @@ class Redirect(models.Model):
         _("create_method"),
         help_text=_("method_which_redirect_was_created"),
         max_length=20,
-        null=True,
         blank=True,
         choices=CreateMethod.choices,
         default=CreateMethod.WEB,
     )
+
+    objects = RedirectManager()
 
     class Meta:
         verbose_name = _("redirect")

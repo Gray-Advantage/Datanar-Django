@@ -75,14 +75,13 @@ class TestShortLinks(TestCase):
             "frufve4t94",
         ],
     )
-    def test_incorrect_short_link(self, incorrect_short_link):
+    def test_unknown_short_link_returns_404(self, unknown_short_links):
         response = self.client.get(
-            reverse("redirects:redirect", args=[incorrect_short_link]),
+            reverse("redirects:redirect", args=[unknown_short_links]),
         )
-
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
 
-    def test_correct_short_link(self):
+    def test_redirects_with_correct_short_link(self):
         response = self.client.post(
             reverse("homepage:home"),
             data=self.form_data,
