@@ -122,7 +122,7 @@ class TestShortLinks(TestCase):
             "test\\test",
             ".",
             "..",
-        ]
+        ],
     )
     def test_redirects_with_incorrect_short_link(
         self,
