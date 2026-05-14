@@ -12,9 +12,9 @@ from redirects.models import Redirect
 
 sqids = Sqids()
 
-
-class CustomDateInput(forms.DateInput):
+class DatePickerInput(forms.DateInput):
     input_type = "date"
+    format = "%Y-%m-%d"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -113,7 +113,7 @@ class RedirectFormExtended(RedirectForm):
     date_validity_field = forms.DateField(
         label=Redirect.validity_days.field.verbose_name.capitalize(),
         help_text=Redirect.validity_days.field.help_text,
-        widget=CustomDateInput(format="%Y-%m-%d"),
+        widget=DatePickerInput(),
         required=False,
     )
 
