@@ -49,7 +49,7 @@ class RedirectionLifeCycle(TestCase):
             reverse("redirects:redirect", args=[short_link]),
         )  # Проверяем, что произошло удаление деактивированной ссылки
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
-        self.assertQuerysetEqual(Redirect.objects.all(), [])
+        self.assertQuerySetEqual(Redirect.objects.all(), [])
 
     @patch.object(timezone, "now")
     def test_redirection_lifecycle_with_celery_task(self, mock_now):
@@ -74,7 +74,7 @@ class RedirectionLifeCycle(TestCase):
         mock_now.return_value += timedelta(days=10, seconds=1)
 
         tasks.clear_redirects()
-        self.assertQuerysetEqual(Redirect.objects.all(), [])
+        self.assertQuerySetEqual(Redirect.objects.all(), [])
 
 
 __all__ = []
