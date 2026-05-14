@@ -17,8 +17,7 @@ SECRET_KEY = config(
 )
 
 DEBUG = config("DATANAR_DJANGO_DEBUG", False, cast=bool)
-
-NOT_TESTING = "test" not in sys.argv
+TEST = "test" in sys.argv
 
 LOG_FILE_PATH = config("DATANAR_LOG_FILE_PATH", default="", cast=str)
 
@@ -93,7 +92,7 @@ MIDDLEWARE = [
     "tz_detect.middleware.TimezoneMiddleware",
 ]
 
-if settings.DEBUG and NOT_TESTING:
+if settings.DEBUG and not TEST:
     INSTALLED_APPS.append("debug_toolbar")
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
     INTERNAL_IPS = ["127.0.0.1"]
