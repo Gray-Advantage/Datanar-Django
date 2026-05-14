@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
@@ -5,8 +7,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class RedirectManager(models.Manager):
-    def get_by_short_link(self, short_link: str):
-        redirect = (
+    def get_by_short_link(self, short_link: str) -> Redirect | None:
+        redirect: Redirect | None = (
             self.get_queryset()
             .filter(short_link=short_link)
             .annotate(clicks_count=models.Count("click"))
@@ -125,7 +127,6 @@ class Redirect(models.Model):
         _("create_method"),
         help_text=_("method_which_redirect_was_created"),
         max_length=20,
-        blank=True,
         choices=CreateMethod.choices,
         default=CreateMethod.WEB,
     )
