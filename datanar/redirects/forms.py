@@ -1,16 +1,13 @@
-import hashlib
-
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from sqids import Sqids
 
 from core.forms import BootstrapFormMixin
 from dashboard.models import BlockedDomain
 from redirects.models import Redirect
+from redirects.utils import generate_short_link
 
-sqids = Sqids()
 
 class DatePickerInput(forms.DateInput):
     input_type = "date"
@@ -89,19 +86,9 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
                 ValidationError(_("this_url_is_blocked")),
             )
             return None
-
-        counter = 0
-        string = self.cleaned_data[Redirect.long_link.field.name]
-        while True:
-            temp_string = f"{string}{counter}" if counter > 0 else string
-            hash_object = hashlib.sha256(temp_string.encode())
-            number = int.from_bytes(hash_object.digest(), byteorder="big")
-            short_link = sqids.encode(list(map(int, list(str(number)))))[:5]
-            if not Redirect.objects.get_by_short_link(short_link):
-                break
-            counter += 1
-
-        self.cleaned_data[Redirect.short_link.field.name] = short_link
+        self.cleaned_data[Redirect.short_link.field.name] = generate_short_link(
+            self.cleaned_data[Redirect.long_link.field.name],
+        )
         del self.cleaned_data["custom_url"]
 
         return self.cleaned_data
