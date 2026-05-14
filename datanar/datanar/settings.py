@@ -1,7 +1,7 @@
 from pathlib import Path
 import sys
 
-from decouple import config, strtobool
+from decouple import config
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
@@ -16,7 +16,7 @@ SECRET_KEY = config(
     cast=str,
 )
 
-DEBUG = bool(strtobool(config("DATANAR_DJANGO_DEBUG", "False")))
+DEBUG = config("DATANAR_DJANGO_DEBUG", False, cast=bool)
 
 NOT_TESTING = "test" not in sys.argv
 
@@ -124,8 +124,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "datanar.wsgi.application"
 
-USE_FILE_DATABASE = strtobool(
-    config("DATANAR_USE_FILE_DATABASE", default="True"),
+USE_FILE_DATABASE = config(
+    "DATANAR_USE_FILE_DATABASE",
+    default=True,
+    cast=bool,
 )
 
 DATABASES = {
@@ -181,8 +183,10 @@ AUTHENTICATION_BACKENDS = [
 
 AUTH_USER_MODEL = "users.User"
 
-DEFAULT_USER_IS_ACTIVE = bool(
-    strtobool(config("DATANAR_DEFAULT_USER_IS_ACTIVE", default="False")),
+DEFAULT_USER_IS_ACTIVE = config(
+    "DATANAR_DEFAULT_USER_IS_ACTIVE",
+    default=False,
+    cast=bool,
 )
 
 LOGIN_URL = "/auth/login/"
