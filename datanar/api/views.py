@@ -101,13 +101,15 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def create(self, request, *args, **kwargs):
-        if set(request.data) & {
-            Redirect.validity_days.field.name,
-            Redirect.validity_clicks.field.name,
-            Redirect.password.field.name,
-        }:
-            if not self._get_user(request):
-                return Response(status=status.HTTP_401_UNAUTHORIZED)
+        if (
+            set(request.data)
+            & {
+                Redirect.validity_days.field.name,
+                Redirect.validity_clicks.field.name,
+                Redirect.password.field.name,
+            }
+        ) and not self._get_user(request):
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
 
         post_data = request.data.copy()
         if Redirect.short_link.field.name in post_data:
@@ -122,14 +124,16 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
             serializer.is_valid(raise_exception=True)
             redirect_instance = serializer.save(
                 **{
-                    Redirect.short_link.field.name:
-                        form.cleaned_data[Redirect.short_link.field.name],
-                    Redirect.user.field.name:
-                        self._get_user(request),
-                    Redirect.create_method.field.name:
-                        Redirect.CreateMethod.API,
-                    Redirect.ip_address.field.name:
-                        self.request.META.get("HTTP_X_REAL_IP"),
+                    Redirect.short_link.field.name: form.cleaned_data[
+                        Redirect.short_link.field.name
+                    ],
+                    Redirect.user.field.name: self._get_user(request),
+                    Redirect.create_method.field.name: (
+                        Redirect.CreateMethod.API
+                    ),
+                    Redirect.ip_address.field.name: self.request.META.get(
+                        "HTTP_X_REAL_IP",
+                    ),
                 },
             )
 
@@ -140,7 +144,7 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
                 response_data.pop(Redirect.create_method.field.name, None)
                 response_data.pop(Redirect.deactivated_at.field.name, None)
                 response_data.pop(Redirect.is_active.field.name, None)
-                response_data.pop("id", None)
+                response_data.pop(Redirect.id.field.name, None)
 
             return Response(
                 response_data,
