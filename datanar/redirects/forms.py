@@ -105,7 +105,6 @@ class RedirectFormExtended(RedirectForm):
 
         self.fields["links_file"].widget.attrs["class"] = "d-none"
         self.fields["links_file"].widget.attrs["accept"] = ".txt, .xlsx"
-        self.fields["date_validity_field"].widget.update_min_date()
 
     def clean(self):
         if self.errors:
