@@ -4,21 +4,10 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from core.forms import BootstrapFormMixin
+from core.widgets import DatePickerInput
 from dashboard.models import BlockedDomain
 from redirects.models import Redirect
 from redirects.utils import generate_short_link
-
-
-class DatePickerInput(forms.DateInput):
-    input_type = "date"
-    format = "%Y-%m-%d"
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.update_min_date()
-
-    def update_min_date(self):
-        self.attrs["min"] = timezone.localdate()
 
 
 class RedirectForm(BootstrapFormMixin, forms.ModelForm):
