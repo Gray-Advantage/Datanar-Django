@@ -30,7 +30,7 @@ class BlockedDomainManager(models.Manager):
         for domain in self.all():
             if re.fullmatch(self.upgrade_regex(domain.domain_regex), url):
                 return True
-            if any([x in url.lower() for x in BANNED_SHORTENERS]):
+            if any(x in url.lower() for x in BANNED_SHORTENERS):
                 return True
         return False
 

@@ -18,8 +18,8 @@ class UserForm(BootstrapFormMixin, UserChangeForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields[User.email.field.name].disabled = True
         self.fields[User.email.field.name].widget.attrs["readonly"] = True
-        self.fields[User.email.field.name].widget.attrs["disabled"] = True
         self.fields[User.avatar.field.name].widget.attrs["class"] += " d-none"
 
     class Meta(UserChangeForm.Meta):

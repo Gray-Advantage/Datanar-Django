@@ -22,13 +22,11 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        first = True
-        for field in self.fields.values():
+        for i, field in enumerate(self.fields.values()):
             if field.help_text:
                 field.widget.attrs["placeholder"] = field.help_text
-            if not first:
+            if i > 0:
                 field.widget.attrs["class"] += " mb-2"
-            first = False
 
     class Meta:
         model = Redirect

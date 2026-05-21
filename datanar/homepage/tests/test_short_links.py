@@ -18,7 +18,7 @@ class TestShortLinks(TestCase):
 
     def test_diff_links(self):
         short_links = set()
-        for i in range(15):
+        for _ in range(15):
             self.client.post(reverse("homepage:home"), self.form_data)
 
             response = self.client.get(reverse("homepage:home"))
