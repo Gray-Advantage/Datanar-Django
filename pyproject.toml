@@ -2,9 +2,7 @@
 max-line-length = 79
 inline-quotes = "double"
 import-order-style = "google"
-per-file-ignores = [
-    "*/migrations/*:E501,LN001,C812,DALL000",
-]
+extend-exclude = ["*/migrations"]
 application-import-names = [
     "api",
     "dashboard",
@@ -16,9 +14,6 @@ application-import-names = [
     "statistic",
     "users",
 ]
-
-[tool.black]
-line-length = 79
 
 [tool.ruff]
 line-length = 79
