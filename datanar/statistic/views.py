@@ -145,4 +145,4 @@ class DownloadStatistic(View):
         )
 
 
-__all__ = [MyLinksView, LinkDetailView, DownloadStatistic]
+__all__ = ["MyLinksView", "LinkDetailView", "DownloadStatistic"]

@@ -13,8 +13,11 @@
   <form class="d-flex flex-column col-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto mt-5 " method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="d-flex flex-column flex-sm-row">
-      <div class="d-flex cursor-pointer">
-        <img id="avatar" src="{% if request.user.has_avatar %}{{ request.user.get_large_avatar }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="mb-sm-0 mb-2 mx-auto mx-sm-auto rounded-circle" width="200" height="200">
+      <div class="d-flex flex-column align-items-center">
+        <img id="avatar" src="{% if request.user.has_avatar %}{{ request.user.get_large_avatar }}{% else %}{% static 'img/default_user_avatar.jpg' %}{% endif %}" alt="{{ request.user.username }}" class="mb-sm-0 mb-2 mx-auto mx-sm-auto rounded-circle cursor-pointer" width="200" height="200">
+        {% if request.user.has_avatar %}
+          <a id="delete_avatar" class="btn btn-outline-danger mt-2">{% trans "delete_avatar" %}</a>
+        {% endif %}
       </div>
       <div class="d-flex w-100 ms-0 ms-sm-4 flex-sm-column flex-column-reverse">
         <div>
@@ -23,7 +26,14 @@
               {% if "d-none" not in field.field.widget.attrs.class or "clearablefile" not in field.widget_type %}
                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
               {% endif %}
-              {{ field }}
+              <div class="input-group">
+                {{ field }}
+                {% if field.name == "email" %}
+                  <a class="btn btn-outline" href="{% url 'users:email_change' %}">
+                    {% trans "change_email" %}
+                  </a>
+                {% endif %}
+              </div>
               {% if field.errors %}
                 <div class="invalid-feedback">
                   {{ field.errors|first }}
@@ -31,18 +41,12 @@
               {% endif %}
             </div>
           {% endfor %}
-        </div>
-        {% if request.user.has_avatar %}
-          <div class="form-group w-auto d-flex">
-            <a id="delete_avatar" class="btn btn-outline-danger mx-auto">{% trans "delete_avatar" %}</a>
+          <div class="d-flex gap-2 mt-4">
+            <a class="btn btn-outline" href="{% url 'users:password_change' %}">{% trans "change_password" %}</a>
+            <button id="submit_button" type="submit" class="d-none btn btn-outline">{% trans "save" %}</button>
           </div>
-        {% endif %}
+        </div>
       </div>
-    </div>
-    <button id="submit_button" type="submit" class="d-none btn btn-outline mx-auto mt-3">{% trans "save" %}</button>
-    <div class="d-flex mx-auto mt-3">
-      <a class="btn btn-outline me-5" href="{% url 'users:email_change' %}">{% trans "change_email" %}</a>
-      <a class="btn btn-outline" href="{% url 'users:password_change' %}">{% trans "change_password" %}</a>
     </div>
   </form>
 {% endblock %}

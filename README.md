@@ -65,6 +65,7 @@
 - [DB-IP](https://db-ip.com) - определение страны и города переходящего по IP
 - [Django](https://www.djangoproject.com/) - основной фреймворк web сервиса
 - [Docker](https://www.docker.com/) - развёртывание сайта на удалённом сервере
+- [Prism](https://prismjs.com/) - подсветка синтаксиса кода
 - [Segno](https://github.com/heuer/segno/) - генерация QR-кодов
 - [Sqids](https://sqids.org/) - для помощи в генерации сокращённых ссылок
 

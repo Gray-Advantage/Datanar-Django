@@ -14,7 +14,6 @@ from django.urls import path, re_path, reverse_lazy
 from users import forms
 from users import views
 
-
 app_name = "users"
 
 urlpatterns = [

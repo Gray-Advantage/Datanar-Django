@@ -1,16 +1,9 @@
-{% extends "base.html" %}
+{% extends "base_error.html" %}
 {% load i18n %}
 
-{% block title %}
-    {% trans "oops" %}
-{% endblock %}
-
 {% block content %}
-  <div class="position-absolute top-50 start-50 translate-middle">
-    <h1 class="text-center">404</h1>
-    <h1 class="text-center">{% trans "page_not_found" %}</h1>
-    <div class="d-flex">
-      <a href="{% url 'homepage:home' %}" class="btn btn-outline mx-auto mt-3">{% trans 'to_main' %}</a>
-    </div>
-  </div>
+  {% trans "page_not_found" as error_message %}
+  {% with error_code="404" error_message_key=error_message %}
+    {{ block.super }}
+  {% endwith %}
 {% endblock %}
