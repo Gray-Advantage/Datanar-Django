@@ -56,4 +56,8 @@ class StaffUserRequiredMixin(AccessMixin):
         return super().dispatch(request, *args, **kwargs)
 
 
-__all__ = ["FormMethodExtender", "StaffUserRequiredMixin"]
+__all__ = [
+    "FormMethodExtender",
+    "RedirectToLastPageMixin",
+    "StaffUserRequiredMixin",
+]
