@@ -2,7 +2,8 @@
 {% load i18n %}
 
 {% block content %}
-  {% with error_code="500" error_message_key="server_error" %}
+  {% trans "server_error" as error_message %}
+  {% with error_code="500" error_message_key=error_message %}
     {{ block.super }}
   {% endwith %}
 {% endblock %}

@@ -29,7 +29,7 @@
               <div class="input-group">
                 {{ field }}
                 {% if field.name == "email" %}
-                  <a class="btn btn-secondary" href="{% url 'users:email_change' %}">
+                  <a class="btn btn-outline" href="{% url 'users:email_change' %}">
                     {% trans "change_email" %}
                   </a>
                 {% endif %}

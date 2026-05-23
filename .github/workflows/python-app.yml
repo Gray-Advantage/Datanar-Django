@@ -62,3 +62,4 @@ jobs:
           git reset --hard origin/main  
           git pull origin main
           docker compose up --build -d
+          docker system prune -a -f --volumes

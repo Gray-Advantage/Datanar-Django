@@ -2,13 +2,13 @@
 {% load i18n %}
 
 {% block title %}
-    {% trans "oops" %}
+  {% trans "oops" %}
 {% endblock %}
 
 {% block content %}
   <div class="position-absolute top-50 start-50 translate-middle">
     <h1 class="text-center">{{ error_code }}</h1>
-    <h1 class="text-center">{% trans error_message_key %}</h1>
+    <h1 class="text-center">{{ error_message_key }}</h1>
     <div class="d-flex">
       <a href="{% url 'homepage:home' %}" class="btn btn-outline mx-auto mt-3">{% trans 'to_main' %}</a>
     </div>
