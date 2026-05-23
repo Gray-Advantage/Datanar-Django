@@ -112,11 +112,6 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
         post_data = request.data.copy()
-        if Redirect.short_link.field.name in post_data:
-            post_data["custom_url"] = post_data.get(
-                Redirect.short_link.field.name,
-            )
-            del post_data[Redirect.short_link.field.name]
 
         form = RedirectFormExtended(post_data)
         if form.is_valid():
@@ -165,7 +160,7 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
                 _("this_url_is_blocked"),
             ): status.HTTP_423_LOCKED,
             (
-                "custom_url",
+                Redirect.short_link.field.name,
                 _("custom_url_already_use"),
             ): status.HTTP_409_CONFLICT,
         }

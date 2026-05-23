@@ -83,10 +83,13 @@ class RedirectFormTest(TestCase):
         user = User.objects.get(username=self.user_data["username"])
 
         data = self.form_data.copy()
-        data["date_validity_field"] = (
-            timezone.now() + timezone.timedelta(days=data["validity_days"])
+        data[Redirect.validity_days.field.name] = (
+            timezone.now()
+            + timezone.timedelta(
+                days=data[Redirect.validity_days.field.name],
+            )
         ).date()
-        del data["validity_days"]
+
         self.client.post(reverse("homepage:home"), data=data)
 
         redirect = Redirect.objects.all().first()

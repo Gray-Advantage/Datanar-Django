@@ -130,11 +130,14 @@ class TestShortLinks(TestCase):
     ):
         response = self.client.post(
             reverse("homepage:home"),
-            data=self.form_data | {"custom_url": incorrect_short_link},
+            data=self.form_data
+            | {
+                Redirect.short_link.field.name: incorrect_short_link,
+            },
         )
         self.assertIn("form", response.context)
         form: RedirectForm = response.context["form"]
-        self.assertIn("custom_url", form.errors.keys())
+        self.assertIn(Redirect.short_link.field.name, form.errors.keys())
 
     def test_create_click(self):
         click_count = Click.objects.count()
