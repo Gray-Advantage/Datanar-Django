@@ -11,7 +11,6 @@ from core.forms import BootstrapFormMixin
 from dashboard.models import BlockedDomain
 from redirects.models import Redirect
 
-
 sqids = Sqids()
 
 
