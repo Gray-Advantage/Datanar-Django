@@ -1,2 +1,4 @@
 -r prod.txt
 -r test.txt
+celery-types>=0.23.0
+ruff>=0.15.17

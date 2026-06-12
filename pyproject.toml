@@ -40,9 +40,16 @@ select = [
     "Q",
     "RET",
     "RSE",
+    "RUF",
     "T20",
+    "TID",
     "UP",
     "W",
+]
+ignore = [
+    "RUF001",
+    "RUF003",
+    "RUF012",
 ]
 
 [tool.ruff.lint.isort]
@@ -64,3 +71,6 @@ known-first-party = [
 docstring-quotes = "double"
 inline-quotes = "double"
 multiline-quotes = "double"
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"

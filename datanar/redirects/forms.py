@@ -1,3 +1,5 @@
+from typing import Optional
+
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils import timezone
@@ -41,10 +43,10 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
         if self.errors:
             return cleaned_data
 
-        long_link_value: str | None = cleaned_data.get(
+        long_link_value: Optional[str] = cleaned_data.get(
             Redirect.long_link.field.name,
         )
-        custom_url_value: str | None = cleaned_data.get(
+        custom_url_value: Optional[str] = cleaned_data.get(
             Redirect.short_link.field.name,
         )
         if not custom_url_value and long_link_value:
