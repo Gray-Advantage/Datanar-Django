@@ -1,3 +1,4 @@
+antispam-link-shorteners==0.2.1
 celery==5.5.3
 Django==4.2.23
 django-allauth==65.11.0
@@ -8,7 +9,6 @@ django-user-agents==0.4.0
 djangorestframework==3.16.1
 geoip2==5.1.0
 gunicorn==23.0.0
-link-shorteners>=1.12.0
 openpyxl==3.1.5
 pillow==11.3.0
 psycopg2-binary==2.9.10

@@ -1,10 +1,8 @@
 import re
 
+from antispam_link_shorteners import is_link_shortener
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from link_shorteners import link_shorteners_list
-
-BANNED_SHORTENERS = link_shorteners_list()
 
 
 class BlockedDomainManager(models.Manager):
@@ -27,10 +25,10 @@ class BlockedDomainManager(models.Manager):
         return domain_regex
 
     def is_blocked(self, url: str) -> bool:
+        if is_link_shortener(url):
+            return True
         for domain in self.all():
             if re.fullmatch(self.upgrade_regex(domain.domain_regex), url):
-                return True
-            if any(x in url.lower() for x in BANNED_SHORTENERS):
                 return True
         return False
 
