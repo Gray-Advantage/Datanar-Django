@@ -144,4 +144,4 @@ class PasswordForm(BootstrapFormMixin, forms.Form):
     )
 
 
-__all__ = ["RedirectForm", "RedirectFormExtended", "PasswordForm"]
+__all__ = ["PasswordForm", "RedirectForm", "RedirectFormExtended"]

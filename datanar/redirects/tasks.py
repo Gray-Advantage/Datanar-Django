@@ -59,7 +59,7 @@ def get_links(file_path):
             links = get_from_xlsx(file)
 
     (settings.MEDIA_ROOT / file_path).unlink()
-    return links  # noqa R504
+    return links
 
 
 @app.task()
@@ -160,4 +160,4 @@ def setup_periodic_tasks(sender, **kwargs):
     )
 
 
-__all__ = ["create_redirects", "clear_redirects"]
+__all__ = ["clear_redirects", "create_redirects"]

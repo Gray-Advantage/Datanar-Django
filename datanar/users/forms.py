@@ -57,11 +57,11 @@ class DatanarResetPasswordKeyForm(BootstrapFormMixin, ResetPasswordKeyForm):
 
 
 __all__ = [
-    "UserForm",
-    "DatanarLoginForm",
-    "DatanarEmailForm",
-    "DatanarSignupForm",
     "DatanarChangePasswordForm",
+    "DatanarEmailForm",
+    "DatanarLoginForm",
     "DatanarResetPasswordForm",
     "DatanarResetPasswordKeyForm",
+    "DatanarSignupForm",
+    "UserForm",
 ]

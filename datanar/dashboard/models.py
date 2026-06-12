@@ -8,7 +8,7 @@ BANNED_SHORTENERS = link_shorteners_list()
 
 
 class BlockedDomainManager(models.Manager):
-    def upgrade_regex(self, domain_regex):
+    def upgrade_regex(self, domain_regex: str) -> str:
         if domain_regex.startswith("|||"):
             domain_regex = r"http[s]?://(#\.)+" + domain_regex[3:]
 
@@ -24,9 +24,9 @@ class BlockedDomainManager(models.Manager):
         if "#" in domain_regex:
             domain_regex = domain_regex.replace("#", r".*")
 
-        return domain_regex  # noqa R504
+        return domain_regex
 
-    def is_blocked(self, url):
+    def is_blocked(self, url: str) -> bool:
         for domain in self.all():
             if re.fullmatch(self.upgrade_regex(domain.domain_regex), url):
                 return True
