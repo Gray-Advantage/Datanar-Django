@@ -1,23 +1,43 @@
-[tool.flake8]
-max-line-length = 79
-inline-quotes = "double"
-import-order-style = "google"
-extend-exclude = ["*/migrations"]
-application-import-names = [
-    "api",
-    "dashboard",
-    "core",
-    "datanar",
-    "homepage",
-    "qr_codes",
-    "redirects",
-    "statistic",
-    "users",
+[project]
+name = "datanar-django"
+version = "2.5.4"
+description = "сервис по сокращению ссылок на базе Django и Bootstrap"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "antispam-link-shorteners==0.2.0",
+    "celery==5.6.3",
+    "django==4.2.30",
+    "django-allauth==65.14.3",
+    "django-cleanup==9.0.0",
+    "django-settings-expose==0.1.1",
+    "django-tz-detect==0.5.0",
+    "django-user-agents==0.4.0",
+    "djangorestframework==3.16.1",
+    "geoip2==5.1.0",
+    "gunicorn==23.0.0",
+    "openpyxl==3.1.5",
+    "pillow==11.3.0",
+    "psycopg2-binary==2.9.12",
+    "python-decouple==3.8",
+    "redis==6.4.0",
+    "segno==1.6.6",
+    "sorl-thumbnail==12.11.0",
+    "sqids==0.5.2",
+]
+
+[dependency-groups]
+dev = [
+    "celery-types>=0.23.0",
+    "ruff>=0.15.17",
+]
+test = [
+    "django-debug-toolbar==6.1.0",
+    "parameterized==0.9.0",
 ]
 
 [tool.ruff]
 line-length = 79
-target-version = "py39"
 extend-exclude = ["migrations"]
 
 [tool.ruff.format]
