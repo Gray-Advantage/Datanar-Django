@@ -10,10 +10,8 @@ from redirects.models import Redirect
 class PasswordBeforeRedirectTest(TestCase):
     def test_redirect_without_password(self):
         Redirect.objects.create(
-            **{
-                "long_link": "https://lyceum.yandex.ru/",
-                "short_link": "custom",
-            },
+            long_link="https://lyceum.yandex.ru/",
+            short_link="custom",
         )
 
         response = Client().get(reverse("redirects:redirect", args=["custom"]))
@@ -25,11 +23,9 @@ class PasswordBeforeRedirectTest(TestCase):
 
     def test_redirect_with_password(self):
         Redirect.objects.create(
-            **{
-                "long_link": "https://lyceum.yandex.ru/",
-                "short_link": "secret",
-                "password": "123",
-            },
+            long_link="https://lyceum.yandex.ru/",
+            short_link="secret",
+            password="123",
         )
 
         response = Client().get(reverse("redirects:redirect", args=["secret"]))
@@ -51,11 +47,9 @@ class PasswordBeforeRedirectTest(TestCase):
 
     def test_password_form_before_redirect(self):
         Redirect.objects.create(
-            **{
-                "long_link": "https://lyceum.yandex.ru/",
-                "short_link": "secret",
-                "password": "123",
-            },
+            long_link="https://lyceum.yandex.ru/",
+            short_link="secret",
+            password="123",
         )
 
         response = Client().get(reverse("redirects:redirect", args=["secret"]))
