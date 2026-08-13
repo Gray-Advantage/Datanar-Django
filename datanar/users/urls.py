@@ -24,7 +24,7 @@ urlpatterns = [
         name="profile",
     ),
     path(
-        "singup/",
+        "signup/",
         SignupView.as_view(
             form_class=forms.DatanarSignupForm,
             template_name="users/signup.html",
