@@ -11,7 +11,8 @@ MAX_GENERATION_ATTEMPTS = 200
 
 def generate_short_link(long_link: str) -> str:
     if not isinstance(long_link, str):
-        raise TypeError("long_link must be a string")
+        msg = "long_link must be a string"
+        raise TypeError(msg)
 
     for i in range(MAX_GENERATION_ATTEMPTS):
         temp_string = f"{long_link}{i}" if i > 0 else long_link
@@ -21,7 +22,8 @@ def generate_short_link(long_link: str) -> str:
         if not Redirect.objects.get_by_short_link(short_link):
             return short_link
 
-    raise RuntimeError("Error generating short link")
+    msg = "Error generating short link"
+    raise RuntimeError(msg)
 
 
 __all__ = ["generate_short_link"]
