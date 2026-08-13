@@ -23,7 +23,7 @@ class RedirectView(View):
             kwargs[Redirect.short_link.field.name],
         )
 
-        if redirect is None:
+        if redirect is None or not redirect.is_active:
             raise Http404
 
         if redirect.password:
