@@ -1,7 +1,10 @@
+import datetime
 from http import HTTPStatus
+from unittest.mock import patch
 
 from django.shortcuts import reverse
 from django.test import Client, TestCase
+from django.utils import timezone
 import parameterized
 
 from redirects.forms import RedirectForm
@@ -155,6 +158,30 @@ class TestShortLinks(TestCase):
             click_count + 1,
             "Click не создан",
         )
+
+    @patch.object(timezone, "now")
+    def test_create_redirect_with_same_long_link(self, mock_now):
+        now = datetime.datetime.now()
+        future_time = now + datetime.timedelta(days=365)
+        mock_now.return_value = timezone.make_aware(now)
+
+        self.client.post(
+            reverse("homepage:home"),
+            data=self.form_data,
+            follow=True,
+        )
+        short_link = Redirect.objects.first().short_link
+
+        mock_now.return_value = timezone.make_aware(future_time)
+        redirect = Redirect.objects.get_by_short_link(short_link)
+        self.assertEqual(redirect.validity_days, 90)
+
+        self.client.post(
+            reverse("homepage:home"),
+            data=self.form_data,
+            follow=True,
+        )
+        self.assertFalse(redirect.is_active)
 
 
 __all__ = []
