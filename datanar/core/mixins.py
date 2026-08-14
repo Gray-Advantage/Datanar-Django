@@ -10,7 +10,7 @@ class RedirectToLastPageMixin:
     def paginate_queryset(self, queryset, page_size):
         try:
             return super().paginate_queryset(queryset, page_size)
-        except Http404 as err:
+        except Http404 as e:
             page = (
                 self.kwargs.get(self.page_kwarg)
                 or self.request.GET.get(self.page_kwarg)
@@ -18,25 +18,22 @@ class RedirectToLastPageMixin:
             )
             if page.isdigit():
                 raise self.SpecialEmptyPageError
-            raise err
+            raise e from e
 
     def get(self, request, *args, **kwargs):
         try:
             return super().get(request, *args, **kwargs)
         except self.SpecialEmptyPageError:
             query_params = request.GET.copy()
-            query_params.pop(self.page_kwarg, None)
 
-            paginator = self.get_paginator(
-                self.get_queryset(),
-                self.get_paginate_by(self.get_queryset()),
-            )
-            last_page = paginator.num_pages
+            queryset = self.get_queryset()
+            page_size = self.get_paginate_by(queryset)
+            paginator = self.get_paginator(queryset, page_size)
+
+            query_params[self.page_kwarg] = paginator.num_pages
 
             return HttpResponseRedirect(
-                f"{request.path}?{query_params.urlencode()}"
-                f"{'&' if query_params.urlencode() else ''}"
-                f"{self.page_kwarg}={last_page}",
+                f"{request.path}?{query_params.urlencode()}",
             )
 
 
