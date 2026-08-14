@@ -60,18 +60,17 @@
       <a href="{% url 'statistic:link_detail' link "all_time" %}" class="btn {% if period == "all_time" %}btn-full{% else %}btn-outline{% endif %}">{% trans "all_time" %}</a>
     </div>
     <p class="text-center mt-4">{% trans "total_number_of_clicks_during_the_period" %}: {{ clicks }}</p>
+
+    {{ browser|json_script:"browserData" }}
+    {{ os|json_script:"osData" }}
+    {{ country|json_script:"countryData" }}
+    {{ city|json_script:"cityData" }}
     <div class="row mt-2">
       <div class="col-lg-3 col-md-6 col-12 mx-auto mt-2">
         <div class="card h-100">
           <div class="card-body">
             <h6 class="text-center"><strong>{% trans "Browsers" %}</strong></h6>
-            <canvas id="browserChart">
-              <div class="d-none">
-                {% for key, value in browser.items %}
-                  <input type="hidden" data-key="{{ key }}" data-value="{{ value }}">
-                {% endfor %}
-              </div>
-            </canvas>
+            <canvas id="browserChart"></canvas>
           </div>
         </div>
       </div>
@@ -79,13 +78,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h6 class="text-center"><strong>{% trans "OS" %}</strong></h6>
-            <canvas id="osChart">
-              <div class="d-none">
-                {% for key, value in os.items %}
-                  <input type="hidden" data-key="{{ key }}" data-value="{{ value }}">
-                {% endfor %}
-              </div>
-            </canvas>
+            <canvas id="osChart"></canvas>
           </div>
         </div>
       </div>
@@ -93,13 +86,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h6 class="text-center"><strong>{% trans "Countries" %}</strong></h6>
-            <canvas id="countryChart">
-              <div class="d-none">
-                {% for key, value in country.items %}
-                  <input type="hidden" data-key="{{ key }}" data-value="{{ value }}">
-                {% endfor %}
-              </div>
-            </canvas>
+            <canvas id="countryChart"></canvas>
           </div>
         </div>
       </div>
@@ -107,13 +94,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h6 class="text-center"><strong>{% trans "Cities" %}</strong></h6>
-            <canvas id="cityChart">
-              <div class="d-none">
-                {% for key, value in city.items %}
-                  <input type="hidden" data-key="{{ key }}" data-value="{{ value }}">
-                {% endfor %}
-              </div>
-            </canvas>
+            <canvas id="cityChart"></canvas>
           </div>
         </div>
       </div>
