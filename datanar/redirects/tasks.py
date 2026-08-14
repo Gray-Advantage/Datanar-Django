@@ -18,34 +18,31 @@ from users.models import User
 validator = URLValidator()
 
 
+def is_line_valid(line: str) -> bool:
+    try:
+        validator(line)
+        if line.count("http:") > 1 or line.count("https:") > 1:
+            raise ValidationError
+    except ValidationError:
+        return False
+    return True
+
+
 def get_from_txt(file_txt):
-    answer = []
-    for line in (x.lstrip().rstrip() for x in file_txt.readlines()):
-        try:
-            validator(line)
-            if line.count("http:") > 1 or line.count("https:") > 1:
-                raise ValidationError("")
-            answer.append(line)
-        except ValidationError:
-            pass
-    return answer
+    lines = (x.strip() for x in file_txt)
+    return list(filter(is_line_valid, lines))
 
 
 def get_from_xlsx(file_xlsx):
     workbook = openpyxl.load_workbook(file_xlsx.name)
     sheet = workbook.active
-    answer = []
-    for row in sheet.iter_rows(min_row=1, max_col=1, values_only=True):
-        if row[0]:
-            line = row[0].lstrip().rstrip()
-            try:
-                validator(line)
-                if line.count("http:") > 1 or line.count("https:") > 1:
-                    raise ValidationError("")
-                answer.append(line)
-            except ValidationError:
-                pass
-    return answer
+
+    lines = (
+        row[0].strip()
+        for row in sheet.iter_rows(min_row=1, max_col=1, values_only=True)
+        if row[0]
+    )
+    return list(filter(is_line_valid, lines))
 
 
 def get_links(file_path):
