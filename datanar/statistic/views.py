@@ -89,11 +89,12 @@ class LinkDetailView(LoginRequiredMixin, DetailView):
 
         return context
 
-    def _get_statistic(self, clicks, field):
+    @staticmethod
+    def _get_statistic(clicks, field):
+        unknown_label = gettext("Unknown")
         res = {}
         for click in clicks:
-            if (field_value := click.__dict__[field]) is None:
-                field_value = _("Unknown")
+            field_value = getattr(click, field) or unknown_label
             res[field_value] = res.get(field_value, 0) + 1
         return res
 
