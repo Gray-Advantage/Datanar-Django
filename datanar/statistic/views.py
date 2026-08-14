@@ -3,6 +3,7 @@ from io import BytesIO
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import FileResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
+from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.generic.detail import DetailView
@@ -77,12 +78,18 @@ class LinkDetailView(LoginRequiredMixin, DetailView):
                     clicks,
                     Click.browser.field.name,
                 ),
-                "os": self._get_statistic(clicks, Click.os.field.name),
+                "os": self._get_statistic(
+                    clicks,
+                    Click.os.field.name,
+                ),
                 "country": self._get_statistic(
                     clicks,
                     Click.country.field.name,
                 ),
-                "city": self._get_statistic(clicks, Click.city.field.name),
+                "city": self._get_statistic(
+                    clicks,
+                    Click.city.field.name,
+                ),
                 "clicks": clicks.count(),
             },
         )
