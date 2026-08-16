@@ -61,37 +61,34 @@ def get_links(file_path):
 
 @app.task()
 def create_redirects(data, user_id, host, ip_address):
-    links = get_links(data["links_file"])
-    del data["links_file"]
+    file_field_name = "links_file"
+    links = get_links(data.pop(file_field_name))
 
     answer = []
 
-    # Для первой ссылки используется custom_url, если есть, т.к. под капотом в
-    # data custom_url превратилось в short_link, то указываем это явно
-    first = True
-    # Начиная с второго у нас нет custom_url, поэтому удаляем, чтобы short_link
-    # генерировался сам
-    second = True
+    try:
+        user_creator = User.objects.get(id=user_id)
+    except User.DoesNotExist:
+        return answer
 
-    for long_link in links:
+    # Для первой ссылки используется short_link, если он есть.
+    # Начиная с второй у нас нет short_link,
+    # поэтому удаляем его, чтобы генерировался сам.
+
+    for i, long_link in enumerate(links):
         if BlockedDomain.objects.is_blocked(long_link):
             continue
 
         data[Redirect.long_link.field.name] = long_link
 
-        if first:
-            data["custom_url"] = data[Redirect.short_link.field.name]
-            first = False
-        elif second:
-            del data["custom_url"]
-            second = False
+        if i == 1:
+            data.pop(Redirect.short_link.field.name)
 
         form = RedirectFormExtended(data)
-        del form.cleaned_data["links_file"]
+        del form.cleaned_data[file_field_name]
 
         url_long_link = urlparse(long_link)
 
-        user_creator = User.objects.get(id=user_id)
         if url_long_link.netloc != host:
             redirect = Redirect.objects.create(**form.cleaned_data)
             redirect.create_method = Redirect.CreateMethod.WEB_FILE
