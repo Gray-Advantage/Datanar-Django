@@ -109,6 +109,7 @@ class Redirect(models.Model):
         help_text=_("when_bond_was_deactivated"),
         default=None,
         null=True,
+        blank=True,
     )
     ip_address = models.GenericIPAddressField(
         _("ip_address"),
