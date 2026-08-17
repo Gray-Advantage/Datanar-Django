@@ -1,7 +1,7 @@
 from typing import Any
 
-from django.shortcuts import reverse
 from django.test import Client, override_settings, TestCase
+from django.urls import reverse
 from django.utils import timezone
 
 from redirects.forms import RedirectForm, RedirectFormExtended

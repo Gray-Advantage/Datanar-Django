@@ -2,8 +2,8 @@ from datetime import datetime, timedelta
 from http import HTTPStatus
 from unittest.mock import patch
 
-from django.shortcuts import reverse
 from django.test import Client, TestCase
+from django.urls import reverse
 from django.utils import timezone
 
 from redirects import tasks

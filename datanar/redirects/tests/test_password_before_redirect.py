@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
-from django.shortcuts import reverse
 from django.test import Client, TestCase
+from django.urls import reverse
 
 from redirects.forms import PasswordForm
 from redirects.models import Redirect
