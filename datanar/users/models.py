@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.templatetags.static import static
 from django.utils.translation import gettext_lazy as _
 from sorl.thumbnail import delete, get_thumbnail
 
@@ -11,6 +12,12 @@ class User(AbstractUser):
         null=True,
         blank=True,
     )
+
+    @property
+    def avatar_url(self):
+        if self.avatar:
+            return self.get_large_avatar()
+        return static("img/default_user_avatar.jpg")
 
     def has_avatar(self):
         return self.avatar and self.avatar.url is not None
