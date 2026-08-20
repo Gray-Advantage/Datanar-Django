@@ -52,7 +52,7 @@
         </tr>
       </tbody>
     </table>
-    <div class="ms-auto me-auto mt-3">
+    <div class="mx-auto mt-3">
       <p class="text-center mb-1">{% trans "statistics_for" %}:</p>
       <a href="{% url 'statistic:link_detail' link "day" %}" class="btn {% if period == "day" %}btn-full{% else %}btn-outline{% endif %}">{% trans "day" %}</a>
       <a href="{% url 'statistic:link_detail' link "month" %}" class="btn {% if period == "month" %}btn-full{% else %}btn-outline{% endif %}">{% trans "month" %}</a>

@@ -19,7 +19,7 @@
         </p>
         {% url "account_confirm_email" confirmation.key as action_url %}
         <div class="d-flex">
-          <div class="ms-auto me-auto">
+          <div class="mx-auto">
             {% element form method="post" action=action_url %}
               {% slot actions %}
                 {% csrf_token %}

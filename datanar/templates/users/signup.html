@@ -1,15 +1,11 @@
-{% extends "base.html" %}
+{% extends "users/base_auth.html" %}
 {% load static %}
 {% load i18n %}
 
 {% block title %}{% trans "registration" %}{% endblock %}
 
-{% block css %}
-  <link rel="stylesheet" href="{% static 'css/users/user-auth.css' %}">
-{% endblock %}
-
 {% block content %}
   {% trans "greeting" as greeting %}
   {% trans "register" as register %}
-  {% include "includes/user_form.html" with title=greeting submit_text=register %}
+  {% include "users/forms/base_auth_form.html" with title=greeting submit_text=register %}
 {% endblock %}
