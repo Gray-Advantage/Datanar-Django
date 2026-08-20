@@ -291,7 +291,16 @@ pip install -r requirements/dev.txt
      ```bash
      python3 manage.py collectstatic
      ```
-5. И последние - создать суперпользователя (админа) сайта:
+5. Установите настройки домена и названия сайта
+   - Windows
+     ```bash
+     python manage.py init_site
+     ```
+   - macOS или Linux (Debian / Ubuntu)
+     ```bash
+     python3 manage.py init_site
+     ```
+6. И последние - создать суперпользователя (админа) сайта:
    - Windows
      ```bash
      python manage.py init_superuser

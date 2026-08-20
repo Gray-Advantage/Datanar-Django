@@ -30,7 +30,7 @@ class Command(BaseCommand):
             )
         else:
             self.stdout.write(
-                self.style.SUCCESS("Superuser already exist!"),
+                self.style.SUCCESS("Superuser already exists!"),
             )
 
 
