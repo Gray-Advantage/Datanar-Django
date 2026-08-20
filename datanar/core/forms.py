@@ -4,19 +4,17 @@ from django import forms
 class BootstrapFormMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        visible_fields = self.visible_fields()
+        is_single_field = len(visible_fields) == 1
 
-        if len(self.visible_fields()) == 1:
-            self.visible_fields()[0].field.widget.attrs["class"] = (
-                "form-control input-field-only-one"
-            )
-        else:
-            for field in self.visible_fields():
-                attrs = field.field.widget.attrs
-
-                if isinstance(field.field.widget, forms.CheckboxInput):
-                    attrs["class"] = "form-check-input"
-                else:
-                    attrs["class"] = "form-control input-field"
+        for field in visible_fields:
+            widget = field.field.widget
+            if is_single_field:
+                widget.attrs["class"] = "form-control input-field-only-one"
+            elif isinstance(widget, forms.CheckboxInput):
+                widget.attrs["class"] = "form-check-input"
+            else:
+                widget.attrs["class"] = "form-control input-field"
 
         self.update_errors_class()
 
@@ -25,11 +23,14 @@ class BootstrapFormMixin:
             if not self.errors.get(field.name):
                 continue
 
-            attrs = field.field.widget.attrs
-            if "is-invalid" not in attrs["class"]:
-                if len(attrs["class"]) > 0:
-                    attrs["class"] += " "
-                attrs["class"] += "is-invalid"
+            widget = field.field.widget
+            widget_classes = widget.attrs["class"]
+
+            if "is-invalid" not in widget_classes:
+                if len(widget_classes) > 0:
+                    widget_classes += " "
+                widget_classes += "is-invalid"
+                widget.attrs["class"] = widget_classes
 
     def add_error(self, field, error):
         super().add_error(field, error)
