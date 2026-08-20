@@ -1,37 +1,63 @@
-{% extends "base.html" %}
+{% extends "users/base_auth.html" %}
 {% load i18n %}
-{% load allauth %}
+
+{% block title %}{% trans "email_change" %}{% endblock %}
 
 {% block content %}
-  <div class="d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 ms-auto me-auto mt-5">
+  <div class="d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 mx-auto mt-5">
     {% include "includes/logo.html" %}
     <h1 class="h3 mb-3 fw-normal text-center">{% trans "email_change" %}</h1>
-    {% url 'account_email' as action_url %}
-    {% element form method="post" action=action_url %}
-      {% slot body %}
-        {% csrf_token %}
-        <div class="form-group d-flex flex-column">
+
+    {% if not emailaddresses %}
+      {% include "account/snippets/warn_no_email.html" %}
+    {% endif %}
+
+    <form class="form-user-auth" method="post" action="{% url 'account_email' %}">
+      {% csrf_token %}
+      <div class="form-group d-flex flex-column">
+        {% if current_emailaddress %}
           <div class="form-floating">
-            {% if new_emailaddress %}
-              <input type="email" name="email" placeholder="E-mail адрес" autocomplete="email" value="{{ new_emailaddress.email }}" maxlength="320" class="form-control input-field-only-one" readonly="" required="" id="id_email">
-              <label for="id_email">{% trans "Email" %}</label>
-            {% else %}
-              <input type="email" name="email" placeholder="E-mail адрес" autocomplete="email" maxlength="320" class="form-control input-field-only-one" required="" id="id_email">
-              <label for="id_email">{% trans "Email" %}</label>
-            {% endif %}
+            <input class="form-control input-field" id="current_email" type="email" value="{{ current_emailaddress.email }}" placeholder="" disabled>
+            <label for="current_email">{% trans 'Current email' %}</label>
           </div>
+        {% endif %}
+
+        {% if new_emailaddress %}
+          <div class="form-floating">
+            <input class="form-control input-field" id="new_email" type="email" value="{{ new_emailaddress.email }}" disabled>
+            <label for="new_email">{% trans "Changing to" %}</label>
+          </div>
+        {% else %}
+          <div class="form-floating">
+            <input class="form-control input-field" id="{{ form.email.auto_id }}" value="{{ form.email.value|default:'' }}" type="email" name="email" placeholder="" required>
+            <label for="{{ form.email.auto_id }}">{% trans "Change to" %}</label>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if form.email.errors %}
+        <div class="invalid-feedback d-block">
+          {{ form.email.errors|first }}
         </div>
-      {% endslot %}
-      {% slot actions %}
-        <div class="d-flex flex-column">
-          {% if new_emailaddress %}
-            <button class="btn btn-outline ms-auto me-auto mt-3 py-2" type="submit" name="action_send">{% trans "Re-send Verification" %}</button>
-            <button class="btn btn-outline-danger ms-auto me-auto mt-3 py-2" type="submit" name="action_remove">{% trans "Cancel" %}</button>
-          {% else %}
-            <button class="btn btn-outline ms-auto me-auto mt-3 py-2" type="submit" name="action_add">{% trans 'change_email' %}</button>
+      {% endif %}
+
+      <div class="d-flex flex-column">
+        {% if new_emailaddress %}
+          <p class="text-center mt-3 mb-0">{% blocktrans %}Your email address is still pending verification.{% endblocktrans %}</p>
+          <button class="btn btn-outline mx-auto mt-3 py-2" type="submit" name="action_send" form="pending-email">{% trans "Re-send Verification" %}</button>
+          {% if current_emailaddress %}
+            <button class="btn btn-outline-danger mx-auto mt-3 py-2" type="submit" name="action_remove" form="pending-email">{% trans "Cancel" %}</button>
           {% endif %}
-        </div>
-      {% endslot %}
-    {% endelement %}
+        {% else %}
+          <button class="btn btn-outline mx-auto mt-3 py-2" type="submit" name="action_add">{% trans "change_email" %}</button>
+        {% endif %}
+      </div>
+    </form>
   </div>
+  {% if new_emailaddress %}
+    <form id="pending-email" method="post" action="{% url 'account_email' %}">
+      {% csrf_token %}
+      <input type="hidden" name="email" value="{{ new_emailaddress.email }}">
+    </form>
+  {% endif %}
 {% endblock %}
