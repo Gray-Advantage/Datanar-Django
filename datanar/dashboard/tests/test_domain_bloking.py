@@ -8,10 +8,10 @@ class DomainBlockingTest(TestCase):
         BlockedDomain.objects.create(domain_regex=domain_regex)
 
     def is_blocked(self, url):
-        return self.assertEqual(BlockedDomain.objects.is_blocked(url), True)
+        self.assertEqual(BlockedDomain.objects.is_blocked(url), True)
 
     def is_not_blocked(self, url):
-        return self.assertEqual(BlockedDomain.objects.is_blocked(url), False)
+        self.assertEqual(BlockedDomain.objects.is_blocked(url), False)
 
     def test_subdomain_shortcut(self):
         self.create_blocking("||example.com#")

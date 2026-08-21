@@ -16,7 +16,7 @@ class Command(BaseCommand):
         )
         site_name = settings.SITE_NAME
 
-        site, created = Site.objects.update_or_create(
+        _, created = Site.objects.update_or_create(
             pk=site_id,
             defaults={
                 Site.domain.field.name: site_domain,
