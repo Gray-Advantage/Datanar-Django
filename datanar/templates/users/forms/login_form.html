@@ -4,7 +4,11 @@
 
 {% block extra_actions %}
   <div class="mx-auto mt-3">
-    <p class="text-center">{% trans "dont_have_account_yet" %} <a href="{% url 'users:signup' %}" class="text-center">{% trans "create_it" %}</a></p>
-    <p class="text-center"><a href="{% url 'users:password_reset' %}" class="text-center">{% trans "forgot_password" %}</a></p>
+    <p class="text-center">
+      {% trans "dont_have_account_yet" %} <a href="{% url 'users:signup' %}" class="text-center">{% trans "create_it" %}</a>
+    </p>
+    <p class="text-center">
+      <a href="{% url 'users:password_reset' %}" class="text-center">{% trans "forgot_password" %}</a>
+    </p>
   </div>
 {% endblock %}

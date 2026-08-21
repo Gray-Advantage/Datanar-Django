@@ -29,12 +29,12 @@
 
     {% for field in form %}
       {% if field.field.widget.input_type == "checkbox" %}
-      <div class="form-check mx-auto mt-3">
-        {{ field }}
-        <label class="form-check-label" for="{{ field.id_for_label }}">
-          {{ field.label }}
-        </label>
-      </div>
+        <div class="form-check mx-auto mt-3">
+          {{ field }}
+          <label class="form-check-label" for="{{ field.id_for_label }}">
+            {{ field.label }}
+          </label>
+        </div>
       {% endif %}
     {% endfor %}
 

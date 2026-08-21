@@ -19,7 +19,9 @@
              class="rounded-circle cursor-pointer object-fit-cover"
              width="200" height="200">
         {% if request.user.has_avatar %}
-          <button type="button" id="delete_avatar" class="btn btn-outline-danger btn-sm mt-2">{% trans "delete_avatar" %}</button>
+          <button type="button" id="delete_avatar" class="btn btn-outline-danger btn-sm mt-2">
+            {% trans "delete_avatar" %}
+          </button>
         {% endif %}
       </div>
       <div class="d-flex w-100 ms-0 ms-sm-4 flex-column">

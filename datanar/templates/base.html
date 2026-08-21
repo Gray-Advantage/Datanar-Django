@@ -5,38 +5,32 @@
 <!DOCTYPE html>
 
 <html lang="ru" data-bs-theme="auto">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}{% endblock %}</title>
+  <title>{% block title %}{% endblock %}</title>
 
-    <script src="{% static 'js/colorToggler.js' %}"></script>
+  <script src="{% static 'js/colorToggler.js' %}"></script>
 
-    <link rel="icon" type="image/ico" href="{% static 'img/favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-icons.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/datanar-style.css' %}">
-    {% block css %}
+  <link rel="icon" type="image/ico" href="{% static 'img/favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-icons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/datanar-style.css' %}">
+  {% block css %}{% endblock %}
+</head>
 
-    {% endblock %}
-  </head>
+<body class="container d-flex flex-column min-vh-100">
+{% include "includes/header.html" %}
 
-  <body class="container d-flex flex-column min-vh-100">
-    {% include "includes/header.html" %}
+<main class="flex-grow-1 d-flex flex-column">
+  {% block content %}{% endblock %}
+</main>
 
-    <main class="flex-grow-1 d-flex flex-column">
-      {% block content %}
+{% include "includes/footer.html" %}
 
-      {% endblock %}
-    </main>
-
-    {% include "includes/footer.html" %}
-
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    {% block js %}
-
-    {% endblock %}
-    {% tz_detect %}
-  </body>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% block js %}{% endblock %}
+{% tz_detect %}
+</body>
 </html>
