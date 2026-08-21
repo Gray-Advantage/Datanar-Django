@@ -1,3 +1,4 @@
+from datetime import timedelta
 from typing import Optional
 
 from django.conf import settings
@@ -129,16 +130,14 @@ class Redirect(models.Model):
         if not self.validity_days:
             return False
         return (
-            self.created_at + timezone.timedelta(days=self.validity_days)
+            self.created_at + timedelta(days=self.validity_days)
             < timezone.now()
         )
 
     def is_deactivation_expired(self) -> bool:
         if self.is_active or self.deactivated_at is None:
             return False
-        return (
-            self.deactivated_at + timezone.timedelta(days=10)
-        ) < timezone.now()
+        return (self.deactivated_at + timedelta(days=10)) < timezone.now()
 
     def reactivate(self):
         self.is_active = True

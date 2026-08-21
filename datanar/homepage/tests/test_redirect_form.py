@@ -1,3 +1,4 @@
+from datetime import timedelta
 from typing import Any
 
 from django.test import Client, override_settings, TestCase
@@ -85,9 +86,7 @@ class RedirectFormTest(TestCase):
         data = self.form_data.copy()
         data[Redirect.validity_days.field.name] = (
             timezone.now()
-            + timezone.timedelta(
-                days=data[Redirect.validity_days.field.name],
-            )
+            + timedelta(days=data[Redirect.validity_days.field.name])
         ).date()
 
         self.client.post(reverse("homepage:home"), data=data)

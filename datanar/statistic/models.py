@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -22,17 +24,17 @@ class ClickManager(models.Manager):
 
     def for_short_link_by_last_year(self, short_link):
         return self.for_short_link_by_all_time(short_link).filter(
-            clicked_at__gte=timezone.now() - timezone.timedelta(days=365),
+            clicked_at__gte=timezone.now() - timedelta(days=365),
         )
 
     def for_short_link_by_last_month(self, short_link):
         return self.for_short_link_by_all_time(short_link).filter(
-            clicked_at__gte=timezone.now() - timezone.timedelta(days=30),
+            clicked_at__gte=timezone.now() - timedelta(days=30),
         )
 
     def for_short_link_by_last_day(self, short_link):
         return self.for_short_link_by_all_time(short_link).filter(
-            clicked_at__gte=timezone.now() - timezone.timedelta(days=1),
+            clicked_at__gte=timezone.now() - timedelta(days=1),
         )
 
 

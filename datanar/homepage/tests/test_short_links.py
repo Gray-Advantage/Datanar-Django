@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 from http import HTTPStatus
 from unittest.mock import patch
 
@@ -161,8 +161,8 @@ class TestShortLinks(TestCase):
 
     @patch.object(timezone, "now")
     def test_create_redirect_with_same_long_link(self, mock_now):
-        now = datetime.datetime.now()
-        future_time = now + datetime.timedelta(days=365)
+        now = datetime.now()
+        future_time = now + timedelta(days=365)
         mock_now.return_value = timezone.make_aware(now)
 
         self.client.post(

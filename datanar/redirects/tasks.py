@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -128,8 +129,7 @@ def clear_redirects():
         redirect = redirect.filter(
             created_at__lt=ExpressionWrapper(
                 timezone.now()
-                - F(Redirect.validity_days.field.name)
-                * timezone.timedelta(days=1),
+                - F(Redirect.validity_days.field.name) * timedelta(days=1),
                 output_field=DurationField(),
             ),
         )
@@ -142,7 +142,7 @@ def clear_redirects():
     # Удаление деактивированных редиректов, чей срок больше 10 дней
     Redirect.objects.filter(
         is_active=False,
-        deactivated_at__lt=timezone.now() - timezone.timedelta(days=10),
+        deactivated_at__lt=timezone.now() - timedelta(days=10),
     ).delete()
 
 
