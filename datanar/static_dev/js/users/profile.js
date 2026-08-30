@@ -23,7 +23,7 @@ document.getElementById("avatar-clear_id")?.addEventListener("change", () => {
     submit_button.classList.remove("d-none");
 });
 
-document.getElementById("id_username").addEventListener("change", () => {
+document.getElementById("id_username").addEventListener("input", () => {
     submit_button.classList.remove("d-none")
 });
 

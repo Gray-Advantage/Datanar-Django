@@ -17,6 +17,8 @@ urlpatterns = [
     path("", include("redirects.urls")),
 ]
 
+handler500 = "core.views.server_error"
+
 if settings.DEBUG and not settings.TEST:
     import debug_toolbar
 

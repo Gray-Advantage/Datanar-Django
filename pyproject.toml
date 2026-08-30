@@ -1,13 +1,13 @@
 [project]
 name = "datanar-django"
-version = "2.5.4"
-description = "сервис по сокращению ссылок на базе Django и Bootstrap"
+version = "2.6.1"
+description = "Сервис по сокращению ссылок на базе Django и Bootstrap"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.14"
 dependencies = [
     "antispam-link-shorteners==0.2.1",
     "celery==5.6.3",
-    "django==4.2.30",
+    "django==5.2.17",
     "django-allauth==65.14.3",
     "django-cleanup==9.0.0",
     "django-settings-export==1.2.1",
@@ -31,12 +31,25 @@ dev = [
     "celery-types>=0.23.0",
 ]
 test = [
+    "black==25.9.0",
     "django-debug-toolbar==6.1.0",
+    "flake8==7.3.0",
+    "flake8-absolute-import==1.0.0.3",
+    "flake8-bugbear==25.11.29",
+    "flake8-commas==4.0.0",
+    "flake8-comments==0.1.2",
+    "flake8-comprehensions==3.17.0",
+    "flake8-dunder-all==0.5.0",
+    "flake8-import-order==0.19.2",
+    "flake8-no-pep420==2.9.0",
+    "flake8-pyproject==1.2.4",
+    "flake8-quotes==3.4.0",
     "parameterized==0.9.0",
 ]
 
 [tool.ruff]
 line-length = 79
+target-version = "py313"
 extend-exclude = ["migrations", "manage.py"]
 
 [tool.ruff.format]
@@ -46,6 +59,9 @@ quote-style = "double"
 [tool.ruff.lint]
 select = [
     "A",
+    "ASYNC",
+    "BLE",
+    "C",
     "C4",
     "COM",
     "DJ",
@@ -54,14 +70,17 @@ select = [
     "ERA",
     "F",
     "FIX",
+    "FLY",
     "FURB",
     "G",
     "I",
     "ICN",
+    "INP",
     "ISC",
     "LOG",
     "N",
     "PERF",
+    "PGH",
     "PIE",
     "PLE",
     "PLW",
@@ -71,6 +90,7 @@ select = [
     "RSE",
     "RUF",
     "SIM",
+    "SLF",
     "T20",
     "TID",
     "UP",
@@ -104,3 +124,24 @@ multiline-quotes = "double"
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
+
+[tool.black]
+line-length = 79
+extend-exclude = "/(migrations)/"
+
+[tool.flake8]
+max-line-length = 79
+inline-quotes = "double"
+import-order-style = "google"
+extend-exclude = ["migrations", "manage.py"]
+application-import-names = [
+    "api",
+    "core",
+    "dashboard",
+    "datanar",
+    "homepage",
+    "qr_codes",
+    "redirects",
+    "statistic",
+    "users",
+]
