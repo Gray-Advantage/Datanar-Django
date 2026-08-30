@@ -1,5 +1,3 @@
-from typing import Optional
-
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
@@ -7,8 +5,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class RedirectManager(models.Manager):
-    def get_by_short_link(self, short_link: str) -> Optional["Redirect"]:
-        redirect: Optional[Redirect] = (
+    def get_by_short_link(self, short_link: str) -> "Redirect | None":
+        redirect: Redirect | None = (
             self.get_queryset()
             .filter(short_link=short_link)
             .annotate(clicks_count=models.Count("click"))

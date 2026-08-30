@@ -16,12 +16,13 @@ from statistic.models import Click
 
 
 def get_clicks_by_mode(short_link, mode):
-    if mode in ["year", "month", "day"]:
-        return eval(
-            f"Click.objects.for_short_link_by_last_{mode}('{short_link}')",
-            {"Click": Click},
-        )
-    return Click.objects.for_short_link_by_all_time(short_link)
+    by_mode = {
+        "year": Click.objects.for_short_link_by_last_year,
+        "month": Click.objects.for_short_link_by_last_month,
+        "day": Click.objects.for_short_link_by_last_day,
+    }
+    getter = by_mode.get(mode, Click.objects.for_short_link_by_all_time)
+    return getter(short_link)
 
 
 class MyLinksView(

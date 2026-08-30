@@ -10,57 +10,70 @@ permissions:
   contents: read
 
 jobs:
-  ruff-check:
+  ruff:
     runs-on: ubuntu-latest
-    container: python:3.12.14-alpine
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
       - name: Install ruff
-        run: pip install ruff
+        run: pip install -r requirements/test.txt
       - name: Run ruff check
         run: ruff check --show-fixes ./datanar
-
-  ruff-format:
-    runs-on: ubuntu-latest
-    container: python:3.12.14-alpine
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install ruff
-        run: pip install ruff
       - name: Run ruff format check
         run: ruff format --check --diff ./datanar
 
-  django-py312-test:
+  flake8:
     runs-on: ubuntu-latest
-    container: python:3.12.14-alpine
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
       - name: Install dependencies
-        run: pip install -r requirements/dev.txt
-      - name: Run Django tests
-        run: |
-          cd ./datanar
-          python manage.py test
+        run: pip install -r requirements/test.txt
+      - name: Run flake8
+        run: flake8 ./datanar
 
-  django-py39-test:
+  black:
     runs-on: ubuntu-latest
-    container: python:3.9-alpine
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+      - name: Install black
+        run: pip install -r requirements/test.txt
+      - name: Check code formatting with black
+        run: black ./datanar --check --diff
+
+  django-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        python-version: [ "3.10", "3.11", "3.12", "3.13" ]
+    name: django (${{ matrix.os }}, py${{ matrix.python-version }})
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: pip install -r requirements/dev.txt
       - name: Run Django tests
-        run: |
-          cd ./datanar
-          python manage.py test
+        working-directory: ./datanar
+        run: python manage.py test
 
   prod-deploy:
     if: github.ref == 'refs/heads/main'
-    needs: [ ruff-check, ruff-format, django-py312-test, django-py39-test ]
+    needs: [ ruff, flake8, black, django-test ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Deploy to server
         uses: appleboy/ssh-action@master
@@ -71,7 +84,7 @@ jobs:
           script: |
             cd ~/datanar
             docker compose down
-            git reset --hard origin/main  
+            git reset --hard origin/main
             git pull origin main
             docker compose up --build -d
             docker system prune -a -f --volumes
