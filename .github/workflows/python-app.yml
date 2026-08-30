@@ -12,7 +12,7 @@ permissions:
 jobs:
   black-test:
     runs-on: ubuntu-latest
-    container: python:3.12-alpine
+    container: python:3.12.14-alpine
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
@@ -22,7 +22,7 @@ jobs:
 
   flake8-test:
     runs-on: ubuntu-latest
-    container: python:3.12-alpine
+    container: python:3.12.14-alpine
     steps:
     - uses: actions/checkout@v3
     - name: Install dependencies
@@ -32,7 +32,7 @@ jobs:
 
   django-test:
     runs-on: ubuntu-latest
-    container: python:3.12-alpine
+    container: python:3.12.14-alpine
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
