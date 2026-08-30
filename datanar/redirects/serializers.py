@@ -46,4 +46,4 @@ class RedirectCreateSerializer(serializers.Serializer):
         return Redirect.objects.create(**validated_data)
 
 
-__all__ = [RedirectSerializer, RedirectCreateSerializer]
+__all__ = ["RedirectSerializer", "RedirectCreateSerializer"]

@@ -61,4 +61,4 @@ class Click(models.Model):
     city = models.TextField(verbose_name=_("city"), null=True)
 
 
-__all__ = [Click]
+__all__ = ["Click"]

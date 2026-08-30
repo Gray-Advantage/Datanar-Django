@@ -43,4 +43,4 @@ class PasswordChangeDoneView(views.PasswordChangeDoneView):
     pass
 
 
-__all__ = [AccountView, PasswordChangeDoneView]
+__all__ = ["AccountView", "PasswordChangeDoneView"]

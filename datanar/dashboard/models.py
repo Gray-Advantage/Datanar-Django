@@ -52,4 +52,4 @@ class BlockedDomain(models.Model):
         return _("domain_regex").capitalize()
 
 
-__all__ = [BlockedDomain]
+__all__ = ["BlockedDomain"]

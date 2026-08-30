@@ -52,4 +52,4 @@ class QRCodeDownload(View):
         return response
 
 
-__all__ = [QRCodePreview, QRCodeDownload]
+__all__ = ["QRCodePreview", "QRCodeDownload"]
