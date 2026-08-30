@@ -21,6 +21,10 @@
   - [DATANAR_SUPERUSER_NAME](#datanar_superuser_name)
   - [DATANAR_SUPERUSER_EMAIL](#datanar_superuser_email)
   - [DATANAR_SUPERUSER_PASSWORD](#datanar_superuser_password)
+- [Конфигурация сайта](#конфигурация-сайта)
+  - [DATANAR_SITE_ID](#datanar_site_id)
+  - [DATANAR_SITE_DOMAIN](#datanar_site_domain)
+  - [DATANAR_SITE_NAME](#datanar_site_name)
 - [База данных](#база-данных)
   - [DATANAR_USE_FILE_DATABASE](#datanar_use_file_database)
   - [DATANAR_DATABASE_NAME](#datanar_database_name)
@@ -123,6 +127,18 @@
 ### DATANAR_SUPERUSER_PASSWORD
 - **Пароль** суперпользователя с логином
   [`DATANAR_SUPERUSER_NAME`](#datanar_superuser_name)
+
+## Конфигурация сайта
+### DATANAR_SITE_ID
+- Этот параметр указывает, какой сайт из таблицы django_site используется в проекте,
+  по умолчанию равен `1`
+### DATANAR_SITE_DOMAIN
+- Домен сайта, который будет сохранён в таблицу django_site, 
+  по умолчанию используется значение `datanar.ru`
+### DATANAR_SITE_NAME
+- Название сайта, связанное с доменом из [`DATANAR_SITE_DOMAIN`](#datanar_site_domain), 
+  может отображаться в административной панели или в письмах, 
+  по умолчанию используется значение `Datanar`
 
 ## База данных
 ### DATANAR_USE_FILE_DATABASE
