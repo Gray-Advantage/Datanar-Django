@@ -140,4 +140,4 @@ class Redirect(models.Model):
         return _("redirect").capitalize()
 
 
-__all__ = [Redirect]
+__all__ = ["Redirect"]

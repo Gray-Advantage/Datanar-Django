@@ -11,7 +11,6 @@ from core.forms import BootstrapFormMixin
 from dashboard.models import BlockedDomain
 from redirects.models import Redirect
 
-
 sqids = Sqids()
 
 
@@ -204,4 +203,4 @@ class PasswordForm(BootstrapFormMixin, forms.Form):
     )
 
 
-__all__ = [RedirectForm, RedirectFormExtended, PasswordForm]
+__all__ = ["RedirectForm", "RedirectFormExtended", "PasswordForm"]
