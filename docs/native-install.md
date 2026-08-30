@@ -121,7 +121,7 @@
 
 ### Windows
 1. Скачать [установщик](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
-   (рекомендуемая версия 16, но можно и 15)
+   (рекомендуемая версия 18, но можно и 17)
 2. Запустить установщик и следовать инструкциям на экране,
    вас попросят придумать и ввести пароль для суперпользователя, запомните его
 3. Откройте терминал
@@ -297,7 +297,16 @@ pip install -r requirements/dev.txt
      ```bash
      python3 manage.py collectstatic
      ```
-5. И последние - создать суперпользователя (админа) сайта:
+5. Установите настройки домена и названия сайта
+   - Windows
+     ```bash
+     python manage.py init_site
+     ```
+   - macOS или Linux (Debian / Ubuntu)
+     ```bash
+     python3 manage.py init_site
+     ```
+6. И последние - создать суперпользователя (админа) сайта:
    - Windows
      ```bash
      python manage.py init_superuser
