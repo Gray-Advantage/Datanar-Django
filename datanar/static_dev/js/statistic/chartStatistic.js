@@ -1,48 +1,47 @@
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))  // включить подсказки
+// Включение тултипов Bootstrap
+const tooltipTriggerList = document.querySelectorAll(
+    '[data-bs-toggle="tooltip"]'
+);
+const tooltipList = [...tooltipTriggerList].map(
+    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+);
 
-const browserCanvas = document.getElementById("browserChart").getContext("2d");
-const browserData = document.querySelectorAll('#browserChart input[type="hidden"]');
+const chartsConfig = [
+  {scriptId: "browserData", canvasId: "browserChart"},
+  {scriptId: "osData", canvasId: "osChart"},
+  {scriptId: "countryData", canvasId: "countryChart"},
+  {scriptId: "cityData", canvasId: "cityChart"},
+];
 
-const osCanvas = document.getElementById("osChart").getContext("2d");
-const osData = document.querySelectorAll('#osChart input[type="hidden"]');
+chartsConfig.forEach(({scriptId, canvasId}) => {
+  const scriptElement = document.getElementById(scriptId);
+  const canvasElement = document.getElementById(canvasId);
 
-const countryCanvas = document.getElementById("countryChart").getContext("2d");
-const countryData = document.querySelectorAll('#countryChart input[type="hidden"]');
+  if (!scriptElement || !canvasElement) return;
 
-const cityCanvas = document.getElementById("cityChart").getContext("2d");
-const cityData = document.querySelectorAll('#cityChart input[type="hidden"]');
+  const rawData = JSON.parse(scriptElement.textContent || "{}");
 
-[
-  [browserCanvas, browserData],
-  [osCanvas, osData],
-  [countryCanvas, countryData],
-  [cityCanvas, cityData],
-].forEach(elem => {
-  let labels = [];
-  let data = [];
+  const labels = Object.keys(rawData);
+  const data = Object.values(rawData);
 
-  elem[1].forEach(input => {
-    labels.push(input.getAttribute("data-key"));
-    data.push(input.getAttribute("data-value"));
-  });
-
-  new Chart(elem[0], {
+  new Chart(canvasElement.getContext("2d"), {
     type: "pie",
     data: {
       labels: labels,
-      datasets: [{
-        data: data,
-        borderWidth: 1
-      }]
+      datasets: [
+        {
+          data: data,
+          borderWidth: 1,
+        },
+      ],
     },
     options: {
       plugins: {
         legend: {
-          display: false
+          display: false,
         },
       },
       responsive: true,
-    }
+    },
   });
 });

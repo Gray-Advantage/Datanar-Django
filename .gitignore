@@ -1,21 +1,27 @@
-__pycache__/
-*.py[cod]
-*.pyc
-*$py.class
-
-for_docker/nginx_certificates
-for_docker/postgres_data
-for_docker/logs
+# Datanar
+nginx_certificates/
+postgres_data/
+geo_ip/
 static/
 media/
 logs/
 
+*.mmdb
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
 *.so
-*.sqlite3
+
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
 dist/
+downloads/
 eggs/
 .eggs/
 lib/
@@ -30,21 +36,21 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# PyInstaller
 *.manifest
 *.spec
 
+# Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Unit test / coverage reports
 htmlcov/
 .tox/
 .nox/
 .coverage
 .coverage.*
 .cache
-cache/
-/cache/
-cache
 nosetests.xml
 coverage.xml
 *.cover
@@ -53,45 +59,60 @@ coverage.xml
 .pytest_cache/
 cover/
 
+# Translations
 *.mo
 *.pot
 
+# Django stuff:
 *.log
+*.sqlite3
+*.sqlite3-journal
 local_settings.py
-db.sqlite3-journal
 
+# Flask stuff:
 instance/
 .webassets-cache
 
+# Scrapy stuff:
 .scrapy
 
+# Sphinx documentation
 docs/_build/
 
+# PyBuilder
 .pybuilder/
 target/
 
+# Jupyter Notebook
 .ipynb_checkpoints
 
+# IPython
 profile_default/
 ipython_config.py
 
-.python-version
-
+# pipenv
 Pipfile.lock
 
+# poetry
 poetry.lock
 
+# pdm
 pdm.lock
-
 .pdm.toml
+.pdm-python
+.pdm-build/
 
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
 
+# Celery stuff
 celerybeat-schedule
 celerybeat.pid
 
+# SageMath parsed files
 *.sage.py
 
+# Environments
 .env
 .venv
 env/
@@ -100,22 +121,30 @@ ENV/
 env.bak/
 venv.bak/
 
+# Spyder project settings
 .spyderproject
 .spyproject
 
+# Rope project settings
 .ropeproject
 
+# mkdocs documentation
 /site
 
+# mypy
 .mypy_cache/
 .dmypy.json
 dmypy.json
 
+# Pyre type checker
 .pyre/
 
+# pytype static type analyzer
 .pytype/
 
+# Cython debug symbols
 cython_debug/
 
+# IDE
 .idea/
 .vscode/

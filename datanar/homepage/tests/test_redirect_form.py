@@ -1,5 +1,7 @@
-from django.shortcuts import reverse
+from typing import Any
+
 from django.test import Client, override_settings, TestCase
+from django.urls import reverse
 from django.utils import timezone
 
 from redirects.forms import RedirectForm, RedirectFormExtended
@@ -10,13 +12,13 @@ from users.models import User
 class RedirectFormTest(TestCase):
     def setUp(self):
         self.client = Client()
-        self.user_data = {
+        self.user_data: dict[str, Any] = {
             "username": "TestUser",
             "email": "test_user@email.com",
             "password1": "some_password_123!",
             "password2": "some_password_123!",
         }
-        self.form_data = {
+        self.form_data: dict[str, Any] = {
             "long_link": "https://lyceum.yandex.ru/",
             "password": "qwerty",
             "validity_days": 130,
@@ -58,7 +60,7 @@ class RedirectFormTest(TestCase):
         form_data.update(
             {
                 "user": None,
-                "password": None,
+                "password": "",
                 "validity_clicks": None,
                 "validity_days": Redirect.validity_days.field.default,
             },
@@ -81,10 +83,13 @@ class RedirectFormTest(TestCase):
         user = User.objects.get(username=self.user_data["username"])
 
         data = self.form_data.copy()
-        data["date_validity_field"] = (
-            timezone.now() + timezone.timedelta(days=data["validity_days"])
+        data[Redirect.validity_days.field.name] = (
+            timezone.now()
+            + timezone.timedelta(
+                days=data[Redirect.validity_days.field.name],
+            )
         ).date()
-        del data["validity_days"]
+
         self.client.post(reverse("homepage:home"), data=data)
 
         redirect = Redirect.objects.all().first()

@@ -1,13 +1,13 @@
 from pathlib import Path
 import sys
 
-from decouple import config, strtobool
+from decouple import config
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "2.5.5"
+VERSION = "2.6.0"
 API_VERSION = "1.2.0"
 
 SECRET_KEY = config(
@@ -16,9 +16,8 @@ SECRET_KEY = config(
     cast=str,
 )
 
-DEBUG = bool(strtobool(config("DATANAR_DJANGO_DEBUG", "False")))
-
-NOT_TESTING = "test" not in sys.argv
+DEBUG = config("DATANAR_DJANGO_DEBUG", False, cast=bool)
+TEST = "test" in sys.argv
 
 LOG_FILE_PATH = config("DATANAR_LOG_FILE_PATH", default="", cast=str)
 
@@ -52,7 +51,7 @@ ALLOWED_HOSTS = config(
     cast=lambda line: line.split(","),
 )
 
-CSRF_TRUSTED_ORIGINS = list(map(lambda x: f"https://{x}", ALLOWED_HOSTS))
+CSRF_TRUSTED_ORIGINS = [f"https://{x}" for x in ALLOWED_HOSTS]
 CSRF_FAILURE_VIEW = "core.views.csrf_failure"
 
 INSTALLED_APPS = [
@@ -94,7 +93,7 @@ MIDDLEWARE = [
     "tz_detect.middleware.TimezoneMiddleware",
 ]
 
-if settings.DEBUG and NOT_TESTING:
+if settings.DEBUG and not TEST:
     INSTALLED_APPS.append("debug_toolbar")
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
     INTERNAL_IPS = ["127.0.0.1"]
@@ -117,7 +116,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "django_settings_export.settings_export",
-                "core.context_processor.server_url",
+                "core.context_processors.server_url",
             ],
         },
     },
@@ -125,8 +124,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "datanar.wsgi.application"
 
-USE_FILE_DATABASE = strtobool(
-    config("DATANAR_USE_FILE_DATABASE", default="True"),
+USE_FILE_DATABASE = config(
+    "DATANAR_USE_FILE_DATABASE",
+    default=True,
+    cast=bool,
 )
 
 DATABASES = {
@@ -182,8 +183,10 @@ AUTHENTICATION_BACKENDS = [
 
 AUTH_USER_MODEL = "users.User"
 
-DEFAULT_USER_IS_ACTIVE = bool(
-    strtobool(config("DATANAR_DEFAULT_USER_IS_ACTIVE", default="False")),
+DEFAULT_USER_IS_ACTIVE = config(
+    "DATANAR_DEFAULT_USER_IS_ACTIVE",
+    default=False,
+    cast=bool,
 )
 
 LOGIN_URL = "/auth/login/"

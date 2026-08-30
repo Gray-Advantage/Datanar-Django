@@ -3,6 +3,7 @@ from io import BytesIO
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import FileResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
+from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.generic.detail import DetailView
@@ -15,12 +16,13 @@ from statistic.models import Click
 
 
 def get_clicks_by_mode(short_link, mode):
-    if mode in ["year", "month", "day"]:
-        return eval(
-            f"Click.objects.for_short_link_by_last_{mode}('{short_link}')",
-            {"Click": Click},
-        )
-    return Click.objects.for_short_link_by_all_time(short_link)
+    by_mode = {
+        "year": Click.objects.for_short_link_by_last_year,
+        "month": Click.objects.for_short_link_by_last_month,
+        "day": Click.objects.for_short_link_by_last_day,
+    }
+    getter = by_mode.get(mode, Click.objects.for_short_link_by_all_time)
+    return getter(short_link)
 
 
 class MyLinksView(
@@ -77,23 +79,30 @@ class LinkDetailView(LoginRequiredMixin, DetailView):
                     clicks,
                     Click.browser.field.name,
                 ),
-                "os": self._get_statistic(clicks, Click.os.field.name),
+                "os": self._get_statistic(
+                    clicks,
+                    Click.os.field.name,
+                ),
                 "country": self._get_statistic(
                     clicks,
                     Click.country.field.name,
                 ),
-                "city": self._get_statistic(clicks, Click.city.field.name),
+                "city": self._get_statistic(
+                    clicks,
+                    Click.city.field.name,
+                ),
                 "clicks": clicks.count(),
             },
         )
 
         return context
 
-    def _get_statistic(self, clicks, field):
+    @staticmethod
+    def _get_statistic(clicks, field):
+        unknown_label = gettext("Unknown")
         res = {}
         for click in clicks:
-            if (field_value := click.__dict__[field]) is None:
-                field_value = _("Unknown")
+            field_value = getattr(click, field) or unknown_label
             res[field_value] = res.get(field_value, 0) + 1
         return res
 
@@ -145,4 +154,4 @@ class DownloadStatistic(View):
         )
 
 
-__all__ = ["MyLinksView", "LinkDetailView", "DownloadStatistic"]
+__all__ = ["DownloadStatistic", "LinkDetailView", "MyLinksView"]
