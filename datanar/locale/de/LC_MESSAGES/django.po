@@ -1077,7 +1077,7 @@ msgstr "Tretjakov Artem"
 
 #: .\templates\homepage\about.html:74
 msgid "github_project"
-msgstr "Projekt auf Github"
+msgstr "Projekt auf GitHub"
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"

@@ -7,19 +7,19 @@
 - [Установка Python](#установка-python)
 - [Установка Git](#установка-git)
   - [Windows](#windows)
-  - [MacOS](#macos)
+  - [macOS](#macos)
   - [Linux](#linux-debian--ubuntu)
 - [Установка gettext](#установка-gettext)
   - [Windows](#windows-1)
-  - [MacOS](#macos-1)
+  - [macOS](#macos-1)
   - [Linux](#linux-debian--ubuntu-1)
 - [Установка Redis](#установка-redis)
   - [Windows](#windows-2)
-  - [MacOS](#macos-2)
+  - [macOS](#macos-2)
   - [Linux](#linux-debian--ubuntu-2)
 - [Установка Postgres](#установка-postgresql)
   - [Windows](#windows-3)
-  - [MacOS](#macos-3)
+  - [macOS](#macos-3)
   - [Linux](#linux-debian--ubuntu-3)
 - [Клонирование репозитория](#клонирование-репозитория)
 - [Установка виртуального окружения](#установка-виртуального-окружения)
@@ -32,7 +32,7 @@
   
 Если у вас его еще нет, вы можете скачать его с официального 
 [сайта](https://www.python.org/downloads/), рекомендуется установить версию в 
-диапазоне 3.9 - 3.13 (но лучше всё же 3.12)
+диапазоне 3.10 - 3.13 (но лучше всё же 3.13)
 
 ## Установка Git
 ### Windows
@@ -40,7 +40,7 @@
    [сайта](https://git-scm.com/download/win)
 2. Запустите установщик и следуйте инструкциям на экране
 
-### MacOS
+### macOS
 1. Откройте терминал
 2. Установите Git с помощью [Homebrew](https://brew.sh/ru/):
    ```bash
@@ -68,7 +68,7 @@
    gettext для windows
 2. Запустите установщик и следуйте инструкциям на экране
 
-### MacOS
+### macOS
 1. Откройте терминал
 2. Установите gettext с помощью [Homebrew](https://brew.sh/ru/):
    ```bash
@@ -95,7 +95,7 @@
    и запустить установщик msi (от имени администратора). В диспетчере задач в
    службах должна появиться служба `Memurai`
 
-### MacOS
+### macOS
 1. Откройте терминал
 2. Установите Redis с помощью [Homebrew](https://brew.sh/ru/):
    ```bash
@@ -113,11 +113,11 @@
    sudo apt install redis
    ```
 
-## Установка Postgresql
-> Postgresql - мощная и современная система управления базой данных. Хорошо 
-> подходит как БД в боевой среде. Его установку можно пропустить, при простой
-> нативной установке, а в качестве замены использовать более простую sqlite3
-> (база данных в одном файле)
+## Установка PostgreSQL
+> PostgreSQL - мощная и современная система управления базами данных. Хорошо 
+> подходит для использования в боевой среде. Её установку можно пропустить при простой
+> нативной установке и вместо неё использовать более простую SQLite3
+> (база данных, хранящаяся в одном файле).
 
 ### Windows
 1. Скачать [установщик](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
@@ -128,41 +128,41 @@
 4. Перейдите в директорию установки используя команду `cd`, скорее всего 
    команда полностью выглядит так:
    ```bash
-   cd C:\Program Files\PostgreSQL\16\bin
+   cd C:\Program Files\PostgreSQL\18\bin
    ```
-5. Запустите postgres клиент (введя пароль, который вы вводили при установке):
+5. Запустите postgres-клиент (введя пароль, который вы вводили при установке):
    ```bash
    psql -U postgres
    ```
 
-### MacOS
+### macOS
 1. Откройте терминал
-2. Установите Postgresql c помощью [Homebrew](https://brew.sh/ru/):
+2. Установите PostgreSQL c помощью [Homebrew](https://brew.sh/ru/):
    ```bash
    brew install postgresql
    ```
-3. Запустите Postgresql:
+3. Запустите PostgreSQL:
    ```bash
    brew services start postgresql
    ```
-4. Запустите postgres клиент:
+4. Запустите postgres-клиент:
    ```bash
    psql -U postgres
    ```
 
 ### Linux (Debian / Ubuntu)
 1. Откройте терминал
-2. Установите Postgresql с помощью следующей команды:
+2. Установите PostgreSQL с помощью следующей команды:
    ```bash
    sudo apt install postgresql
    ```
-3. Запустите postgres клиент:
+3. Запустите postgres-клиент:
    ```bash
    sudo -u postgres psql
    ```
 
-Теперь когда вы запустили postgres клиент, создайте БД для проекта, а также
-пользователя, которой будет с ней работать:
+Теперь, когда вы запустили postgres-клиент, создайте БД для проекта, а также
+пользователя, который будет с ней работать:
 ```sql
 CREATE USER webmaster WITH PASSWORD 'this_very_secret_password_for_database';
 CREATE DATABASE database;
@@ -171,7 +171,7 @@ ALTER ROLE "webmaster" SET timezone TO 'UTC';
 ALTER ROLE "webmaster" SET client_encoding TO 'utf8';
 ```
 
-И не забудьте выйти из postgres клиента и вернуться к проекту
+И не забудьте выйти из postgres-клиента и вернуться к проекту
 ```
 exit;
 ```
@@ -187,7 +187,7 @@ exit;
 
 ## Установка виртуального окружения
 > [!NOTE]
-> Стоит отметить, что не всегда на linux будет работать python3, а на windows 
+> Стоит отметить, что не всегда на Linux будет работать python3, а на windows 
 > python, попробуйте оба варианта написания команды
 
 ### Windows
@@ -204,7 +204,7 @@ exit;
    venv\Scripts\activate
    ```
 
-### MacOS или Linux (Debian / Ubuntu)
+### macOS или Linux (Debian / Ubuntu)
 1. В терминале перейдите в директорию проекта:
    ```bash
    cd datanar
@@ -235,6 +235,12 @@ pip install -r requirements/test.txt
 pip install -r requirements/dev.txt
 ```
 
+> [!TIP]
+> Если у вас установлен [uv](https://docs.astral.sh/uv/), тот же набор
+> зависимостей можно поставить из закреплённого `uv.lock` командой
+> `uv sync`. Это лишь альтернатива: основным способом остаётся `pip` с
+> файлами `requirements/*.txt`, именно его использует Docker и CI.
+
 ## Настройка сервера
 1. Создайте в корне проекта файл `.env` скопировав содержимое из `.env.example`
    - На Windows:
@@ -264,7 +270,7 @@ pip install -r requirements/dev.txt
      ```bash
      python manage.py compilemessages
      ```
-   - macOS или linux (Debian / Ubuntu)
+   - macOS или Linux (Debian / Ubuntu)
      ```bash
      python3 manage.py compilemessages
      ```
@@ -277,7 +283,7 @@ pip install -r requirements/dev.txt
      ```bash
      python manage.py migrate
      ```
-   - macOS или linux (Debian / Ubuntu)
+   - macOS или Linux (Debian / Ubuntu)
      ```bash
      python3 manage.py migrate
      ```
@@ -287,7 +293,7 @@ pip install -r requirements/dev.txt
      ```bash
      python manage.py collectstatic
      ```
-   - macOS или linux (Debian / Ubuntu)
+   - macOS или Linux (Debian / Ubuntu)
      ```bash
      python3 manage.py collectstatic
      ```
@@ -305,7 +311,7 @@ pip install -r requirements/dev.txt
      ```bash
      python manage.py init_superuser
      ```
-   - macOS или linux (Debian / Ubuntu)
+   - macOS или Linux (Debian / Ubuntu)
      ```bash
      python3 manage.py init_superuser
      ```
@@ -325,7 +331,7 @@ pip install -r requirements/dev.txt
   ```bash
   celery -A datanar worker -l INFO -P threads --concurrency=4
   ```
-- macOS или linux (Debian / Ubuntu)
+- macOS или Linux (Debian / Ubuntu)
   ```bash
   celery -A datanar worker -l INFO
   ```
@@ -336,7 +342,7 @@ pip install -r requirements/dev.txt
   ```bash
   python manage.py test
   ```
-- macOS или linux (Debian / Ubuntu)
+- macOS или Linux (Debian / Ubuntu)
   ```bash
   python3 manage.py test
   ```
@@ -348,7 +354,7 @@ pip install -r requirements/dev.txt
   ```bash
   python manage.py runserver 0.0.0.0:8000
   ```
-- MacOS или Linux (Debian / Ubuntu)
+- macOS или Linux (Debian / Ubuntu)
   ```bash
   python3 manage.py runserver 0.0.0.0:8000
   ```
@@ -360,7 +366,7 @@ http://127.0.0.1:8000/ или http://localhost:8000/.
 
 > [!IMPORTANT]
 > Помните, что Django при `DATANAR_DJANGO_DEBUG=False` не отдаёт статику 
-> (например картинки), для этого обычно настраивают отдельный web-сервер
+> (например, картинки), для этого обычно настраивают отдельный web-сервер
 > ([Nginx](https://nginx.org/ru/), например) или же просто запускают Django
-> в режиме разработки (`DATANAR_DJANGO_DEBUG=True`). См. подробней о 
+> в режиме разработки (`DATANAR_DJANGO_DEBUG=True`). См. подробнее о 
 > [`DATANAR_DJANGO_DEBUG`](env-file.md/#datanar_django_debug)

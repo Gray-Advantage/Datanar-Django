@@ -73,7 +73,7 @@ class ApiWrongTest(TestCase):
 
         for data, error in [
             ({}, status.HTTP_400_BAD_REQUEST),
-            ({"long_link": "not utl"}, status.HTTP_400_BAD_REQUEST),
+            ({"long_link": "not url"}, status.HTTP_400_BAD_REQUEST),
             ({"long_link": "https://example.com/"}, status.HTTP_423_LOCKED),
             (
                 {

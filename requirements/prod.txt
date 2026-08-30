@@ -1,6 +1,7 @@
-celery==5.5.3
-Django==4.2.23
-django-allauth==65.11.0
+antispam-link-shorteners==0.2.1
+celery==5.6.3
+Django==5.2.17
+django-allauth==65.14.3
 django-cleanup==9.0.0
 django-settings-export==1.2.1
 django-tz-detect==0.5.0
@@ -8,13 +9,11 @@ django-user-agents==0.4.0
 djangorestframework==3.16.1
 geoip2==5.1.0
 gunicorn==23.0.0
-link-shorteners>=1.12.0
 openpyxl==3.1.5
 pillow==11.3.0
-psycopg2-binary==2.9.10
+psycopg2-binary==2.9.12
 python-decouple==3.8
 redis==6.4.0
 segno==1.6.6
 sorl-thumbnail==12.11.0
 sqids==0.5.2
-Unidecode==1.4.0
