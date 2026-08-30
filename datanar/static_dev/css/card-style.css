@@ -11,14 +11,16 @@
   cursor: pointer;
 }
 
+.sm-screen-show {
+    display: none !important;
+}
+
 @media (max-width: 490px) {
     .sm-screen-hide {
         display: none !important;
     }
-}
 
-@media (min-width: 490px) {
     .sm-screen-show {
-        display: none !important;
+        display: inline-block !important;
     }
 }
