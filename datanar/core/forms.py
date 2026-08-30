@@ -6,9 +6,8 @@ class BootstrapFormMixin:
         super().__init__(*args, **kwargs)
 
         if len(self.visible_fields()) == 1:
-            self.visible_fields()[0].field.widget.attrs["class"] = (
-                "form-control input-field-only-one"
-            )
+            attrs = self.visible_fields()[0].field.widget.attrs
+            attrs["class"] = "form-control input-field-only-one"
         else:
             for field in self.visible_fields():
                 attrs = field.field.widget.attrs
