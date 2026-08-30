@@ -3,9 +3,9 @@ from http import HTTPStatus
 from celery.result import AsyncResult
 from django.contrib import messages
 from django.contrib.gis.geoip2 import GeoIP2
-from django.http import Http404, HttpResponseRedirect
-from django.http import HttpResponse
-from django.shortcuts import render, reverse
+from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import View
 from geoip2.errors import AddressNotFoundError
@@ -24,10 +24,10 @@ class RedirectView(View):
             kwargs[Redirect.short_link.field.name],
         )
 
-        if redirect is None:
+        if redirect is None or not redirect.is_active:
             raise Http404
 
-        if redirect.password is not None:
+        if redirect.password:
             form = PasswordForm()
             return render(request, "redirect/redirect.html", {"form": form})
 
@@ -39,9 +39,9 @@ class RedirectView(View):
         )
         form = PasswordForm(request.POST)
 
-        if form.is_valid():
-            if form.cleaned_data["password"] == redirect.password:
-                return self.perform_redirect(redirect)
+        form_password = form.cleaned_data["password"]
+        if form.is_valid() and form_password == redirect.password:
+            return self.perform_redirect(redirect)
 
         form.add_error("password", _("invalid_password"))
         return render(request, "redirect/redirect.html", {"form": form})
@@ -52,12 +52,12 @@ class RedirectView(View):
         try:
             country = geo_ip.country_name(ip_address)
         except AddressNotFoundError:
-            country = None
+            country = ""
 
         try:
             city = geo_ip.city(ip_address)["city"]
         except AddressNotFoundError:
-            city = None
+            city = ""
 
         Click.objects.create(
             redirect=redirect,

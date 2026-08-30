@@ -87,7 +87,7 @@
 - [Postgres](https://hub.docker.com/_/postgres) - мощная и современная СУБД,
   используется как основная БД проекта
 - [Django](Dockerfile) - собственный контейнер на базе 
-  [python 3.12](https://hub.docker.com/_/python) c исходным кодом проекта
+  [python 3.13](https://hub.docker.com/_/python) c исходным кодом проекта
 - [Nginx-prod](https://hub.docker.com/r/jonasal/nginx-certbot) - 
   модифицированная версия классического nginx контейнера, добавлен certbot для
   автоматического создания и продления SSL сертификатов для https соединения

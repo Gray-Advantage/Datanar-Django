@@ -101,18 +101,17 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def create(self, request, *args, **kwargs):
-        if set(request.data) & {
-            "validity_days",
-            "validity_clicks",
-            "password",
-        }:
-            if not self._get_user(request):
-                return Response(status=status.HTTP_401_UNAUTHORIZED)
+        if (
+            set(request.data)
+            & {
+                Redirect.validity_days.field.name,
+                Redirect.validity_clicks.field.name,
+                Redirect.password.field.name,
+            }
+        ) and not self._get_user(request):
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
 
         post_data = request.data.copy()
-        if "short_link" in post_data:
-            post_data["custom_url"] = post_data.get("short_link")
-            del post_data["short_link"]
 
         form = RedirectFormExtended(post_data)
         if form.is_valid():
@@ -120,10 +119,16 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
             serializer.is_valid(raise_exception=True)
             redirect_instance = serializer.save(
                 **{
-                    "short_link": form.cleaned_data["short_link"],
-                    "user": self._get_user(request),
-                    "create_method": Redirect.CreateMethod.API,
-                    "ip_address": self.request.META.get("HTTP_X_REAL_IP"),
+                    Redirect.short_link.field.name: form.cleaned_data[
+                        Redirect.short_link.field.name
+                    ],
+                    Redirect.user.field.name: self._get_user(request),
+                    Redirect.create_method.field.name: (
+                        Redirect.CreateMethod.API
+                    ),
+                    Redirect.ip_address.field.name: self.request.META.get(
+                        "HTTP_X_REAL_IP",
+                    ),
                 },
             )
 
@@ -131,10 +136,10 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
                 response_data = RedirectSerializer(redirect_instance).data
             else:
                 response_data = RedirectSerializer(redirect_instance).data
-                response_data.pop("create_method", None)
-                response_data.pop("deactivated_at", None)
-                response_data.pop("is_active", None)
-                response_data.pop("id", None)
+                response_data.pop(Redirect.create_method.field.name, None)
+                response_data.pop(Redirect.deactivated_at.field.name, None)
+                response_data.pop(Redirect.is_active.field.name, None)
+                response_data.pop(Redirect.id.field.name, None)
 
             return Response(
                 response_data,
@@ -143,19 +148,19 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
             )
         responses = {
             (
-                "long_link",
+                Redirect.long_link.field.name,
                 _("This field is required."),
             ): status.HTTP_400_BAD_REQUEST,
             (
-                "long_link",
+                Redirect.long_link.field.name,
                 _("Enter a valid URL."),
             ): status.HTTP_400_BAD_REQUEST,
             (
-                "long_link",
+                Redirect.long_link.field.name,
                 _("this_url_is_blocked"),
             ): status.HTTP_423_LOCKED,
             (
-                "custom_url",
+                Redirect.short_link.field.name,
                 _("custom_url_already_use"),
             ): status.HTTP_409_CONFLICT,
         }
@@ -168,11 +173,11 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
 __all__ = [
     "APIDocsPreambleView",
     "APIDocsQRCodeGetView",
-    "APIDocsRedirectGetView",
     "APIDocsRedirectCreateView",
     "APIDocsRedirectDeleteView",
-    "APIDocsTokenGetView",
+    "APIDocsRedirectGetView",
     "APIDocsTokenCreateView",
+    "APIDocsTokenGetView",
     "CreateNewTokenView",
     "RedirectViewSet",
 ]

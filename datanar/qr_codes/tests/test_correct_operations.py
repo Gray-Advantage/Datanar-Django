@@ -6,7 +6,7 @@ from django.urls import reverse
 
 class QRCodeCorrectTest(TestCase):
     def test_correct_data(self):
-        for type_ in ["png", "jpg", "svg"]:
+        for type_ in ["png", "jpg", "jpeg", "svg"]:
             response = Client().get(
                 reverse("qr_code:download", args=[type_, "12345"]),
             )
