@@ -36,7 +36,7 @@ class ItemAdmin(admin.ModelAdmin):
     @admin.display(description=_("long_link"))
     def view_long_link(self, obj):
         if obj.long_link and len(obj.long_link) > 75:
-            return obj.long_link[:75] + "..."
+            return f"{obj.long_link[:75]}..."
         return obj.long_link
 
     @admin.action(description=_("block_selected_redirects"))
@@ -44,13 +44,21 @@ class ItemAdmin(admin.ModelAdmin):
         regex_urls = set()
 
         for url in queryset.values_list("long_link", flat=True):
-            main_domain = urlparse(url).netloc.split(".")[-2]
-            if main_domain:
+            netloc = urlparse(url).netloc.split(":")[0]
+            parts = netloc.split(".")
+            if len(parts) >= 2:
+                main_domain = parts[-2]
                 regex_urls.add(f"||{main_domain}^")
+            elif parts[0]:
+                regex_urls.add(f"||{parts[0]}^")
 
-        for regex in regex_urls:
-            if not BlockedDomain.objects.filter(domain_regex=regex).exists():
-                BlockedDomain.objects.create(domain_regex=regex)
+        blocked_domains = [
+            BlockedDomain(domain_regex=regex) for regex in regex_urls
+        ]
+        BlockedDomain.objects.bulk_create(
+            blocked_domains,
+            ignore_conflicts=True,
+        )
 
         queryset.delete()
 

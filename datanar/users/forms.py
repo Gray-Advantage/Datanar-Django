@@ -1,9 +1,11 @@
-from allauth.account.forms import AddEmailForm
-from allauth.account.forms import ChangePasswordForm
-from allauth.account.forms import LoginForm
-from allauth.account.forms import ResetPasswordForm
-from allauth.account.forms import ResetPasswordKeyForm
-from allauth.account.forms import SignupForm
+from allauth.account.forms import (
+    AddEmailForm,
+    ChangePasswordForm,
+    LoginForm,
+    ResetPasswordForm,
+    ResetPasswordKeyForm,
+    SignupForm,
+)
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserChangeForm
 
@@ -15,10 +17,12 @@ class UserForm(BootstrapFormMixin, UserChangeForm):
     password = None
 
     def __init__(self, *args, **kwargs):
-        super(UserForm, self).__init__(*args, **kwargs)
-        self.fields[User.email.field.name].widget.attrs["readonly"] = True
-        self.fields[User.email.field.name].widget.attrs["disabled"] = True
+        super().__init__(*args, **kwargs)
+        self.fields[User.email.field.name].disabled = True
         self.fields[User.avatar.field.name].widget.attrs["class"] += " d-none"
+
+    def clean_email(self):
+        return self.instance.email
 
     class Meta(UserChangeForm.Meta):
         model = get_user_model()
@@ -55,11 +59,11 @@ class DatanarResetPasswordKeyForm(BootstrapFormMixin, ResetPasswordKeyForm):
 
 
 __all__ = [
-    "UserForm",
-    "DatanarLoginForm",
-    "DatanarEmailForm",
-    "DatanarSignupForm",
     "DatanarChangePasswordForm",
+    "DatanarEmailForm",
+    "DatanarLoginForm",
     "DatanarResetPasswordForm",
     "DatanarResetPasswordKeyForm",
+    "DatanarSignupForm",
+    "UserForm",
 ]

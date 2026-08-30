@@ -19,7 +19,7 @@ urlpatterns = [
 
 handler500 = "core.views.server_error"
 
-if settings.DEBUG and settings.NOT_TESTING:
+if settings.DEBUG and not settings.TEST:
     import debug_toolbar
 
     urlpatterns.append(path("__debug__/", include(debug_toolbar.urls)))
