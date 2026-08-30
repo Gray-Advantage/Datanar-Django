@@ -1017,7 +1017,7 @@ msgstr "Obtener un código QR generado inmediatamente"
 
 #: .\templates\homepage\about.html:22
 msgid "can_do_3"
-msgstr "Especificar tu propio enlace corto"
+msgstr "Especifica tu propia URL corta"
 
 #: .\templates\homepage\about.html:23
 msgid "can_do_4"
@@ -1065,7 +1065,7 @@ msgstr "Tretiakov Artiom"
 
 #: .\templates\homepage\about.html:74
 msgid "github_project"
-msgstr "Proyecto en Github"
+msgstr "Proyecto en GitHub"
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"

@@ -1013,7 +1013,7 @@ msgstr "Съкратете връзка"
 
 #: .\templates\homepage\about.html:21
 msgid "can_do_2"
-msgstr "Получете веднага генериран QR-код"
+msgstr "Получете веднага генериран QR код"
 
 #: .\templates\homepage\about.html:22
 msgid "can_do_3"
@@ -1065,7 +1065,7 @@ msgstr "Третяков Артьом"
 
 #: .\templates\homepage\about.html:74
 msgid "github_project"
-msgstr "Проектът в Github"
+msgstr "Проектът в GitHub"
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"
