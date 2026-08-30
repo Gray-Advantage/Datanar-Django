@@ -1,11 +1,111 @@
-[tool.flake8]
-max-line-length = 79
-inline-quotes = "double"
-import-order-style = "google"
-per-file-ignores = [
-    "*/migrations/*:E501,LN001,C812,DALL000",
+[project]
+name = "datanar-django"
+version = "2.6.0"
+description = "Сервис по сокращению ссылок на базе Django и Bootstrap"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "antispam-link-shorteners==0.2.1",
+    "celery==5.6.3",
+    "django==5.2.17",
+    "django-allauth==65.14.3",
+    "django-cleanup==9.0.0",
+    "django-settings-export==1.2.1",
+    "django-tz-detect==0.5.0",
+    "django-user-agents==0.4.0",
+    "djangorestframework==3.16.1",
+    "geoip2==5.1.0",
+    "gunicorn==23.0.0",
+    "openpyxl==3.1.5",
+    "pillow==11.3.0",
+    "psycopg2-binary==2.9.12",
+    "python-decouple==3.8",
+    "redis==6.4.0",
+    "segno==1.6.6",
+    "sorl-thumbnail==12.11.0",
+    "sqids==0.5.2",
 ]
-application-import-names = [
+
+[dependency-groups]
+dev = [
+    "celery-types>=0.23.0",
+]
+test = [
+    "black==25.9.0",
+    "django-debug-toolbar==6.1.0",
+    "flake8==7.3.0",
+    "flake8-absolute-import==1.0.0.3",
+    "flake8-bugbear==25.11.29",
+    "flake8-commas==4.0.0",
+    "flake8-comments==0.1.2",
+    "flake8-comprehensions==3.17.0",
+    "flake8-dunder-all==0.5.0",
+    "flake8-import-order==0.19.2",
+    "flake8-no-pep420==2.9.0",
+    "flake8-pyproject==1.2.4",
+    "flake8-quotes==3.4.0",
+    "parameterized==0.9.0",
+]
+
+[tool.ruff]
+line-length = 79
+target-version = "py313"
+extend-exclude = ["migrations", "manage.py"]
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "double"
+
+[tool.ruff.lint]
+select = [
+    "A",
+    "ASYNC",
+    "BLE",
+    "C",
+    "C4",
+    "COM",
+    "DJ",
+    "E",
+    "EM",
+    "ERA",
+    "F",
+    "FIX",
+    "FLY",
+    "FURB",
+    "G",
+    "I",
+    "ICN",
+    "INP",
+    "ISC",
+    "LOG",
+    "N",
+    "PERF",
+    "PGH",
+    "PIE",
+    "PLE",
+    "PLW",
+    "PTH",
+    "Q",
+    "RET",
+    "RSE",
+    "RUF",
+    "SIM",
+    "SLF",
+    "T20",
+    "TID",
+    "UP",
+    "W",
+]
+ignore = [
+    "RUF001",
+    "RUF003",
+    "RUF012",
+]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+order-by-type = false
+known-first-party = [
     "api",
     "dashboard",
     "core",
@@ -17,5 +117,31 @@ application-import-names = [
     "users",
 ]
 
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+multiline-quotes = "double"
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
 [tool.black]
 line-length = 79
+extend-exclude = "/(migrations)/"
+
+[tool.flake8]
+max-line-length = 79
+inline-quotes = "double"
+import-order-style = "google"
+extend-exclude = ["migrations", "manage.py"]
+application-import-names = [
+    "api",
+    "core",
+    "dashboard",
+    "datanar",
+    "homepage",
+    "qr_codes",
+    "redirects",
+    "statistic",
+    "users",
+]

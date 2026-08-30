@@ -22,24 +22,24 @@ class ApiCorrectTest(TestCase):
             "short_FFF",
         ]
         self.full_redirect_fields = {
-            "id",
-            "long_link",
-            "short_link",
-            "password",
-            "validity_days",
-            "validity_clicks",
-            "created_at",
-            "create_method",
-            "is_active",
-            "deactivated_at",
+            Redirect.id.field.name,
+            Redirect.long_link.field.name,
+            Redirect.short_link.field.name,
+            Redirect.password.field.name,
+            Redirect.validity_days.field.name,
+            Redirect.validity_clicks.field.name,
+            Redirect.created_at.field.name,
+            Redirect.create_method.field.name,
+            Redirect.is_active.field.name,
+            Redirect.deactivated_at.field.name,
         }
         self.simple_redirect_fields = {
-            "long_link",
-            "short_link",
-            "password",
-            "validity_days",
-            "validity_clicks",
-            "created_at",
+            Redirect.long_link.field.name,
+            Redirect.short_link.field.name,
+            Redirect.password.field.name,
+            Redirect.validity_days.field.name,
+            Redirect.validity_clicks.field.name,
+            Redirect.created_at.field.name,
         }
 
     def test_create_new_token_context(self):
@@ -82,7 +82,10 @@ class ApiCorrectTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         self.assertEqual(
-            [redirect["short_link"] for redirect in response.json()],
+            [
+                redirect[Redirect.short_link.field.name]
+                for redirect in response.json()
+            ],
             self.short_links,
         )
 
@@ -104,7 +107,7 @@ class ApiCorrectTest(TestCase):
             )
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             self.assertEqual(
-                response.json()["short_link"],
+                response.json()[Redirect.short_link.field.name],
                 self.short_links[i - 1],
             )
 
@@ -125,10 +128,16 @@ class ApiCorrectTest(TestCase):
 
         response = self.client.post(
             reverse("api:redirect-list"),
-            data={"long_link": "https://python.org/"},
+            data={Redirect.long_link.field.name: "https://python.org/"},
         )
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.json()["long_link"], "https://python.org/")
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_201_CREATED,
+        )
+        self.assertEqual(
+            response.json()[Redirect.long_link.field.name],
+            "https://python.org/",
+        )
 
         self.assertEqual(
             Redirect.objects.count(),
@@ -145,7 +154,7 @@ class ApiCorrectTest(TestCase):
         response = self.client.get(
             reverse(
                 "redirects:redirect",
-                args=[response.json()["short_link"]],
+                args=[response.json()[Redirect.short_link.field.name]],
             ),
             follow=True,
         )
@@ -154,7 +163,7 @@ class ApiCorrectTest(TestCase):
     def test_create_redirect_context(self):
         response = Client().post(
             reverse("api:redirect-list"),
-            data={"long_link": "https://python.org/"},
+            data={Redirect.long_link.field.name: "https://python.org/"},
         )
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(
@@ -173,7 +182,10 @@ class ApiCorrectTest(TestCase):
         )
         response = self.client.post(
             reverse("api:redirect-list"),
-            data={"token": token, "long_link": "https://python.org/"},
+            data={
+                "token": token,
+                Redirect.long_link.field.name: "https://python.org/",
+            },
         )
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(
@@ -186,13 +198,22 @@ class ApiCorrectTest(TestCase):
         response = self.client.post(
             reverse("api:redirect-list"),
             data={
-                "long_link": "https://python.org/",
-                "short_link": "test_short",
+                Redirect.long_link.field.name: "https://python.org/",
+                Redirect.short_link.field.name: "test_short",
             },
         )
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.json()["long_link"], "https://python.org/")
-        self.assertEqual(response.json()["short_link"], "test_short")
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_201_CREATED,
+        )
+        self.assertEqual(
+            response.json()[Redirect.long_link.field.name],
+            "https://python.org/",
+        )
+        self.assertEqual(
+            response.json()[Redirect.short_link.field.name],
+            "test_short",
+        )
 
     def test_delete_redirect(self):
         redirect_count = Redirect.objects.count()

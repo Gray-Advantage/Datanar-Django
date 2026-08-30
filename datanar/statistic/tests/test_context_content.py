@@ -16,7 +16,7 @@ class ContextContentTest(TestCase):
 
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context["links"],
             [
                 "short_FFF",

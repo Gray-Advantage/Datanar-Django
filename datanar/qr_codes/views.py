@@ -4,18 +4,14 @@ from io import BytesIO
 from django.http import HttpResponse
 from django.views import View
 from PIL import Image
-import segno
 
-from core.context_processor import server_url
+from qr_codes.utils import generate_qr_code
 
 
 class QRCodePreview(View):
     def get(self, request, short_link):
-        qr = segno.make_qr(
-            f'{server_url(request)["server_url"]}'
-            f'{"" if "/" in short_link else "/"}'
-            f"{short_link}",
-        )
+        qr = generate_qr_code(request, short_link)
+
         response = HttpResponse(content_type="image/png")
         qr.save(response, kind="png", scale=10)
         return response
@@ -23,33 +19,27 @@ class QRCodePreview(View):
 
 class QRCodeDownload(View):
     def get(self, request, img_format, short_link):
-        qr = segno.make_qr(
-            f'{server_url(request)["server_url"]}'
-            f'{"" if "/" in short_link else "/"}'
-            f"{short_link}",
-        )
-        if img_format == "jpg":
-            buffer = BytesIO()
-            qr.save(buffer, kind="png", scale=35)
-            img = Image.open(buffer)
-            buffer = BytesIO()
-            img.convert("RGB").save(buffer, "JPEG", quality=50)
-        elif img_format in ["png", "svg"]:
-            buffer = BytesIO()
-            qr.save(buffer, kind=img_format, scale=35)
-        else:
-            return HttpResponse(
-                status=HTTPStatus.UNSUPPORTED_MEDIA_TYPE,
-            )
+        if img_format not in ["png", "svg", "jpg", "jpeg"]:
+            return HttpResponse(status=HTTPStatus.UNSUPPORTED_MEDIA_TYPE)
 
-        response = HttpResponse(
-            buffer.getvalue(),
-            content_type=f"image/{img_format}",
-        )
+        qr = generate_qr_code(request, short_link)
+        buffer = BytesIO()
+        if img_format in ["jpg", "jpeg"]:
+            qr.save(buffer, "png", scale=35)
+            img = Image.open(buffer)
+            content_type = "image/jpeg"
+            filename_format = "jpg"
+            img.convert("RGB").save(buffer, "JPEG", quality=75)
+        else:
+            qr.save(buffer, kind=img_format, scale=35)
+            content_type = f"image/{img_format}"
+            filename_format = img_format
+
+        response = HttpResponse(buffer.getvalue(), content_type=content_type)
         response["Content-Disposition"] = (
-            f'attachment; filename="qr_code.{img_format}"'
+            f'attachment; filename="qr_code.{filename_format}"'
         )
         return response
 
 
-__all__ = ["QRCodePreview", "QRCodeDownload"]
+__all__ = ["QRCodeDownload", "QRCodePreview"]

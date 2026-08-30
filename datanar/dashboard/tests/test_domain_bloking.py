@@ -65,7 +65,8 @@ class DomainBlockingTest(TestCase):
         self.is_blocked("https://google-official.replit.app")
 
         # by link_shorteners python lib
-        self.is_blocked("https://replit.com")
+        self.is_blocked("https://replug.link")
+        self.is_blocked("https://www.replug.link")
 
 
 __all__ = []

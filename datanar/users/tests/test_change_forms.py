@@ -1,8 +1,8 @@
 import re
 
 from django.core import mail
-from django.shortcuts import reverse
 from django.test import Client, override_settings, TestCase
+from django.urls import reverse
 
 from users.models import User
 

@@ -2,64 +2,89 @@ name: Datanar
 
 on:
   push:
-    branches: [ "main", "dev", "artem", "sergey", "vladimir", "for_merge"]
+    branches: [ "main", "dev", "artem", "sergey", "vladimir", "for_merge" ]
   pull_request:
-    branches: [ "main", "dev", "artem", "sergey", "vladimir", "for_merge"]
+    branches: [ "main", "dev", "artem", "sergey", "vladimir", "for_merge" ]
 
 permissions:
   contents: read
 
 jobs:
-  black-test:
+  ruff:
     runs-on: ubuntu-latest
-    container: python:3.10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+      - name: Install ruff
+        run: pip install -r requirements/test.txt
+      - name: Run ruff check
+        run: ruff check --show-fixes ./datanar
+      - name: Run ruff format check
+        run: ruff format --check --diff ./datanar
+
+  flake8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
       - name: Install dependencies
-        run: pip install black
+        run: pip install -r requirements/test.txt
+      - name: Run flake8
+        run: flake8 ./datanar
+
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+      - name: Install black
+        run: pip install -r requirements/test.txt
       - name: Check code formatting with black
-        run: black ./datanar/ --check --verbose --diff
+        run: black ./datanar --check --diff
 
-  flake8-test:
-    runs-on: ubuntu-latest
-    container: python:3.10
+  django-tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+        python-version: [ "3.10", "3.11", "3.12", "3.13" ]
+    name: django-tests (${{ matrix.os }}, py${{ matrix.python-version }})
     steps:
-    - uses: actions/checkout@v3
-    - name: Install dependencies
-      run: pip install -r requirements/test.txt
-    - name: Check code formatting with flake8
-      run: flake8 ./datanar/
-
-  django-test:
-    runs-on: ubuntu-latest
-    container: python:3.10
-    steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: pip install -r requirements/dev.txt
       - name: Run Django tests
-        run: |
-          cd ./datanar
-          python manage.py test
+        working-directory: ./datanar
+        run: python manage.py test
 
   prod-deploy:
     if: github.ref == 'refs/heads/main'
-    needs: [black-test, flake8-test, django-test]
+    needs: [ ruff, flake8, black, django-tests ]
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Deploy to server
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        script: |
-          cd ~/datanar
-          docker compose down
-          git reset --hard origin/main  
-          git pull origin main
-          docker compose up --build -d
-          docker system prune -a -f --volumes
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd ~/datanar
+            docker compose down
+            git reset --hard origin/main
+            git pull origin main
+            docker compose up --build -d
+            docker system prune -a -f --volumes

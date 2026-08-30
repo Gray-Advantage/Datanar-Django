@@ -5,8 +5,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class RedirectManager(models.Manager):
-    def get_by_short_link(self, short_link):
-        redirect = (
+    def get_by_short_link(self, short_link: str) -> "Redirect | None":
+        redirect: Redirect | None = (
             self.get_queryset()
             .filter(short_link=short_link)
             .annotate(clicks_count=models.Count("click"))
@@ -16,44 +16,21 @@ class RedirectManager(models.Manager):
         if redirect is None:
             return None
 
-        all_good = True
-
-        if (
-            redirect.validity_days
-            and redirect.is_active
-            and redirect.created_at
-            + timezone.timedelta(days=redirect.validity_days)
-            < timezone.now()
-        ):
-            all_good = False
-
-        if (
-            not redirect.is_active
-            and redirect.deactivated_at + timezone.timedelta(days=10)
-            < timezone.now()
-        ):
+        if redirect.is_deactivation_expired():
             redirect.delete()
             return None
 
-        if not redirect.is_active:
-            return None
+        is_expired = redirect.is_expired()
+        is_clicks_exceeded = redirect.is_clicks_exceeded(redirect.clicks_count)
 
-        if redirect.validity_clicks:
-            if redirect.clicks_count >= redirect.validity_clicks:
-                all_good = False
-
-        if not all_good:
-            redirect.is_active = False
-            redirect.deactivated_at = timezone.now()
+        if redirect.is_active and (is_expired or is_clicks_exceeded):
+            redirect.deactivate()
             redirect.save()
-            return None
 
         return redirect
 
 
 class Redirect(models.Model):
-    objects = RedirectManager()
-
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -61,11 +38,12 @@ class Redirect(models.Model):
         help_text=_("user_who_create_bond"),
         null=True,
     )
-    short_link = models.URLField(
+    short_link = models.SlugField(
         _("short_link"),
         help_text=_("shorten_link_to_redirect_to_resource"),
         max_length=50,
         unique=True,
+        allow_unicode=True,
     )
     long_link = models.URLField(
         _("long_link"),
@@ -81,8 +59,8 @@ class Redirect(models.Model):
         _("password"),
         help_text=_("password_that_will_requested_to_redirect"),
         max_length=128,
-        null=True,
         blank=True,
+        default="",
     )
     validity_days = models.PositiveIntegerField(
         _("valid_day_number"),
@@ -108,6 +86,7 @@ class Redirect(models.Model):
         help_text=_("when_bond_was_deactivated"),
         default=None,
         null=True,
+        blank=True,
     )
     ip_address = models.GenericIPAddressField(
         _("ip_address"),
@@ -126,11 +105,11 @@ class Redirect(models.Model):
         _("create_method"),
         help_text=_("method_which_redirect_was_created"),
         max_length=20,
-        null=True,
-        blank=True,
         choices=CreateMethod.choices,
         default=CreateMethod.WEB,
     )
+
+    objects = RedirectManager()
 
     class Meta:
         verbose_name = _("redirect")
@@ -138,6 +117,34 @@ class Redirect(models.Model):
 
     def __str__(self):
         return _("redirect").capitalize()
+
+    def is_clicks_exceeded(self, clicks_count: int) -> bool:
+        if not self.validity_clicks:
+            return False
+        return clicks_count >= self.validity_clicks
+
+    def is_expired(self) -> bool:
+        if not self.validity_days:
+            return False
+        return (
+            self.created_at + timezone.timedelta(days=self.validity_days)
+            < timezone.now()
+        )
+
+    def is_deactivation_expired(self) -> bool:
+        if self.is_active or self.deactivated_at is None:
+            return False
+        return (
+            self.deactivated_at + timezone.timedelta(days=10)
+        ) < timezone.now()
+
+    def reactivate(self):
+        self.is_active = True
+        self.deactivated_at = None
+
+    def deactivate(self):
+        self.is_active = False
+        self.deactivated_at = timezone.now()
 
 
 __all__ = ["Redirect"]

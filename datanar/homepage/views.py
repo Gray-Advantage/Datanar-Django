@@ -96,4 +96,4 @@ class AboutView(TemplateView):
     template_name = "homepage/about.html"
 
 
-__all__ = ["HomeView", "ServiceRulesView", "AboutView"]
+__all__ = ["AboutView", "HomeView", "ServiceRulesView"]

@@ -1,10 +1,9 @@
-FROM python:3.12.4-slim
+FROM python:3.13.15-alpine
 
-RUN apt update
-RUN apt install gettext -y
+RUN apk add --no-cache gettext
 
 COPY ./requirements /requirements
-RUN pip install -r requirements/dev.txt
+RUN pip install --no-cache-dir -r requirements/dev.txt
 RUN rm -rf requirements
 
 COPY ./datanar /datanar/
