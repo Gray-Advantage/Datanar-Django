@@ -53,6 +53,7 @@ ALLOWED_HOSTS = config(
 )
 
 CSRF_TRUSTED_ORIGINS = list(map(lambda x: f"https://{x}", ALLOWED_HOSTS))
+CSRF_FAILURE_VIEW = "core.views.csrf_failure"
 
 INSTALLED_APPS = [
     "django.contrib.admin",
