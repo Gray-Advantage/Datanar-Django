@@ -15,6 +15,7 @@ psycopg2-binary==2.9.10
 python-decouple==3.8
 redis==6.4.0
 segno==1.6.6
+setuptools==80.10.2
 sorl-thumbnail==12.11.0
 sqids==0.5.2
 Unidecode==1.4.0

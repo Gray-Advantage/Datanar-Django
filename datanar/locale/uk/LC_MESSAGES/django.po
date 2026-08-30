@@ -1015,7 +1015,7 @@ msgstr "Скоротити посилання"
 
 #: .\templates\homepage\about.html:21
 msgid "can_do_2"
-msgstr "Отримати відразу згенерований QR-code"
+msgstr "Отримати відразу згенерований QR-код"
 
 #: .\templates\homepage\about.html:22
 msgid "can_do_3"
@@ -1067,7 +1067,7 @@ msgstr "Третьяков Артем"
 
 #: .\templates\homepage\about.html:74
 msgid "github_project"
-msgstr "Проект на Github"
+msgstr "Проект на GitHub"
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"
