@@ -1,6 +1,8 @@
+__all__ = ()
+
 from datetime import datetime, timedelta
 from http import HTTPStatus
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from django.test import Client, TestCase
 from django.urls import reverse
@@ -12,7 +14,7 @@ from redirects.models import Redirect
 
 class RedirectionLifeCycle(TestCase):
     @patch.object(timezone, "now")
-    def test_redirection_lifecycle(self, mock_now):
+    def test_redirection_lifecycle(self, mock_now: MagicMock) -> None:
         future_time = timezone.make_aware(
             datetime.now()
             + timedelta(
@@ -52,7 +54,10 @@ class RedirectionLifeCycle(TestCase):
         self.assertQuerySetEqual(Redirect.objects.all(), [])
 
     @patch.object(timezone, "now")
-    def test_redirection_lifecycle_with_celery_task(self, mock_now):
+    def test_redirection_lifecycle_with_celery_task(
+        self,
+        mock_now: MagicMock,
+    ) -> None:
         mock_now.return_value = timezone.make_aware(datetime.now())
 
         Client().post(
@@ -75,6 +80,3 @@ class RedirectionLifeCycle(TestCase):
 
         tasks.clear_redirects()
         self.assertQuerySetEqual(Redirect.objects.all(), [])
-
-
-__all__ = []

@@ -1,3 +1,5 @@
+__all__ = ("MigrationsTest",)
+
 import io
 
 from django.core.management import call_command
@@ -5,7 +7,7 @@ from django.test import TestCase
 
 
 class MigrationsTest(TestCase):
-    def test_no_missing_migrations(self):
+    def test_no_missing_migrations(self) -> None:
         output = io.StringIO()
 
         try:
@@ -22,6 +24,3 @@ class MigrationsTest(TestCase):
                 "Выполните makemigrations и закоммитьте результат:\n"
                 + output.getvalue(),
             )
-
-
-__all__ = ["MigrationsTest"]

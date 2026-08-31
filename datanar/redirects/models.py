@@ -1,3 +1,7 @@
+__all__ = ("Redirect",)
+
+from datetime import timedelta
+
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
@@ -115,7 +119,7 @@ class Redirect(models.Model):
         verbose_name = _("redirect")
         verbose_name_plural = _("redirects")
 
-    def __str__(self):
+    def __str__(self) -> str:
         return _("redirect").capitalize()
 
     def is_clicks_exceeded(self, clicks_count: int) -> bool:
@@ -127,24 +131,19 @@ class Redirect(models.Model):
         if not self.validity_days:
             return False
         return (
-            self.created_at + timezone.timedelta(days=self.validity_days)
+            self.created_at + timedelta(days=self.validity_days)
             < timezone.now()
         )
 
     def is_deactivation_expired(self) -> bool:
         if self.is_active or self.deactivated_at is None:
             return False
-        return (
-            self.deactivated_at + timezone.timedelta(days=10)
-        ) < timezone.now()
+        return (self.deactivated_at + timedelta(days=10)) < timezone.now()
 
-    def reactivate(self):
+    def reactivate(self) -> None:
         self.is_active = True
         self.deactivated_at = None
 
-    def deactivate(self):
+    def deactivate(self) -> None:
         self.is_active = False
         self.deactivated_at = timezone.now()
-
-
-__all__ = ["Redirect"]

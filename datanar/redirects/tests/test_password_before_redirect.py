@@ -1,3 +1,5 @@
+__all__ = ()
+
 from http import HTTPStatus
 
 from django.test import Client, TestCase
@@ -8,7 +10,7 @@ from redirects.models import Redirect
 
 
 class PasswordBeforeRedirectTest(TestCase):
-    def test_redirect_without_password(self):
+    def test_redirect_without_password(self) -> None:
         Redirect.objects.create(
             long_link="https://lyceum.yandex.ru/",
             short_link="custom",
@@ -21,7 +23,7 @@ class PasswordBeforeRedirectTest(TestCase):
             msg_prefix="Перенаправление не произошло",
         )
 
-    def test_redirect_with_password(self):
+    def test_redirect_with_password(self) -> None:
         Redirect.objects.create(
             long_link="https://lyceum.yandex.ru/",
             short_link="secret",
@@ -45,7 +47,7 @@ class PasswordBeforeRedirectTest(TestCase):
             msg_prefix="Перенаправление не произошло",
         )
 
-    def test_password_form_before_redirect(self):
+    def test_password_form_before_redirect(self) -> None:
         Redirect.objects.create(
             long_link="https://lyceum.yandex.ru/",
             short_link="secret",
@@ -80,6 +82,3 @@ class PasswordBeforeRedirectTest(TestCase):
             "https://lyceum.yandex.ru/",
             msg_prefix="Перенаправление не произошло",
         )
-
-
-__all__ = []

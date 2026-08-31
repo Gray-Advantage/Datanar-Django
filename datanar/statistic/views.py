@@ -1,7 +1,15 @@
+__all__ = ("DownloadStatistic", "LinkDetailView", "MyLinksView")
+
 from io import BytesIO
+from typing import Any, TYPE_CHECKING
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import FileResponse, HttpResponseRedirect
+from django.http import (
+    FileResponse,
+    HttpRequest,
+    HttpResponse,
+    HttpResponseRedirect,
+)
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
@@ -14,8 +22,11 @@ from core.mixins import FormMethodExtender, RedirectToLastPageMixin
 from redirects.models import Redirect
 from statistic.models import Click
 
+if TYPE_CHECKING:
+    from django.db.models import QuerySet
 
-def get_clicks_by_mode(short_link, mode):
+
+def get_clicks_by_mode(short_link: str, mode: str) -> "QuerySet":
     by_mode = {
         "year": Click.objects.for_short_link_by_last_year,
         "month": Click.objects.for_short_link_by_last_month,
@@ -35,7 +46,7 @@ class MyLinksView(
     context_object_name = "links"
     paginate_by = 7
 
-    def get_queryset(self):
+    def get_queryset(self) -> "QuerySet":
         redirects = (
             Redirect.objects.filter(user=self.request.user)
             .only(
@@ -45,7 +56,7 @@ class MyLinksView(
         )
         return [redirect.short_link for redirect in redirects]
 
-    def delete(self, request):
+    def delete(self, request: HttpRequest) -> HttpResponse:
         Redirect.objects.filter(
             short_link=request.POST.get("short_link"),
             user=request.user,
@@ -57,13 +68,13 @@ class LinkDetailView(LoginRequiredMixin, DetailView):
     template_name = "statistic/link_detail.html"
     context_object_name = "redirect"
 
-    def get_object(self, queryset=None):
+    def get_object(self, queryset: "QuerySet | None" = None) -> Redirect:
         link = get_object_or_404(Redirect, short_link=self.kwargs["link"])
         if link.user == self.request.user or self.request.user.is_staff:
             return link
         return self.handle_no_permission()
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context["link"] = self.kwargs["link"]
         context["period"] = self.kwargs["period"]
@@ -98,7 +109,7 @@ class LinkDetailView(LoginRequiredMixin, DetailView):
         return context
 
     @staticmethod
-    def _get_statistic(clicks, field):
+    def _get_statistic(clicks: "QuerySet", field: str) -> dict[str, int]:
         unknown_label = gettext("Unknown")
         res = {}
         for click in clicks:
@@ -108,7 +119,12 @@ class LinkDetailView(LoginRequiredMixin, DetailView):
 
 
 class DownloadStatistic(View):
-    def get(self, request, link, period):
+    def get(
+        self,
+        request: HttpRequest,
+        link: str,
+        period: str,
+    ) -> HttpResponse:
         wb = openpyxl.Workbook()
         ws = wb.active
 
@@ -152,6 +168,3 @@ class DownloadStatistic(View):
             as_attachment=True,
             filename="statistic.xlsx",
         )
-
-
-__all__ = ["DownloadStatistic", "LinkDetailView", "MyLinksView"]

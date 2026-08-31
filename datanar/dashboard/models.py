@@ -1,3 +1,5 @@
+__all__ = ("BlockedDomain",)
+
 import re
 
 from antispam_link_shorteners import is_link_shortener
@@ -46,8 +48,5 @@ class BlockedDomain(models.Model):
         verbose_name = _("domain_regex")
         verbose_name_plural = _("domains_regex")
 
-    def __str__(self):
+    def __str__(self) -> str:
         return _("domain_regex").capitalize()
-
-
-__all__ = ["BlockedDomain"]

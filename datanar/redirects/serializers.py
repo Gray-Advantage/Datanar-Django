@@ -1,3 +1,7 @@
+__all__ = ("RedirectCreateSerializer", "RedirectSerializer")
+
+from typing import Any
+
 from rest_framework import serializers
 
 from redirects.models import Redirect
@@ -42,8 +46,5 @@ class RedirectCreateSerializer(serializers.Serializer):
         default=None,
     )
 
-    def create(self, validated_data):
+    def create(self, validated_data: dict[str, Any]) -> Redirect:
         return Redirect.objects.create(**validated_data)
-
-
-__all__ = ["RedirectCreateSerializer", "RedirectSerializer"]

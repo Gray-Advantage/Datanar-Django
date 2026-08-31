@@ -1,13 +1,33 @@
+__all__ = (
+    "FormMethodExtender",
+    "RedirectToLastPageMixin",
+    "StaffUserRequiredMixin",
+)
+
+from typing import Any, TYPE_CHECKING
+
 from django.contrib.auth.mixins import AccessMixin
-from django.http import Http404, HttpResponseRedirect
+from django.http import (
+    Http404,
+    HttpRequest,
+    HttpResponse,
+    HttpResponseRedirect,
+)
 from django.views.generic import View
+
+if TYPE_CHECKING:
+    from django.db.models import QuerySet
 
 
 class RedirectToLastPageMixin:
     class SpecialEmptyPageError(Exception):
         pass
 
-    def paginate_queryset(self, queryset, page_size):
+    def paginate_queryset(
+        self,
+        queryset: "QuerySet",
+        page_size: int,
+    ) -> tuple:
         try:
             return super().paginate_queryset(queryset, page_size)
         except Http404 as e:
@@ -17,10 +37,15 @@ class RedirectToLastPageMixin:
                 or "1"
             )
             if page.isdigit():
-                raise self.SpecialEmptyPageError
+                raise self.SpecialEmptyPageError from e
             raise e from e
 
-    def get(self, request, *args, **kwargs):
+    def get(
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
         try:
             return super().get(request, *args, **kwargs)
         except self.SpecialEmptyPageError:
@@ -38,7 +63,12 @@ class RedirectToLastPageMixin:
 
 
 class FormMethodExtender(View):
-    def post(self, request, *args, **kwargs):
+    def post(
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
         method = request.POST.get("_method", None)
         if method:
             request.method = method
@@ -47,14 +77,12 @@ class FormMethodExtender(View):
 
 
 class StaffUserRequiredMixin(AccessMixin):
-    def dispatch(self, request, *args, **kwargs):
+    def dispatch(
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
         if not self.request.user.is_staff:
             return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
-
-
-__all__ = [
-    "FormMethodExtender",
-    "RedirectToLastPageMixin",
-    "StaffUserRequiredMixin",
-]

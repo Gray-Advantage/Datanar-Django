@@ -1,3 +1,5 @@
+__all__ = ()
+
 from http import HTTPStatus
 
 from django.test import Client, TestCase
@@ -7,7 +9,7 @@ from django.urls import reverse
 class ContextContentTest(TestCase):
     fixtures = ["fixtures/for_test_data.json"]
 
-    def test_my_links_context(self):
+    def test_my_links_context(self) -> None:
         client = Client()
         client.login(username="TestUser", password="qscdewazx")
 
@@ -27,6 +29,3 @@ class ContextContentTest(TestCase):
                 "short_AAA",
             ],
         )
-
-
-__all__ = []

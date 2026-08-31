@@ -17,7 +17,7 @@
     <table class="text-center table mt-3 d-none d-md-table">
       <thead>
         <tr>
-          <th scope="col" class="w-25">{% trans "сreated" %}</th>
+          <th scope="col" class="w-25">{% trans "created" %}</th>
           <th scope="col" class="w-25">{% trans "transitions_are_available" %}</th>
           <th scope="col" class="w-25">{% trans "valid_for_days" %}</th>
           <th scope="col" class="w-25">{% trans "Password" %}</th>
@@ -35,7 +35,7 @@
     <table class="table mt-3 d-table d-md-none">
       <tbody>
         <tr>
-          <th scope="row" class="w-50 text-start">{% trans "сreated" %}</th>
+          <th scope="row" class="w-50 text-start">{% trans "created" %}</th>
           <td class="w-50 text-end">{{ redirect.created_at }}</td>
         </tr>
         <tr>
@@ -52,7 +52,7 @@
         </tr>
       </tbody>
     </table>
-    <div class="ms-auto me-auto mt-3">
+    <div class="mx-auto mt-3">
       <p class="text-center mb-1">{% trans "statistics_for" %}:</p>
       <a href="{% url 'statistic:link_detail' link "day" %}" class="btn {% if period == "day" %}btn-full{% else %}btn-outline{% endif %}">{% trans "day" %}</a>
       <a href="{% url 'statistic:link_detail' link "month" %}" class="btn {% if period == "month" %}btn-full{% else %}btn-outline{% endif %}">{% trans "month" %}</a>
@@ -100,6 +100,8 @@
       </div>
     </div>
     <p class="text-center mb-0 mt-1">( <a href='https://db-ip.com'>{% trans "ip_geo_by_DB-IP" %}</a> )</p>
-    <a href="{% url "statistic:download" link period %}" class="btn btn-outline mx-auto my-3">{% trans "download_statistics_for_the_period" %}</a>
+    <a href="{% url "statistic:download" link period %}" class="btn btn-outline mx-auto my-3">
+      {% trans "download_statistics_for_the_period" %}
+    </a>
   </div>
 {% endblock %}

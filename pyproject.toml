@@ -1,6 +1,6 @@
 [project]
 name = "datanar-django"
-version = "2.6.1"
+version = "2.6.2"
 description = "Сервис по сокращению ссылок на базе Django и Bootstrap"
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
@@ -59,12 +59,15 @@ quote-style = "double"
 [tool.ruff.lint]
 select = [
     "A",
+    "ANN",
     "ASYNC",
+    "B",
     "BLE",
     "C",
     "C4",
     "COM",
     "DJ",
+    "DTZ",
     "E",
     "EM",
     "ERA",
@@ -82,25 +85,32 @@ select = [
     "PERF",
     "PGH",
     "PIE",
-    "PLE",
-    "PLW",
+    "PL",
     "PTH",
     "Q",
     "RET",
     "RSE",
     "RUF",
+    "S",
     "SIM",
     "SLF",
     "T20",
+    "TC",
     "TID",
+    "TRY",
     "UP",
     "W",
 ]
 ignore = [
+    # *args/**kwargs в переопределениях Django честно принимают что угодно
+    "ANN401",
     "RUF001",
     "RUF003",
     "RUF012",
 ]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["DTZ", "S", "TC"]
 
 [tool.ruff.lint.isort]
 force-sort-within-sections = true

@@ -1,3 +1,5 @@
+__all__ = ("generate_short_link",)
+
 import hashlib
 
 from sqids import Sqids
@@ -24,6 +26,3 @@ def generate_short_link(long_link: str) -> str:
 
     msg = "Error generating short link"
     raise RuntimeError(msg)
-
-
-__all__ = ["generate_short_link"]
