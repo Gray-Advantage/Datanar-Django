@@ -1,6 +1,8 @@
+__all__ = ()
+
 from datetime import datetime, timedelta
 import re
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from allauth.account.models import EmailAddress
 from django.core import mail
@@ -12,7 +14,7 @@ from users.models import User
 
 
 class ActivationTest(TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.client = Client()
         self.data = {
             "username": "TestUser123",
@@ -28,7 +30,7 @@ class ActivationTest(TestCase):
         }
 
     @override_settings(ACCOUNT_EMAIL_VERIFICATION="mandatory")
-    def test_activation_correct(self):
+    def test_activation_correct(self) -> None:
         self.client.post(reverse("users:signup"), self.data1)
         user = User.objects.get(username=self.data1["username"])
 
@@ -52,7 +54,7 @@ class ActivationTest(TestCase):
 
     @override_settings(ACCOUNT_EMAIL_VERIFICATION="mandatory")
     @patch.object(timezone, "now")
-    def test_activation_wrong(self, mock_now):
+    def test_activation_wrong(self, mock_now: MagicMock) -> None:
         future_time = timezone.make_aware(datetime.now() + timedelta(hours=13))
         mock_now.return_value = timezone.make_aware(datetime.now())
 
@@ -78,6 +80,3 @@ class ActivationTest(TestCase):
             EmailAddress.objects.get_verified(user),
             "Неверное значение `verified` почты у `user`",
         )
-
-
-__all__ = []

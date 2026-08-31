@@ -1,7 +1,9 @@
+__all__ = ("QRCodeDownload", "QRCodePreview")
+
 from http import HTTPStatus
 from io import BytesIO
 
-from django.http import HttpResponse
+from django.http import HttpRequest, HttpResponse
 from django.views import View
 from PIL import Image
 
@@ -9,7 +11,7 @@ from qr_codes.utils import generate_qr_code
 
 
 class QRCodePreview(View):
-    def get(self, request, short_link):
+    def get(self, request: HttpRequest, short_link: str) -> HttpResponse:
         qr = generate_qr_code(request, short_link)
 
         response = HttpResponse(content_type="image/png")
@@ -18,7 +20,12 @@ class QRCodePreview(View):
 
 
 class QRCodeDownload(View):
-    def get(self, request, img_format, short_link):
+    def get(
+        self,
+        request: HttpRequest,
+        img_format: str,
+        short_link: str,
+    ) -> HttpResponse:
         if img_format not in ["png", "svg", "jpg", "jpeg"]:
             return HttpResponse(status=HTTPStatus.UNSUPPORTED_MEDIA_TYPE)
 
@@ -40,6 +47,3 @@ class QRCodeDownload(View):
             f'attachment; filename="qr_code.{filename_format}"'
         )
         return response
-
-
-__all__ = ["QRCodeDownload", "QRCodePreview"]

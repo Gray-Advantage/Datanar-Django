@@ -1,3 +1,6 @@
+__all__ = ()
+
+from datetime import timedelta
 from typing import Any
 
 from django.test import Client, override_settings, TestCase
@@ -10,7 +13,7 @@ from users.models import User
 
 
 class RedirectFormTest(TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.client = Client()
         self.user_data: dict[str, Any] = {
             "username": "TestUser",
@@ -26,7 +29,7 @@ class RedirectFormTest(TestCase):
         }
 
     @override_settings(DEFAULT_USER_IS_ACTIVE=True)
-    def test_redirect_form_without_auth_user(self):
+    def test_redirect_form_without_auth_user(self) -> None:
         response = self.client.get(reverse("homepage:home"))
         self.assertIn("form", response.context_data, "Нет `form` в контексте")
         self.assertIsInstance(
@@ -36,7 +39,7 @@ class RedirectFormTest(TestCase):
         )
 
     @override_settings(DEFAULT_USER_IS_ACTIVE=True)
-    def test_redirect_form_with_auth_user(self):
+    def test_redirect_form_with_auth_user(self) -> None:
         self.client.post(reverse("users:signup"), self.user_data)
         self.client.login(
             username=self.user_data["username"],
@@ -51,7 +54,7 @@ class RedirectFormTest(TestCase):
             "`form` не расширена для зарегистрированного пользователя",
         )
 
-    def test_extend_data_do_not_save_without_auth_user(self):
+    def test_extend_data_do_not_save_without_auth_user(self) -> None:
         self.client.post(reverse("homepage:home"), data=self.form_data)
 
         redirect = Redirect.objects.all().first()
@@ -74,7 +77,7 @@ class RedirectFormTest(TestCase):
             )
 
     @override_settings(DEFAULT_USER_IS_ACTIVE=True)
-    def test_extend_data_save_with_auth_user(self):
+    def test_extend_data_save_with_auth_user(self) -> None:
         self.client.post(reverse("users:signup"), self.user_data)
         self.client.login(
             username=self.user_data["username"],
@@ -85,9 +88,7 @@ class RedirectFormTest(TestCase):
         data = self.form_data.copy()
         data[Redirect.validity_days.field.name] = (
             timezone.now()
-            + timezone.timedelta(
-                days=data[Redirect.validity_days.field.name],
-            )
+            + timedelta(days=data[Redirect.validity_days.field.name])
         ).date()
 
         self.client.post(reverse("homepage:home"), data=data)
@@ -103,6 +104,3 @@ class RedirectFormTest(TestCase):
                 field_value,
                 f"`{field_name}` не сохранён в `redirect`",
             )
-
-
-__all__ = []

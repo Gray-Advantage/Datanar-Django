@@ -1,9 +1,17 @@
+__all__ = ("RedirectView",)
+
 from http import HTTPStatus
+from typing import Any
 
 from celery.result import AsyncResult
 from django.contrib import messages
 from django.contrib.gis.geoip2 import GeoIP2
-from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.http import (
+    Http404,
+    HttpRequest,
+    HttpResponse,
+    HttpResponseRedirect,
+)
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -19,7 +27,12 @@ geo_ip = GeoIP2()
 
 
 class RedirectView(View):
-    def get(self, request, *args, **kwargs):
+    def get(
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
         redirect = Redirect.objects.get_by_short_link(
             kwargs[Redirect.short_link.field.name],
         )
@@ -33,7 +46,12 @@ class RedirectView(View):
 
         return self.perform_redirect(redirect)
 
-    def post(self, request, *args, **kwargs):
+    def post(
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
         redirect = Redirect.objects.get_by_short_link(
             kwargs[Redirect.short_link.field.name],
         )
@@ -46,7 +64,7 @@ class RedirectView(View):
         form.add_error("password", _("invalid_password"))
         return render(request, "redirect/redirect.html", {"form": form})
 
-    def perform_redirect(self, redirect):
+    def perform_redirect(self, redirect: Redirect) -> HttpResponseRedirect:
         ip_address = self.request.META.get("HTTP_X_REAL_IP", "127.0.0.1")
 
         try:
@@ -71,7 +89,12 @@ class RedirectView(View):
 
 
 class LinksFileStatus(View):
-    def get(self, request, *args, **kwargs):
+    def get(
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
         task = AsyncResult(self.kwargs["work_id"])
 
         if not task.ready():
@@ -81,6 +104,3 @@ class LinksFileStatus(View):
             messages.add_message(request, SHORT_LINK, line)
 
         return HttpResponseRedirect(reverse("homepage:home"))
-
-
-__all__ = ["RedirectView"]

@@ -1,3 +1,15 @@
+__all__ = (
+    "DatanarChangePasswordForm",
+    "DatanarEmailForm",
+    "DatanarLoginForm",
+    "DatanarResetPasswordForm",
+    "DatanarResetPasswordKeyForm",
+    "DatanarSignupForm",
+    "UserForm",
+)
+
+from typing import Any
+
 from allauth.account.forms import (
     AddEmailForm,
     ChangePasswordForm,
@@ -16,12 +28,12 @@ from users.models import User
 class UserForm(BootstrapFormMixin, UserChangeForm):
     password = None
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.fields[User.email.field.name].disabled = True
         self.fields[User.avatar.field.name].widget.attrs["class"] += " d-none"
 
-    def clean_email(self):
+    def clean_email(self) -> str:
         return self.instance.email
 
     class Meta(UserChangeForm.Meta):
@@ -56,14 +68,3 @@ class DatanarResetPasswordForm(BootstrapFormMixin, ResetPasswordForm):
 
 class DatanarResetPasswordKeyForm(BootstrapFormMixin, ResetPasswordKeyForm):
     pass
-
-
-__all__ = [
-    "DatanarChangePasswordForm",
-    "DatanarEmailForm",
-    "DatanarLoginForm",
-    "DatanarResetPasswordForm",
-    "DatanarResetPasswordKeyForm",
-    "DatanarSignupForm",
-    "UserForm",
-]

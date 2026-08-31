@@ -1,9 +1,12 @@
+__all__ = ("AboutView", "HomeView", "ServiceRulesView")
+
+from typing import Any
 from urllib.parse import urlparse
 
 from django.contrib import messages
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from django.http import HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 from django.views.generic.base import TemplateView
@@ -19,12 +22,12 @@ class HomeView(FormMethodExtender, FormView):
     template_name = "homepage/main.html"
     success_url = reverse_lazy("homepage:home")
 
-    def get_form_class(self):
+    def get_form_class(self) -> type[RedirectForm]:
         if self.request.user.is_authenticated:
             return RedirectFormExtended
         return RedirectForm
 
-    def form_valid(self, form):
+    def form_valid(self, form: RedirectForm) -> HttpResponse:
         if "links_file" in self.request.FILES:
             links_file = form.cleaned_data["links_file"]
 
@@ -75,13 +78,13 @@ class HomeView(FormMethodExtender, FormView):
 
         return super().form_valid(form)
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context["SHORT_LINK"] = SHORT_LINK
         context["LOADING_LINKS"] = LOADING_LINKS
         return context
 
-    def delete(self, request):
+    def delete(self, request: HttpRequest) -> HttpResponseRedirect:
         Redirect.objects.filter(
             short_link=request.POST.get("short_link"),
         ).delete()
@@ -94,6 +97,3 @@ class ServiceRulesView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = "homepage/about.html"
-
-
-__all__ = ["AboutView", "HomeView", "ServiceRulesView"]
