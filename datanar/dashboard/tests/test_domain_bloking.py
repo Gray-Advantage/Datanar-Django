@@ -1,19 +1,21 @@
+__all__ = ()
+
 from django.test import TestCase
 
 from dashboard.models import BlockedDomain
 
 
 class DomainBlockingTest(TestCase):
-    def create_blocking(self, domain_regex):
+    def create_blocking(self, domain_regex: str) -> None:
         BlockedDomain.objects.create(domain_regex=domain_regex)
 
-    def is_blocked(self, url):
+    def is_blocked(self, url: str) -> None:
         self.assertEqual(BlockedDomain.objects.is_blocked(url), True)
 
-    def is_not_blocked(self, url):
+    def is_not_blocked(self, url: str) -> None:
         self.assertEqual(BlockedDomain.objects.is_blocked(url), False)
 
-    def test_subdomain_shortcut(self):
+    def test_subdomain_shortcut(self) -> None:
         self.create_blocking("||example.com#")
 
         for scheme in ["http://", "https://"]:
@@ -24,7 +26,7 @@ class DomainBlockingTest(TestCase):
         self.is_not_blocked("https://clck.com/")
         self.is_not_blocked("https://click.ru/")
 
-    def test_scheme_shortcut(self):
+    def test_scheme_shortcut(self) -> None:
         self.create_blocking("|test.ru#")
 
         for scheme in ["http://", "https://"]:
@@ -35,7 +37,7 @@ class DomainBlockingTest(TestCase):
         self.is_blocked("https://test.ru/")
         self.is_blocked("https://test.ru/test?p=122")
 
-    def test_toplevel_domain_shortcut(self):
+    def test_toplevel_domain_shortcut(self) -> None:
         self.create_blocking("||python^")
 
         for toplevel_domain in [".ru", ".com", ".рф", ".org", ".servers.com"]:
@@ -45,14 +47,14 @@ class DomainBlockingTest(TestCase):
 
         self.is_not_blocked("https://www.pythonanywhere.com/")
 
-    def test_any_letters_shortcut(self):
+    def test_any_letters_shortcut(self) -> None:
         self.create_blocking("#test#")
 
         self.is_blocked("https://test.com/")
         self.is_blocked("ftp://portal.testserver.com")
         self.is_blocked("https://test-this.com/")
 
-    def test_other_case(self):
+    def test_other_case(self) -> None:
         self.create_blocking("||booking^^")
         self.is_blocked("https://booking.bad_server.com/")
         self.is_blocked("https://booking.id2234223.ru/")
@@ -67,6 +69,3 @@ class DomainBlockingTest(TestCase):
         # by link_shorteners python lib
         self.is_blocked("https://replug.link")
         self.is_blocked("https://www.replug.link")
-
-
-__all__ = []

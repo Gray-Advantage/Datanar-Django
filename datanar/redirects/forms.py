@@ -1,3 +1,7 @@
+__all__ = ("PasswordForm", "RedirectForm", "RedirectFormExtended")
+
+from typing import Any
+
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils import timezone
@@ -19,7 +23,7 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
         required=False,
     )
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.fields[Redirect.short_link.field.name].required = False
 
@@ -36,7 +40,7 @@ class RedirectForm(BootstrapFormMixin, forms.ModelForm):
             Redirect.long_link.field.name,
         ]
 
-    def clean(self):
+    def clean(self) -> dict[str, Any]:
         cleaned_data = super().clean()
         if self.errors:
             return cleaned_data
@@ -92,13 +96,13 @@ class RedirectFormExtended(RedirectForm):
         "links_file",
     ]
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
 
         self.fields["links_file"].widget.attrs["class"] = "d-none"
         self.fields["links_file"].widget.attrs["accept"] = ".txt, .xlsx"
 
-    def clean(self):
+    def clean(self) -> dict[str, Any]:
         cleaned_data = super().clean()
         if self.errors:
             return cleaned_data
@@ -132,7 +136,7 @@ class RedirectFormExtended(RedirectForm):
 
 
 class PasswordForm(BootstrapFormMixin, forms.Form):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
 
         for field in self.fields.values():
@@ -142,6 +146,3 @@ class PasswordForm(BootstrapFormMixin, forms.Form):
         label=_("Password"),
         help_text=_("password_before_redirect"),
     )
-
-
-__all__ = ["PasswordForm", "RedirectForm", "RedirectFormExtended"]

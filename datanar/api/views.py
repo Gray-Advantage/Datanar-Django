@@ -1,5 +1,19 @@
-from functools import wraps
+__all__ = (
+    "APIDocsPreambleView",
+    "APIDocsQRCodeGetView",
+    "APIDocsRedirectCreateView",
+    "APIDocsRedirectDeleteView",
+    "APIDocsRedirectGetView",
+    "APIDocsTokenCreateView",
+    "APIDocsTokenGetView",
+    "CreateNewTokenView",
+    "RedirectViewSet",
+)
 
+from functools import wraps
+from typing import Any
+
+from django.http import HttpRequest, HttpResponse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import TemplateView
 from rest_framework import mixins, status, viewsets
@@ -13,9 +27,14 @@ from redirects.models import Redirect
 from redirects.serializers import RedirectCreateSerializer, RedirectSerializer
 
 
-def authorization_required(view_func):
+def authorization_required(view_func: Any) -> Any:
     @wraps(view_func)
-    def _wrapped_view(self, request, *args, **kwargs):
+    def _wrapped_view(
+        self: Any,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
         user = self._get_user(request)
         if not user:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
@@ -53,7 +72,12 @@ class APIDocsTokenCreateView(TemplateView):
 
 
 class CreateNewTokenView(ObtainAuthToken):
-    def post(self, request, *args, **kwargs):
+    def post(
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
@@ -66,7 +90,7 @@ class CreateNewTokenView(ObtainAuthToken):
 
 
 class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
-    def _get_user(self, request):
+    def _get_user(self, request: HttpRequest) -> HttpResponse:
         token = request.query_params.get("token", request.data.get("token"))
         token_instance = Token.objects.filter(key=token).first()
         user = token_instance.user if token_instance else None
@@ -75,7 +99,7 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         return user
 
     @authorization_required
-    def list(self, request, user):
+    def list(self, request: HttpRequest, user: Any) -> Response:
         serializer = RedirectSerializer(
             Redirect.objects.filter(user=user),
             many=True,
@@ -83,7 +107,12 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         return Response(serializer.data)
 
     @authorization_required
-    def retrieve(self, request, user, pk=None):
+    def retrieve(
+        self,
+        request: HttpRequest,
+        user: Any,
+        pk: str | None = None,
+    ) -> Response:
         if not pk.isdigit() or int(pk) <= 0:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
@@ -93,14 +122,24 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
         return Response(serializer.data)
 
     @authorization_required
-    def destroy(self, request, user, pk=None):
+    def destroy(
+        self,
+        request: HttpRequest,
+        user: Any,
+        pk: str | None = None,
+    ) -> Response:
         if not pk.isdigit() or int(pk) <= 0:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
         get_object_or_404(Redirect, pk=pk, user=user).delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    def create(self, request, *args, **kwargs):
+    def create(
+        self,
+        request: HttpRequest,
+        *args: Any,
+        **kwargs: Any,
+    ) -> HttpResponse:
         if (
             set(request.data)
             & {
@@ -168,16 +207,3 @@ class RedirectViewSet(viewsets.ViewSet, mixins.CreateModelMixin):
             if (key, *value) in responses:
                 return Response(status=responses[(key, *value)])
         return Response(status=status.HTTP_400_BAD_REQUEST)
-
-
-__all__ = [
-    "APIDocsPreambleView",
-    "APIDocsQRCodeGetView",
-    "APIDocsRedirectCreateView",
-    "APIDocsRedirectDeleteView",
-    "APIDocsRedirectGetView",
-    "APIDocsTokenCreateView",
-    "APIDocsTokenGetView",
-    "CreateNewTokenView",
-    "RedirectViewSet",
-]

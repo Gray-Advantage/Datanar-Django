@@ -1,6 +1,8 @@
+__all__ = ()
+
 from datetime import datetime, timedelta
 from http import HTTPStatus
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from django.test import Client, TestCase
 from django.urls import reverse
@@ -13,13 +15,13 @@ from statistic.models import Click
 
 
 class TestShortLinks(TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.client = Client()
         self.form_data = {
             "long_link": "https://lyceum.yandex.ru/",
         }
 
-    def test_diff_links(self):
+    def test_diff_links(self) -> None:
         short_links = set()
         for _ in range(15):
             self.client.post(reverse("homepage:home"), self.form_data)
@@ -30,7 +32,7 @@ class TestShortLinks(TestCase):
 
         self.assertEqual(len(short_links), 15, "Есть повторяющиеся ссылки")
 
-    def test_create_redirect(self):
+    def test_create_redirect(self) -> None:
         redirect_count = Redirect.objects.count()
 
         self.client.post(
@@ -51,7 +53,7 @@ class TestShortLinks(TestCase):
             "Метод создания для `redirect` неправильный",
         )
 
-    def test_redirect_short_link(self):
+    def test_redirect_short_link(self) -> None:
         response = self.client.post(
             reverse("homepage:home"),
             data=self.form_data,
@@ -79,13 +81,16 @@ class TestShortLinks(TestCase):
             "frufve4t94",
         ],
     )
-    def test_unknown_short_link_returns_404(self, unknown_short_links):
+    def test_unknown_short_link_returns_404(
+        self,
+        unknown_short_links: str,
+    ) -> None:
         response = self.client.get(
             reverse("redirects:redirect", args=[unknown_short_links]),
         )
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
 
-    def test_redirects_with_correct_short_link(self):
+    def test_redirects_with_correct_short_link(self) -> None:
         response = self.client.post(
             reverse("homepage:home"),
             data=self.form_data,
@@ -129,8 +134,8 @@ class TestShortLinks(TestCase):
     )
     def test_redirects_with_incorrect_short_link(
         self,
-        incorrect_short_link,
-    ):
+        incorrect_short_link: str,
+    ) -> None:
         response = self.client.post(
             reverse("homepage:home"),
             data=self.form_data
@@ -142,7 +147,7 @@ class TestShortLinks(TestCase):
         form: RedirectForm = response.context["form"]
         self.assertIn(Redirect.short_link.field.name, form.errors.keys())
 
-    def test_create_click(self):
+    def test_create_click(self) -> None:
         click_count = Click.objects.count()
         response = self.client.post(
             reverse("homepage:home"),
@@ -160,7 +165,10 @@ class TestShortLinks(TestCase):
         )
 
     @patch.object(timezone, "now")
-    def test_create_redirect_with_same_long_link(self, mock_now):
+    def test_create_redirect_with_same_long_link(
+        self,
+        mock_now: MagicMock,
+    ) -> None:
         now = datetime.now()
         future_time = now + timedelta(days=365)
         mock_now.return_value = timezone.make_aware(now)
@@ -182,6 +190,3 @@ class TestShortLinks(TestCase):
             follow=True,
         )
         self.assertFalse(redirect.is_active)
-
-
-__all__ = []

@@ -1,8 +1,12 @@
+__all__ = ("BootstrapFormMixin",)
+
+from typing import Any
+
 from django import forms
 
 
 class BootstrapFormMixin:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         visible_fields = self.visible_fields()
         is_single_field = len(visible_fields) == 1
@@ -18,7 +22,7 @@ class BootstrapFormMixin:
 
         self.update_errors_class()
 
-    def update_errors_class(self):
+    def update_errors_class(self) -> None:
         for field in self.visible_fields():
             if not self.errors.get(field.name):
                 continue
@@ -32,9 +36,6 @@ class BootstrapFormMixin:
                 widget_classes += "is-invalid"
                 widget.attrs["class"] = widget_classes
 
-    def add_error(self, field, error):
+    def add_error(self, field: str | None, error: Any) -> None:
         super().add_error(field, error)
         self.update_errors_class()
-
-
-__all__ = ["BootstrapFormMixin"]

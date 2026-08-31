@@ -1,5 +1,7 @@
+__all__ = ()
+
 from datetime import datetime
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from django.test import Client, TestCase
 from django.urls import reverse
@@ -10,7 +12,7 @@ from rest_framework import status
 class ApiWrongTest(TestCase):
     fixtures = ["fixtures/for_test_data.json"]
 
-    def setUp(self):
+    def setUp(self) -> None:
         self.username = "TestUser"
         self.password = "qscdewazx"
         self.client = Client()
@@ -24,7 +26,7 @@ class ApiWrongTest(TestCase):
             "short_FFF",
         ]
 
-    def test_new_token_with_wrong_auth_data(self):
+    def test_new_token_with_wrong_auth_data(self) -> None:
         client = Client()
 
         response_1 = client.post(
@@ -39,11 +41,11 @@ class ApiWrongTest(TestCase):
         )
         self.assertEqual(response_2.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_redirect_without_auth(self):
+    def test_redirect_without_auth(self) -> None:
         response = Client().get(reverse("api:redirect-detail", args=[1]))
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
-    def test_redirect_with_wrong_token(self):
+    def test_redirect_with_wrong_token(self) -> None:
         token = self.client.post(
             reverse("api:get_token"),
             data={"username": self.username, "password": self.password},
@@ -55,7 +57,7 @@ class ApiWrongTest(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
-    def test_redirect_with_wrong_id(self):
+    def test_redirect_with_wrong_id(self) -> None:
         response = self.client.get(reverse("api:redirect-detail", args=[42]))
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         response = self.client.get(reverse("api:redirect-detail", args=["37"]))
@@ -68,7 +70,10 @@ class ApiWrongTest(TestCase):
             self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     @patch.object(timezone, "now")
-    def test_create_redirect_with_wrong_data(self, mock_now):
+    def test_create_redirect_with_wrong_data(
+        self,
+        mock_now: MagicMock,
+    ) -> None:
         mock_now.return_value = timezone.make_aware(datetime(2023, 12, 30))
 
         for data, error in [
@@ -86,7 +91,7 @@ class ApiWrongTest(TestCase):
             response = Client().post(reverse("api:redirect-list"), data=data)
             self.assertEqual(response.status_code, error)
 
-    def test_create_redirect_with_wrong_auth(self):
+    def test_create_redirect_with_wrong_auth(self) -> None:
         for add_data in [
             {"password": "qwerty"},
             {"validity_days": 200},
@@ -98,7 +103,7 @@ class ApiWrongTest(TestCase):
             )
             self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
-    def test_delete_redirect_with_wrong_data(self):
+    def test_delete_redirect_with_wrong_data(self) -> None:
         response = self.client.delete(
             reverse("api:redirect-detail", args=[42]),
         )
@@ -113,6 +118,3 @@ class ApiWrongTest(TestCase):
                 reverse("api:redirect-detail", args=[elem]),
             )
             self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
-
-__all__ = []

@@ -1,3 +1,5 @@
+__all__ = ()
+
 import re
 
 from django.core import mail
@@ -8,7 +10,7 @@ from users.models import User
 
 
 class ChangeFormTest(TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.client = Client()
         self.data = {
             "username": "TestUser12345",
@@ -24,7 +26,7 @@ class ChangeFormTest(TestCase):
         }
 
     @override_settings(ACCOUNT_EMAIL_VERIFICATION="none")
-    def test_change_login(self):
+    def test_change_login(self) -> None:
         self.client.post(reverse("users:signup"), self.data1)
         self.client.login(
             username=self.data1["username"],
@@ -44,7 +46,7 @@ class ChangeFormTest(TestCase):
         self.assertNotEqual(old_login, new_login)
 
     @override_settings(ACCOUNT_EMAIL_VERIFICATION="none")
-    def test_change_password(self):
+    def test_change_password(self) -> None:
         self.client.post(reverse("users:signup"), self.data1)
         self.client.login(
             username=self.data1["username"],
@@ -68,7 +70,7 @@ class ChangeFormTest(TestCase):
         self.assertNotEqual(old_password, new_password)
 
     @override_settings(ACCOUNT_EMAIL_VERIFICATION="mandatory")
-    def test_change_email(self):
+    def test_change_email(self) -> None:
         self.client.post(reverse("users:signup"), self.data)
         email_body = mail.outbox[0].body
         url = re.search(r"http://testserver(.+)", email_body).group(0)
@@ -93,6 +95,3 @@ class ChangeFormTest(TestCase):
 
         self.assertEqual(user1, user)
         self.assertNotEqual(old_email, new_email)
-
-
-__all__ = []

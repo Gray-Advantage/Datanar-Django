@@ -1,12 +1,18 @@
+__all__ = ("Click",)
+
 from datetime import timedelta
+from typing import TYPE_CHECKING
 
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+if TYPE_CHECKING:
+    from django.db.models import QuerySet
+
 
 class ClickManager(models.Manager):
-    def count_for_short_link(self, short_link):
+    def count_for_short_link(self, short_link: str) -> int:
         return (
             self.get_queryset()
             .filter(redirect__short_link=short_link)
@@ -14,7 +20,7 @@ class ClickManager(models.Manager):
             .count()
         )
 
-    def for_short_link_by_all_time(self, short_link):
+    def for_short_link_by_all_time(self, short_link: str) -> "QuerySet[Click]":
         return (
             self.get_queryset()
             .filter(redirect__short_link=short_link)
@@ -22,17 +28,23 @@ class ClickManager(models.Manager):
             .only("browser", "city", "country", "redirect_id", "os")
         )
 
-    def for_short_link_by_last_year(self, short_link):
+    def for_short_link_by_last_year(
+        self,
+        short_link: str,
+    ) -> "QuerySet[Click]":
         return self.for_short_link_by_all_time(short_link).filter(
             clicked_at__gte=timezone.now() - timedelta(days=365),
         )
 
-    def for_short_link_by_last_month(self, short_link):
+    def for_short_link_by_last_month(
+        self,
+        short_link: str,
+    ) -> "QuerySet[Click]":
         return self.for_short_link_by_all_time(short_link).filter(
             clicked_at__gte=timezone.now() - timedelta(days=30),
         )
 
-    def for_short_link_by_last_day(self, short_link):
+    def for_short_link_by_last_day(self, short_link: str) -> "QuerySet[Click]":
         return self.for_short_link_by_all_time(short_link).filter(
             clicked_at__gte=timezone.now() - timedelta(days=1),
         )
@@ -74,8 +86,5 @@ class Click(models.Model):
 
     objects = ClickManager()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.clicked_at)
-
-
-__all__ = ["Click"]

@@ -1,5 +1,8 @@
+__all__ = ("clear_redirects", "create_redirects")
+
 from datetime import timedelta
 from pathlib import Path
+from typing import Any
 from urllib.parse import urlparse
 
 from celery.schedules import schedule
@@ -22,19 +25,17 @@ validator = URLValidator()
 def is_line_valid(line: str) -> bool:
     try:
         validator(line)
-        if line.count("http:") > 1 or line.count("https:") > 1:
-            raise ValidationError
     except ValidationError:
         return False
-    return True
+    return line.count("http:") <= 1 and line.count("https:") <= 1
 
 
-def get_from_txt(file_txt):
+def get_from_txt(file_txt: Any) -> list[str]:
     lines = (x.strip() for x in file_txt)
     return list(filter(is_line_valid, lines))
 
 
-def get_from_xlsx(file_xlsx):
+def get_from_xlsx(file_xlsx: Any) -> list[str]:
     workbook = openpyxl.load_workbook(file_xlsx.name)
     sheet = workbook.active
 
@@ -46,7 +47,7 @@ def get_from_xlsx(file_xlsx):
     return list(filter(is_line_valid, lines))
 
 
-def get_links(file_path):
+def get_links(file_path: str) -> list[str]:
     with Path(settings.MEDIA_ROOT / file_path).open() as file:
         file_extension = Path(file.name).suffix
 
@@ -61,7 +62,12 @@ def get_links(file_path):
 
 
 @app.task()
-def create_redirects(data, user_id, host, ip_address):
+def create_redirects(
+    data: dict[str, Any],
+    user_id: int | None,
+    host: str,
+    ip_address: str | None,
+) -> list[str]:
     file_field_name = "links_file"
     links = get_links(data.pop(file_field_name))
 
@@ -106,7 +112,7 @@ def create_redirects(data, user_id, host, ip_address):
 
 
 @app.task()
-def clear_redirects():
+def clear_redirects() -> None:
     # Деактивация редиректов, чей срок годности истёк
     redirect = Redirect.objects.filter(
         is_active=True,
@@ -147,11 +153,8 @@ def clear_redirects():
 
 
 @app.on_after_finalize.connect
-def setup_periodic_tasks(sender, **kwargs):
+def setup_periodic_tasks(sender: Any, **kwargs: Any) -> None:
     sender.add_periodic_task(
         schedule(run_every=10),
         clear_redirects,
     )
-
-
-__all__ = ["clear_redirects", "create_redirects"]

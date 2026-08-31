@@ -1,3 +1,5 @@
+__all__ = ()
+
 from django.urls import path
 from rest_framework.authtoken import views as rest_views
 from rest_framework.routers import DefaultRouter
@@ -6,7 +8,7 @@ from api import views
 
 
 class OptionalSlashRouter(DefaultRouter):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.trailing_slash = "/?"
 
@@ -56,6 +58,3 @@ urlpatterns = [
     ),
     *router.urls,
 ]
-
-
-__all__ = []
