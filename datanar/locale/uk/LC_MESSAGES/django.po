@@ -16,10 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
-"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
-"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
-"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 #: .\api\apps.py:8
 msgid "api"
@@ -187,7 +184,8 @@ msgstr "коротке посилання"
 #: .\redirects\models.py:66
 msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
-"Скорочене посилання, за яким буде повністю перенаправлення на кінцевий ресурс"
+"Скорочене посилання, за яким буде повністю перенаправлення на кінцевий "
+"ресурс"
 
 #: .\redirects\models.py:72 .\templates\api\docs\redirect__create.html:36
 msgid "resource_to_which_short_link_lead"
@@ -372,28 +370,22 @@ msgstr "Помилка сервера"
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
 msgid ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
+"You are receiving this email because you or someone else tried to signup for an\n"
 "account using email address:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
+"However, an account using that email address already exists.  In case you have\n"
+"forgotten about this, please use the password forgotten procedure to recover\n"
 "your account:\n"
 "\n"
 "%(password_reset_url)s"
 msgstr ""
-"Ви отримали цей лист, тому що ви чи хтось інший спробували зареєструватися "
-"на обліковому записі з використанням електронної адреси пошти:\n"
+"Ви отримали цей лист, тому що ви чи хтось інший спробували зареєструватися на обліковому записі з використанням електронної адреси пошти:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"Але обліковий запис з цією адресою електронної пошти вже існує. Якщо Ви "
-"забули про це, будь ласка, скористайтеся процедурою відновленняпароля, щоб "
-"відновити свій обліковий запис:\n"
+"Але обліковий запис з цією адресою електронної пошти вже існує. Якщо Ви забули про це, будь ласка, скористайтеся процедурою відновленняпароля, щоб відновити свій обліковий запис:\n"
 "\n"
 "%(password_reset_url)s"
 
@@ -418,13 +410,11 @@ msgstr ""
 #: .\templates\account\email\email_confirmation_message.txt:5
 #, python-format
 msgid ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has given your email address to register an account on %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s"
 msgstr ""
-"Ви отримали цей лист, тому що користувач %(user_display)s вказав ваш адреса "
-"електронної пошти для реєстрації облікового запису на %(site_domain)s.\n"
+"Ви отримали цей лист, тому що користувач %(user_display)s вказав ваш адреса електронної пошти для реєстрації облікового запису на %(site_domain)s.\n"
 "\n"
 "Щоб підтвердити, що це правильно, перейдіть на адресу %(activate_url)s"
 
@@ -434,15 +424,11 @@ msgstr "Будь ласка, підтвердіть вашу адресу еле
 
 #: .\templates\account\email\password_reset_key_message.txt:4
 msgid ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
+"You're receiving this email because you or someone else has requested a password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the link below to reset your password."
 msgstr ""
-"Ви отримали цей лист, тому що ви чи хтось інший запросив скидання пароля для "
-"вашого облікового запису.\n"
-"Його можна безпечно ігнорувати, якщо ви не запитували скидання пароля."
-"Натисніть посилання нижче, щоб скинути пароль."
+"Ви отримали цей лист, тому що ви чи хтось інший запросив скидання пароля для вашого облікового запису.\n"
+"Його можна безпечно ігнорувати, якщо ви не запитували скидання пароля.Натисніть посилання нижче, щоб скинути пароль."
 
 #: .\templates\account\email\password_reset_key_message.txt:9
 #, python-format
@@ -458,8 +444,7 @@ msgstr "Лист для скидання пароля"
 #, python-format
 msgid ""
 "You are receiving this email because you or someone else has requested a\n"
-"password for your user account. However, we do not have any record of a "
-"user\n"
+"password for your user account. However, we do not have any record of a user\n"
 "with email %(email)s in our database.\n"
 "\n"
 "This mail can be safely ignored if you did not request a password reset.\n"
@@ -467,14 +452,12 @@ msgid ""
 "If it was you, you can sign up for an account using the link below."
 msgstr ""
 "Ви отримуєте цей лист, тому що ви або хтось інший запитав\n"
-"пароль для вашого облікового запису. Однак у нас немає жодних записів про "
-"користуваче\n"
+"пароль для вашого облікового запису. Однак у нас немає жодних записів про користуваче\n"
 "з адресою електронної пошти %(email)s у нашій базі даних.\n"
 "\n"
 "Цей лист можна безпечно ігнорувати, якщо ви не запитували скидання пароля.\n"
 "\n"
-"Якщо це були ви, ви можете зареєструватися на сайті, використовуючи "
-"посилання нижче."
+"Якщо це були ви, ви можете зареєструватися на сайті, використовуючи посилання нижче."
 
 #: .\templates\api\base.html:17
 msgid "datanar_api_docs"
@@ -1082,8 +1065,8 @@ msgstr ""
 #: .\templates\homepage\main.html:30
 msgid "short_description_about_supported_files"
 msgstr ""
-"Ви можете вибрати або перетягнути файл C розширенням .txt/.xlsx. У txt кожен "
-"рядок розглядається як посилання, а xlsx кожен рядок першого стовпця"
+"Ви можете вибрати або перетягнути файл C розширенням .txt/.xlsx. У txt кожен"
+" рядок розглядається як посилання, а xlsx кожен рядок першого стовпця"
 
 #: .\templates\homepage\main.html:40
 msgid "label_link_file"
@@ -1109,7 +1092,8 @@ msgstr "Будь ласка, перетягніть лише один файл."
 msgid "message_error_type"
 msgstr "Будь ласка, перетягніть файл із розширенням .xlsx або .txt."
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
+#: .\templates\homepage\service_rules.html:5
+#: .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "Правила сервісу"
 
@@ -1149,14 +1133,14 @@ msgstr ""
 #: .\templates\homepage\service_rules.html:19
 msgid "rule_4"
 msgstr ""
-"4. Ми залишаємо за собою право вносити зміни до наших умов використання. При "
-"важливих змінах ми повідомимо вас."
+"4. Ми залишаємо за собою право вносити зміни до наших умов використання. При"
+" важливих змінах ми повідомимо вас."
 
 #: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
-"Дякую за вибір Datanar! Ми цінуємо вашу довіру і прагнемо надати вам зручний "
-"та безпечний сервіс скорочення посилань."
+"Дякую за вибір Datanar! Ми цінуємо вашу довіру і прагнемо надати вам зручний"
+" та безпечний сервіс скорочення посилань."
 
 #: .\templates\includes\header.html:15
 msgid "theme"
@@ -1205,7 +1189,7 @@ msgstr "Ще немає облікового запису?"
 
 #: .\templates\includes\user_form.html:50
 msgid "create_it"
-msgstr "Створи її!"
+msgstr "Створіть її!"
 
 #: .\templates\includes\user_form.html:51
 msgid "forgot_password"
@@ -1229,11 +1213,11 @@ msgstr "Оригінал"
 
 #: .\templates\statistic\link_detail.html:20
 msgid "after_10_days_deactivate_redirect_will_be_delete"
-msgstr ""
+msgstr "Через 10 днів з моменту деактивації перенаправлення будуть видалені"
 
 #: .\templates\statistic\link_detail.html:24
 #: .\templates\statistic\link_detail.html:42
-msgid "сreated"
+msgid "created"
 msgstr "Створено"
 
 #: .\templates\statistic\link_detail.html:25
@@ -1319,8 +1303,8 @@ msgstr ""
 "Ми надіслали вам електронний лист для підтвердження. Перейдіть по зазначене "
 "посилання, щоб завершити процес реєстрації. Якщо ви не бачите електронний "
 "лист з підтвердженням у своїй основній поштовій скриньці,перевірте папку зі "
-"спамом. Будь ласка, зв'яжіться з нами, якщо ви не отримаєте електронний лист "
-"із підтвердженням протягом декількох хвилин."
+"спамом. Будь ласка, зв'яжіться з нами, якщо ви не отримаєте електронний лист"
+" із підтвердженням протягом декількох хвилин."
 
 #: .\templates\users\confirm_email_from_sent.html:18
 #, python-format
@@ -1347,8 +1331,8 @@ msgstr ""
 #: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "Термін дії цього посилання для підтвердження минув або він недійсний. <a "
 "href=\"%(email_url)s\">Будь ласка, надішліть новий запит.</a>."
@@ -1356,11 +1340,6 @@ msgstr ""
 #: .\templates\users\email_change.html:8
 msgid "email_change"
 msgstr "Зміна пошти"
-
-#: .\templates\users\email_change.html:17
-#: .\templates\users\email_change.html:20
-msgid "Email"
-msgstr "Адреса електронної пошти"
 
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
@@ -1424,7 +1403,7 @@ msgid "reset"
 msgstr "Скидання"
 
 #: .\templates\users\password_reset_done.html:11
-msgid "email_instructions_for_password_recove_sent"
+msgid "email_instructions_for_password_recover_sent"
 msgstr "Лист з інструкціями з відновлення пароля надіслано"
 
 #: .\templates\users\profile.html:37
@@ -1451,6 +1430,8 @@ msgstr "Користувач"
 msgid "avatar"
 msgstr "Аватар"
 
-#: .\users\views.py:33
-msgid "username_is_already_taken"
-msgstr "Користувач із таким ім'ям вже існує"
+msgid "country_from_which_redirect_was_made"
+msgstr "Країна, з якої здійснено перехід"
+
+msgid "city_from_which_redirect_was_made"
+msgstr "Місто, з якого здійснено перехід"

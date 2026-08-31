@@ -5,6 +5,7 @@ from typing import Any
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+from django.utils.text import capfirst
 from django.utils.translation import gettext_lazy as _
 
 from core.forms import BootstrapFormMixin
@@ -81,7 +82,7 @@ class RedirectFormExtended(RedirectForm):
     links_file = forms.FileField(required=False)
 
     validity_days = forms.DateField(
-        label=Redirect.validity_days.field.verbose_name.capitalize(),
+        label=capfirst(Redirect.validity_days.field.verbose_name),
         help_text=Redirect.validity_days.field.help_text,
         widget=DatePickerInput(),
         required=False,

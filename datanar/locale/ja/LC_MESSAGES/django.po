@@ -367,16 +367,13 @@ msgstr "サーバーエラー"
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
 msgid ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
+"You are receiving this email because you or someone else tried to signup for an\n"
 "account using email address:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
+"However, an account using that email address already exists.  In case you have\n"
+"forgotten about this, please use the password forgotten procedure to recover\n"
 "your account:\n"
 "\n"
 "%(password_reset_url)s"
@@ -413,16 +410,14 @@ msgstr ""
 #: .\templates\account\email\email_confirmation_message.txt:5
 #, python-format
 msgid ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has given your email address to register an account on %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s"
 msgstr ""
 "あなたがこのメールを受け取ったのは、ユーザー%(user_display)sがあなたの\n"
 "電子メールアドレスを%(site_domain)sのアカウント登録に使用したからです。\n"
 "\n"
-"これが正しいことを確認するために、次のURLにアクセスしてください："
-"%(activate_url)s"
+"これが正しいことを確認するために、次のURLにアクセスしてください：%(activate_url)s"
 
 #: .\templates\account\email\email_confirmation_subject.txt:3
 msgid "Please Confirm Your Email Address"
@@ -430,16 +425,13 @@ msgstr "あなたのメールアドレスを確認してください"
 
 #: .\templates\account\email\password_reset_key_message.txt:4
 msgid ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
+"You're receiving this email because you or someone else has requested a password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the link below to reset your password."
 msgstr ""
 "あなたがこのメールを受け取ったのは、あなた自身または他の誰かが\n"
 "あなたのアカウントのパスワードをリセットするようにリクエストしたからです。\n"
 "パスワードのリセットをリクエストしていない場合、このメールは無視して\n"
-"安全に処理できます。パスワードをリセットするには、以下のリンクをクリックして"
-"ください。"
+"安全に処理できます。パスワードをリセットするには、以下のリンクをクリックしてください。"
 
 #: .\templates\account\email\password_reset_key_message.txt:9
 #, python-format
@@ -455,8 +447,7 @@ msgstr "パスワードリセットメール"
 #, python-format
 msgid ""
 "You are receiving this email because you or someone else has requested a\n"
-"password for your user account. However, we do not have any record of a "
-"user\n"
+"password for your user account. However, we do not have any record of a user\n"
 "with email %(email)s in our database.\n"
 "\n"
 "This mail can be safely ignored if you did not request a password reset.\n"
@@ -464,15 +455,13 @@ msgid ""
 "If it was you, you can sign up for an account using the link below."
 msgstr ""
 "あなたがこのメールを受け取っているのは、あなた自身または他の誰かが\n"
-"あなたのアカウントのパスワードをリセットするようにリクエストしたからです。し"
-"かし、私たちのデータベースには\n"
+"あなたのアカウントのパスワードをリセットするようにリクエストしたからです。しかし、私たちのデータベースには\n"
 "電子メールアドレス%(email)sのユーザーに関する記録はありません。\n"
 "\n"
 "パスワードのリセットをリクエストしていない場合、このメールは無視して\n"
 "安全に処理できます。\n"
 "\n"
-"もしこれがあなたであれば、以下のリンクを使用してサイトに登録することができま"
-"す。"
+"もしこれがあなたであれば、以下のリンクを使用してサイトに登録することができます。"
 
 #: .\templates\api\base.html:17
 msgid "datanar_api_docs"
@@ -525,21 +514,15 @@ msgstr "DatanarサービスAPIドキュメントへようこそ！"
 
 #: .\templates\api\docs\preamble.html:24
 msgid "who_is_the_API_intended_for"
-msgstr ""
-"APIは、アプリケーションやサービスにリンク短縮機能を統合したい開発者や企業のた"
-"めに設計されています。"
+msgstr "APIは、アプリケーションやサービスにリンク短縮機能を統合したい開発者や企業のために設計されています。"
 
 #: .\templates\api\docs\preamble.html:25
 msgid "API_description_in_preamble"
-msgstr ""
-"一方、高度な機能は、登録されたユーザーだけが利用でき、登録後に取得できるトー"
-"クンを使用する必要があります。"
+msgstr "一方、高度な機能は、登録されたユーザーだけが利用でき、登録後に取得できるトークンを使用する必要があります。"
 
 #: .\templates\api\docs\qr_code__get.html:9
 msgid "get_qr_code_by_redirect"
-msgstr ""
-"ショート・リダイレクト・リンクからQRコードをダウンロードするためのリンクを入"
-"手する"
+msgstr "ショート・リダイレクト・リンクからQRコードをダウンロードするためのリンクを入手する"
 
 #: .\templates\api\docs\qr_code__get.html:11
 #: .\templates\api\docs\redirect__create.html:11
@@ -775,8 +758,7 @@ msgstr "Pythonコード例："
 #: .\templates\api\docs\token__create.html:106
 #: .\templates\api\docs\token__get.html:106
 msgid "reminder_that_passwords_better_kept_in_separate_file"
-msgstr ""
-"パスワードは別のファイルに保管するのがベストであることを忘れないでください。"
+msgstr "パスワードは別のファイルに保管するのがベストであることを忘れないでください。"
 
 #: .\templates\api\docs\qr_code__get.html:110
 #: .\templates\api\docs\redirect__delete.html:93
@@ -788,10 +770,7 @@ msgstr "すべてのリダイレクトを取得する"
 #: .\templates\api\docs\redirect__create.html:9
 msgid "redirect__create_api_docs"
 msgstr ""
-"APIの主なルートは、リダイレクトを作成することです。トークンを使わない場合は、"
-"リダイレクトとカスタムリンクを作成するだけです。トークンを使えば、リダイレク"
-"トはユーザのプロファイルに保存され、リダイレクトを作成する際に追加の属性を設"
-"定することができます。"
+"APIの主なルートは、リダイレクトを作成することです。トークンを使わない場合は、リダイレクトとカスタムリンクを作成するだけです。トークンを使えば、リダイレクトはユーザのプロファイルに保存され、リダイレクトを作成する際に追加の属性を設定することができます。"
 
 #: .\templates\api\docs\redirect__create.html:28
 #: .\templates\api\docs\redirect__create.html:42
@@ -878,14 +857,11 @@ msgstr "正常に受信されたリダイレクト"
 #: .\templates\api\docs\token__create.html:9
 #: .\templates\api\docs\token__get.html:9
 msgid "to_start_interacting_with_extended_API_you_need_token"
-msgstr ""
-"サービスの拡張APIとのやり取りを開始するには、Tokenを取得する必要がある。"
+msgstr "サービスの拡張APIとのやり取りを開始するには、Tokenを取得する必要がある。"
 
 #: .\templates\api\docs\token__create.html:9
 msgid "each_new_POST_request_recreates_token"
-msgstr ""
-"このルートへのそれぞれの新しいPOSTリクエストは、例えば、前のTokenが開示された"
-"場合に備えて、ユーザのTokenを再作成する。"
+msgstr "このルートへのそれぞれの新しいPOSTリクエストは、例えば、前のTokenが開示された場合に備えて、ユーザのTokenを再作成する。"
 
 #: .\templates\api\docs\token__create.html:29
 #: .\templates\api\docs\token__get.html:29
@@ -904,9 +880,7 @@ msgstr "POST以外のリクエスト"
 
 #: .\templates\api\docs\token__get.html:9
 msgid "on_this_route_you_can_create_token_or_reacquire_existing_one"
-msgstr ""
-"このルートでは、まだTokenを持っていない場合はTokenを作成し、紛失した場合は既"
-"存のTokenを再取得することができる。"
+msgstr "このルートでは、まだTokenを持っていない場合はTokenを作成し、紛失した場合は既存のTokenを再取得することができる。"
 
 #: .\templates\dashboard\all_links.html:5
 msgid "title__dashboard__all_links"
@@ -997,8 +971,7 @@ msgstr "プロジェクトについて"
 #: .\templates\homepage\about.html:13
 msgid "about_beginning"
 msgstr ""
-"Datanarは、リンクの短縮を行うウェブサービスです。私たちのサイトを使えば、長い"
-"URLアドレスを簡単に\n"
+"Datanarは、リンクの短縮を行うウェブサービスです。私たちのサイトを使えば、長いURLアドレスを簡単に\n"
 "短縮して、より便利で使いやすくすることができます。"
 
 #: .\templates\homepage\about.html:17
@@ -1076,8 +1049,7 @@ msgstr "あなたのリンクを短縮して、お客様が長いURLを見る必
 #: .\templates\homepage\main.html:30
 msgid "short_description_about_supported_files"
 msgstr ""
-".txt/.xlsxの拡張子を持つファイルを選択またはドラッグアンドドロップできます。"
-"txtでは各行がリンクとして扱われ、xlsxでは最初の列の各行が扱われます"
+".txt/.xlsxの拡張子を持つファイルを選択またはドラッグアンドドロップできます。txtでは各行がリンクとして扱われ、xlsxでは最初の列の各行が扱われます"
 
 #: .\templates\homepage\main.html:40
 msgid "label_link_file"
@@ -1101,10 +1073,10 @@ msgstr "ファイルは一つだけドラッグアンドドロップしてくだ
 
 #: .\templates\homepage\main.html:69
 msgid "message_error_type"
-msgstr ""
-".xlsxまたは.txtの拡張子を持つファイルをドラッグアンドドロップしてください。"
+msgstr ".xlsxまたは.txtの拡張子を持つファイルをドラッグアンドドロップしてください。"
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
+#: .\templates\homepage\service_rules.html:5
+#: .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "サービスの規則"
 
@@ -1115,43 +1087,34 @@ msgstr "Datanarサービスの規則"
 #: .\templates\homepage\service_rules.html:14
 msgid "welcome_service_rules"
 msgstr ""
-"Datanarのリンク短縮サービスへようこそ。私たちのサービスを利用することで、あな"
-"たは自動的に私たちの規則に同意することになります。それらを注意深くお読みくだ"
-"さい。"
+"Datanarのリンク短縮サービスへようこそ。私たちのサービスを利用することで、あなたは自動的に私たちの規則に同意することになります。それらを注意深くお読みください。"
 
 #: .\templates\homepage\service_rules.html:16
 msgid "rule_1"
 msgstr ""
-"1. アカウントを作成するために、私たちはユーザーのメールアドレス、ログイン名、"
-"パスワードを収集します。私たちはあなたのプライバシーを尊重します。すべての個"
-"人情報は、あなたのアカウントの管理のためだけに使用され、第三者には提供されま"
-"せん。"
+"1. "
+"アカウントを作成するために、私たちはユーザーのメールアドレス、ログイン名、パスワードを収集します。私たちはあなたのプライバシーを尊重します。すべての個人情報は、あなたのアカウントの管理のためだけに使用され、第三者には提供されません。"
 
 #: .\templates\homepage\service_rules.html:17
 msgid "rule_2"
 msgstr ""
-"2. 私たちはあなたのデータを保護するために可能なすべての安全対策を講じていま"
-"す。あなたのパスワードは暗号化されて保存されます。複雑なパスワードを使用し、"
-"他人と共有しないことをお勧めします。"
+"2. "
+"私たちはあなたのデータを保護するために可能なすべての安全対策を講じています。あなたのパスワードは暗号化されて保存されます。複雑なパスワードを使用し、他人と共有しないことをお勧めします。"
 
 #: .\templates\homepage\service_rules.html:18
 msgid "rule_3"
 msgstr ""
-"3. 私たちのサービスを利用する際には、法律を違反する行為を行ったり、他のユー"
-"ザーや第三者に害を及ぼす可能性のある方法でサービスを利用することは禁止されて"
-"います。"
+"3. "
+"私たちのサービスを利用する際には、法律を違反する行為を行ったり、他のユーザーや第三者に害を及ぼす可能性のある方法でサービスを利用することは禁止されています。"
 
 #: .\templates\homepage\service_rules.html:19
 msgid "rule_4"
-msgstr ""
-"4. 私たちは、私たちの利用規約に変更を加える権利を留保しています。重要な変更が"
-"あった場合は、あなたに通知します。"
+msgstr "4. 私たちは、私たちの利用規約に変更を加える権利を留保しています。重要な変更があった場合は、あなたに通知します。"
 
 #: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
-"Datanarを選んでいただきありがとうございます！私たちはあなたの信頼を大切にし、"
-"便利で安全なリンク短縮サービスを提供することを目指しています。"
+"Datanarを選んでいただきありがとうございます！私たちはあなたの信頼を大切にし、便利で安全なリンク短縮サービスを提供することを目指しています。"
 
 #: .\templates\includes\header.html:15
 msgid "theme"
@@ -1228,7 +1191,7 @@ msgstr "無効化から10日後、リダイレクトは削除されます"
 
 #: .\templates\statistic\link_detail.html:24
 #: .\templates\statistic\link_detail.html:42
-msgid "сreated"
+msgid "created"
 msgstr "作成されました"
 
 #: .\templates\statistic\link_detail.html:25
@@ -1311,9 +1274,7 @@ msgstr "あなたのメールを確認してください"
 #: .\templates\users\confirm_email.html:12
 msgid "email_confirmation_description"
 msgstr ""
-"登録プロセスを完了してください。もし、あなたのメインのメールボックスに確認の"
-"電子メールを見つけられない場合は、スパムフォルダを確認してください。数分以内"
-"に確認の電子メールが届かない場合は、私たちに連絡してください。"
+"登録プロセスを完了してください。もし、あなたのメインのメールボックスに確認の電子メールを見つけられない場合は、スパムフォルダを確認してください。数分以内に確認の電子メールが届かない場合は、私たちに連絡してください。"
 
 #: .\templates\users\confirm_email_from_sent.html:18
 #, python-format
@@ -1321,8 +1282,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
 "address for user %(user_display)s."
 msgstr ""
-"ユーザー<strong>%(user_display)s</strong>のメールアドレスとして<a href="
-"\"mailto:%(email)s\">%(email)s</a>を確認してください。"
+"ユーザー<strong>%(user_display)s</strong>のメールアドレスとして<a "
+"href=\"mailto:%(email)s\">%(email)s</a>を確認してください。"
 
 #: .\templates\users\confirm_email_from_sent.html:26
 msgid "Confirm"
@@ -1333,27 +1294,19 @@ msgstr "確認"
 msgid ""
 "Unable to confirm %(email)s because it is already confirmed by a different "
 "account."
-msgstr ""
-"%(email)sの確認は無効化されました、なぜならそれはすでに他のユーザーによって確"
-"認されているからです"
+msgstr "%(email)sの確認は無効化されました、なぜならそれはすでに他のユーザーによって確認されているからです"
 
 #: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"この確認リンクの有効期限が切れているか、無効です。<a href=\"%(email_url)s\">"
-"新しいリクエストを送信してください。</a>."
+"この確認リンクの有効期限が切れているか、無効です。<a href=\"%(email_url)s\">新しいリクエストを送信してください。</a>."
 
 #: .\templates\users\email_change.html:8
 msgid "email_change"
 msgstr "メールアドレスの変更"
-
-#: .\templates\users\email_change.html:17
-#: .\templates\users\email_change.html:20
-msgid "Email"
-msgstr "電子メールアドレス"
 
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
@@ -1417,7 +1370,7 @@ msgid "reset"
 msgstr "リセット"
 
 #: .\templates\users\password_reset_done.html:11
-msgid "email_instructions_for_password_recove_sent"
+msgid "email_instructions_for_password_recover_sent"
 msgstr "パスワードリカバリーの指示が含まれたメールが送信されました"
 
 #: .\templates\users\profile.html:37
@@ -1444,6 +1397,8 @@ msgstr "ユーザー"
 msgid "avatar"
 msgstr "アバター"
 
-#: .\users\views.py:33
-msgid "username_is_already_taken"
-msgstr "そのユーザー名はすでに存在します"
+msgid "country_from_which_redirect_was_made"
+msgstr "リダイレクトが行われた国。"
+
+msgid "city_from_which_redirect_was_made"
+msgstr "リダイレクトが行われた都市。"

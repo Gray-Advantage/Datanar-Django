@@ -369,28 +369,22 @@ msgstr "Error del servidor"
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
 msgid ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
+"You are receiving this email because you or someone else tried to signup for an\n"
 "account using email address:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
+"However, an account using that email address already exists.  In case you have\n"
+"forgotten about this, please use the password forgotten procedure to recover\n"
 "your account:\n"
 "\n"
 "%(password_reset_url)s"
 msgstr ""
-"Recibiste este correo porque tú o alguien más intentó registrarse en el "
-"sitio usando la dirección de correo electrónico:\n"
+"Recibiste este correo porque tú o alguien más intentó registrarse en el sitio usando la dirección de correo electrónico:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"Sin embargo, ya existe una cuenta con esta dirección de correo electrónico. "
-"Si olvidaste esto, por favor, utiliza el procedimiento de recuperación de "
-"contraseña para recuperar tu cuenta:\n"
+"Sin embargo, ya existe una cuenta con esta dirección de correo electrónico. Si olvidaste esto, por favor, utiliza el procedimiento de recuperación de contraseña para recuperar tu cuenta:\n"
 "\n"
 "%(password_reset_url)s"
 
@@ -415,13 +409,11 @@ msgstr ""
 #: .\templates\account\email\email_confirmation_message.txt:5
 #, python-format
 msgid ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has given your email address to register an account on %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s"
 msgstr ""
-"Recibiste este correo porque el usuario %(user_display)s indicó tu dirección "
-"de correo electrónico para registrar una cuenta en %(site_domain)s.\n"
+"Recibiste este correo porque el usuario %(user_display)s indicó tu dirección de correo electrónico para registrar una cuenta en %(site_domain)s.\n"
 "\n"
 "Para confirmar que esto es correcto, ve a la dirección %(activate_url)s"
 
@@ -431,15 +423,11 @@ msgstr "Por favor, confirma tu dirección de correo electrónico"
 
 #: .\templates\account\email\password_reset_key_message.txt:4
 msgid ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
+"You're receiving this email because you or someone else has requested a password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the link below to reset your password."
 msgstr ""
-"Recibiste este correo porque tú o alguien más solicitó un restablecimiento "
-"de contraseña para tu cuenta.\n"
-"Puedes ignorarlo de manera segura si no solicitaste un restablecimiento de "
-"contraseña. Haz clic en el enlace de abajo para restablecer tu contraseña."
+"Recibiste este correo porque tú o alguien más solicitó un restablecimiento de contraseña para tu cuenta.\n"
+"Puedes ignorarlo de manera segura si no solicitaste un restablecimiento de contraseña. Haz clic en el enlace de abajo para restablecer tu contraseña."
 
 #: .\templates\account\email\password_reset_key_message.txt:9
 #, python-format
@@ -456,8 +444,7 @@ msgstr "Correo para restablecer la contraseña"
 #, python-format
 msgid ""
 "You are receiving this email because you or someone else has requested a\n"
-"password for your user account. However, we do not have any record of a "
-"user\n"
+"password for your user account. However, we do not have any record of a user\n"
 "with email %(email)s in our database.\n"
 "\n"
 "This mail can be safely ignored if you did not request a password reset.\n"
@@ -465,12 +452,10 @@ msgid ""
 "If it was you, you can sign up for an account using the link below."
 msgstr ""
 "Estás recibiendo este correo porque tú o alguien más solicitó\n"
-"un restablecimiento de contraseña para tu cuenta. Sin embargo, no tenemos "
-"ningún registro de un usuario\n"
+"un restablecimiento de contraseña para tu cuenta. Sin embargo, no tenemos ningún registro de un usuario\n"
 "con la dirección de correo electrónico %(email)s en nuestra base de datos.\n"
 "\n"
-"Puedes ignorar este correo de manera segura si no solicitaste un "
-"restablecimiento de contraseña.\n"
+"Puedes ignorar este correo de manera segura si no solicitaste un restablecimiento de contraseña.\n"
 "\n"
 "Si fuiste tú, puedes registrarte en el sitio utilizando el enlace de abajo."
 
@@ -505,7 +490,7 @@ msgstr "Copiar"
 
 #: .\templates\api\base.html:65
 msgid "coped"
-msgstr "Coped"
+msgstr "Copiado"
 
 #: .\templates\api\docs\preamble.html:10
 msgid "contact email:"
@@ -534,8 +519,8 @@ msgid "API_description_in_preamble"
 msgstr ""
 "El servicio ofrece funciones básicas para todos los usuarios sin necesidad "
 "de registrarse y utilizar un token, mientras que las funciones avanzadas "
-"están disponibles para los usuarios registrados y sólo mediante un token que "
-"puede obtenerse tras el registro."
+"están disponibles para los usuarios registrados y sólo mediante un token que"
+" puede obtenerse tras el registro."
 
 #: .\templates\api\docs\qr_code__get.html:9
 msgid "get_qr_code_by_redirect"
@@ -791,8 +776,8 @@ msgid "redirect__create_api_docs"
 msgstr ""
 "La ruta principal de la API es crear una redirección. Si no utiliza un "
 "token, puede crear simplemente una redirección y un enlace personalizado si "
-"lo desea. Con un token, la redirección se guardará en el perfil del usuario, "
-"y puedes establecer atributos adicionales al crear una redirección"
+"lo desea. Con un token, la redirección se guardará en el perfil del usuario,"
+" y puedes establecer atributos adicionales al crear una redirección"
 
 #: .\templates\api\docs\redirect__create.html:28
 #: .\templates\api\docs\redirect__create.html:42
@@ -1000,8 +985,8 @@ msgstr "Sobre el proyecto"
 msgid "about_beginning"
 msgstr ""
 "Datanar es un servicio web para acortar enlaces. Con nuestro sitio, puedes "
-"acortar fácilmente las URL largas, haciéndolas más convenientes y simples de "
-"usar."
+"acortar fácilmente las URL largas, haciéndolas más convenientes y simples de"
+" usar."
 
 #: .\templates\homepage\about.html:17
 msgid "about_you_can_do"
@@ -1106,7 +1091,8 @@ msgstr "Por favor, arrastra solo un archivo."
 msgid "message_error_type"
 msgstr "Por favor, arrastra un archivo con extensión .xlsx o .txt."
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
+#: .\templates\homepage\service_rules.html:5
+#: .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "Reglas del servicio"
 
@@ -1126,15 +1112,15 @@ msgid "rule_1"
 msgstr ""
 "1. Para crear una cuenta, recopilamos el correo electrónico, el nombre de "
 "usuario y la contraseña del usuario. Respetamos tu privacidad. Todos los "
-"datos personales se utilizan exclusivamente para gestionar tu cuenta y no se "
-"comparten con terceros."
+"datos personales se utilizan exclusivamente para gestionar tu cuenta y no se"
+" comparten con terceros."
 
 #: .\templates\homepage\service_rules.html:17
 msgid "rule_2"
 msgstr ""
 "2. Tomamos todas las medidas de seguridad posibles para proteger tus datos. "
-"Tu contraseña se almacena en forma encriptada. Recomendamos usar contraseñas "
-"complejas y no compartirlas con otros."
+"Tu contraseña se almacena en forma encriptada. Recomendamos usar contraseñas"
+" complejas y no compartirlas con otros."
 
 #: .\templates\homepage\service_rules.html:18
 msgid "rule_3"
@@ -1232,7 +1218,7 @@ msgstr ""
 
 #: .\templates\statistic\link_detail.html:24
 #: .\templates\statistic\link_detail.html:42
-msgid "сreated"
+msgid "created"
 msgstr "Creado"
 
 #: .\templates\statistic\link_detail.html:25
@@ -1328,8 +1314,8 @@ msgid ""
 "address for user %(user_display)s."
 msgstr ""
 "Por favor confirma que <a href=\"mailto:%(email)s\">%(email)s</a> es la "
-"dirección de correo electrónico para el usuario <strong>%(user_display)s</"
-"strong>."
+"dirección de correo electrónico para el usuario "
+"<strong>%(user_display)s</strong>."
 
 #: .\templates\users\confirm_email_from_sent.html:26
 msgid "Confirm"
@@ -1347,8 +1333,8 @@ msgstr ""
 #: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "El plazo de validez de este enlace de confirmación ha expirado o es "
 "inválido. <a href=\"%(email_url)s\">Por favor, solicita una nueva.</a>."
@@ -1356,11 +1342,6 @@ msgstr ""
 #: .\templates\users\email_change.html:8
 msgid "email_change"
 msgstr "Cambio de correo"
-
-#: .\templates\users\email_change.html:17
-#: .\templates\users\email_change.html:20
-msgid "Email"
-msgstr "Dirección de correo electrónico"
 
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
@@ -1424,8 +1405,9 @@ msgid "reset"
 msgstr "Restablecer"
 
 #: .\templates\users\password_reset_done.html:11
-msgid "email_instructions_for_password_recove_sent"
-msgstr "Se ha enviado un correo con instrucciones para recuperar la contraseña"
+msgid "email_instructions_for_password_recover_sent"
+msgstr ""
+"Se ha enviado un correo con instrucciones para recuperar la contraseña"
 
 #: .\templates\users\profile.html:37
 msgid "delete_avatar"
@@ -1451,6 +1433,8 @@ msgstr "Usuarios"
 msgid "avatar"
 msgstr "Avatar"
 
-#: .\users\views.py:33
-msgid "username_is_already_taken"
-msgstr "Ya existe un usuario con ese nombre"
+msgid "country_from_which_redirect_was_made"
+msgstr "País desde el cual se realizó la redirección"
+
+msgid "city_from_which_redirect_was_made"
+msgstr "Ciudad desde la cual se realizó la redirección"

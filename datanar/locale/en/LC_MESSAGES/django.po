@@ -142,7 +142,8 @@ msgstr "Custom url"
 
 #: .\redirects\forms.py:32
 msgid "custom_url_that_would_like_have_instead_generated_one"
-msgstr "A custom url that you would like to have instead of the generated one."
+msgstr ""
+"A custom url that you would like to have instead of the generated one."
 
 #: .\redirects\forms.py:79
 msgid "custom_url_should_not_have_slash"
@@ -225,7 +226,7 @@ msgstr "valid number of clicks"
 
 #: .\redirects\models.py:96 .\templates\api\docs\redirect__create.html:64
 msgid "how_many_click_on_link_will_be_valid"
-msgstr "How many clicks can make on a link before deactivation"
+msgstr "How many clicks can be made on the link before deactivation"
 
 #: .\redirects\models.py:102
 msgid "active"
@@ -368,30 +369,24 @@ msgstr "Server error"
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
 msgid ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
+"You are receiving this email because you or someone else tried to signup for an\n"
 "account using email address:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
+"However, an account using that email address already exists.  In case you have\n"
+"forgotten about this, please use the password forgotten procedure to recover\n"
 "your account:\n"
 "\n"
 "%(password_reset_url)s"
 msgstr ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
+"You are receiving this email because you or someone else tried to signup for an\n"
 "account using email address:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
+"However, an account using that email address already exists.  In case you have\n"
+"forgotten about this, please use the password forgotten procedure to recover\n"
 "your account:\n"
 "\n"
 "%(password_reset_url)s"
@@ -417,13 +412,11 @@ msgstr ""
 #: .\templates\account\email\email_confirmation_message.txt:5
 #, python-format
 msgid ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has given your email address to register an account on %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s"
 msgstr ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has given your email address to register an account on %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s"
 
@@ -433,15 +426,11 @@ msgstr "Please Confirm Your Email Address"
 
 #: .\templates\account\email\password_reset_key_message.txt:4
 msgid ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
+"You're receiving this email because you or someone else has requested a password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the link below to reset your password."
 msgstr ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
+"You're receiving this email because you or someone else has requested a password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the link below to reset your password."
 
 #: .\templates\account\email\password_reset_key_message.txt:9
 #, python-format
@@ -457,8 +446,7 @@ msgstr "Password Reset Email"
 #, python-format
 msgid ""
 "You are receiving this email because you or someone else has requested a\n"
-"password for your user account. However, we do not have any record of a "
-"user\n"
+"password for your user account. However, we do not have any record of a user\n"
 "with email %(email)s in our database.\n"
 "\n"
 "This mail can be safely ignored if you did not request a password reset.\n"
@@ -466,8 +454,7 @@ msgid ""
 "If it was you, you can sign up for an account using the link below."
 msgstr ""
 "You are receiving this email because you or someone else has requested a\n"
-"password for your user account. However, we do not have any record of a "
-"user\n"
+"password for your user account. However, we do not have any record of a user\n"
 "with email %(email)s in our database.\n"
 "\n"
 "This mail can be safely ignored if you did not request a password reset.\n"
@@ -505,7 +492,7 @@ msgstr "Copy"
 
 #: .\templates\api\base.html:65
 msgid "coped"
-msgstr "Coped"
+msgstr "Copied"
 
 #: .\templates\api\docs\preamble.html:10
 msgid "contact email:"
@@ -757,7 +744,7 @@ msgstr "Example of a request sent:"
 #: .\templates\api\docs\token__create.html:98
 #: .\templates\api\docs\token__get.html:98
 msgid "example_of_response_receive:"
-msgstr "Example of a response receive:"
+msgstr "Example of a response received:"
 
 #: .\templates\api\docs\qr_code__get.html:98
 #: .\templates\api\docs\redirect__create.html:218
@@ -787,10 +774,10 @@ msgstr "Get all redirections"
 #: .\templates\api\docs\redirect__create.html:9
 msgid "redirect__create_api_docs"
 msgstr ""
-"The main route of the API is to create a redirect. If you don't use a token, "
-"you can just create a redirect and a custom link if you want. With a token, "
-"the redirect will be saved in the user's profile, and additional attributes "
-"can be set when creating the redirect"
+"The main route of the API is to create a redirect. If you don't use a token,"
+" you can just create a redirect and a custom link if you want. With a token,"
+" the redirect will be saved in the user's profile, and additional attributes"
+" can be set when creating the redirect"
 
 #: .\templates\api\docs\redirect__create.html:28
 #: .\templates\api\docs\redirect__create.html:42
@@ -872,7 +859,7 @@ msgstr "Get redirection by id"
 
 #: .\templates\api\docs\redirect__get.html:332
 msgid "success_obtained_redirect"
-msgstr "Successfully obtained redirect"
+msgstr "successfully obtained redirect"
 
 #: .\templates\api\docs\token__create.html:9
 #: .\templates\api\docs\token__get.html:9
@@ -1066,7 +1053,7 @@ msgstr "GitHub Project"
 
 #: .\templates\homepage\main.html:5
 msgid "title__homepage"
-msgstr "Datanar - Links Shortening"
+msgstr "Datanar - Link Shortening"
 
 #: .\templates\homepage\main.html:28
 msgid "short_description_under_logo"
@@ -1075,8 +1062,8 @@ msgstr "Shorten your link so that your customers don't have to see long URLs."
 #: .\templates\homepage\main.html:30
 msgid "short_description_about_supported_files"
 msgstr ""
-"You can select or drag a file with an extension .txt/.xlsx. In txt, each row "
-"is treated as a link, and xlsx treats each row of the first column"
+"You can select or drag a file with an extension .txt/.xlsx. In txt, each row"
+" is treated as a link, and xlsx treats each row of the first column"
 
 #: .\templates\homepage\main.html:40
 msgid "label_link_file"
@@ -1102,7 +1089,8 @@ msgstr "Please drag and drop only one file."
 msgid "message_error_type"
 msgstr "Please drag and drop the file with the extension .xlsx or .txt."
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
+#: .\templates\homepage\service_rules.html:5
+#: .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "Service rules"
 
@@ -1225,7 +1213,7 @@ msgstr "After 10 days from deactivation, the redirects will be deleted"
 
 #: .\templates\statistic\link_detail.html:24
 #: .\templates\statistic\link_detail.html:42
-msgid "сreated"
+msgid "created"
 msgstr "Created"
 
 #: .\templates\statistic\link_detail.html:25
@@ -1338,20 +1326,15 @@ msgstr ""
 #: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 
 #: .\templates\users\email_change.html:8
 msgid "email_change"
-msgstr "Confirm your email"
-
-#: .\templates\users\email_change.html:17
-#: .\templates\users\email_change.html:20
-msgid "Email"
-msgstr "Email"
+msgstr "Change email"
 
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
@@ -1415,7 +1398,7 @@ msgid "reset"
 msgstr "Reset"
 
 #: .\templates\users\password_reset_done.html:11
-msgid "email_instructions_for_password_recove_sent"
+msgid "email_instructions_for_password_recover_sent"
 msgstr "An email with instructions for password recovery has been sent"
 
 #: .\templates\users\profile.html:37
@@ -1442,6 +1425,8 @@ msgstr "Users"
 msgid "avatar"
 msgstr "Avatar"
 
-#: .\users\views.py:33
-msgid "username_is_already_taken"
-msgstr "A user with that username already exists"
+msgid "country_from_which_redirect_was_made"
+msgstr "Country from which the redirect was made"
+
+msgid "city_from_which_redirect_was_made"
+msgstr "City from which the redirect was made"

@@ -1,0 +1,48 @@
+.localized-date {
+    display: grid;
+    position: relative;
+}
+
+.localized-date > input {
+    grid-area: 1 / 1;
+}
+
+.localized-date > input[type="text"] {
+    padding-right: 2.25rem;
+}
+
+.localized-date > input[type="date"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.localized-date__picker {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+    border: 0;
+    background: none;
+    color: inherit;
+    line-height: 1;
+    opacity: 0.65;
+}
+
+.localized-date__picker:hover {
+    opacity: 1;
+}
+
+.localized-date > input[type="text"].is-invalid {
+    padding-right: 4rem;
+}
+
+.localized-date:has(> input[type="text"].is-invalid) .localized-date__picker {
+    right: 2.25rem;
+}
+
+.localized-date:has(input.is-invalid) ~ .invalid-feedback {
+    display: block;
+}

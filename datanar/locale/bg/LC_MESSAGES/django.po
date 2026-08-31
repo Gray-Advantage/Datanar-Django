@@ -184,7 +184,8 @@ msgstr "кратка връзка"
 #: .\redirects\models.py:66
 msgid "shorten_link_to_redirect_to_resource"
 msgstr ""
-"Съкратена връзка, по която ще бъде извършено пренасочване към крайния ресурс."
+"Съкратена връзка, по която ще бъде извършено пренасочване към крайния "
+"ресурс."
 
 #: .\redirects\models.py:72 .\templates\api\docs\redirect__create.html:36
 msgid "resource_to_which_short_link_lead"
@@ -370,28 +371,22 @@ msgstr "Грешка в сървъра"
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
 msgid ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
+"You are receiving this email because you or someone else tried to signup for an\n"
 "account using email address:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
+"However, an account using that email address already exists.  In case you have\n"
+"forgotten about this, please use the password forgotten procedure to recover\n"
 "your account:\n"
 "\n"
 "%(password_reset_url)s"
 msgstr ""
-"Получихте това писмо, защото вие или някой друг се опита да се регистрира на "
-"сайта, използвайки следния имейл адрес:\n"
+"Получихте това писмо, защото вие или някой друг се опита да се регистрира на сайта, използвайки следния имейл адрес:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"Въпреки това, вече съществува акаунт с този имейл адрес. Ако сте го "
-"забравили, моля, използвайте процедурата за възстановяване на паролата, за "
-"да възстановите своя акаунт:\n"
+"Въпреки това, вече съществува акаунт с този имейл адрес. Ако сте го забравили, моля, използвайте процедурата за възстановяване на паролата, за да възстановите своя акаунт:\n"
 "\n"
 "%(password_reset_url)s"
 
@@ -416,16 +411,13 @@ msgstr ""
 #: .\templates\account\email\email_confirmation_message.txt:5
 #, python-format
 msgid ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has given your email address to register an account on %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s"
 msgstr ""
-"Получихте това писмо, защото потребител %(user_display)s е посочил вашия "
-"имейл адрес за регистрация на акаунт на %(site_domain)s.\n"
+"Получихте това писмо, защото потребител %(user_display)s е посочил вашия имейл адрес за регистрация на акаунт на %(site_domain)s.\n"
 "\n"
-"За да потвърдите, че това е вярно, моля, посетете следния адрес "
-"%(activate_url)s"
+"За да потвърдите, че това е вярно, моля, посетете следния адрес %(activate_url)s"
 
 #: .\templates\account\email\email_confirmation_subject.txt:3
 msgid "Please Confirm Your Email Address"
@@ -433,15 +425,11 @@ msgstr "Моля, потвърдете вашия имейл адрес"
 
 #: .\templates\account\email\password_reset_key_message.txt:4
 msgid ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
+"You're receiving this email because you or someone else has requested a password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the link below to reset your password."
 msgstr ""
-"Получихте това писмо, защото вие или някой друг е поискал смяна на паролата "
-"за вашия акаунт.\n"
-"Можете да го игнорирате безопасно, ако не сте поискали смяна на паролата. "
-"Натиснете върху връзката по-долу, за да смените вашата парола."
+"Получихте това писмо, защото вие или някой друг е поискал смяна на паролата за вашия акаунт.\n"
+"Можете да го игнорирате безопасно, ако не сте поискали смяна на паролата. Натиснете върху връзката по-долу, за да смените вашата парола."
 
 #: .\templates\account\email\password_reset_key_message.txt:9
 #, python-format
@@ -457,23 +445,18 @@ msgstr "Писмо за смяна на паролата"
 #, python-format
 msgid ""
 "You are receiving this email because you or someone else has requested a\n"
-"password for your user account. However, we do not have any record of a "
-"user\n"
+"password for your user account. However, we do not have any record of a user\n"
 "with email %(email)s in our database.\n"
 "\n"
 "This mail can be safely ignored if you did not request a password reset.\n"
 "\n"
 "If it was you, you can sign up for an account using the link below."
 msgstr ""
-"Получавате това писмо, защото вие или някой друг е поискал смяна на паролата "
-"за вашия акаунт. Въпреки това, нямаме никакви записи за потребител с имейл "
-"адрес %(email)s в нашата база данни.\n"
+"Получавате това писмо, защото вие или някой друг е поискал смяна на паролата за вашия акаунт. Въпреки това, нямаме никакви записи за потребител с имейл адрес %(email)s в нашата база данни.\n"
 "\n"
-"Можете да игнорирате това писмо безопасно, ако не сте поискали смяна на "
-"паролата.\n"
+"Можете да игнорирате това писмо безопасно, ако не сте поискали смяна на паролата.\n"
 "\n"
-"Ако това сте вие, можете да се регистрирате на сайта, използвайки връзката "
-"по-долу."
+"Ако това сте вие, можете да се регистрирате на сайта, използвайки връзката по-долу."
 
 #: .\templates\api\base.html:17
 msgid "datanar_api_docs"
@@ -506,7 +489,7 @@ msgstr "Копирай"
 
 #: .\templates\api\base.html:65
 msgid "coped"
-msgstr "Копирам"
+msgstr "Копирано"
 
 #: .\templates\api\docs\preamble.html:10
 msgid "contact email:"
@@ -533,8 +516,8 @@ msgstr ""
 #: .\templates\api\docs\preamble.html:25
 msgid "API_description_in_preamble"
 msgstr ""
-"Услугата предлага основни функции за всички потребители, без да е необходимо "
-"да се регистрират и да използват токен, докато разширените функции са "
+"Услугата предлага основни функции за всички потребители, без да е необходимо"
+" да се регистрират и да използват токен, докато разширените функции са "
 "достъпни за регистрирани потребители и само с използването на токен, който "
 "може да бъде получен след регистрация."
 
@@ -777,7 +760,8 @@ msgstr "Пример за код на Python:"
 #: .\templates\api\docs\token__create.html:106
 #: .\templates\api\docs\token__get.html:106
 msgid "reminder_that_passwords_better_kept_in_separate_file"
-msgstr "Напомняме ви, че е най-добре паролите да се съхраняват в отделен файл."
+msgstr ""
+"Напомняме ви, че е най-добре паролите да се съхраняват в отделен файл."
 
 #: .\templates\api\docs\qr_code__get.html:110
 #: .\templates\api\docs\redirect__delete.html:93
@@ -791,8 +775,8 @@ msgid "redirect__create_api_docs"
 msgstr ""
 "Основният маршрут на API е да се създаде пренасочване. Ако не използвате "
 "токен, можете просто да създадете пренасочване и потребителска връзка, ако "
-"искате. При използване на токен пренасочването ще бъде запазено в профила на "
-"потребителя и можете да зададете допълнителни атрибути при създаване на "
+"искате. При използване на токен пренасочването ще бъде запазено в профила на"
+" потребителя и можете да зададете допълнителни атрибути при създаване на "
 "пренасочване"
 
 #: .\templates\api\docs\redirect__create.html:28
@@ -1074,14 +1058,14 @@ msgstr "Datanar - Съкращаване на връзки"
 #: .\templates\homepage\main.html:28
 msgid "short_description_under_logo"
 msgstr ""
-"Съкратете вашата връзка, така че вашите клиенти да не трябва да виждат дълги "
-"URL адреси."
+"Съкратете вашата връзка, така че вашите клиенти да не трябва да виждат дълги"
+" URL адреси."
 
 #: .\templates\homepage\main.html:30
 msgid "short_description_about_supported_files"
 msgstr ""
-"Можете да изберете или да плъзнете файл с разширение .txt/.xlsx. В txt всяка "
-"линия се разглежда като връзка, а в xlsx всяка линия на първата колона"
+"Можете да изберете или да плъзнете файл с разширение .txt/.xlsx. В txt всяка"
+" линия се разглежда като връзка, а в xlsx всяка линия на първата колона"
 
 #: .\templates\homepage\main.html:40
 msgid "label_link_file"
@@ -1107,7 +1091,8 @@ msgstr "Моля, плъзнете само един файл."
 msgid "message_error_type"
 msgstr "Моля, плъзнете файл с разширение .xlsx или .txt."
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
+#: .\templates\homepage\service_rules.html:5
+#: .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "Правила на услугата"
 
@@ -1153,8 +1138,8 @@ msgstr ""
 #: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
-"Благодарим ви, че избрахте Datanar! Ние ценим вашето доверие и се стремим да "
-"ви предоставим удобна и безопасна услуга за съкращаване на връзки."
+"Благодарим ви, че избрахте Datanar! Ние ценим вашето доверие и се стремим да"
+" ви предоставим удобна и безопасна услуга за съкращаване на връзки."
 
 #: .\templates\includes\header.html:15
 msgid "theme"
@@ -1231,7 +1216,7 @@ msgstr "След 10 дни от деактивирането пренасочв�
 
 #: .\templates\statistic\link_detail.html:24
 #: .\templates\statistic\link_detail.html:42
-msgid "сreated"
+msgid "created"
 msgstr "Създадена"
 
 #: .\templates\statistic\link_detail.html:25
@@ -1314,8 +1299,8 @@ msgstr "Потвърдете своя имейл"
 #: .\templates\users\confirm_email.html:12
 msgid "email_confirmation_description"
 msgstr ""
-"Изпратихме ви имейл за потвърждение. Моля, следвайте указаната връзка, за да "
-"завършите процеса на регистрация. Ако не виждате имейла за потвърждение в "
+"Изпратихме ви имейл за потвърждение. Моля, следвайте указаната връзка, за да"
+" завършите процеса на регистрация. Ако не виждате имейла за потвърждение в "
 "основната си пощенска кутия, проверете папката за спам. Моля, свържете се с "
 "нас, ако не получите имейл за потвърждение в рамките на няколко минути."
 
@@ -1330,7 +1315,7 @@ msgstr ""
 
 #: .\templates\users\confirm_email_from_sent.html:26
 msgid "Confirm"
-msgstr ""
+msgstr "Потвърди"
 
 #: .\templates\users\confirm_email_from_sent.html:33
 #, python-format
@@ -1344,20 +1329,15 @@ msgstr ""
 #: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
-"Срокът на действие на тази връзка за потвърждение е изтекъл или е невалидна. "
-"\"<a href=\"%(email_url)s\">Моля, изпратете нова заявка.</a>."
+"Срокът на действие на тази връзка за потвърждение е изтекъл или е невалидна."
+" \"<a href=\"%(email_url)s\">Моля, изпратете нова заявка.</a>."
 
 #: .\templates\users\email_change.html:8
 msgid "email_change"
 msgstr "Промяна на имейла"
-
-#: .\templates\users\email_change.html:17
-#: .\templates\users\email_change.html:20
-msgid "Email"
-msgstr "Имейл адрес"
 
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
@@ -1421,7 +1401,7 @@ msgid "reset"
 msgstr "Смяна"
 
 #: .\templates\users\password_reset_done.html:11
-msgid "email_instructions_for_password_recove_sent"
+msgid "email_instructions_for_password_recover_sent"
 msgstr "Изпратено е писмо с инструкции за възстановяване на паролата"
 
 #: .\templates\users\profile.html:37
@@ -1448,6 +1428,8 @@ msgstr "Потребители"
 msgid "avatar"
 msgstr "Аватар"
 
-#: .\users\views.py:33
-msgid "username_is_already_taken"
-msgstr "Вече съществува потребител с това име"
+msgid "country_from_which_redirect_was_made"
+msgstr "Държавата, от която е извършен прехода"
+
+msgid "city_from_which_redirect_was_made"
+msgstr "Градът, от който е извършен прехода"
