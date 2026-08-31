@@ -1,14 +1,11 @@
 __all__ = ()
 
-from datetime import datetime, timedelta
 import re
-from unittest.mock import MagicMock, patch
 
 from allauth.account.models import EmailAddress
 from django.core import mail
 from django.test import Client, override_settings, TestCase
 from django.urls import reverse
-from django.utils import timezone
 
 from users.models import User
 
@@ -53,11 +50,7 @@ class ActivationTest(TestCase):
         )
 
     @override_settings(ACCOUNT_EMAIL_VERIFICATION="mandatory")
-    @patch.object(timezone, "now")
-    def test_activation_wrong(self, mock_now: MagicMock) -> None:
-        future_time = timezone.make_aware(datetime.now() + timedelta(hours=13))
-        mock_now.return_value = timezone.make_aware(datetime.now())
-
+    def test_activation_wrong(self) -> None:
         self.client.post(reverse("users:signup"), self.data)
         user = User.objects.get(username=self.data["username"])
 
@@ -71,12 +64,12 @@ class ActivationTest(TestCase):
         email_body = mail.outbox[0].body
         url = re.search(r"http://testserver(.+)", email_body).group(0)
 
-        mock_now.return_value = future_time
+        with override_settings(ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS=0):
+            self.client.post(url)
 
-        self.client.get(url)
         user = User.objects.get(username=self.data["username"])
 
         self.assertFalse(
             EmailAddress.objects.get_verified(user),
-            "Неверное значение `verified` почты у `user`",
+            "Протухшая ссылка подтвердила почту у `user`",
         )
