@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "2.6.3"
+VERSION = "2.6.4"
 API_VERSION = "1.2.0"
 
 SECRET_KEY = config(
@@ -201,6 +201,12 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 ACCOUNT_EMAIL_VERIFICATION = "none" if DEFAULT_USER_IS_ACTIVE else "mandatory"
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
+UNCONFIRMED_USER_TTL_DAYS = config(
+    "DATANAR_UNCONFIRMED_USER_TTL_DAYS",
+    default=ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS,
+    cast=int,
+)
+
 SITE_ID = config("DATANAR_SITE_ID", default=1, cast=int)
 SITE_NAME = config("DATANAR_SITE_NAME", default="Datanar", cast=str)
 
