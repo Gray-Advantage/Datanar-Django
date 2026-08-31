@@ -4,9 +4,14 @@
 
 {% block title %}{% trans "title__homepage" %}{% endblock %}
 
+{% block head_js %}
+  <script src="{% static 'js/localizedDateInput.js' %}"></script>
+{% endblock %}
+
 {% block css %}
   <link href="{% static 'css/homepage/style.css' %}" rel="stylesheet">
   <link href="{% static 'css/card-style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/localized-date.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block js %}

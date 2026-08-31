@@ -16,9 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: .\api\apps.py:8
 msgid "api"
@@ -305,7 +303,7 @@ msgstr "ос"
 
 #: .\statistic\models.py:52
 msgid "operating_system_from_which_redirect_was_made"
-msgstr "Операционная система с которой совершен переход"
+msgstr "Операционная система, с которой совершён переход"
 
 #: .\statistic\models.py:56
 msgid "browser"
@@ -313,7 +311,7 @@ msgstr "браузер"
 
 #: .\statistic\models.py:57
 msgid "browser_from_which_redirect_was_made"
-msgstr "Браузер с которого совершен переход"
+msgstr "Браузер, с которого совершён переход"
 
 #: .\statistic\models.py:60
 msgid "country"
@@ -373,28 +371,22 @@ msgstr "Ошибка сервера"
 #: .\templates\account\email\account_already_exists_message.txt:4
 #, python-format
 msgid ""
-"You are receiving this email because you or someone else tried to signup for "
-"an\n"
+"You are receiving this email because you or someone else tried to signup for an\n"
 "account using email address:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"However, an account using that email address already exists.  In case you "
-"have\n"
-"forgotten about this, please use the password forgotten procedure to "
-"recover\n"
+"However, an account using that email address already exists.  In case you have\n"
+"forgotten about this, please use the password forgotten procedure to recover\n"
 "your account:\n"
 "\n"
 "%(password_reset_url)s"
 msgstr ""
-"Вы получили это письмо, потому что вы или кто-то другой попытались "
-"зарегистрироваться на сайте с использованием адреса электронной почты:\n"
+"Вы получили это письмо, потому что вы или кто-то другой попытались зарегистрироваться на сайте с использованием адреса электронной почты:\n"
 "\n"
 "%(email)s\n"
 "\n"
-"Однако учетная запись с этим адресом электронной почты уже существует. Если "
-"вы забыли об этом, пожалуйста, воспользуйтесь процедурой восстановления "
-"пароля, чтобы восстановить свою учетную запись:\n"
+"Однако учетная запись с этим адресом электронной почты уже существует. Если вы забыли об этом, пожалуйста, воспользуйтесь процедурой восстановления пароля, чтобы восстановить свою учетную запись:\n"
 "\n"
 "%(password_reset_url)s"
 
@@ -419,13 +411,11 @@ msgstr ""
 #: .\templates\account\email\email_confirmation_message.txt:5
 #, python-format
 msgid ""
-"You're receiving this email because user %(user_display)s has given your "
-"email address to register an account on %(site_domain)s.\n"
+"You're receiving this email because user %(user_display)s has given your email address to register an account on %(site_domain)s.\n"
 "\n"
 "To confirm this is correct, go to %(activate_url)s"
 msgstr ""
-"Вы получили это письмо, потому что пользователь %(user_display)s указал ваш "
-"адрес электронной почты для регистрации учетной записи на %(site_domain)s.\n"
+"Вы получили это письмо, потому что пользователь %(user_display)s указал ваш адрес электронной почты для регистрации учетной записи на %(site_domain)s.\n"
 "\n"
 "Чтобы подтвердить, что это верно, перейдите по адресу %(activate_url)s"
 
@@ -435,15 +425,11 @@ msgstr "Пожалуйста, подтвердите ваш адрес элек�
 
 #: .\templates\account\email\password_reset_key_message.txt:4
 msgid ""
-"You're receiving this email because you or someone else has requested a "
-"password reset for your user account.\n"
-"It can be safely ignored if you did not request a password reset. Click the "
-"link below to reset your password."
+"You're receiving this email because you or someone else has requested a password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the link below to reset your password."
 msgstr ""
-"Вы получили это письмо, потому что вы или кто-то другой запросил сброс "
-"пароля для вашей учетной записи.\n"
-"Его можно безопасно игнорировать, если вы не запрашивали сброс пароля. "
-"Нажмите на ссылку ниже, чтобы сбросить ваш пароль."
+"Вы получили это письмо, потому что вы или кто-то другой запросил сброс пароля для вашей учетной записи.\n"
+"Его можно безопасно игнорировать, если вы не запрашивали сброс пароля. Нажмите на ссылку ниже, чтобы сбросить ваш пароль."
 
 #: .\templates\account\email\password_reset_key_message.txt:9
 #, python-format
@@ -459,8 +445,7 @@ msgstr "Письмо для сброса пароля"
 #, python-format
 msgid ""
 "You are receiving this email because you or someone else has requested a\n"
-"password for your user account. However, we do not have any record of a "
-"user\n"
+"password for your user account. However, we do not have any record of a user\n"
 "with email %(email)s in our database.\n"
 "\n"
 "This mail can be safely ignored if you did not request a password reset.\n"
@@ -468,15 +453,12 @@ msgid ""
 "If it was you, you can sign up for an account using the link below."
 msgstr ""
 "Вы получаете это письмо, потому что вы или кто-то другой запросил\n"
-"сброс пароля для вашей учетной записи. Однако у нас нет никаких записей о "
-"пользователе\n"
+"сброс пароля для вашей учетной записи. Однако у нас нет никаких записей о пользователе\n"
 "с адресом электронной почты %(email)s в нашей базе данных.\n"
 "\n"
-"Это письмо можно безопасно игнорировать, если вы не запрашивали сброс "
-"пароля.\n"
+"Это письмо можно безопасно игнорировать, если вы не запрашивали сброс пароля.\n"
 "\n"
-"Если это были вы, вы можете зарегистрироваться на сайте, используя ссылку "
-"ниже."
+"Если это были вы, вы можете зарегистрироваться на сайте, используя ссылку ниже."
 
 #: .\templates\api\base.html:17
 msgid "datanar_api_docs"
@@ -537,9 +519,9 @@ msgstr ""
 msgid "API_description_in_preamble"
 msgstr ""
 "Сервис предлагает базовый функционал для всех пользователей без "
-"необходимости регистрации и использования токена, расширенные возможности же "
-"доступны зарегистрированным пользователям и только с использованием токена, "
-"который можно получить после регистрации"
+"необходимости регистрации и использования токена, расширенные возможности же"
+" доступны зарегистрированным пользователям и только с использованием токена,"
+" который можно получить после регистрации"
 
 #: .\templates\api\docs\qr_code__get.html:9
 msgid "get_qr_code_by_redirect"
@@ -792,8 +774,8 @@ msgstr "Получить все перенаправления"
 #: .\templates\api\docs\redirect__create.html:9
 msgid "redirect__create_api_docs"
 msgstr ""
-"Основной маршрут API - создание перенаправления. Если не использовать токен, "
-"можно просто создать перенаправление и кастомную ссылку при желании. С "
+"Основной маршрут API - создание перенаправления. Если не использовать токен,"
+" можно просто создать перенаправление и кастомную ссылку при желании. С "
 "токеном перенаправление будет сохранено в профиле пользователя, а также "
 "можно устанавливать дополнительные атрибуты при создании перенаправления"
 
@@ -993,7 +975,7 @@ msgstr "Обновить"
 
 #: .\templates\dashboard\log.html:18 .\templates\dashboard\log.html:37
 msgid "clear_log"
-msgstr "Очисть лог"
+msgstr "Очистить лог"
 
 #: .\templates\homepage\about.html:5 .\templates\includes\footer.html:8
 msgid "about"
@@ -1083,8 +1065,8 @@ msgstr ""
 #: .\templates\homepage\main.html:30
 msgid "short_description_about_supported_files"
 msgstr ""
-"Вы можете выбрать или перетащить файл c расширением .txt/.xlsx. В txt каждая "
-"строчка рассматривается как ссылка, а xlsx каждая строчка первого столбца"
+"Вы можете выбрать или перетащить файл c расширением .txt/.xlsx. В txt каждая"
+" строчка рассматривается как ссылка, а xlsx каждая строчка первого столбца"
 
 #: .\templates\homepage\main.html:40
 msgid "label_link_file"
@@ -1110,7 +1092,8 @@ msgstr "Пожалуйста, перетащите только один фай�
 msgid "message_error_type"
 msgstr "Пожалуйста, перетащите файл с расширением .xlsx или .txt."
 
-#: .\templates\homepage\service_rules.html:5 .\templates\includes\footer.html:7
+#: .\templates\homepage\service_rules.html:5
+#: .\templates\includes\footer.html:7
 msgid "service_rules"
 msgstr "Правила сервиса"
 
@@ -1121,30 +1104,30 @@ msgstr "Правила Сервиса Datanar"
 #: .\templates\homepage\service_rules.html:14
 msgid "welcome_service_rules"
 msgstr ""
-"Добро пожаловать на сервис сокращения ссылок Datanar. Используя наши услуги, "
-"вы автоматически соглашаетесь с нашими правилами. Пожалуйста, внимательно "
+"Добро пожаловать на сервис сокращения ссылок Datanar. Используя наши услуги,"
+" вы автоматически соглашаетесь с нашими правилами. Пожалуйста, внимательно "
 "ознакомьтесь с ними."
 
 #: .\templates\homepage\service_rules.html:16
 msgid "rule_1"
 msgstr ""
-"1. Для создания учетной записи мы собираем электронную почту, логин и пароль "
-"пользователя. Мы уважаем вашу конфиденциальность. Все личные данные "
+"1. Для создания учетной записи мы собираем электронную почту, логин и пароль"
+" пользователя. Мы уважаем вашу конфиденциальность. Все личные данные "
 "используются исключительно для управления вашей учетной записью и не "
 "передаются третьим лицам."
 
 #: .\templates\homepage\service_rules.html:17
 msgid "rule_2"
 msgstr ""
-"2. Мы прилагаем все возможные меры безопасности для защиты ваших данных. Ваш "
-"пароль хранятся в зашифрованном виде. Рекомендуем использовать сложные "
+"2. Мы прилагаем все возможные меры безопасности для защиты ваших данных. Ваш"
+" пароль хранятся в зашифрованном виде. Рекомендуем использовать сложные "
 "пароли и не делиться ими с другими."
 
 #: .\templates\homepage\service_rules.html:18
 msgid "rule_3"
 msgstr ""
-"3. При использовании наших услуг запрещено осуществлять действия, нарушающие "
-"закон, или использовать сервис способами, которые могут причинить вред "
+"3. При использовании наших услуг запрещено осуществлять действия, нарушающие"
+" закон, или использовать сервис способами, которые могут причинить вред "
 "другим пользователям или третьим лицам."
 
 #: .\templates\homepage\service_rules.html:19
@@ -1156,8 +1139,8 @@ msgstr ""
 #: .\templates\homepage\service_rules.html:21
 msgid "service_rules_thanks_for_choosing_us"
 msgstr ""
-"Спасибо за выбор Datanar! Мы ценим ваше доверие и стремимся предоставить вам "
-"удобный и безопасный сервис сокращения ссылок."
+"Спасибо за выбор Datanar! Мы ценим ваше доверие и стремимся предоставить вам"
+" удобный и безопасный сервис сокращения ссылок."
 
 #: .\templates\includes\header.html:15
 msgid "theme"
@@ -1206,7 +1189,7 @@ msgstr "Ещё нет учётной записи?"
 
 #: .\templates\includes\user_form.html:50
 msgid "create_it"
-msgstr "Создай её!"
+msgstr "Создайте её!"
 
 #: .\templates\includes\user_form.html:51
 msgid "forgot_password"
@@ -1234,7 +1217,7 @@ msgstr "После 10 дней с момента деактивации, пер�
 
 #: .\templates\statistic\link_detail.html:24
 #: .\templates\statistic\link_detail.html:42
-msgid "сreated"
+msgid "created"
 msgstr "Создана"
 
 #: .\templates\statistic\link_detail.html:25
@@ -1320,8 +1303,8 @@ msgstr ""
 "Мы отправили вам электронное письмо для подтверждения. Перейдите по "
 "указанной ссылке, чтобы завершить процесс регистрации. Если вы не видите "
 "электронное письмо с подтверждением в своем основном почтовом ящике, "
-"проверьте папку со спамом. Пожалуйста, свяжитесь с нами, если вы не получите "
-"электронное письмо с подтверждением в течение нескольких минут."
+"проверьте папку со спамом. Пожалуйста, свяжитесь с нами, если вы не получите"
+" электронное письмо с подтверждением в течение нескольких минут."
 
 #: .\templates\users\confirm_email_from_sent.html:18
 #, python-format
@@ -1348,8 +1331,8 @@ msgstr ""
 #: .\templates\users\confirm_email_from_sent.html:39
 #, python-format
 msgid ""
-"This email confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new email confirmation request</a>."
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 "Срок действия этой ссылки для подтверждения истек или она недействительна. "
 "<a href=\"%(email_url)s\">Пожалуйста отправьте новый запрос.</a>."
@@ -1357,11 +1340,6 @@ msgstr ""
 #: .\templates\users\email_change.html:8
 msgid "email_change"
 msgstr "Смена почты"
-
-#: .\templates\users\email_change.html:17
-#: .\templates\users\email_change.html:20
-msgid "Email"
-msgstr "Адрес электронной почты"
 
 #: .\templates\users\email_change.html:28
 msgid "Re-send Verification"
@@ -1425,7 +1403,7 @@ msgid "reset"
 msgstr "Сброс"
 
 #: .\templates\users\password_reset_done.html:11
-msgid "email_instructions_for_password_recove_sent"
+msgid "email_instructions_for_password_recover_sent"
 msgstr "Письмо с инструкциями по восстановлению пароля отправлено"
 
 #: .\templates\users\profile.html:37
@@ -1452,6 +1430,8 @@ msgstr "Пользователи"
 msgid "avatar"
 msgstr "Аватарка"
 
-#: .\users\views.py:33
-msgid "username_is_already_taken"
-msgstr "Пользователь с таким именем уже существует"
+msgid "country_from_which_redirect_was_made"
+msgstr "Страна, с которой совершён переход"
+
+msgid "city_from_which_redirect_was_made"
+msgstr "Город, с которого совершён переход"
