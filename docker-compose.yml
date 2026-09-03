@@ -43,7 +43,8 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./for_docker/nginx-confs/datanar_prod.conf:/etc/nginx/user_conf.d/datanar.conf
+      - ./for_docker/nginx-confs/vhost/datanar.prod.conf:/etc/nginx/user_conf.d/datanar.conf
+      - ./for_docker/nginx-confs:/etc/nginx/projects/datanar:ro
       - ./for_docker/nginx-confs/robots.txt:/datanar/static/robots.txt
       - ./for_docker/nginx_certificates:/etc/letsencrypt
       - ./for_docker/static:/datanar/static
@@ -60,7 +61,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./for_docker/nginx-confs/datanar_local.conf:/etc/nginx/conf.d/default.conf
+      - ./for_docker/nginx-confs/vhost/datanar.local.conf:/etc/nginx/conf.d/default.conf
+      - ./for_docker/nginx-confs:/etc/nginx/projects/datanar:ro
       - ./for_docker/nginx-confs/robots.txt:/datanar/static/robots.txt
       - ./for_docker/static:/datanar/static
       - ./for_docker/media:/datanar/media

@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-VERSION = "2.6.4"
+VERSION = "2.6.5"
 API_VERSION = "1.2.0"
 
 SECRET_KEY = config(
@@ -54,6 +54,16 @@ ALLOWED_HOSTS = config(
 CSRF_TRUSTED_ORIGINS = [f"https://{x}" for x in ALLOWED_HOSTS]
 CSRF_FAILURE_VIEW = "core.views.csrf_failure"
 
+TRUSTED_PROXIES = config(
+    "DATANAR_TRUSTED_PROXIES",
+    default="172.16.0.0/12,127.0.0.1/32",
+    cast=lambda line: [x for x in line.split(",") if x],
+)
+REAL_IP_HEADER = config(
+    "DATANAR_REAL_IP_HEADER",
+    default="HTTP_X_REAL_IP",
+)
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -81,6 +91,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "core.middleware.RealIPMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
