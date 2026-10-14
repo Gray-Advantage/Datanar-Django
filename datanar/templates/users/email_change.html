@@ -4,7 +4,7 @@
 {% block title %}{% trans "email_change" %}{% endblock %}
 
 {% block content %}
-  <div class="d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 mx-auto mt-5">
+  <div class="d-flex flex-column col-10 sm:col-8 md:col-6 lg:col-5 xl:col-4 2xl:col-3 mx-auto mt-5">
     {% include "includes/logo.html" %}
     <h1 class="h3 mb-3 fw-normal text-center">{% trans "email_change" %}</h1>
 
@@ -48,7 +48,7 @@
             {% trans "Re-send Verification" %}
           </button>
           {% if current_emailaddress %}
-            <button class="btn btn-outline-danger mx-auto mt-3 py-2" type="submit" name="action_remove" form="pending-email">
+            <button class="btn btn-outline theme-danger mx-auto mt-3 py-2" type="submit" name="action_remove" form="pending-email">
               {% trans "Cancel" %}
             </button>
           {% endif %}
